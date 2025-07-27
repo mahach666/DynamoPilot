@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -17,24 +18,26 @@
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
     <UseWPF>true</UseWPF>
     <LangVersion>10.0</LangVersion>
-  </PropertyGroup>
 
+    <!-- Не копируем зависимости NuGet в папку вывода -->
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
     <StartProgram>C:\Program Files\ASCON\Pilot-BIM\Ascon.Pilot.PilotBIM.exe</StartProgram>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,56 +46,41 @@
   <!-- Пути к папкам для дебага -->
   <PropertyGroup>
     <AppData>$(USERPROFILE)\AppData\Local</AppData>
-    <UserDirectoryPathBIM>$(AppData)\ASCON\Pilot-BIM\Development\DynamoPilot.App\packages</UserDirectoryPathBIM>
-    <UserDirectoryPathICE>$(AppData)\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\packages</UserDirectoryPathICE>
+    <UserDirectoryPathBIM>$(AppData)\ASCON\Pilot-BIM\Development\DynamoPilot.App\nodes</UserDirectoryPathBIM>
+    <UserDirectoryPathICE>$(AppData)\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\nodes</UserDirectoryPathICE>
     <BaseOutputPath>..\bin\</BaseOutputPath>
   </PropertyGroup>
 
-  <!-- Копирование файлов в папки для дебага -->
+  <!-- Копируем только основную библиотеку (и pdb) -->
   <Target Name="CopyToDebugDirectory" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
     <MakeDir Directories="$(UserDirectoryPathBIM)" Condition="!Exists('$(UserDirectoryPathBIM)')" />
-    <ItemGroup>
-      <FilesToCopy Include="$(OutputPath)**\*.*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathBIM)" />
-
     <MakeDir Directories="$(UserDirectoryPathICE)" Condition="!Exists('$(UserDirectoryPathICE)')" />
+
     <ItemGroup>
-      <FilesToCopy Include="$(OutputPath)**\*.*" />
+      <FilesToCopy Include="$(OutputPath)$(AssemblyName).dll;$(OutputPath)$(AssemblyName).pdb" />
     </ItemGroup>
-    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathICE)" />
+
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathBIM)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathICE)" SkipUnchangedFiles="true" />
   </Target>
 
-  <!-- Создаем архив на релизе -->
+  <!-- Создаём архив только с основной библиотекой -->
   <Target Name="CreateZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-    <Delete Files="$(OutputPath)\*.pdb; $(OutputPath)\*.xml" />
-    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)\* -DestinationPath $(OutputPath)\..\$(AssemblyProduct).zip -Force&quot;" />
+    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)$(AssemblyName).dll -DestinationPath $(OutputPath)..\$(AssemblyProduct).zip -Force&quot;" />
   </Target>
-  
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Ascon.Pilot.SDK" Version="25.9.0" />
     <PackageReference Include="DynamoVisualProgramming.Core" Version="2.16.4.10216" />
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="2.16.4.10216" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\DynamoPilot.Data\DynamoPilot.Data.csproj">
-      <Private>False</Private>
-    </ProjectReference>
+    <ProjectReference Include="..\DynamoPilot.Data\DynamoPilot.Data.csproj" Private="False" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
-  
 
 </Project>

@@ -73,7 +73,7 @@ namespace DynamoPilot.App
 
             var pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            var nodesDir = Path.Combine(pluginDir, "packages");
+            var nodesDir = Path.Combine(pluginDir, "nodes");
 
 
             var baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
