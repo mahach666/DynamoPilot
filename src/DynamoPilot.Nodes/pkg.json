@@ -1,13 +1,27 @@
 ﻿{
-  "header": {
-    "name": "PilotNodes",
-    "version": "0.1.0",
-    "description": "Набор узлов Pilot"
-  },
-  "engine": {
-    "core": "2.16"
-  },
-  "contents": [ "bin" ],
-  "node_libraries": [ "bin/DynamoPilot.Nodes.dll" ],
-  "dependencies": {}
+  "license": "MIT",
+  "file_hash": null,
+  "name": "DynamoPilot",
+  "version": "1.0.0",
+  "description": "A collection of nodes",
+  "group": "",
+  "keywords": [
+    "pilot"
+  ],
+  "dependencies": [],
+  "host_dependencies": [
+    "Pilot"
+  ],
+  "contents": "A collection of nodes",
+  "engine_version": "2.16.4.10216",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "",
+  "repository_url": "https://github.com//mahavia01",
+  "contains_binaries": true,
+  "node_libraries": [
+    "DynamoPilot.Nodes, Version=0.0.0.1, Culture=neutral, PublicKeyToken=null"
+  ],
+  "copyright_holder": "mahach",
+  "copyright_year": "2025"
 }

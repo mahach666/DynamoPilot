@@ -1,27 +1,26 @@
 ﻿using Dynamo.Interfaces;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 
 namespace DynamoPilot.App.Configuration
 {
+    [Export(typeof(IPathResolver))]
     class PilotPathResolver : IPathResolver
     {
-        private readonly string customDir;   // сюда передаём nodesDir
+        private readonly string pkgs;
+        public PilotPathResolver(string pkgsDir) => pkgs = pkgsDir;
 
-        public PilotPathResolver(string dir) => customDir = dir;
+        // сканировать packages\**  (пакетная структура)
+        public IEnumerable<string> PackageDirectories => new[] { pkgs };
 
-        // Папка с .dyf и zero‑touch dll
-        public IEnumerable<string> AdditionalNodeDirectories => new[] { customDir };
+        // если DLL имеет сторонние зависимости – где их искать
+        public IEnumerable<string> AdditionalResolutionPaths => new[] { Path.Combine(pkgs, "DynamoPilot", "bin") };
 
-        // Путь, в котором может понадобиться найти зависимости dll
-        public IEnumerable<string> AdditionalResolutionPaths => new[] { customDir };
-
-        // Если в вашей версии IPathResolver есть это свойство – добавьте и его
-        public IEnumerable<string> PackageDirectories => new[] { customDir };
-
+        // остальные можно оставить пустыми
+        public IEnumerable<string> AdditionalNodeDirectories => Enumerable.Empty<string>();
         public IEnumerable<string> PreloadedLibraryPaths => Enumerable.Empty<string>();
-
-        public string UserDataRootFolder => "";
-        public string CommonDataRootFolder => "";
+        public string UserDataRootFolder => ""; public string CommonDataRootFolder => "";
     }
 }

@@ -3,13 +3,12 @@ using Ascon.Pilot.SDK.Menu;
 using Dynamo.Controls;
 using Dynamo.Models;
 using Dynamo.ViewModels;
+using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
@@ -73,10 +72,12 @@ namespace DynamoPilot.App
 
             var pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            var nodesDir = Path.Combine(pluginDir, "nodes");
-
+            //var nodesDir = Path.Combine(pluginDir, "nodes");
+            var pkgsDir = Path.Combine(pluginDir, "packages");
+            PackageDeployer.CopyPackageFolder(pkgsDir);
 
             var baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
 
             var cfg = new DynamoModel.DefaultStartConfiguration
             {
@@ -84,13 +85,11 @@ namespace DynamoPilot.App
                 DynamoHostPath = Assembly.GetExecutingAssembly().Location,
                 GeometryFactoryPath = Path.Combine(baseDir, "Dynamo", "libG_223"),
                 Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
-                PathResolver = new Configuration.PilotPathResolver(nodesDir),
+                //PathResolver = new Configuration.PilotPathResolver(pkgsDir),   
+                
             };
 
             _model = DynamoModel.Start(cfg);
-
-            string pkgDir = Path.Combine(pluginDir, "packages");
-            _model.PathManager.PackagesDirectories.Append(pkgDir);
         }
     }
 }
