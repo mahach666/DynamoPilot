@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6ea0b79a-bc05-4273-8e92-5e7cecfda7f5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynamoPilot.Data</RootNamespace>
+    <AssemblyName>DynamoPilot.Data</AssemblyName>
+    <TargetFramework>net481</TargetFramework>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <AssemblyProduct>DynamoPilot.Data</AssemblyProduct>
+    <Product>DynamoPilot.Data</Product>
+    <Description>DynamoPilot.Data</Description>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <UseWPF>true</UseWPF>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\ASCON\Pilot-BIM\Ascon.Pilot.PilotBIM.exe</StartProgram>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <!-- Пути к папкам для дебага -->
+  <PropertyGroup>
+    <AppData>$(USERPROFILE)\AppData\Local</AppData>
+    <UserDirectoryPathBIM>$(AppData)\ASCON\Pilot-BIM\Development\DynamoPilot.App</UserDirectoryPathBIM>
+    <UserDirectoryPathICE>$(AppData)\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App</UserDirectoryPathICE>
+    <BaseOutputPath>..\bin\</BaseOutputPath>
+  </PropertyGroup>
+
+  <!-- Копирование файлов в папки для дебага -->
+  <Target Name="CopyToDebugDirectory" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+    <MakeDir Directories="$(UserDirectoryPathBIM)" Condition="!Exists('$(UserDirectoryPathBIM)')" />
+    <ItemGroup>
+      <FilesToCopy Include="$(OutputPath)**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathBIM)" />
+
+    <MakeDir Directories="$(UserDirectoryPathICE)" Condition="!Exists('$(UserDirectoryPathICE)')" />
+    <ItemGroup>
+      <FilesToCopy Include="$(OutputPath)**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathICE)" />
+  </Target>
+
+  <!-- Создаем архив на релизе -->
+  <Target Name="CreateZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Delete Files="$(OutputPath)\*.pdb; $(OutputPath)\*.xml" />
+    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)\* -DestinationPath $(OutputPath)\..\$(AssemblyProduct).zip -Force&quot;" />
+  </Target>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Ascon.Pilot.SDK" Version="25.9.0" />
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="2.16.4.10216" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="2.16.4.10216" />
+    <PackageReference Include="HelixToolkit.Wpf" Version="2.27.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3351.48" />
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  
+
+</Project>
