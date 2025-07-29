@@ -7,7 +7,6 @@ using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
-using System;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.IO;
@@ -23,10 +22,13 @@ namespace DynamoPilot.App
         private DynamoModel _model;
         private DynamoView _view;
 
+        private static string _pluginDir;
 
         [ImportingConstructor]
         public App(IObjectsRepository objectsRepository)
         {
+            _pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
             StaticMetadata.ObjectsRepository = new PilotObjectsRepository(objectsRepository);
         }
 
@@ -53,13 +55,13 @@ namespace DynamoPilot.App
                 {
                     DynamoModel = _model,
                     Watch3DViewModel = stubWatch,
-                    ShowLogin = false
+                    ShowLogin = false,                    
                 });
 
             _view = new DynamoView(vm)
             {
                 Owner = Application.Current.MainWindow,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner
+                WindowStartupLocation = WindowStartupLocation.CenterOwner                
             };
             _view.Closed += (_, __) => _view = null;
             _view.Show();
@@ -74,33 +76,18 @@ namespace DynamoPilot.App
             Thread.CurrentThread.CurrentUICulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
 
-            var pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            PackageDeployer.CopyPackageFolder(Path.Combine(_pluginDir, "packages"));
 
-            //var nodesDir = Path.Combine(pluginDir, "nodes");
-            var pkgsDir = Path.Combine(pluginDir, "packages");
-            //PackageDeployer.CopyPackageFolder(pkgsDir);
+            //var cfg = new DynamoModel.DefaultStartConfiguration
+            //{
+            //    PathResolver = new PilotPathResolver(_pluginDir),
+            //    DynamoCorePath = _pluginDir,
+            //    DynamoHostPath = Assembly.GetExecutingAssembly().Location,
+            //    GeometryFactoryPath = Path.Combine(_pluginDir, "libg_228_0_0"),
+            //    Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
+            //};
 
-            var baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-
-            var cfg = new DynamoModel.DefaultStartConfiguration
-            {
-                DynamoCorePath = Path.Combine(baseDir, "Dynamo"),
-                DynamoHostPath = Assembly.GetExecutingAssembly().Location,
-                GeometryFactoryPath = Path.Combine(baseDir, "Dynamo", "libG_223"),
-                Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
-                PathResolver = new PilotPathResolver(pluginDir),
-            };
-
-            _model = DynamoModel.Start(cfg);
+            _model = DynamoModel.Start();
         }
-
-
-        //private static Assembly? ResolveFromCoreDir(object? s, ResolveEventArgs e)
-        //{
-        //    var dll = new AssemblyName(e.Name).Name + ".dll";
-        //    var candidate = Path.Combine(coreDir, dll);
-        //    return File.Exists(candidate) ? Assembly.LoadFrom(candidate) : null;
-        //}
     }
 }
