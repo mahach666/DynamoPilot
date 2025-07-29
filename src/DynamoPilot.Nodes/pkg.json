@@ -17,7 +17,7 @@
   "engine": "dynamo",
   "engine_metadata": "",
   "site_url": "",
-  "repository_url": "https://github.com//mahavia01",
+  "repository_url": "https://github.com/mahach666/DynamoPilot",
   "contains_binaries": true,
   "node_libraries": [
     "DynamoPilot.Nodes, Version=0.0.0.1, Culture=neutral, PublicKeyToken=null"
