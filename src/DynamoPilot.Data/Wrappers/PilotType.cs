@@ -2,6 +2,7 @@
 using DynamoPilot.Data.Contracts;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DynamoPilot.Data.Wrappers
 {
@@ -28,17 +29,19 @@ namespace DynamoPilot.Data.Wrappers
 
         public bool HasFiles => _type.HasFiles;
 
-        public ReadOnlyCollection<int> Children => _type.Children;
+        public ReadOnlyCollection<int> Children() => _type.Children;
 
-        public ReadOnlyCollection<IAttribute> Attributes => _type.Attributes;
+        public ReadOnlyCollection<PilotAttribute> Attributes()
+            => new ReadOnlyCollection<PilotAttribute>(_type.Attributes.Select(a => new PilotAttribute(a)).ToList());
 
-        public IEnumerable<IAttribute> DisplayAttributes => _type.DisplayAttributes;
+        public IEnumerable<PilotAttribute> DisplayAttributes() 
+            => _type.DisplayAttributes.Select(a => new PilotAttribute(a));
 
-        public byte[] SvgIcon => _type.SvgIcon;
+        public byte[] SvgIcon() => _type.SvgIcon;
 
         public bool IsMountable => _type.IsMountable;
 
-        public TypeKind Kind => _type.Kind;
+        public TypeKind Kind() => _type.Kind;
 
         public bool IsDeleted => _type.IsDeleted;
 

@@ -7,6 +7,7 @@ using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
+using System;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.IO;
@@ -77,7 +78,7 @@ namespace DynamoPilot.App
 
             //var nodesDir = Path.Combine(pluginDir, "nodes");
             var pkgsDir = Path.Combine(pluginDir, "packages");
-            PackageDeployer.CopyPackageFolder(pkgsDir);
+            //PackageDeployer.CopyPackageFolder(pkgsDir);
 
             var baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -88,11 +89,18 @@ namespace DynamoPilot.App
                 DynamoHostPath = Assembly.GetExecutingAssembly().Location,
                 GeometryFactoryPath = Path.Combine(baseDir, "Dynamo", "libG_223"),
                 Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
-                //PathResolver = new Configuration.PilotPathResolver(pkgsDir),   
-
+                PathResolver = new PilotPathResolver(pluginDir),
             };
 
             _model = DynamoModel.Start(cfg);
         }
+
+
+        //private static Assembly? ResolveFromCoreDir(object? s, ResolveEventArgs e)
+        //{
+        //    var dll = new AssemblyName(e.Name).Name + ".dll";
+        //    var candidate = Path.Combine(coreDir, dll);
+        //    return File.Exists(candidate) ? Assembly.LoadFrom(candidate) : null;
+        //}
     }
 }

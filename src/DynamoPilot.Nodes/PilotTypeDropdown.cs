@@ -6,13 +6,12 @@ using Newtonsoft.Json;
 using ProtoCore.AST.AssociativeAST;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace DynamoPilot.Nodes
 {
-    [NodeName("Pilot Type")]
-    [NodeCategory("Pilot.Metadata")]
+    [NodeName("SelectType")]
+    [NodeCategory("PilotNodes.TypeNodes")]
     [NodeDescription("Выбрать один тип из репозитория")]
     [IsDesignScriptCompatible]
     [OutPortNames("type")]
@@ -20,34 +19,27 @@ namespace DynamoPilot.Nodes
     [OutPortDescriptions("Выбранный тип")]
     public class PilotTypeDropdown : DSDropDownBase
     {
-        public PilotTypeDropdown() : base("Pilot Type") { }
+        public PilotTypeDropdown() : base("SelectType") { }
 
         [JsonConstructor]
         private PilotTypeDropdown(IEnumerable<PortModel> inPorts,
                                   IEnumerable<PortModel> outPorts)
-            : base("Pilot Type", inPorts, outPorts) { }
+            : base("SelectType", inPorts, outPorts) { }
 
-        // ───────────────── 1. Заполняем Items ──────────────────────────
         protected override SelectionState PopulateItemsCore(string _)
         {
-            Items.Clear();
+            Items.Clear();                              
 
             var repo = StaticMetadata.ObjectsRepository;
-            if (repo == null)
-                return SelectionState.Done;
+            if (repo == null) return SelectionState.Done;
 
-            // сортируем и сразу кладём в ObservableCollection
-            var sorted = repo.GetTypes()
-                             .OrderBy(t => t.Title)
-                             .Select(t => new DynamoDropDownItem(t.Title, t.Id));
-
-            Items = new ObservableCollection<DynamoDropDownItem>(sorted);
+            foreach (var t in repo.GetTypes().OrderBy(t => t.Title))
+                Items.Add(new DynamoDropDownItem(t.Title, t.Id));
 
             SelectedIndex = Items.Count > 0 ? 0 : -1;
-            return SelectionState.Restore;   // восстановить прежний выбор
+            return SelectionState.Restore;                 
         }
 
-        // ───────────────── 2. AST: Guid → GetTypeById() ────────────────
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> _)
         {
             if (SelectedIndex < 0 || SelectedIndex >= Items.Count)
@@ -58,25 +50,14 @@ namespace DynamoPilot.Nodes
                 yield break;
             }
 
-            var guidStr = ((Guid)Items[SelectedIndex].Item).ToString();
-            var guidNode = AstFactory.BuildStringNode(guidStr);
+            var idNode = AstFactory.BuildIntNode((int)Items[SelectedIndex].Item);
 
             var callNode = AstFactory.BuildFunctionCall(
-                "Pilot.Nodes.PilotTypeDropdown",      // FQN-класс
-                nameof(GetTypeById),                  // метод
-                new List<AssociativeNode> { guidNode });
+                new Func<int, PilotType>(TypeNodes.GetTypeById),
+                new List<AssociativeNode> { idNode });
 
             yield return AstFactory.BuildAssignment(
-                GetAstIdentifierForOutputIndex(0),
-                callNode);
-        }
-
-        // ───────────────── 3. .NET-функция, к которой обращается DS ────
-        internal static PilotType GetTypeById(string guid)
-        {
-            return int.TryParse(guid, out var id)
-                 ? StaticMetadata.ObjectsRepository?.GetType(id)
-                 : null;
+                GetAstIdentifierForOutputIndex(0), callNode);
         }
     }
 }

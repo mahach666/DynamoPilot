@@ -2,25 +2,40 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
-using System.Linq;
 
 namespace DynamoPilot.App.Configuration
 {
     [Export(typeof(IPathResolver))]
     class PilotPathResolver : IPathResolver
     {
-        private readonly string pkgs;
-        public PilotPathResolver(string pkgsDir) => pkgs = pkgsDir;
+        private readonly string baseDir;
+        public PilotPathResolver(string pkgsDir) => baseDir = pkgsDir;
 
         // сканировать packages\**  (пакетная структура)
-        public IEnumerable<string> PackageDirectories => new[] { pkgs };
+        public IEnumerable<string> PackageDirectories => new[] { Path.Combine(baseDir, "packages") };
 
         // если DLL имеет сторонние зависимости – где их искать
-        public IEnumerable<string> AdditionalResolutionPaths => new[] { Path.Combine(pkgs, "DynamoPilot", "bin") };
+        public IEnumerable<string> AdditionalResolutionPaths => new string[] { baseDir,
+            Path.Combine(baseDir, "packages"),
+            Path.Combine(baseDir, "packages\\DynamoPilot"),
+            Path.Combine(baseDir, "packages\\DynamoPilot\\bin"),
+            Path.Combine(baseDir, "DynamoFeatureFlags"),
+            Path.Combine(baseDir, "extensions"),
+            Path.Combine(baseDir, "nodes") };
 
         // остальные можно оставить пустыми
-        public IEnumerable<string> AdditionalNodeDirectories => Enumerable.Empty<string>();
-        public IEnumerable<string> PreloadedLibraryPaths => Enumerable.Empty<string>();
+        public IEnumerable<string> AdditionalNodeDirectories => new string[] { baseDir,
+            Path.Combine(baseDir, "packages"),
+            Path.Combine(baseDir, "packages\\DynamoPilot"),
+            Path.Combine(baseDir, "packages\\DynamoPilot\\bin"),
+            Path.Combine(baseDir, "DynamoFeatureFlags"),
+            Path.Combine(baseDir, "extensions"),
+            Path.Combine(baseDir, "nodes") };
+        public IEnumerable<string> PreloadedLibraryPaths => new string[] {
+            Path.Combine(baseDir, "packages\\DynamoPilot\\bin\\DynamoPilot.Nodes.dll"),
+            Path.Combine(baseDir, "packages\\DynamoPilot\\bin\\PilotNodes.dll"),
+
+};
         public string UserDataRootFolder => ""; public string CommonDataRootFolder => "";
     }
 }

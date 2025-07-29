@@ -89,10 +89,23 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Reference Include="CoreNodeModels">
+      <HintPath>..\..\..\..\..\AppData\Local\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\CoreNodeModels.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNodeModels.resources">
+      <HintPath>..\..\lib\CoreNodeModels.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNodeModelsWpf">
+      <HintPath>..\..\..\..\..\AppData\Local\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\CoreNodeModelsWpf.dll</HintPath>
+    </Reference>
     <Reference Include="DynamoPilot.Data">
       <HintPath>..\DynamoPilot.Data\bin\Debug\net481\DynamoPilot.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
   
 
