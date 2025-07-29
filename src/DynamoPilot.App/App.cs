@@ -6,6 +6,7 @@ using Dynamo.ViewModels;
 using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
+using DynamoPilot.Data.Wrappers;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.IO;
@@ -21,11 +22,13 @@ namespace DynamoPilot.App
         private DynamoModel _model;
         private DynamoView _view;
 
+
         [ImportingConstructor]
         public App(IObjectsRepository objectsRepository)
         {
-            StaticMetadata.ObjectsRepository = objectsRepository;
+            StaticMetadata.ObjectsRepository = new PilotObjectsRepository(objectsRepository);
         }
+
         public void Build(IMenuBuilder builder, MainViewContext context)
         {
             var item = builder.AddItem("DynamoPilot", 1).WithHeader("DynamoPilot");
@@ -86,7 +89,7 @@ namespace DynamoPilot.App
                 GeometryFactoryPath = Path.Combine(baseDir, "Dynamo", "libG_223"),
                 Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
                 //PathResolver = new Configuration.PilotPathResolver(pkgsDir),   
-                
+
             };
 
             _model = DynamoModel.Start(cfg);

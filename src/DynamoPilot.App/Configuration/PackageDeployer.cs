@@ -11,7 +11,7 @@ namespace DynamoPilot.App.Configuration
         /// </summary>
         public static void CopyPackageFolder(string pkgsDir)
         {
-            if (!Directory.Exists(pkgsDir)) return;   // нечего копировать
+            //if (!Directory.Exists(pkgsDir)) return;   // нечего копировать
 
             // C:\Users\<user>\AppData\Roaming
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

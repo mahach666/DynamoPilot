@@ -20,7 +20,8 @@
   "repository_url": "https://github.com/mahach666/DynamoPilot",
   "contains_binaries": true,
   "node_libraries": [
-    "DynamoPilot.Nodes, Version=0.0.0.1, Culture=neutral, PublicKeyToken=null"
+    "DynamoPilot.Nodes, Version=0.0.0.1, Culture=neutral, PublicKeyToken=null",
+    "PilotNodes, Version=0.0.0.1, Culture=neutral, PublicKeyToken=null"
   ],
   "copyright_holder": "mahach",
   "copyright_year": "2025"
