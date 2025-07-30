@@ -3,55 +3,58 @@ using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 
-public static class TypeNodes
+namespace Type
 {
-    // IType
-    [IsDesignScriptCompatible]
-    public static List<PilotType> AllTypes()
+    public static class Select
     {
-        var repo = StaticMetadata.ObjectsRepository;
+        [IsDesignScriptCompatible]
+        public static List<PilotType> AllTypes()
+        {
+            var repo = StaticMetadata.ObjectsRepository;
 
-        return repo?.GetTypes()
-            .ToList()
-               ?? new List<PilotType>();
+            return repo?.GetTypes()
+                .ToList()
+                   ?? new List<PilotType>();
+        }
+
+        [IsDesignScriptCompatible]
+        public static PilotType GetTypeById(int id)
+            => StaticMetadata.ObjectsRepository?.GetType(id);
+
+        [IsDesignScriptCompatible]
+        public static PilotType GetTypeByName(string name)
+            => StaticMetadata.ObjectsRepository?.GetType(name);
     }
 
-    [IsDesignScriptCompatible]     
-    public static PilotType GetTypeById(int id)
-        => StaticMetadata.ObjectsRepository?.GetType(id);
+    public static class Properties
+    {
+        [IsDesignScriptCompatible]
+        public static int GetId(PilotType pilotType)
+        {
+            return pilotType.Id;
+        }
 
-    [IsDesignScriptCompatible]
-    public static PilotType GetTypeByName(string name)
-        => StaticMetadata.ObjectsRepository?.GetType(name);
+        [IsDesignScriptCompatible]
+        public static List<int> GetId(List<PilotType> pilotTypes)
+        {
+            return pilotTypes.Select(t=>t.Id).ToList();
+        }
+
+        [IsDesignScriptCompatible]
+        public static string GetName(PilotType pilotType)
+        {
+            return pilotType.Name;
+        }
+
+        [IsDesignScriptCompatible]
+        public static List<string> GetName(List<PilotType> pilotTypes)
+        {
+            return pilotTypes.Select(t => t.Name).ToList();
+        }
 
 
-    // Other
-    //public static IDictionary<string, object> GetProperties(PilotType t)
-    //{
-    //    var result = new Dictionary<string, object>();
-    //    if (t == null) return result;
-
-    //    var type = t.GetType();
-
-    //    foreach (var prop in type.GetProperties(BindingFlags.Instance | BindingFlags.Public))
-    //    {
-    //        if (prop.GetIndexParameters().Length == 0)
-    //        {
-    //            if(prop.Name.Contains("Unwrap")) continue; 
-    //            result[prop.Name] = prop.GetValue(t) ?? "null";
-    //        }
-    //    }
-
-    //    foreach (var field in type.GetFields(BindingFlags.Instance | BindingFlags.Public))
-    //    {
-    //        if (field.Name.Contains("Unwrap")) continue;
-    //        result[field.Name] = field.GetValue(t) ?? "null";
-    //    }
-
-    //    return result;
-    //}
+    }
 }
 
