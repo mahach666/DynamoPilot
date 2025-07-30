@@ -3,12 +3,10 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Data.Wrappers;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 
 namespace Type
 {
-
     public static class Properties
     {
         [IsDesignScriptCompatible]
@@ -18,21 +16,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<int> GetId(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t=>t.Id).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static string GetName(PilotType pilotType)
         {
             return pilotType.Name;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<string> GetName(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.Name).ToList();
         }
 
         [IsDesignScriptCompatible]
@@ -42,21 +28,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<string> GetTitle(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.Title).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static int GetSort(PilotType pilotType)
         {
             return pilotType.Sort;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<int> GetSort(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.Sort).ToList();
         }
 
         [IsDesignScriptCompatible]
@@ -66,21 +40,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<bool> GetHasFiles(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.HasFiles).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static ReadOnlyCollection<int> GetChildren(PilotType pilotType)
         {
             return pilotType.Children;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<ReadOnlyCollection<int>> GetChildren(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.Children).ToList();
         }
 
         [IsDesignScriptCompatible]
@@ -90,21 +52,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<ReadOnlyCollection<PilotAttribute>> GetAttributes(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.Attributes).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static IEnumerable<PilotAttribute> GetDisplayAttributes(PilotType pilotType)
         {
             return pilotType.DisplayAttributes;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<IEnumerable<PilotAttribute>> GetDisplayAttributes(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.DisplayAttributes).ToList();
         }
 
         [IsDesignScriptCompatible]
@@ -114,21 +64,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<byte[]> GetSvgIcon(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.SvgIcon).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static bool GetIsMountable(PilotType pilotType)
         {
             return pilotType.IsMountable;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<bool> GetIsMountable(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.IsMountable).ToList();
         }
 
         [IsDesignScriptCompatible]
@@ -138,21 +76,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<TypeKind> GetKind(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.Kind).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static bool GetIsDeleted(PilotType pilotType)
         {
             return pilotType.IsDeleted;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<bool> GetIsDeleted(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.IsDeleted).ToList();
         }
 
         [IsDesignScriptCompatible]
@@ -162,21 +88,9 @@ namespace Type
         }
 
         [IsDesignScriptCompatible]
-        public static List<bool> GetIsService(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.IsService).ToList();
-        }
-
-        [IsDesignScriptCompatible]
         public static bool GetIsProject(PilotType pilotType)
         {
             return pilotType.IsProject;
-        }
-
-        [IsDesignScriptCompatible]
-        public static List<bool> GetIsProject(List<PilotType> pilotTypes)
-        {
-            return pilotTypes.Select(t => t.IsProject).ToList();
         }
     }
 }
