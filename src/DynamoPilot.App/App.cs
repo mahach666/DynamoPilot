@@ -78,16 +78,16 @@ namespace DynamoPilot.App
 
             PackageDeployer.CopyPackageFolder(Path.Combine(_pluginDir, "packages"));
 
-            //var cfg = new DynamoModel.DefaultStartConfiguration
-            //{
-            //    PathResolver = new PilotPathResolver(_pluginDir),
-            //    DynamoCorePath = _pluginDir,
-            //    DynamoHostPath = Assembly.GetExecutingAssembly().Location,
-            //    GeometryFactoryPath = Path.Combine(_pluginDir, "libg_228_0_0"),
-            //    Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
-            //};
+            var cfg = new DynamoModel.DefaultStartConfiguration
+            {
+                PathResolver = new PilotPathResolver(_pluginDir),
+                DynamoCorePath = _pluginDir,
+                DynamoHostPath = Assembly.GetExecutingAssembly().Location,
+                GeometryFactoryPath = Path.Combine(_pluginDir, "libg_228_0_0"),
+                Context = "Pilot " + Assembly.GetExecutingAssembly().GetName().Version,
+            };
 
-            _model = DynamoModel.Start();
+            _model = DynamoModel.Start(cfg);
         }
     }
 }
