@@ -89,6 +89,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\DynamoPilot.App\DynamoPilot.App.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   

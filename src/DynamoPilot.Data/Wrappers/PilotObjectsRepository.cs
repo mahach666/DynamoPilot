@@ -1,5 +1,6 @@
 ﻿using Ascon.Pilot.SDK;
 using Ascon.Pilot.SDK.Data;
+using DynamoPilot.App.Utils;
 using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,12 @@ namespace DynamoPilot.Data.Wrappers
         public override string ToString()
         {
             return "ObjectsRepository";
+        }
+
+        public async Task<PilotDataObject> GetObject(string id)
+        {
+            var loader = new ObjectLoader(_objectsRepository);
+            return new PilotDataObject (await loader.Load(new Guid(id)));
         }
         //public IDataObject GetCachedObject(Guid id)
         //{
@@ -52,7 +59,7 @@ namespace DynamoPilot.Data.Wrappers
 
         public IEnumerable<PilotPerson> GetPeople()
         {
-            return _objectsRepository.GetPeople().Select(p=>new PilotPerson(p));
+            return _objectsRepository.GetPeople().Select(p => new PilotPerson(p));
         }
 
         public PilotPerson GetPerson(int id)

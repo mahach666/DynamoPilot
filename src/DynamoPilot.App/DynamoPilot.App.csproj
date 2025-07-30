@@ -106,9 +106,5 @@
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
-  
 
 </Project>
