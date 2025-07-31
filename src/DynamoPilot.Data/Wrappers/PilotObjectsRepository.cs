@@ -22,10 +22,13 @@ namespace DynamoPilot.Data.Wrappers
             return "ObjectsRepository";
         }
 
-        public async Task<PilotDataObject> GetObject(string id)
+        public PilotDataObject GetObject(string id)
         {
-            var loader = new ObjectLoader(_objectsRepository);
-            return new PilotDataObject (await loader.Load(new Guid(id)));
+            //var loader = new ObjectLoader(_objectsRepository);
+            //return new PilotDataObject (await loader.Load(new Guid(id)));
+
+            var res = PilotSync.LoadObjSync(_objectsRepository, new Guid(id));
+            return new PilotDataObject(res);
         }
         //public IDataObject GetCachedObject(Guid id)
         //{
