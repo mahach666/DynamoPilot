@@ -11,9 +11,11 @@ namespace DynamoPilot.Data.Wrappers
     public class PilotObjectsRepository : IWrapper
     {
         private readonly IObjectsRepository _objectsRepository;
+
         public PilotObjectsRepository(IObjectsRepository objectsRepository)
         {
             _objectsRepository = objectsRepository;
+
         }
 
         public override string ToString()
@@ -21,15 +23,6 @@ namespace DynamoPilot.Data.Wrappers
             return "ObjectsRepository";
         }
 
-        public PilotDataObject GetObject(string id)
-        {
-            //var loader = new ObjectLoader(_objectsRepository);
-            //return new PilotDataObject (await loader.Load(new Guid(id)));
-
-            //var res = PilotSync.LoadObjSync(_objectsRepository, new Guid(id));
-            //return new PilotDataObject(res);
-            return null;
-        }
         //public IDataObject GetCachedObject(Guid id)
         //{
         //    return _objectsRepository.GetCachedObject(id);
