@@ -4,8 +4,10 @@ using DynamoPilot.App.Utils;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Windows.Documents;
 
 namespace DataObject
 {
@@ -26,6 +28,54 @@ namespace DataObject
         public static PDataObject GetByStrGuid(string id)
         {
             return GetByGuid(new Guid(id));
+        }
+
+        [IsDesignScriptCompatible]
+        public static PDataObject GetParentByTypeId(PDataObject pDataObject, int id)
+        {
+            var context = pDataObject.Context();
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+
+            return loader.LoadObjects(context, default)
+                .Where(o => o.Type.Id == id && o.Id != pDataObject.Id)
+                .Select(o => new PDataObject(o))
+                .FirstOrDefault();
+        }
+
+        [IsDesignScriptCompatible]
+        public static PDataObject GetParentByTypeName(PDataObject pDataObject, string name)
+        {
+            var context = pDataObject.Context();
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+
+            return loader.LoadObjects(context, default)
+                .Where(o => o.Type.Name == name && o.Id != pDataObject.Id)
+                .Select(o => new PDataObject(o))
+                .FirstOrDefault();
+        }
+
+        [IsDesignScriptCompatible]
+        public static List<PDataObject> GetParentListByTypeId(PDataObject pDataObject, int id)
+        {
+            var context = pDataObject.Context();
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+
+            return loader.LoadObjects(context, default)
+                .Where(o => o.Type.Id == id && o.Id != pDataObject.Id)
+                .Select(o => new PDataObject(o))
+                .ToList();
+        }
+
+        [IsDesignScriptCompatible]
+        public static List<PDataObject> GetParentListByTypeName(PDataObject pDataObject, string name)
+        {
+            var context = pDataObject.Context();
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+
+            return loader.LoadObjects(context, default)
+                .Where(o => o.Type.Name == name && o.Id != pDataObject.Id)
+                .Select(o => new PDataObject(o))
+                .ToList();
         }
     }
 }

@@ -76,6 +76,9 @@ namespace DynamoPilot.Data.Wrappers
 
         public ReadOnlyCollection<int> Subscribers => _dataObject.Subscribers;
 
+        public ReadOnlyCollection<Guid> Context()
+            => new ReadOnlyCollection<Guid>(_dataObject.Context());
+
         //public ILockInfo LockInfo => _dataObject.LockInfo;
 
         //public ITaskObject ToTaskObject()
