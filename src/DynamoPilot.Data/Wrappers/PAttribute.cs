@@ -3,13 +3,18 @@ using DynamoPilot.Data.Contracts;
 
 namespace DynamoPilot.Data.Wrappers
 {
-    public class PilotAttribute :  IWrapper
+    public class PAttribute :  IWrapper
     {
         private readonly IAttribute _attribute;
-        public PilotAttribute(IAttribute attribute)
+        public PAttribute(IAttribute attribute)
         {
             _attribute = attribute ;
         }
+        public override string ToString()
+        {
+            return $"{_attribute.Title} - {_attribute.Name}";
+        }
+
         public string Name => _attribute.Name;
 
         public string Title => _attribute.Title;

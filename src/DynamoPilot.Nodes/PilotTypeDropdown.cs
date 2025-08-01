@@ -53,7 +53,7 @@ namespace DynamoPilot.Nodes
             var idNode = AstFactory.BuildIntNode((int)Items[SelectedIndex].Item);
 
             var callNode = AstFactory.BuildFunctionCall(
-                new Func<int, PilotType>(Type.Select.GetTypeById),
+                new Func<int, PType>(Type.Select.GetTypeById),
                 new List<AssociativeNode> { idNode });
 
             yield return AstFactory.BuildAssignment(

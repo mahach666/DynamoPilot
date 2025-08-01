@@ -3,13 +3,14 @@ using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DynamoPilot.Data.Wrappers
 {
-    public class PilotDataObject : IWrapper
+    public class PDataObject : IWrapper
     {
         private readonly IDataObject _dataObject;
-        public PilotDataObject(IDataObject dataObject)
+        public PDataObject(IDataObject dataObject)
         {
             _dataObject = dataObject;
         }
@@ -29,13 +30,14 @@ namespace DynamoPilot.Data.Wrappers
 
         public string DisplayName => _dataObject.DisplayName;
 
-        public PilotType Type => new(_dataObject.Type);
+        public PType Type => new(_dataObject.Type);
 
-        public PilotPerson Creator => new(_dataObject.Creator);
+        public PPerson Creator => new(_dataObject.Creator);
 
         public ReadOnlyCollection<Guid> Children => _dataObject.Children;
 
-        public ReadOnlyCollection<IRelation> Relations => _dataObject.Relations;
+        public ReadOnlyCollection<PRelation> Relations
+            => new ReadOnlyCollection<PRelation>(_dataObject.Relations.Select(i => new PRelation(i)).ToList());
 
         public ReadOnlyCollection<Guid> RelatedSourceFiles => _dataObject.RelatedSourceFiles;
 
@@ -49,15 +51,17 @@ namespace DynamoPilot.Data.Wrappers
 
         public DataState State => _dataObject.State;
 
-        public IStateInfo ObjectStateInfo => _dataObject.ObjectStateInfo;
+        public PStateInfo ObjectStateInfo => new(_dataObject.ObjectStateInfo);
 
         public SynchronizationState SynchronizationState => _dataObject.SynchronizationState;
 
-        public ReadOnlyCollection<IFile> Files => _dataObject.Files;
+        public ReadOnlyCollection<PFile> Files
+            => new ReadOnlyCollection<PFile>(_dataObject.Files.Select(i => new PFile(i)).ToList());
 
         //public IDictionary<int, IAccess> Access => _dataObject.Access;
 
-        public ReadOnlyCollection<IAccessRecord> Access2 => _dataObject.Access2;
+        public ReadOnlyCollection<PAccessRecord> Access2
+            => new ReadOnlyCollection<PAccessRecord>(_dataObject.Access2.Select(i => new PAccessRecord(i)).ToList());
 
         public bool IsSecret => _dataObject.IsSecret;
 
@@ -65,9 +69,10 @@ namespace DynamoPilot.Data.Wrappers
 
         //public bool IsInRecycleBin => _dataObject.IsInRecycleBin;
 
-        public IFilesSnapshot ActualFileSnapshot => _dataObject.ActualFileSnapshot;
+        public PFilesSnapshot ActualFileSnapshot => new(_dataObject.ActualFileSnapshot);
 
-        public ReadOnlyCollection<IFilesSnapshot> PreviousFileSnapshots => _dataObject.PreviousFileSnapshots;
+        public ReadOnlyCollection<PFilesSnapshot> PreviousFileSnapshots 
+            => new ReadOnlyCollection<PFilesSnapshot>(_dataObject.PreviousFileSnapshots.Select(i => new PFilesSnapshot(i)).ToList());
 
         public ReadOnlyCollection<int> Subscribers => _dataObject.Subscribers;
 

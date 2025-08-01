@@ -7,7 +7,7 @@ namespace ObjectsRepository
     public static class Select
     {
         [IsDesignScriptCompatible]
-        public static PilotObjectsRepository Get()
+        public static PObjectsRepository Get()
         {
             return StaticMetadata.ObjectsRepository;
         }

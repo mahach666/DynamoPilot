@@ -9,21 +9,21 @@ namespace Type
     public static class Select
     {
         [IsDesignScriptCompatible]
-        public static List<PilotType> AllTypes()
+        public static List<PType> AllTypes()
         {
             var repo = StaticMetadata.ObjectsRepository;
 
             return repo?.GetTypes()
                 .ToList()
-                   ?? new List<PilotType>();
+                   ?? new List<PType>();
         }
 
         [IsDesignScriptCompatible]
-        public static PilotType GetTypeById(int id)
+        public static PType GetTypeById(int id)
             => StaticMetadata.ObjectsRepository?.GetType(id);
 
         [IsDesignScriptCompatible]
-        public static PilotType GetTypeByName(string name)
+        public static PType GetTypeByName(string name)
             => StaticMetadata.ObjectsRepository?.GetType(name);
     }
 }

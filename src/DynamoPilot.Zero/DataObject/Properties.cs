@@ -8,7 +8,7 @@ namespace DataObject
     public static class Properties
     {
         [IsDesignScriptCompatible]
-        public static Guid GetId(PilotDataObject dataObject)
+        public static Guid GetId(PDataObject dataObject)
         {
             return dataObject.Id;
         }

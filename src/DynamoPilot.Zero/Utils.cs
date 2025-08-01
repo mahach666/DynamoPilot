@@ -4,7 +4,7 @@ using System.Reflection;
 
 public static class Utils
     {
-    public static IDictionary<string, object> GetProperties(PilotType t)
+    public static IDictionary<string, object> GetProperties(PType t)
     {
         var result = new Dictionary<string, object>();
         if (t == null) return result;

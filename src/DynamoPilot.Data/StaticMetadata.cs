@@ -4,6 +4,6 @@ namespace DynamoPilot.Data
 {
     public static class StaticMetadata
     {
-        public static PilotObjectsRepository ObjectsRepository { get; set; }
+        public static PObjectsRepository ObjectsRepository { get; set; }
     }
 }

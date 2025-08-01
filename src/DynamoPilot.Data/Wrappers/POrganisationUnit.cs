@@ -1,17 +1,22 @@
 ﻿using Ascon.Pilot.SDK;
 using DynamoPilot.Data.Contracts;
-using System;
 using System.Collections.ObjectModel;
 
 namespace DynamoPilot.Data.Wrappers
 {
-    public class PilotOrganisationUnit : IOrganisationUnit, IWrapper
+    public class POrganisationUnit : IWrapper
     {
         private readonly IOrganisationUnit _organisationUnit;
-        public PilotOrganisationUnit(IOrganisationUnit organisationUnit)
+        public POrganisationUnit(IOrganisationUnit organisationUnit)
         {
             _organisationUnit = organisationUnit;
         }
+
+        public override string ToString()
+        {
+            return $"{_organisationUnit.Title} ({_organisationUnit.Id})";
+        }
+
         public int Id => _organisationUnit.Id;
 
         public string Title => _organisationUnit.Title;

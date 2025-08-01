@@ -2,16 +2,18 @@
 using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DynamoPilot.Data.Wrappers
 {
-    public class PilotPerson : IWrapper
+    public class PPerson : IWrapper
     {
         private readonly IPerson _person;
-        public PilotPerson(IPerson person)
+        public PPerson(IPerson person)
         {
-            _person = person ;
+            _person = person;
         }
+
         public override string ToString()
         {
             return $"{_person.DisplayName} ({_person.Id})";
@@ -23,9 +25,10 @@ namespace DynamoPilot.Data.Wrappers
 
         public string DisplayName => _person.DisplayName;
 
-        public ReadOnlyCollection<IPosition> Positions => _person.Positions;
+        public ReadOnlyCollection<PPosition> Positions
+            => new ReadOnlyCollection<PPosition>(_person.Positions.Select(i => new PPosition(i)).ToList());
 
-        public IPosition MainPosition => _person.MainPosition;
+        public PPosition MainPosition => new(_person.MainPosition);
 
         public string Comment => _person.Comment;
 

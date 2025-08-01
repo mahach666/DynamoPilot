@@ -12,18 +12,18 @@ namespace DataObject
     public static class Select
     {
         [IsDesignScriptCompatible]
-        public static PilotDataObject GetByGuid(Guid id)
+        public static PDataObject GetByGuid(Guid id)
         {
             var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
 
             var preRes = loader.LoadObjects(new[] { id }, default).FirstOrDefault();
             if (preRes == null) return null;
 
-            return new PilotDataObject(preRes);
+            return new PDataObject(preRes);
         }
 
         [IsDesignScriptCompatible]
-        public static PilotDataObject GetByStrGuid(string id)
+        public static PDataObject GetByStrGuid(string id)
         {
             return GetByGuid(new Guid(id));
         }

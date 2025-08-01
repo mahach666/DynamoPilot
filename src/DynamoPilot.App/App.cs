@@ -29,7 +29,7 @@ namespace DynamoPilot.App
         {
             _pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            StaticMetadata.ObjectsRepository = new PilotObjectsRepository(objectsRepository);
+            StaticMetadata.ObjectsRepository = new PObjectsRepository(objectsRepository);
         }
 
         public void Build(IMenuBuilder builder, MainViewContext context)

@@ -6,10 +6,10 @@ using System.Linq;
 
 namespace DynamoPilot.Data.Wrappers
 {
-    public class PilotType : IWrapper
+    public class PType : IWrapper
     {
         private readonly IType _type;
-        public PilotType(IType refer)
+        public PType(IType refer)
         {
             _type = refer;
         }
@@ -32,11 +32,11 @@ namespace DynamoPilot.Data.Wrappers
 
         public ReadOnlyCollection<int> Children => _type.Children;
 
-        public ReadOnlyCollection<PilotAttribute> Attributes
-            => new ReadOnlyCollection<PilotAttribute>(_type.Attributes.Select(a => new PilotAttribute(a)).ToList());
+        public ReadOnlyCollection<PAttribute> Attributes
+            => new ReadOnlyCollection<PAttribute>(_type.Attributes.Select(a => new PAttribute(a)).ToList());
 
-        public IEnumerable<PilotAttribute> DisplayAttributes
-            => _type.DisplayAttributes.Select(a => new PilotAttribute(a));
+        public IEnumerable<PAttribute> DisplayAttributes
+            => _type.DisplayAttributes.Select(a => new PAttribute(a));
 
         public byte[] SvgIcon => _type.SvgIcon;
 
