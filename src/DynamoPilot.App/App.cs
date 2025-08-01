@@ -25,11 +25,13 @@ namespace DynamoPilot.App
         private static string _pluginDir;
 
         [ImportingConstructor]
-        public App(IObjectsRepository objectsRepository)
+        public App(IObjectsRepository objectsRepository,
+            IObjectModifier objectModifier)
         {
             _pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             StaticMetadata.ObjectsRepository = new PObjectsRepository(objectsRepository);
+            StaticMetadata.ObjectModifier = new PObjectModifier(objectModifier);
         }
 
         public void Build(IMenuBuilder builder, MainViewContext context)
@@ -55,13 +57,13 @@ namespace DynamoPilot.App
                 {
                     DynamoModel = _model,
                     Watch3DViewModel = stubWatch,
-                    ShowLogin = false,                    
+                    ShowLogin = false,
                 });
 
             _view = new DynamoView(vm)
             {
                 Owner = Application.Current.MainWindow,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner                
+                WindowStartupLocation = WindowStartupLocation.CenterOwner
             };
             _view.Closed += (_, __) => _view = null;
             _view.Show();

@@ -11,7 +11,7 @@ using System.Linq;
 namespace DynamoPilot.Nodes
 {
     [NodeName("SelectType")]
-    [NodeCategory("PilotNodes.TypeNodes")]
+    [NodeCategory("PilotNodes.Type.Select")]
     [NodeDescription("Выбрать один тип из репозитория")]
     [IsDesignScriptCompatible]
     [OutPortNames("type")]
@@ -28,16 +28,16 @@ namespace DynamoPilot.Nodes
 
         protected override SelectionState PopulateItemsCore(string _)
         {
-            Items.Clear();                              
+            Items.Clear();
 
             var repo = StaticMetadata.ObjectsRepository;
             if (repo == null) return SelectionState.Done;
 
             foreach (var t in repo.GetTypes().OrderBy(t => t.Title))
-                Items.Add(new DynamoDropDownItem(t.Title, t.Id));
+                Items.Add(new DynamoDropDownItem($"{t.Title} - {t.Name}", t.Id));
 
             SelectedIndex = Items.Count > 0 ? 0 : -1;
-            return SelectionState.Restore;                 
+            return SelectionState.Restore;
         }
 
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> _)
