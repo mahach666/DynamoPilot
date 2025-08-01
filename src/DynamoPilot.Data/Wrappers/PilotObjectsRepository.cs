@@ -1,6 +1,5 @@
 ﻿using Ascon.Pilot.SDK;
 using Ascon.Pilot.SDK.Data;
-using DynamoPilot.App.Utils;
 using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.Generic;
@@ -27,8 +26,9 @@ namespace DynamoPilot.Data.Wrappers
             //var loader = new ObjectLoader(_objectsRepository);
             //return new PilotDataObject (await loader.Load(new Guid(id)));
 
-            var res = PilotSync.LoadObjSync(_objectsRepository, new Guid(id));
-            return new PilotDataObject(res);
+            //var res = PilotSync.LoadObjSync(_objectsRepository, new Guid(id));
+            //return new PilotDataObject(res);
+            return null;
         }
         //public IDataObject GetCachedObject(Guid id)
         //{

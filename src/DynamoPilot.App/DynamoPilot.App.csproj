@@ -89,6 +89,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\DynamoPilot.Data\DynamoPilot.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="CoreNodeModels">
       <HintPath>..\..\..\..\..\AppData\Local\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\CoreNodeModels.dll</HintPath>
     </Reference>
@@ -97,9 +101,6 @@
     </Reference>
     <Reference Include="CoreNodeModelsWpf">
       <HintPath>..\..\..\..\..\AppData\Local\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\CoreNodeModelsWpf.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoPilot.Data">
-      <HintPath>..\DynamoPilot.Data\bin\Debug\net481\DynamoPilot.Data.dll</HintPath>
     </Reference>
     <Reference Include="Greg">
       <HintPath>..\..\lib\Greg.dll</HintPath>
