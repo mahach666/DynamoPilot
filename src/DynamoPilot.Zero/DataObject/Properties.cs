@@ -128,6 +128,12 @@ namespace DataObject
         {
             return dataObject.Subscribers;
         }
+
+        [IsDesignScriptCompatible]
+        public static ReadOnlyCollection<Guid> GetContext(PDataObject dataObject)
+        {
+            return dataObject.Context();
+        }
     }
 }
 
