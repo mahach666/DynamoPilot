@@ -26,12 +26,14 @@ namespace DynamoPilot.App
 
         [ImportingConstructor]
         public App(IObjectsRepository objectsRepository,
-            IObjectModifier objectModifier)
+            IObjectModifier objectModifier,
+            ISearchService searchService)
         {
             _pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             StaticMetadata.ObjectsRepository = new PObjectsRepository(objectsRepository);
             StaticMetadata.ObjectModifier = new PObjectModifier(objectModifier);
+            StaticMetadata.SearchService = new PSearchService(searchService);
         }
 
         public void Build(IMenuBuilder builder, MainViewContext context)
