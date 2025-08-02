@@ -4,6 +4,7 @@ using DynamoPilot.App.Utils;
 using DynamoPilot.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataObject
 {
@@ -231,6 +232,330 @@ namespace DataObject
             builder.Must(AttributeFields.Bool("IsApproved").Be(true));
             builder.MustNot(ObjectFields.IsSecret.Be(true));
             builder.MustNot(ObjectFields.ObjectState.Be(ObjectState.InRecycleBin));
+        }
+
+        // ===== НОДЫ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ =====
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder CreateSearchBuilder()
+        {
+            return StaticMetadata.SearchService.GetObjectQueryBuilder();
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder SetMaxResults(IQueryBuilder builder, int maxResults)
+        {
+            builder.MaxResults(maxResults);
+            return builder;
+        }
+
+        // ObjectFields ноды
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterById(IQueryBuilder builder, Guid id)
+        {
+            builder.Must(ObjectFields.Id.Be(id));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByIds(IQueryBuilder builder, Guid[] ids)
+        {
+            builder.Must(ObjectFields.Id.BeAnyOf(ids));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByParentId(IQueryBuilder builder, Guid parentId)
+        {
+            builder.Must(ObjectFields.ParentId.Be(parentId));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByParentIds(IQueryBuilder builder, Guid[] parentIds)
+        {
+            builder.Must(ObjectFields.ParentId.BeAnyOf(parentIds));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByTypeId(IQueryBuilder builder, int typeId)
+        {
+            builder.Must(ObjectFields.TypeId.Be(typeId));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByTypeIds(IQueryBuilder builder, int[] typeIds)
+        {
+            builder.Must(ObjectFields.TypeId.BeAnyOf(typeIds));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByObjectState(IQueryBuilder builder, string objectState)
+        {
+            if (Enum.TryParse<ObjectState>(objectState, out var state))
+            {
+                builder.Must(ObjectFields.ObjectState.Be(state));
+            }
+            return builder;
+        }
+
+        //[IsDesignScriptCompatible]
+        //public static IQueryBuilder FilterByObjectStates(IQueryBuilder builder, string[] objectStates)
+        //{
+        //    var states = objectStates.Where(i=>Enum.TryParse<ObjectState>(i, out var state)). Select(s => Enum.Parse<ObjectState>(s)).ToArray();
+        //    builder.Must(ObjectFields.ObjectState.BeAnyOf(states));
+        //    return builder;
+        //}
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByCreatorId(IQueryBuilder builder, int creatorId)
+        {
+            builder.Must(ObjectFields.CreatorId.Be(creatorId));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByCreatorIds(IQueryBuilder builder, int[] creatorIds)
+        {
+            builder.Must(ObjectFields.CreatorId.BeAnyOf(creatorIds));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByCreatedDateRange(IQueryBuilder builder, DateTime fromDate, DateTime toDate)
+        {
+            builder.Must(ObjectFields.CreatedDate.BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
+            return builder;
+        }
+
+        //[IsDesignScriptCompatible]
+        //public static IQueryBuilder FilterByCreatedDate(IQueryBuilder builder, DateTime createdDate)
+        //{
+        //    builder.Must(ObjectFields.CreatedDate.Be(createdDate.ToUniversalTime()));
+        //    return builder;
+        //}
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByIsSecret(IQueryBuilder builder, bool isSecret)
+        {
+            builder.Must(ObjectFields.IsSecret.Be(isSecret));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByAllText(IQueryBuilder builder, string searchText)
+        {
+            builder.Must(ObjectFields.AllText.Be(searchText));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByAllTextContainsAll(IQueryBuilder builder, string[] searchWords)
+        {
+            builder.Must(ObjectFields.AllText.ContainsAll(searchWords));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterBySnapshotsCreatedRange(IQueryBuilder builder, DateTime fromDate, DateTime toDate)
+        {
+            builder.Must(ObjectFields.SnapshotsCreated.BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByAllSnapshotsReason(IQueryBuilder builder, string reason)
+        {
+            builder.Must(ObjectFields.AllSnapshotsReason.Be(reason));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterBySignatureAwaitingBy(IQueryBuilder builder, int positionId)
+        {
+            builder.Must(ObjectFields.SignatureAwaitingBy.Be(positionId));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterBySignatureAwaitingByMultiple(IQueryBuilder builder, int[] positionIds)
+        {
+            builder.Must(ObjectFields.SignatureAwaitingBy.BeAnyOf(positionIds));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterBySignedBy(IQueryBuilder builder, int positionId)
+        {
+            builder.Must(ObjectFields.SignedBy.Be(positionId));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterBySignedByMultiple(IQueryBuilder builder, int[] positionIds)
+        {
+            builder.Must(ObjectFields.SignedBy.BeAnyOf(positionIds));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByStateChangedPersonId(IQueryBuilder builder, int personId)
+        {
+            builder.Must(ObjectFields.StateChangedPersonId.Be(personId));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByStateChangedPersonIds(IQueryBuilder builder, int[] personIds)
+        {
+            builder.Must(ObjectFields.StateChangedPersonId.BeAnyOf(personIds));
+            return builder;
+        }
+
+        // AttributeFields ноды
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByStringAttribute(IQueryBuilder builder, string attributeName, string value)
+        {
+            builder.Must(AttributeFields.String(attributeName).Be(value));
+            return builder;
+        }
+
+        //[IsDesignScriptCompatible]
+        //public static IQueryBuilder FilterByStringAttributeMultiple(IQueryBuilder builder, string attributeName, string[] values)
+        //{
+        //    builder.Must(AttributeFields.String(attributeName).BeAnyOf(values));
+        //    return builder;
+        //}
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByDateTimeAttributeRange(IQueryBuilder builder, string attributeName, DateTime fromDate, DateTime toDate)
+        {
+            builder.Must(AttributeFields.DateTime(attributeName).BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
+            return builder;
+        }
+
+        //[IsDesignScriptCompatible]
+        //public static IQueryBuilder FilterByDateTimeAttribute(IQueryBuilder builder, string attributeName, DateTime value)
+        //{
+        //    builder.Must(AttributeFields.DateTime(attributeName).Be(value.ToUniversalTime()));
+        //    return builder;
+        //}
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByDoubleAttribute(IQueryBuilder builder, string attributeName, double value)
+        {
+            builder.Must(AttributeFields.Double(attributeName).Be(value));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByDoubleAttributeMultiple(IQueryBuilder builder, string attributeName, double[] values)
+        {
+            builder.Must(AttributeFields.Double(attributeName).BeAnyOf(values));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByDoubleAttributeRange(IQueryBuilder builder, string attributeName, double fromValue, double toValue)
+        {
+            builder.Must(AttributeFields.Double(attributeName).BeInRange(fromValue, toValue));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByIntegerAttribute(IQueryBuilder builder, string attributeName, int value)
+        {
+            builder.Must(AttributeFields.Integer(attributeName).Be(value));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByIntegerAttributeMultiple(IQueryBuilder builder, string attributeName, long[] values)
+        {
+            builder.Must(AttributeFields.Integer(attributeName).BeAnyOf(values));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByIntegerAttributeRange(IQueryBuilder builder, string attributeName, int fromValue, int toValue)
+        {
+            builder.Must(AttributeFields.Integer(attributeName).BeInRange(fromValue, toValue));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder FilterByBoolAttribute(IQueryBuilder builder, string attributeName, bool value)
+        {
+            builder.Must(AttributeFields.Bool(attributeName).Be(value));
+            return builder;
+        }
+
+        // Логические операторы
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder ExcludeObjectState(IQueryBuilder builder, string objectState)
+        {
+            if (Enum.TryParse<ObjectState>(objectState, out var state))
+            {
+                builder.MustNot(ObjectFields.ObjectState.Be(state));
+            }
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder ExcludeIsSecret(IQueryBuilder builder, bool isSecret)
+        {
+            builder.MustNot(ObjectFields.IsSecret.Be(isSecret));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder ExcludeBoolAttribute(IQueryBuilder builder, string attributeName, bool value)
+        {
+            builder.MustNot(AttributeFields.Bool(attributeName).Be(value));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder AlternativeTypeIds(IQueryBuilder builder, int[] typeIds)
+        {
+            var terms = typeIds.Select(id => ObjectFields.TypeId.Be(id)).ToArray();
+            builder.MustAnyOf(terms);
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder AlternativeTextSearch(IQueryBuilder builder, string[] searchTexts)
+        {
+            var terms = searchTexts.Select(text => ObjectFields.AllText.Be(text)).ToArray();
+            builder.MustAnyOf(terms);
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static IQueryBuilder AlternativeStringAttribute(IQueryBuilder builder, string attributeName, string[] values)
+        {
+            var terms = values.Select(value => AttributeFields.String(attributeName).Be(value)).ToArray();
+            builder.MustAnyOf(terms);
+            return builder;
+        }
+
+        // Выполнение поиска
+        [IsDesignScriptCompatible]
+        public static IReadOnlyCollection<Guid> ExecuteSearch(IQueryBuilder builder)
+        {
+            var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
+            return searcher.Search(builder, default);
+        }
+
+        [IsDesignScriptCompatible]
+        public static IReadOnlyCollection<Guid> ExecuteSearchWithMaxResults(IQueryBuilder builder, int maxResults)
+        {
+            builder.MaxResults(maxResults);
+            var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
+            return searcher.Search(builder, default);
         }
     }
 }
