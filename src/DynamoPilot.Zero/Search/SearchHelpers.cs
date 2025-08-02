@@ -1,12 +1,10 @@
 using Ascon.Pilot.SDK;
 using Dynamo.Graph.Nodes;
-using DynamoPilot.App.Utils;
-using DynamoPilot.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataObject
+namespace Search
 {
     public static class SearchHelpers
     {
@@ -79,7 +77,7 @@ namespace DataObject
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.ObjectState.BeAnyOf(ObjectState.Alive, ObjectState.Frozen));
-            builder.MustNot(ObjectFields.ObjectState.Be(ObjectState.Deleted));
+            builder.MustNot(ObjectFields.ObjectState.Be(ObjectState.DeletedPermanently));
             builder.MustNot(ObjectFields.ObjectState.Be(ObjectState.InRecycleBin));
             return builder;
         }
@@ -316,7 +314,7 @@ namespace DataObject
         [IsDesignScriptCompatible]
         public static string GetObjectStateDeleted()
         {
-            return ObjectState.Deleted.ToString();
+            return ObjectState.DeletedPermanently.ToString();
         }
 
         [IsDesignScriptCompatible]
