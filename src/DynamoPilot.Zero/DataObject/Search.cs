@@ -16,6 +16,7 @@ namespace DataObject
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.TypeId.Be(typeId));
 
+
             var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
 
             var results = searcher.Search(builder, default);
@@ -30,6 +31,7 @@ namespace DataObject
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.Context.Be(contextId));
             builder.Must(ObjectFields.TypeId.Be(typeId));
+
 
             var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
 
@@ -57,6 +59,16 @@ namespace DataObject
             var results = searcher.Search(builder, default);
 
             return results;
+        }
+
+        [IsDesignScriptCompatible]
+        public static void Test()
+        {
+            IQueryBuilder builder = StaticMetadata.SearchService.GetObjectQueryBuilder();
+            builder.MaxResults(int.MaxValue);
+            builder.Must(ObjectFields.AllText.Be("test"));
+            builder.Must(ObjectFields.TypeId.Be(18));
+
         }
     }
 }
