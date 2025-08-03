@@ -13,9 +13,10 @@ namespace DynamoPilot.Data.Wrappers
             _queryBuilder = queryBuilder;
         }
 
-        public IQueryBuilder AppendPlainQuery(string luceneQuery)
+        public PQueryBuilder AppendPlainQuery(string luceneQuery)
         {
-            return _queryBuilder.AppendPlainQuery(luceneQuery);
+            _queryBuilder.AppendPlainQuery(luceneQuery);
+            return this;
         }
 
         public (string luceneQuery, string typeFilter) Build()
@@ -23,38 +24,45 @@ namespace DynamoPilot.Data.Wrappers
             return _queryBuilder.Build();
         }
 
-        public IQueryBuilder InContext(Guid id)
+        public PQueryBuilder InContext(Guid id)
         {
-            return _queryBuilder.InContext(id);
+            _queryBuilder.InContext(id);
+            return this;
         }
 
-        public IQueryBuilder MaxResults(int result)
+        public PQueryBuilder MaxResults(int result)
         {
-            return _queryBuilder.MaxResults(result);
+            _queryBuilder.MaxResults(result);
+            return this;
         }
 
-        public IQueryBuilder Must(ISearchTerm term)
+        public PQueryBuilder Must(ISearchTerm term)
         {
-            return _queryBuilder.Must(term);
+            _queryBuilder.Must(term);
+            return this;
         }
 
-        public IQueryBuilder MustAnyOf(params ISearchTerm[] terms)
+        public PQueryBuilder MustAnyOf(params ISearchTerm[] terms)
         {
-            return _queryBuilder.MustAnyOf(terms);
+            _queryBuilder.MustAnyOf(terms);
+            return this;
         }
 
-        public IQueryBuilder MustNot(ISearchTerm term)
+        public PQueryBuilder MustNot(ISearchTerm term)
         {
-            return _queryBuilder.MustNot(term);
+            _queryBuilder.MustNot(term);
+            return this;
         }
 
-        public IQueryBuilder SortBy(INamedField field, ListSortDirection direction)
+        public PQueryBuilder SortBy(INamedField field, ListSortDirection direction)
         {
-            return _queryBuilder.SortBy(field, direction);
+            _queryBuilder.SortBy(field, direction);
+            return this;
         }
-        public IQueryBuilder WithTypeFilter(string typeFilter)
+        public PQueryBuilder WithTypeFilter(string typeFilter)
         {
-            return _queryBuilder.WithTypeFilter(typeFilter);
+            _queryBuilder.WithTypeFilter(typeFilter);
+            return this;
         }
 
         public object Unwrap()

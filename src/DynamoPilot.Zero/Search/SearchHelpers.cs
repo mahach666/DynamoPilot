@@ -1,5 +1,6 @@
 using Ascon.Pilot.SDK;
 using Dynamo.Graph.Nodes;
+using DynamoPilot.Data.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,7 @@ namespace Search
         // ===== ГОТОВЫЕ КОМБИНАЦИИ ФИЛЬТРОВ =====
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchActiveDocuments(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchActiveDocuments(PQueryBuilder builder, int typeId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.ObjectState.BeAnyOf(ObjectState.Alive, ObjectState.Frozen));
@@ -83,7 +84,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByCreator(IQueryBuilder builder, int typeId, int creatorId)
+        public static PQueryBuilder SearchDocumentsByCreator(PQueryBuilder builder, int typeId, int creatorId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.CreatorId.Be(creatorId));
@@ -92,7 +93,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByDateRange(IQueryBuilder builder, int typeId, DateTime fromDate, DateTime toDate)
+        public static PQueryBuilder SearchDocumentsByDateRange(PQueryBuilder builder, int typeId, DateTime fromDate, DateTime toDate)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.CreatedDate.BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
@@ -101,7 +102,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByText(IQueryBuilder builder, int typeId, string searchText)
+        public static PQueryBuilder SearchDocumentsByText(PQueryBuilder builder, int typeId, string searchText)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.AllText.Be(searchText));
@@ -110,7 +111,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchRecentDocuments(IQueryBuilder builder, int typeId, int daysBack)
+        public static PQueryBuilder SearchRecentDocuments(PQueryBuilder builder, int typeId, int daysBack)
         {
             var fromDate = DateTime.Now.AddDays(-daysBack);
             var toDate = DateTime.Now;
@@ -121,7 +122,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsThisMonth(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchDocumentsThisMonth(PQueryBuilder builder, int typeId)
         {
             var startOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
@@ -132,7 +133,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsThisYear(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchDocumentsThisYear(PQueryBuilder builder, int typeId)
         {
             var startOfYear = new DateTime(DateTime.Now.Year, 1, 1);
             var endOfYear = new DateTime(DateTime.Now.Year, 12, 31);
@@ -143,7 +144,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchSignedDocuments(IQueryBuilder builder, int typeId, int positionId)
+        public static PQueryBuilder SearchSignedDocuments(PQueryBuilder builder, int typeId, int positionId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.SignedBy.Be(positionId));
@@ -152,7 +153,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsAwaitingSignature(IQueryBuilder builder, int typeId, int positionId)
+        public static PQueryBuilder SearchDocumentsAwaitingSignature(PQueryBuilder builder, int typeId, int positionId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.SignatureAwaitingBy.Be(positionId));
@@ -161,7 +162,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchLockedDocuments(IQueryBuilder builder, int typeId, int personId)
+        public static PQueryBuilder SearchLockedDocuments(PQueryBuilder builder, int typeId, int personId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.ObjectState.BeAnyOf(ObjectState.LockRequested, ObjectState.LockAccepted));
@@ -170,7 +171,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByAttribute(IQueryBuilder builder, int typeId, string attributeName, string attributeValue)
+        public static PQueryBuilder SearchDocumentsByAttribute(PQueryBuilder builder, int typeId, string attributeName, string attributeValue)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(AttributeFields.String(attributeName).Be(attributeValue));
@@ -179,7 +180,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByMultipleTypes(IQueryBuilder builder, int[] typeIds)
+        public static PQueryBuilder SearchDocumentsByMultipleTypes(PQueryBuilder builder, int[] typeIds)
         {
             builder.Must(ObjectFields.TypeId.BeAnyOf(typeIds));
             builder.Must(ObjectFields.ObjectState.BeAnyOf(ObjectState.Alive, ObjectState.Frozen));
@@ -187,7 +188,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByMultipleCreators(IQueryBuilder builder, int typeId, int[] creatorIds)
+        public static PQueryBuilder SearchDocumentsByMultipleCreators(PQueryBuilder builder, int typeId, int[] creatorIds)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.CreatorId.BeAnyOf(creatorIds));
@@ -196,7 +197,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByTextContainsAll(IQueryBuilder builder, int typeId, string[] searchWords)
+        public static PQueryBuilder SearchDocumentsByTextContainsAll(PQueryBuilder builder, int typeId, string[] searchWords)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.AllText.ContainsAll(searchWords));
@@ -205,7 +206,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByAttributeRange(IQueryBuilder builder, int typeId, string attributeName, double fromValue, double toValue)
+        public static PQueryBuilder SearchDocumentsByAttributeRange(PQueryBuilder builder, int typeId, string attributeName, double fromValue, double toValue)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(AttributeFields.Double(attributeName).BeInRange(fromValue, toValue));
@@ -214,7 +215,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByAttributeDateRange(IQueryBuilder builder, int typeId, string attributeName, DateTime fromDate, DateTime toDate)
+        public static PQueryBuilder SearchDocumentsByAttributeDateRange(PQueryBuilder builder, int typeId, string attributeName, DateTime fromDate, DateTime toDate)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(AttributeFields.DateTime(attributeName).BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
@@ -223,7 +224,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsByBooleanAttribute(IQueryBuilder builder, int typeId, string attributeName, bool attributeValue)
+        public static PQueryBuilder SearchDocumentsByBooleanAttribute(PQueryBuilder builder, int typeId, string attributeName, bool attributeValue)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(AttributeFields.Bool(attributeName).Be(attributeValue));
@@ -232,7 +233,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchDocumentsInRecycleBin(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchDocumentsInRecycleBin(PQueryBuilder builder, int typeId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.ObjectState.Be(ObjectState.InRecycleBin));
@@ -240,7 +241,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchFrozenDocuments(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchFrozenDocuments(PQueryBuilder builder, int typeId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.ObjectState.Be(ObjectState.Frozen));
@@ -248,7 +249,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchPublicDocuments(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchPublicDocuments(PQueryBuilder builder, int typeId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.IsSecret.Be(false));
@@ -257,7 +258,7 @@ namespace Search
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SearchSecretDocuments(IQueryBuilder builder, int typeId)
+        public static PQueryBuilder SearchSecretDocuments(PQueryBuilder builder, int typeId)
         {
             builder.Must(ObjectFields.TypeId.Be(typeId));
             builder.Must(ObjectFields.IsSecret.Be(true));

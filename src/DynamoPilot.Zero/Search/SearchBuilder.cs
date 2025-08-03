@@ -1,41 +1,38 @@
-using Ascon.Pilot.SDK;
 using Dynamo.Graph.Nodes;
-using DynamoPilot.App.Utils;
 using DynamoPilot.Data;
-using System;
-using System.Collections.Generic;
+using DynamoPilot.Data.Wrappers;
 
 namespace Search
 {
     public static class SearchBuilder
     {
         [IsDesignScriptCompatible]
-        public static IQueryBuilder CreateSearchBuilder()
+        public static PQueryBuilder CreateSearchBuilder()
         {
-            return StaticMetadata.SearchService.GetObjectQueryBuilder();
+            return new(StaticMetadata.SearchService.GetObjectQueryBuilder());
         }
 
         [IsDesignScriptCompatible]
-        public static IQueryBuilder SetMaxResults(IQueryBuilder builder, int maxResults)
+        public static PQueryBuilder SetMaxResults(PQueryBuilder builder, int maxResults)
         {
             builder.MaxResults(maxResults);
             return builder;
         }
 
-        // Выполнение поиска
-        [IsDesignScriptCompatible]
-        public static IReadOnlyCollection<Guid> ExecuteSearch(IQueryBuilder builder)
-        {
-            var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
-            return searcher.Search(builder, default);
-        }
+        //// Выполнение поиска
+        //[IsDesignScriptCompatible]
+        //public static IReadOnlyCollection<Guid> ExecuteSearch(PQueryBuilder builder)
+        //{
+        //    var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
+        //    return searcher.Search(builder, default);
+        //}
 
-        [IsDesignScriptCompatible]
-        public static IReadOnlyCollection<Guid> ExecuteSearchWithMaxResults(IQueryBuilder builder, int maxResults)
-        {
-            builder.MaxResults(maxResults);
-            var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
-            return searcher.Search(builder, default);
-        }
+        //[IsDesignScriptCompatible]
+        //public static IReadOnlyCollection<Guid> ExecuteSearchWithMaxResults(PQueryBuilder builder, int maxResults)
+        //{
+        //    builder.MaxResults(maxResults);
+        //    var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
+        //    return searcher.Search(builder, default);
+        //}
     }
-} 
+}
