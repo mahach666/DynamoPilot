@@ -18,21 +18,5 @@ namespace Search
             builder.MaxResults(maxResults);
             return builder;
         }
-
-        //// Выполнение поиска
-        //[IsDesignScriptCompatible]
-        //public static IReadOnlyCollection<Guid> ExecuteSearch(PQueryBuilder builder)
-        //{
-        //    var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
-        //    return searcher.Search(builder, default);
-        //}
-
-        //[IsDesignScriptCompatible]
-        //public static IReadOnlyCollection<Guid> ExecuteSearchWithMaxResults(PQueryBuilder builder, int maxResults)
-        //{
-        //    builder.MaxResults(maxResults);
-        //    var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
-        //    return searcher.Search(builder, default);
-        //}
     }
 }
