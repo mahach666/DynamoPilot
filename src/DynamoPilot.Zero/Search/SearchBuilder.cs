@@ -1,4 +1,3 @@
-using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
@@ -8,8 +7,7 @@ namespace Search
     public static class SearchBuilder
     {
         [IsDesignScriptCompatible]
-        [IsVisibleInDynamoLibrary(false)]
-        public static PQueryBuilder CreateSearchBuilder()
+        public static PQueryBuilder CreateSearchBuilder(bool updater = false)
         {
             return new(StaticMetadata.SearchService.GetObjectQueryBuilder());
         }
