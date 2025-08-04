@@ -68,15 +68,12 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByObjectState(PQueryBuilder builder, string objectState, bool reverse = false)
+        public static PQueryBuilder FilterByObjectState(PQueryBuilder builder, ObjectState objectState, bool reverse = false)
         {
-            if (Enum.TryParse<ObjectState>(objectState, out var state))
-            {
-                if (reverse)
-                    builder.MustNot(ObjectFields.ObjectState.Be(state));
-                else
-                    builder.Must(ObjectFields.ObjectState.Be(state));
-            }
+            if (reverse)
+                builder.MustNot(ObjectFields.ObjectState.Be(objectState));
+            else
+                builder.Must(ObjectFields.ObjectState.Be(objectState));
             return builder;
         }
 

@@ -13,7 +13,7 @@ namespace Search
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeId(int typeId)
         {
-            IQueryBuilder builder = StaticMetadata.SearchService.GetObjectQueryBuilder();
+            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder();
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.TypeId.Be(typeId));
 
@@ -29,7 +29,7 @@ namespace Search
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndContext(int typeId, Guid contextId)
         {
-            IQueryBuilder builder = StaticMetadata.SearchService.GetObjectQueryBuilder();
+            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder();
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.Context.Be(contextId));
             builder.Must(ObjectFields.TypeId.Be(typeId));
@@ -51,7 +51,7 @@ namespace Search
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndText(int typeId, string searchText)
         {
-            IQueryBuilder builder = StaticMetadata.SearchService.GetObjectQueryBuilder();
+            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder();
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.AllText.Be(searchText));
             builder.Must(ObjectFields.TypeId.Be(typeId));

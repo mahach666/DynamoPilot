@@ -8,19 +8,19 @@ using System.Collections.Generic;
 
 namespace DynamoPilot.Nodes
 {
-    [NodeName("SelectObjectState")]
+    [NodeName("SelectSearchMode")]
     [NodeCategory("PilotNodes.Search.Enums")]
-    [NodeDescription("Выбрать состояние объекта")]
+    [NodeDescription("Выбрать SearchMode")]
     [IsDesignScriptCompatible]
-    [OutPortNames("state")]
-    [OutPortTypes("ObjectState")]
-    [OutPortDescriptions("Выбранное состояние объекта")]
-    public class ObjectStateDropdown : DSDropDownBase
+    [OutPortNames("mode")]
+    [OutPortTypes("SearchMode")]
+    [OutPortDescriptions("Выбранное SearchMode")]
+    public class SearchModeDropdown : DSDropDownBase
     {
-        public ObjectStateDropdown() : base("SelectObjectState") { }
+        public SearchModeDropdown() : base("SelectObjectState") { }
 
         [JsonConstructor]
-        private ObjectStateDropdown(IEnumerable<PortModel> inPorts,
+        private SearchModeDropdown(IEnumerable<PortModel> inPorts,
                                     IEnumerable<PortModel> outPorts)
             : base("SelectObjectState", inPorts, outPorts) { }
 
@@ -29,7 +29,7 @@ namespace DynamoPilot.Nodes
             Items.Clear();
 
             // Получаем все состояния из Constants
-            var states = Enum.GetNames(typeof(ObjectState));
+            var states = Enum.GetNames(typeof(SearchMode));
 
             foreach (var state in states)
             {
@@ -54,7 +54,7 @@ namespace DynamoPilot.Nodes
             
             // Парсим строку в ObjectState
             var callNode = AstFactory.BuildFunctionCall(
-                new Func<string, ObjectState>(Utils.Parsers.ParseObjectState),
+                new Func<string, SearchMode>(Utils.Parsers.ParseSearchMode),
                 new List<AssociativeNode> { AstFactory.BuildStringNode(selectedState) });
 
             yield return AstFactory.BuildAssignment(

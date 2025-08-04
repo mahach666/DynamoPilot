@@ -1,7 +1,6 @@
 using Ascon.Pilot.SDK;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Data.Wrappers;
-using System;
 using System.Linq;
 
 namespace Search.Logic
@@ -9,12 +8,9 @@ namespace Search.Logic
     public static class LogicalOperators
     {
         [IsDesignScriptCompatible]
-        public static PQueryBuilder ExcludeObjectState(PQueryBuilder builder, string objectState)
+        public static PQueryBuilder ExcludeObjectState(PQueryBuilder builder, ObjectState objectState)
         {
-            if (Enum.TryParse<ObjectState>(objectState, out var state))
-            {
-                builder.MustNot(ObjectFields.ObjectState.Be(state));
-            }
+            builder.MustNot(ObjectFields.ObjectState.Be(objectState));
             return builder;
         }
 
@@ -56,4 +52,4 @@ namespace Search.Logic
             return builder;
         }
     }
-} 
+}
