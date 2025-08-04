@@ -8,7 +8,9 @@ namespace Search.Filters
     public static class ObjectFilters
     {
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterById(PQueryBuilder builder, Guid id, bool reverse = false)
+        public static PQueryBuilder FilterById(PQueryBuilder builder,
+            Guid id,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.Id.Be(id));
@@ -18,7 +20,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByIds(PQueryBuilder builder, Guid[] ids, bool reverse = false)
+        public static PQueryBuilder FilterByIds(PQueryBuilder builder,
+            Guid[] ids,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.Id.BeAnyOf(ids));
@@ -28,7 +32,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByParentId(PQueryBuilder builder, Guid parentId, bool reverse = false)
+        public static PQueryBuilder FilterByParentId(PQueryBuilder builder,
+            Guid parentId,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.ParentId.Be(parentId));
@@ -38,7 +44,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByParentIds(PQueryBuilder builder, Guid[] parentIds, bool reverse = false)
+        public static PQueryBuilder FilterByParentIds(PQueryBuilder builder,
+            Guid[] parentIds,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.ParentId.BeAnyOf(parentIds));
@@ -48,7 +56,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByTypeId(PQueryBuilder builder, int typeId, bool reverse = false)
+        public static PQueryBuilder FilterByTypeId(PQueryBuilder builder,
+            int typeId,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.TypeId.Be(typeId));
@@ -58,7 +68,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByTypeIds(PQueryBuilder builder, int[] typeIds, bool reverse = false)
+        public static PQueryBuilder FilterByTypeIds(PQueryBuilder builder,
+            int[] typeIds,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.TypeId.BeAnyOf(typeIds));
@@ -68,7 +80,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByObjectState(PQueryBuilder builder, ObjectState objectState, bool reverse = false)
+        public static PQueryBuilder FilterByObjectState(PQueryBuilder builder,
+            ObjectState objectState,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.ObjectState.Be(objectState));
@@ -78,7 +92,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByCreatorId(PQueryBuilder builder, int creatorId, bool reverse = false)
+        public static PQueryBuilder FilterByCreatorId(PQueryBuilder builder,
+            int creatorId,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.CreatorId.Be(creatorId));
@@ -88,7 +104,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByCreatorIds(PQueryBuilder builder, int[] creatorIds, bool reverse = false)
+        public static PQueryBuilder FilterByCreatorIds(PQueryBuilder builder,
+            int[] creatorIds,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.CreatorId.BeAnyOf(creatorIds));
@@ -98,7 +116,10 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByCreatedDateRange(PQueryBuilder builder, DateTime fromDate, DateTime toDate, bool reverse = false)
+        public static PQueryBuilder FilterByCreatedDateRange(PQueryBuilder builder,
+            DateTime fromDate,
+            DateTime toDate,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.CreatedDate.BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
@@ -108,7 +129,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByIsSecret(PQueryBuilder builder, bool isSecret, bool reverse = false)
+        public static PQueryBuilder FilterByIsSecret(PQueryBuilder builder,
+            bool isSecret,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.IsSecret.Be(isSecret));
@@ -118,7 +141,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByAllText(PQueryBuilder builder, string searchText, bool reverse = false)
+        public static PQueryBuilder FilterByAllText(PQueryBuilder builder,
+            string searchText,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.AllText.Be(searchText));
@@ -128,7 +153,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByAllTextContainsAll(PQueryBuilder builder, string[] searchWords, bool reverse = false)
+        public static PQueryBuilder FilterByAllTextContainsAll(PQueryBuilder builder,
+            string[] searchWords,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.AllText.ContainsAll(searchWords));
@@ -138,7 +165,10 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterBySnapshotsCreatedRange(PQueryBuilder builder, DateTime fromDate, DateTime toDate, bool reverse = false)
+        public static PQueryBuilder FilterBySnapshotsCreatedRange(PQueryBuilder builder,
+            DateTime fromDate,
+            DateTime toDate,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.SnapshotsCreated.BeInRange(fromDate.ToUniversalTime(), toDate.ToUniversalTime()));
@@ -148,7 +178,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByAllSnapshotsReason(PQueryBuilder builder, string reason, bool reverse = false)
+        public static PQueryBuilder FilterByAllSnapshotsReason(PQueryBuilder builder,
+            string reason,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.AllSnapshotsReason.Be(reason));
@@ -158,7 +190,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterBySignatureAwaitingBy(PQueryBuilder builder, int positionId, bool reverse = false)
+        public static PQueryBuilder FilterBySignatureAwaitingBy(PQueryBuilder builder,
+            int positionId,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.SignatureAwaitingBy.Be(positionId));
@@ -168,7 +202,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterBySignatureAwaitingByMultiple(PQueryBuilder builder, int[] positionIds, bool reverse = false)
+        public static PQueryBuilder FilterBySignatureAwaitingByMultiple(PQueryBuilder builder,
+            int[] positionIds,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.SignatureAwaitingBy.BeAnyOf(positionIds));
@@ -178,7 +214,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterBySignedBy(PQueryBuilder builder, int positionId, bool reverse = false)
+        public static PQueryBuilder FilterBySignedBy(PQueryBuilder builder,
+            int positionId,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.SignedBy.Be(positionId));
@@ -188,7 +226,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterBySignedByMultiple(PQueryBuilder builder, int[] positionIds, bool reverse = false)
+        public static PQueryBuilder FilterBySignedByMultiple(PQueryBuilder builder,
+            int[] positionIds,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.SignedBy.BeAnyOf(positionIds));
@@ -198,7 +238,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByStateChangedPersonId(PQueryBuilder builder, int personId, bool reverse = false)
+        public static PQueryBuilder FilterByStateChangedPersonId(PQueryBuilder builder,
+            int personId,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.StateChangedPersonId.Be(personId));
@@ -208,7 +250,9 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PQueryBuilder FilterByStateChangedPersonIds(PQueryBuilder builder, int[] personIds, bool reverse = false)
+        public static PQueryBuilder FilterByStateChangedPersonIds(PQueryBuilder builder,
+            int[] personIds,
+            bool reverse = false)
         {
             if (reverse)
                 builder.MustNot(ObjectFields.StateChangedPersonId.BeAnyOf(personIds));

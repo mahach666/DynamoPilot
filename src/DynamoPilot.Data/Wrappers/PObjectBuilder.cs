@@ -13,7 +13,7 @@ namespace DynamoPilot.Data.Wrappers
             _objectBuilder = objectBuilder;
         }
 
-        public IDataObject DataObject => _objectBuilder.DataObject;
+        public PDataObject DataObject => new(_objectBuilder.DataObject);
 
         public PObjectBuilder AddAccessRecords(int orgUnitId,
             AccessLevel level,

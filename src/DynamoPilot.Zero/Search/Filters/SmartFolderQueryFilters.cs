@@ -9,21 +9,25 @@ namespace Search.Filters
     public static class SmartFolderQueryFilters
     {
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithAuthor(PSmartFolderQueryBuilder smartFolderQueryBuilder, int authorId)
+        public static PSmartFolderQueryBuilder WithAuthor(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            int authorId)
         {
             smartFolderQueryBuilder.WithAuthor(authorId);
             return smartFolderQueryBuilder;
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithAuthors(PSmartFolderQueryBuilder smartFolderQueryBuilder, IEnumerable<int> authorIds)
+        public static PSmartFolderQueryBuilder WithAuthors(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            IEnumerable<int> authorIds)
         {
             smartFolderQueryBuilder.WithAuthors(authorIds);
             return smartFolderQueryBuilder;
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithCreatedInRange(PSmartFolderQueryBuilder smartFolderQueryBuilder, DateTime fromUtc, DateTime toUtc)
+        public static PSmartFolderQueryBuilder WithCreatedInRange(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            DateTime fromUtc,
+            DateTime toUtc)
         {
             smartFolderQueryBuilder.WithCreatedInRange(fromUtc, toUtc);
             return smartFolderQueryBuilder;
@@ -87,28 +91,32 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithKeyword(PSmartFolderQueryBuilder smartFolderQueryBuilder, string keyword)
+        public static PSmartFolderQueryBuilder WithKeyword(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            string keyword)
         {
             smartFolderQueryBuilder.WithKeyword(keyword);
             return smartFolderQueryBuilder;
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithQuotedKeyword(PSmartFolderQueryBuilder smartFolderQueryBuilder, string keyword)
+        public static PSmartFolderQueryBuilder WithQuotedKeyword(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            string keyword)
         {
             smartFolderQueryBuilder.WithQuotedKeyword(keyword);
             return smartFolderQueryBuilder;
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithSearchMode(PSmartFolderQueryBuilder smartFolderQueryBuilder, SearchMode searchMode)
+        public static PSmartFolderQueryBuilder WithSearchMode(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            SearchMode searchMode)
         {
             smartFolderQueryBuilder.WithSearchMode(searchMode);
             return smartFolderQueryBuilder;
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithState(PSmartFolderQueryBuilder smartFolderQueryBuilder, ObjectState state)
+        public static PSmartFolderQueryBuilder WithState(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            ObjectState state)
         {
             smartFolderQueryBuilder.WithState(state);
             return smartFolderQueryBuilder;
@@ -122,7 +130,8 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
-        public static PSmartFolderQueryBuilder WithTypes(PSmartFolderQueryBuilder smartFolderQueryBuilder, IEnumerable<int> typeIds)
+        public static PSmartFolderQueryBuilder WithTypes(PSmartFolderQueryBuilder smartFolderQueryBuilder,
+            IEnumerable<int> typeIds)
         {
             smartFolderQueryBuilder.WithTypes(typeIds);
             return smartFolderQueryBuilder;
