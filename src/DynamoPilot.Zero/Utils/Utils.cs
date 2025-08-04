@@ -19,14 +19,12 @@ namespace Utils
             {
                 if (prop.GetIndexParameters().Length == 0)
                 {
-                    //if (prop.Name.Contains("Unwrap")) continue;
                     result[prop.Name] = prop.GetValue(t) ?? "null";
                 }
             }
 
             foreach (var field in type.GetFields(BindingFlags.Instance | BindingFlags.Public))
             {
-                //if (field.Name.Contains("Unwrap")) continue;
                 result[field.Name] = field.GetValue(t) ?? "null";
             }
 

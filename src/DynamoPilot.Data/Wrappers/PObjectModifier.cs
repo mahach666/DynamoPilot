@@ -28,24 +28,24 @@ namespace DynamoPilot.Data.Wrappers
             _objectModifier.Clear();
         }
 
-        public IObjectBuilder Create(IDataObject parent, IType type)
+        public PObjectBuilder Create(IDataObject parent, IType type)
         {
-            return _objectModifier.Create(parent, type);
+            return new(_objectModifier.Create(parent, type));
         }
 
-        public IObjectBuilder Create(Guid id, IDataObject parent, IType type)
+        public PObjectBuilder Create(Guid id, IDataObject parent, IType type)
         {
-            return _objectModifier.Create(id, parent, type);
+            return new(_objectModifier.Create(id, parent, type));
         }
 
-        public IObjectBuilder Create(Guid parent, IType type)
+        public PObjectBuilder Create(Guid parent, IType type)
         {
-            return _objectModifier.Create(parent, type);
+            return new(_objectModifier.Create(parent, type));
         }
 
-        public IObjectBuilder CreateById(Guid id, Guid parentId, IType type)
+        public PObjectBuilder CreateById(Guid id, Guid parentId, IType type)
         {
-            return _objectModifier.CreateById(id, parentId, type);
+            return new(_objectModifier.CreateById(id, parentId, type));
         }
 
         public void CreateLink(IRelation relation1, IRelation relation2)
@@ -73,14 +73,14 @@ namespace DynamoPilot.Data.Wrappers
         //     _objectModifier.;
         //}
 
-        public IObjectBuilder Edit(IDataObject @object)
+        public PObjectBuilder Edit(IDataObject @object)
         {
-            return _objectModifier.Edit(@object);
+            return new(_objectModifier.Edit(@object));
         }
 
-        public IObjectBuilder EditById(Guid objectId)
+        public PObjectBuilder EditById(Guid objectId)
         {
-            return _objectModifier.EditById(objectId);
+            return new(_objectModifier.EditById(objectId));
         }
 
         public void Move(IDataObject @object, IDataObject newParent)
@@ -98,14 +98,14 @@ namespace DynamoPilot.Data.Wrappers
             _objectModifier.RemoveLink(obj, relation);
         }
 
-        public IObjectBuilder Restore(Guid objectId, Guid parentId)
+        public PObjectBuilder Restore(Guid objectId, Guid parentId)
         {
-            return _objectModifier.Restore(objectId, parentId);
+            return new(_objectModifier.Restore(objectId, parentId));
         }
 
-        public IObjectBuilder RestorePermanentlyDeletedObject(Guid id, Guid parentId, IType type)
+        public PObjectBuilder RestorePermanentlyDeletedObject(Guid id, Guid parentId, IType type)
         {
-            return _objectModifier.RestorePermanentlyDeletedObject(id, parentId, type);
+            return new(_objectModifier.RestorePermanentlyDeletedObject(id, parentId, type));
         }
 
         public object Unwrap()

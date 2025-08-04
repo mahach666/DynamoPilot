@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace DynamoPilot.Nodes
 {
     [NodeName("SelectSearchMode")]
-    [NodeCategory("PilotNodes.Search.Enums")]
+    [NodeCategory("PilotNodes.Enums")]
     [NodeDescription("Выбрать SearchMode")]
     [IsDesignScriptCompatible]
     [OutPortNames("mode")]

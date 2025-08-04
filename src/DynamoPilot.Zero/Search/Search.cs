@@ -13,10 +13,9 @@ namespace Search
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeId(int typeId)
         {
-            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder();
+            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder().Unwrap();
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.TypeId.Be(typeId));
-
 
             var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
 
@@ -25,15 +24,13 @@ namespace Search
             return results;
         }
 
-
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndContext(int typeId, Guid contextId)
         {
-            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder();
+            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder().Unwrap();
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.Context.Be(contextId));
             builder.Must(ObjectFields.TypeId.Be(typeId));
-
 
             var searcher = new SynkSearcher((ISearchService)StaticMetadata.SearchService.Unwrap());
 
@@ -51,7 +48,7 @@ namespace Search
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndText(int typeId, string searchText)
         {
-            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder();
+            IQueryBuilder builder = (IQueryBuilder)StaticMetadata.SearchService.GetObjectQueryBuilder().Unwrap();
             builder.MaxResults(int.MaxValue);
             builder.Must(ObjectFields.AllText.Be(searchText));
             builder.Must(ObjectFields.TypeId.Be(typeId));

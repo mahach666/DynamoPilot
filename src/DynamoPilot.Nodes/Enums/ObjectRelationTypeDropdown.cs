@@ -8,19 +8,19 @@ using System.Collections.Generic;
 
 namespace DynamoPilot.Nodes
 {
-    [NodeName("SelectObjectState")]
-    [NodeCategory("PilotNodes.Search.Enums")]
-    [NodeDescription("Выбрать состояние объекта")]
+    [NodeName("ObjectRelationType")]
+    [NodeCategory("PilotNodes.Enums")]
+    [NodeDescription("Выбрать тип связи")]
     [IsDesignScriptCompatible]
     [OutPortNames("state")]
     [OutPortTypes("ObjectState")]
-    [OutPortDescriptions("Выбранное состояние объекта")]
-    public class ObjectStateDropdown : DSDropDownBase
+    [OutPortDescriptions("Выбранный тип связи")]
+    public class ObjectRelationTypeDropdown : DSDropDownBase
     {
-        public ObjectStateDropdown() : base("SelectObjectState") { }
+        public ObjectRelationTypeDropdown() : base("SelectObjectState") { }
 
         [JsonConstructor]
-        private ObjectStateDropdown(IEnumerable<PortModel> inPorts,
+        private ObjectRelationTypeDropdown(IEnumerable<PortModel> inPorts,
                                     IEnumerable<PortModel> outPorts)
             : base("SelectObjectState", inPorts, outPorts) { }
 
@@ -28,8 +28,7 @@ namespace DynamoPilot.Nodes
         {
             Items.Clear();
 
-            // Получаем все состояния из Constants
-            var states = Enum.GetNames(typeof(ObjectState));
+            var states = Enum.GetNames(typeof(ObjectRelationType));
 
             foreach (var state in states)
             {
@@ -52,9 +51,8 @@ namespace DynamoPilot.Nodes
 
             var selectedState = Items[SelectedIndex].Item.ToString();
             
-            // Парсим строку в ObjectState
             var callNode = AstFactory.BuildFunctionCall(
-                new Func<string, ObjectState>(Utils.Parsers.ParseObjectState),
+                new Func<string, ObjectRelationType>(Utils.Parsers.ParseRelationType),
                 new List<AssociativeNode> { AstFactory.BuildStringNode(selectedState) });
 
             yield return AstFactory.BuildAssignment(

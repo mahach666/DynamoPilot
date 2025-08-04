@@ -18,7 +18,6 @@ namespace Utils
             return ObjectState.Alive;
         }
 
-
         [IsDesignScriptCompatible]
         [IsVisibleInDynamoLibrary(false)]
         public static SearchMode ParseSearchMode(string stateString)
@@ -28,6 +27,17 @@ namespace Utils
                 return result;
             }
             return SearchMode.Files;
+        }
+
+        [IsDesignScriptCompatible]
+        [IsVisibleInDynamoLibrary(false)]
+        public static ObjectRelationType ParseRelationType(string stateString)
+        {
+            if (Enum.TryParse<ObjectRelationType>(stateString, out var result))
+            {
+                return result;
+            }
+            return ObjectRelationType.Custom;
         }
     }
 }
