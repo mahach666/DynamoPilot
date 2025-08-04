@@ -17,35 +17,35 @@ namespace DynamoPilot.Data.Wrappers
         //   _searchService.;
         //}
 
-        public IAnnotationQueryBuilder GetAnnotationQueryBuilder()
+        public PAnnotationQueryBuilder GetAnnotationQueryBuilder()
         {
-            return _searchService.GetAnnotationQueryBuilder();
+            return new(_searchService.GetAnnotationQueryBuilder());
         }
 
-        public IQueryBuilder GetEmptyQueryBuilder()
+        public PQueryBuilder GetEmptyQueryBuilder()
         {
-            return _searchService.GetEmptyQueryBuilder();
+            return new(_searchService.GetEmptyQueryBuilder());
         }
 
-        public IQueryBuilder GetObjectQueryBuilder()
+        public PQueryBuilder GetObjectQueryBuilder()
         {
-            return _searchService.GetObjectQueryBuilder();
+            return new(_searchService.GetObjectQueryBuilder());
         }
 
-        public IQueryBuilder GetQueryBuilderFromTaskSearchExpression(string expression, bool invariantCulture, bool nonPersonalFilter)
-        {
-            return _searchService.GetQueryBuilderFromTaskSearchExpression(expression, invariantCulture, nonPersonalFilter);
-        }
-
-        public ISmartFolderQueryBuilder GetSmartFolderQueryBuilder()
-        {
-            return _searchService.GetSmartFolderQueryBuilder();
-        }
-
-        //public IQueryBuilder GetTaskQueryBuilder()
+        //public PQueryBuilder GetQueryBuilderFromTaskSearchExpression(string expression, bool invariantCulture, bool nonPersonalFilter)
         //{
-        //    return _searchService.GetTaskQueryBuilder();
+        //    return new(_searchService.GetQueryBuilderFromTaskSearchExpression(expression, invariantCulture, nonPersonalFilter));
         //}
+
+        public PSmartFolderQueryBuilder GetSmartFolderQueryBuilder()
+        {
+            return new(_searchService.GetSmartFolderQueryBuilder());
+        }
+
+        public PQueryBuilder GetTaskQueryBuilder()
+        {
+            return new(_searchService.GetTaskQueryBuilder());
+        }
 
         //public IObservable<ISearchResult> RunRefreshableSearch(IQueryBuilder query)
         //{
