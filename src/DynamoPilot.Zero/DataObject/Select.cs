@@ -1,4 +1,5 @@
 ﻿using Ascon.Pilot.SDK;
+using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.App.Utils;
 using DynamoPilot.Data;
@@ -40,6 +41,62 @@ namespace DataObject
         public static PDataObject GetByStrGuid(string id)
         {
             return GetByGuid(new Guid(id));
+        }
+
+        /// <summary>
+        /// Загружает список объектов по списку строковых GUID
+        /// </summary>
+        /// <param name="ids">Список строковых GUID</param>
+        /// <returns>Список объектов данных</returns>
+        [IsDesignScriptCompatible]
+        [IsVisibleInDynamoLibrary(false)]
+        public static List<PDataObject> GetByStrGuids(IList<string> ids)
+        {
+            if (ids == null || ids.Count == 0)
+                return new List<PDataObject>();
+
+            var validIds = new List<Guid>();
+            foreach (var s in ids)
+            {
+                if (Guid.TryParse(s, out var g))
+                    validIds.Add(g);
+            }
+
+            if (validIds.Count == 0)
+                return new List<PDataObject>();
+
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+            return loader.LoadObjects(validIds, default)
+                .Select(o => new PDataObject(o))
+                .ToList();
+        }
+
+        /// <summary>
+        /// Загружает список объектов по списку строковых GUID и возвращает массив
+        /// </summary>
+        /// <param name="ids">Список строковых GUID</param>
+        /// <returns>Массив объектов данных</returns>
+        [IsDesignScriptCompatible]
+        [IsVisibleInDynamoLibrary(false)]
+        public static PDataObject[] GetByStrGuidsArray(IList<string> ids)
+        {
+            if (ids == null || ids.Count == 0)
+                return Array.Empty<PDataObject>();
+
+            var validIds = new List<Guid>();
+            foreach (var s in ids)
+            {
+                if (Guid.TryParse(s, out var g))
+                    validIds.Add(g);
+            }
+
+            if (validIds.Count == 0)
+                return Array.Empty<PDataObject>();
+
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+            return loader.LoadObjects(validIds, default)
+                .Select(o => new PDataObject(o))
+                .ToArray();
         }
 
         /// <summary>
