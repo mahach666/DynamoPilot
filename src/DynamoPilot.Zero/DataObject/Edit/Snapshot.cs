@@ -21,6 +21,12 @@ namespace DataObject.Edit
         }
 
         [IsDesignScriptCompatible]
+        public static PDataObject CreateFileSnapshotByObj(PDataObject obj, string reason)
+        {
+            return CreateFileSnapshot(obj.Id, reason);
+        }
+
+        [IsDesignScriptCompatible]
         public static PDataObject MakeSnapshotActual(Guid objectId,
            string reason,
            PFilesSnapshot snapshot)
@@ -31,6 +37,14 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Clear();
 
             return Select.GetByGuid(objectId);
+        }
+
+        [IsDesignScriptCompatible]
+        public static PDataObject MakeSnapshotActualByObj(PDataObject obj,
+           string reason,
+           PFilesSnapshot snapshot)
+        {
+            return MakeSnapshotActual(obj.Id, reason, snapshot);
         }
 
 
@@ -56,6 +70,26 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Clear();
 
             return Select.GetByGuid(objectId);
+        }
+
+        [IsDesignScriptCompatible]
+        public static PDataObject ReplaceFileInSnapshotByObj(PDataObject obj,
+            DateTime snapshotCreated,
+            Guid fileToReplace,
+            string name,
+            Stream stream,
+            DateTime creationTime,
+            DateTime lastAccessTime,
+            DateTime lastWriteTime)
+        {
+            return ReplaceFileInSnapshot(obj.Id,
+                snapshotCreated,
+                fileToReplace,
+                name,
+                stream,
+                creationTime,
+                lastAccessTime,
+                lastWriteTime);
         }
     }
 }

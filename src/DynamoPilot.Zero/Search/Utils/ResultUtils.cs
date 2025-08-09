@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Search.Utils
 {
+    /// <summary>
+    /// Утилиты для обработки результатов поиска
+    /// </summary>
     public static class ResultUtils
     {
         //[IsDesignScriptCompatible]

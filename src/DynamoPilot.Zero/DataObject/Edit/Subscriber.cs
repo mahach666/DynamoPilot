@@ -5,8 +5,17 @@ using System;
 
 namespace DataObject.Edit
 {
+    /// <summary>
+    /// Ноды для управления подписчиками объектов данных в системе Pilot
+    /// </summary>
     public static class Subscriber
     {
+        /// <summary>
+        /// Добавляет подписчика к объекту по идентификатору
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="personId">Идентификатор пользователя</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddSubscriber(
             Guid objectId,
@@ -20,6 +29,12 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Добавляет подписчика к объекту
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="personId">Идентификатор пользователя</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddSubscriberByObj(
             PDataObject obj,
@@ -28,6 +43,12 @@ namespace DataObject.Edit
             return AddSubscriber(obj.Id, personId);
         }
 
+        /// <summary>
+        /// Удаляет подписчика объекта по идентификатору
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="personId">Идентификатор пользователя</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject RemoveSubscriber(Guid objectId, int personId)
         {
@@ -39,6 +60,12 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Удаляет подписчика объекта
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="personId">Идентификатор пользователя</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject RemoveSubscriberByObj(PDataObject obj, int personId)
         {

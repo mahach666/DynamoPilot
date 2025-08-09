@@ -8,8 +8,16 @@ using System.Collections.Generic;
 
 namespace Search
 {
+    /// <summary>
+    /// Ноды для поиска объектов данных в системе Pilot
+    /// </summary>
     public static class Search
     {
+        /// <summary>
+        /// Выполняет поиск объектов по идентификатору типа
+        /// </summary>
+        /// <param name="typeId">Идентификатор типа объектов</param>
+        /// <returns>Коллекция идентификаторов найденных объектов</returns>
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeId(int typeId)
         {
@@ -24,6 +32,12 @@ namespace Search
             return results;
         }
 
+        /// <summary>
+        /// Выполняет поиск объектов по типу и контексту
+        /// </summary>
+        /// <param name="typeId">Идентификатор типа объектов</param>
+        /// <param name="contextId">Идентификатор контекста</param>
+        /// <returns>Коллекция идентификаторов найденных объектов</returns>
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndContext(int typeId, Guid contextId)
         {
@@ -39,12 +53,24 @@ namespace Search
             return results;
         }
 
+        /// <summary>
+        /// Выполняет поиск объектов по типу и контексту (строковый идентификатор)
+        /// </summary>
+        /// <param name="typeId">Идентификатор типа объектов</param>
+        /// <param name="contextId">Строковое представление идентификатора контекста</param>
+        /// <returns>Коллекция идентификаторов найденных объектов</returns>
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndContext(int typeId, string contextId)
         {
             return ByTypeIdAndContext(typeId, Guid.Parse(contextId));
         }
 
+        /// <summary>
+        /// Выполняет поиск объектов по типу и текстовому содержимому
+        /// </summary>
+        /// <param name="typeId">Идентификатор типа объектов</param>
+        /// <param name="searchText">Текст для поиска</param>
+        /// <returns>Коллекция идентификаторов найденных объектов</returns>
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByTypeIdAndText(int typeId, string searchText)
         {
@@ -60,6 +86,11 @@ namespace Search
             return results;
         }
 
+        /// <summary>
+        /// Выполняет поиск объектов с использованием пользовательского построителя запросов
+        /// </summary>
+        /// <param name="builder">Построитель запросов для поиска</param>
+        /// <returns>Коллекция идентификаторов найденных объектов</returns>
         [IsDesignScriptCompatible]
         public static IReadOnlyCollection<Guid> ByCustomBuilder(PQueryBuilder builder)
         {

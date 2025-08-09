@@ -6,6 +6,9 @@ using System;
 
 namespace DataObject.Edit
 {
+    /// <summary>
+    /// Ноды для управления правами доступа к объектам данных
+    /// </summary>
     public static class Access
     {
         [IsDesignScriptCompatible]

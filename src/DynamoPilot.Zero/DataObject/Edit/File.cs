@@ -7,8 +7,17 @@ using System.IO;
 
 namespace DataObject.Edit
 {
+    /// <summary>
+    /// Ноды для работы с файлами объектов данных в системе Pilot
+    /// </summary>
     public static class File
     {
+        /// <summary>
+        /// Добавляет файл к объекту по пути
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="path">Путь к файлу</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddFileByPath(Guid objectId, string path)
         {
@@ -20,6 +29,12 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Добавляет файл к объекту по пути
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="path">Путь к файлу</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddFileByObjAndPath(PDataObject obj, string path)
         {

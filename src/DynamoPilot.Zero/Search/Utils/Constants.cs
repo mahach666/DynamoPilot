@@ -4,6 +4,9 @@ using System;
 
 namespace Search.Utils
 {
+    /// <summary>
+    /// Ноды для получения констант для поиска в системе Pilot
+    /// </summary>
     public static class Constants
     {
         //[IsDesignScriptCompatible]

@@ -5,8 +5,17 @@ using System.Linq;
 
 namespace Search.Logic
 {
+    /// <summary>
+    /// Ноды для логических операций в построителях запросов
+    /// </summary>
     public static class LogicalOperators
     {
+        /// <summary>
+        /// Исключает объекты с указанным состоянием
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="objectState">Исключаемое состояние объекта</param>
+        /// <returns>Обновленный построитель запросов</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder ExcludeObjectState(PQueryBuilder builder, ObjectState objectState)
         {
@@ -14,6 +23,12 @@ namespace Search.Logic
             return builder;
         }
 
+        /// <summary>
+        /// Исключает секретные или открытые объекты
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="isSecret">Исключать секретные объекты (true) или открытые (false)</param>
+        /// <returns>Обновленный построитель запросов</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder ExcludeIsSecret(PQueryBuilder builder, bool isSecret)
         {

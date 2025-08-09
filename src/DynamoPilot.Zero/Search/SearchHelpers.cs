@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace Search
 {
+    /// <summary>
+    /// Вспомогательные ноды для поиска в системе Pilot
+    /// </summary>
     public static class SearchHelpers
     {
         // ===== УДОБНЫЕ НОДЫ ДЛЯ РАБОТЫ С ДАТАМИ =====

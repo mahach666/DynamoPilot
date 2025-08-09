@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace Utils
 {
+    /// <summary>
+    /// Утилиты для работы с рефлексией и помощники для Dynamo
+    /// </summary>
     public static class Reflection
     {
         [IsDesignScriptCompatible]

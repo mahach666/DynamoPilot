@@ -5,8 +5,17 @@ using System;
 
 namespace DataObject.Edit
 {
+    /// <summary>
+    /// Ноды для работы с атрибутами объектов данных в системе Pilot
+    /// </summary>
     public static class Attribute
     {
+        /// <summary>
+        /// Удаляет атрибут объекта по идентификатору
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject RemoveAttribute(Guid objectId, string name)
         {
@@ -18,12 +27,25 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Удаляет атрибут объекта
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject RemoveAttributeByObj(PDataObject obj, string name)
         {
             return RemoveAttribute(obj.Id, name);
         }
 
+        /// <summary>
+        /// Устанавливает строковый атрибут объекта
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Строковое значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetStringAttribute(Guid objectId,
            string name,
@@ -37,6 +59,13 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает строковый атрибут объекта
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Строковое значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetStringAttributeByObj(
             PDataObject obj,
@@ -46,6 +75,13 @@ namespace DataObject.Edit
             return SetStringAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает целочисленный атрибут объекта
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Целочисленное значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetIntAttribute(Guid objectId,
             string name,
@@ -59,6 +95,13 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает целочисленный атрибут объекта
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Целочисленное значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetIntAttributeByObj(
             PDataObject obj,
@@ -222,6 +265,13 @@ namespace DataObject.Edit
             return SetStringArrAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут как объект (универсальный метод)
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Значение атрибута</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetAttributeAsObject(Guid objectId,
             string name,
@@ -235,6 +285,13 @@ namespace DataObject.Edit
             return Select.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут как объект (универсальный метод)
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Значение атрибута</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetAttributeAsObjectByObj(
             PDataObject obj,

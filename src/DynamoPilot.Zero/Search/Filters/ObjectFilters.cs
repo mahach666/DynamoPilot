@@ -5,8 +5,18 @@ using System;
 
 namespace Search.Filters
 {
+    /// <summary>
+    /// Ноды для фильтрации объектов в построителях запросов
+    /// </summary>
     public static class ObjectFilters
     {
+        /// <summary>
+        /// Фильтрует объекты по идентификатору
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="id">Идентификатор объекта</param>
+        /// <param name="reverse">Обратная фильтрация (исключение)</param>
+        /// <returns>Обновленный построитель запросов</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterById(PQueryBuilder builder,
             Guid id,

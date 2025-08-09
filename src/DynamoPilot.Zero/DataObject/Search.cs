@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace DataObject
 {
+    /// <summary>
+    /// Ноды для поиска объектов данных (закомментированные методы)
+    /// </summary>
     public static class Search
     {
         //[IsDesignScriptCompatible]

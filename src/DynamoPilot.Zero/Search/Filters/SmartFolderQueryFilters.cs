@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace Search.Filters
 {
+    /// <summary>
+    /// Ноды для фильтрации в умных папках
+    /// </summary>
     public static class SmartFolderQueryFilters
     {
         [IsDesignScriptCompatible]

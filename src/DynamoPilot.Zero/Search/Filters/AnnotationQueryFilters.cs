@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Search.Filters
 {
+    /// <summary>
+    /// Ноды для фильтрации аннотаций в построителях запросов
+    /// </summary>
     public static class AnnotationQueryFilters
     {
         [IsDesignScriptCompatible]

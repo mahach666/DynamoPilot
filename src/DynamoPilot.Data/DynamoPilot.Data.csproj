@@ -46,6 +46,7 @@
     <UserDirectoryPathBIM>$(AppData)\ASCON\Pilot-BIM\Development\DynamoPilot.App</UserDirectoryPathBIM>
     <UserDirectoryPathICE>$(AppData)\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App</UserDirectoryPathICE>
     <BaseOutputPath>..\bin\</BaseOutputPath>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <!-- Копирование файлов в папки для дебага -->

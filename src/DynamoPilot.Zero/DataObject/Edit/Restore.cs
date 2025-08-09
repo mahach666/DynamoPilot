@@ -6,6 +6,9 @@ using System;
 
 namespace DataObject.Edit
 {
+    /// <summary>
+    /// Ноды для восстановления объектов данных в системе Pilot
+    /// </summary>
     public static class Restore
     {
         [IsDesignScriptCompatible]

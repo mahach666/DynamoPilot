@@ -4,8 +4,17 @@ using DynamoPilot.Data.Wrappers;
 
 namespace Relation
 {
+    /// <summary>
+    /// Ноды для удаления связей между объектами в системе Pilot
+    /// </summary>
     public static class Delete
     {
+        /// <summary>
+        /// Удаляет связь между объектом и связью
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="relation">Связь для удаления</param>
+        /// <returns>True, если удаление прошло успешно</returns>
         public static bool RemoveLink(PDataObject obj, PRelation relation)
         {
             try

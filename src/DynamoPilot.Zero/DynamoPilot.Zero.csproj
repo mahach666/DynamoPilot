@@ -49,6 +49,7 @@
     <UserDirectoryPathBIM>$(AppData)\ASCON\Pilot-BIM\Development\DynamoPilot.App\packages\DynamoPilot\bin</UserDirectoryPathBIM>
     <UserDirectoryPathICE>$(AppData)\ASCON\Pilot-ICE Enterprise\Development\DynamoPilot.App\packages\DynamoPilot\bin</UserDirectoryPathICE>
     <BaseOutputPath>..\bin\</BaseOutputPath>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <!-- Копируем только основную библиотеку (и pdb) -->

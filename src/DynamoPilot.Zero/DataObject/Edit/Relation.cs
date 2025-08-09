@@ -6,6 +6,9 @@ using System;
 
 namespace DataObject.Edit
 {
+    /// <summary>
+    /// Ноды для добавления связей к объектам данных
+    /// </summary>
     public static class Relation
     {
         [IsDesignScriptCompatible]

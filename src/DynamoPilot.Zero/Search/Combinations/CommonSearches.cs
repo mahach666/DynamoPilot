@@ -5,6 +5,9 @@ using System;
 
 namespace Search.Combinations
 {
+    /// <summary>
+    /// Ноды для часто используемых комбинаций поисковых запросов
+    /// </summary>
     public static class CommonSearches
     {
         [IsDesignScriptCompatible]

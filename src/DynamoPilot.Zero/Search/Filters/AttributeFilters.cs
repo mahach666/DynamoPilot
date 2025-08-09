@@ -5,6 +5,9 @@ using System;
 
 namespace Search.Filters
 {
+    /// <summary>
+    /// Ноды для фильтрации объектов по атрибутам в построителях запросов
+    /// </summary>
     public static class AttributeFilters
     {
         [IsDesignScriptCompatible]

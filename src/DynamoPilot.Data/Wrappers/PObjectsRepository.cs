@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DynamoPilot.Data.Wrappers
 {
+    /// <summary>
+    /// Обертка для IObjectsRepository, предоставляющая методы для работы с объектами Pilot SDK
+    /// </summary>
     public class PObjectsRepository : IWrapper
     {
         private readonly IObjectsRepository _objectsRepository;

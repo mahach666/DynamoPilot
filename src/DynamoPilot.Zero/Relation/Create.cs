@@ -7,8 +7,19 @@ using System.Collections.Generic;
 
 namespace Relation
 {
+    /// <summary>
+    /// Ноды для создания связей между объектами в системе Pilot
+    /// </summary>
     public static class Create
     {
+        /// <summary>
+        /// Создает связь по идентификатору целевого объекта
+        /// </summary>
+        /// <param name="relationId">Идентификатор связи</param>
+        /// <param name="relationType">Тип связи</param>
+        /// <param name="relationName">Имя связи</param>
+        /// <param name="targetId">Идентификатор целевого объекта</param>
+        /// <returns>Созданная связь</returns>
         [IsDesignScriptCompatible]
         public static PRelation CreateByTargetId(Guid relationId,
             ObjectRelationType relationType,

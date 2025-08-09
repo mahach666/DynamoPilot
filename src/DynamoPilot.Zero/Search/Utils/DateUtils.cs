@@ -3,14 +3,25 @@ using System;
 
 namespace Search.Utils
 {
+    /// <summary>
+    /// Ноды для работы с датами в поисковых запросах
+    /// </summary>
     public static class DateUtils
     {
+        /// <summary>
+        /// Получает сегодняшнюю дату
+        /// </summary>
+        /// <returns>Сегодняшняя дата</returns>
         [IsDesignScriptCompatible]
         public static DateTime GetToday()
         {
             return DateTime.Today;
         }
 
+        /// <summary>
+        /// Получает текущие дату и время
+        /// </summary>
+        /// <returns>Текущие дата и время</returns>
         [IsDesignScriptCompatible]
         public static DateTime GetNow()
         {
