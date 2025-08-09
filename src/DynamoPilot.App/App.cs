@@ -27,13 +27,15 @@ namespace DynamoPilot.App
         [ImportingConstructor]
         public App(IObjectsRepository objectsRepository,
             IObjectModifier objectModifier,
-            ISearchService searchService)
+            ISearchService searchService,
+            IPilotDialogService pilotDialogService)
         {
             _pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            StaticMetadata.ObjectsRepository = new PObjectsRepository(objectsRepository);
-            StaticMetadata.ObjectModifier = new PObjectModifier(objectModifier);
-            StaticMetadata.SearchService = new PSearchService(searchService);
+            StaticMetadata.ObjectsRepository = new(objectsRepository);
+            StaticMetadata.ObjectModifier = new(objectModifier);
+            StaticMetadata.SearchService = new(searchService);
+            StaticMetadata.PilotDialogService = new(pilotDialogService);
         }
 
         public void Build(IMenuBuilder builder, MainViewContext context)

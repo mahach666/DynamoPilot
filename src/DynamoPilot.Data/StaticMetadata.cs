@@ -7,5 +7,6 @@ namespace DynamoPilot.Data
         public static PObjectsRepository ObjectsRepository { get; set; }
         public static PObjectModifier ObjectModifier { get; set; }
         public static PSearchService SearchService { get; set; }
+        public static PPilotDialogService PilotDialogService { get; set; }
     }
 }
