@@ -23,14 +23,14 @@ namespace DynamoPilot.Data.Wrappers
         //    _pilotDialogService.Dispose;
         //}
 
-        public IPilotDialogOptions NewOptions()
+        public PPilotDialogOptions NewOptions()
         {
-            return _pilotDialogService.NewOptions();
+            return new(_pilotDialogService.NewOptions());
         }
 
-        public IPositionDialogOptions NewPositionOptions()
+        public PPositionDialogOptions NewPositionOptions()
         {
-            return _pilotDialogService.NewPositionOptions();
+            return new(_pilotDialogService.NewPositionOptions());
         }
 
         public void ShowBalloon(string title, string message, PilotBalloonIcon icon)
@@ -38,14 +38,16 @@ namespace DynamoPilot.Data.Wrappers
             _pilotDialogService.ShowBalloon(title, message, icon);
         }
 
-        public IEnumerable<PDataObject> ShowDocumentsSelectorByObjectTypeDialog(IEnumerable<int> objectTypeIds, PPilotDialogOptions options = null)
+        public IEnumerable<PDataObject> ShowDocumentsSelectorByObjectTypeDialog(IEnumerable<int> objectTypeIds,
+            PPilotDialogOptions options = null)
         {
             IPilotDialogOptions pilotDialogOptions = null;
             if (options != null) pilotDialogOptions = (IPilotDialogOptions)options.Unwrap();
             return _pilotDialogService.ShowDocumentsSelectorByObjectTypeDialog(objectTypeIds, pilotDialogOptions).Select(i=>new PDataObject(i));
         }
 
-        public IEnumerable<PDataObject> ShowDocumentsSelectorByObjectTypeDialogAndNavigate(IEnumerable<int> objectTypeIds, Guid parentId, PPilotDialogOptions options = null)
+        public IEnumerable<PDataObject> ShowDocumentsSelectorByObjectTypeDialogAndNavigate(IEnumerable<int> objectTypeIds,
+            Guid parentId, PPilotDialogOptions options = null)
         {
             IPilotDialogOptions pilotDialogOptions = null;
             if (options != null) pilotDialogOptions = (IPilotDialogOptions)options.Unwrap();
@@ -90,9 +92,9 @@ namespace DynamoPilot.Data.Wrappers
         //    _pilotDialogService.ShowNewTasksDialog( template,  options );
         //}
 
-        public void ShowObjectDialog(Guid parentId, int objectTypeId, IObjectModifier modifier, bool showDocumentPreview)
+        public void ShowObjectDialog(Guid parentId, int objectTypeId, PObjectModifier modifier, bool showDocumentPreview)
         {
-            _pilotDialogService.ShowObjectDialog(parentId, objectTypeId, modifier, showDocumentPreview);
+            _pilotDialogService.ShowObjectDialog(parentId, objectTypeId, (IObjectModifier)modifier.Unwrap(), showDocumentPreview);
         }
 
         public IEnumerable<IOrganisationUnit> ShowPositionSelectorDialog(PPilotDialogOptions options = null)
@@ -102,12 +104,13 @@ namespace DynamoPilot.Data.Wrappers
             return _pilotDialogService.ShowPositionSelectorDialog(pilotDialogOptions);
         }
 
-        public IEnumerable<IOrganisationUnit> ShowPositionSelectorDialogWithOptions(IPositionDialogOptions positionOption)
+        public IEnumerable<IOrganisationUnit> ShowPositionSelectorDialogWithOptions(PPositionDialogOptions positionOption)
         {
-            return _pilotDialogService.ShowPositionSelectorDialogWithOptions(positionOption);
+            return _pilotDialogService.ShowPositionSelectorDialogWithOptions((IPositionDialogOptions)positionOption.Unwrap());
         }
 
-        public IEnumerable<PDataObject> ShowReferenceBookDialog(string referenceBookConfiguration, string serializationId = null, PPilotDialogOptions options = null)
+        public IEnumerable<PDataObject> ShowReferenceBookDialog(string referenceBookConfiguration, string serializationId = null,
+            PPilotDialogOptions options = null)
         {
             IPilotDialogOptions pilotDialogOptions = null;
             if (options != null) pilotDialogOptions = (IPilotDialogOptions)options.Unwrap();
