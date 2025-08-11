@@ -24,7 +24,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -143,7 +143,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -165,7 +165,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -187,7 +187,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -209,7 +209,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -231,7 +231,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -253,7 +253,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -282,7 +282,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>

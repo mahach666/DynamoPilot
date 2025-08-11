@@ -15,7 +15,7 @@ using System.Windows.Controls;
 namespace DynamoPilot.Nodes.Dialogs
 {
     [NodeName("SelectDocuments")]
-    [NodeCategory("PilotNodes.DataObject.Select")]
+    [NodeCategory("PilotNodes.DataObject.Get")]
     [NodeDescription("Открывает диалог выбора документов Pilot и возвращает выбранные объекты")] 
     [IsDesignScriptCompatible]
     [OutPortNames("documents")]
@@ -50,7 +50,7 @@ namespace DynamoPilot.Nodes.Dialogs
             var listExpr = AstFactory.BuildExprList(idNodes);
 
             var buildObjectsNode = AstFactory.BuildFunctionCall(
-                new Func<IList<string>, PDataObject[]>(global::DataObject.Select.GetByStrGuidsArray),
+                new Func<IList<string>, PDataObject[]>(global::DataObject.Get.GetByStrGuidsArray),
                 new List<AssociativeNode> { listExpr });
 
             yield return AstFactory.BuildAssignment(

@@ -6,7 +6,6 @@ using Dynamo.ViewModels;
 using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
-using DynamoPilot.Data.Wrappers;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.IO;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DynamoPilot.Zero.OrganisationUnit
 {
-    public static class Select
+    public static class Get
     {
         /// <summary>
         /// Получает организационное подразделение по идентификатору

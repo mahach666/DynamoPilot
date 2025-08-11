@@ -7,14 +7,14 @@ namespace ObjectsRepository
     /// <summary>
     /// Ноды для выбора и получения репозитория объектов в системе Pilot
     /// </summary>
-    public static class Select
+    public static class Get
     {
         /// <summary>
         /// Получить экземпляр ObjectsRepository
         /// </summary>
         /// <returns>PObjectsRepository</returns>
         [IsDesignScriptCompatible]
-        public static PObjectsRepository Get()
+        public static PObjectsRepository GetObjectsRepository()
         {
             return StaticMetadata.ObjectsRepository;
         }

@@ -14,7 +14,7 @@ namespace DataObject
     /// <summary>
     /// Ноды для выбора и поиска объектов данных в системе Pilot
     /// </summary>
-    public static class Select
+    public static class Get
     {
         /// <summary>
         /// Получает объект данных по уникальному идентификатору

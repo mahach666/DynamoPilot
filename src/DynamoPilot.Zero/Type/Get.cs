@@ -9,7 +9,7 @@ namespace Type
     /// <summary>
     /// Ноды для выбора типов объектов в системе Pilot
     /// </summary>
-    public static class Select
+    public static class Get
     {
         /// <summary>
         /// Получает список всех типов объектов

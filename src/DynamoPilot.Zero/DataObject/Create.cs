@@ -23,7 +23,7 @@ namespace DataObject
             var builder = StaticMetadata.ObjectModifier.Create((IDataObject)parent.Unwrap(), (IType)type.Unwrap());
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(builder.DataObject.Id);
+            return Get.GetByGuid(builder.DataObject.Id);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace DataObject
             var builder = StaticMetadata.ObjectModifier.Create(id, (IDataObject)parent.Unwrap(), (IType)type.Unwrap());
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(builder.DataObject.Id);
+            return Get.GetByGuid(builder.DataObject.Id);
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace DataObject
             var builder = StaticMetadata.ObjectModifier.Create(parentId, (IType)type.Unwrap());
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(builder.DataObject.Id);
+            return Get.GetByGuid(builder.DataObject.Id);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace DataObject
             var builder = StaticMetadata.ObjectModifier.CreateById(id, parentId, (IType)type.Unwrap());
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(builder.DataObject.Id);
+            return Get.GetByGuid(builder.DataObject.Id);
         }
     }
 }

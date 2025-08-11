@@ -11,7 +11,7 @@ using System.Linq;
 namespace DynamoPilot.Nodes
 {
     [NodeName("SelectType")]
-    [NodeCategory("PilotNodes.Type.Select")]
+    [NodeCategory("PilotNodes.Type.Get")]
     [NodeDescription("Выбрать один тип из репозитория")]
     [IsDesignScriptCompatible]
     [OutPortNames("type")]
@@ -53,7 +53,7 @@ namespace DynamoPilot.Nodes
             var idNode = AstFactory.BuildIntNode((int)Items[SelectedIndex].Item);
 
             var callNode = AstFactory.BuildFunctionCall(
-                new Func<int, PType>(Type.Select.GetTypeById),
+                new Func<int, PType>(Type.Get.GetTypeById),
                 new List<AssociativeNode> { idNode });
 
             yield return AstFactory.BuildAssignment(

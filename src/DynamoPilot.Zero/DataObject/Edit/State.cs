@@ -23,7 +23,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.ChangeState((IDataObject)@object.Unwrap(), state);
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(@object.Id);
+            return Get.GetByGuid(@object.Id);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         /// <summary>

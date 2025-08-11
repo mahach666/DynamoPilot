@@ -17,7 +17,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Restore(objectId, parentId);
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(objectId);
+            return Get.GetByGuid(objectId);
         }
 
         [IsDesignScriptCompatible]
@@ -26,7 +26,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.Restore(obj.Id, parentId);
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(obj.Id);
+            return Get.GetByGuid(obj.Id);
         }
 
         [IsDesignScriptCompatible]
@@ -35,7 +35,7 @@ namespace DataObject.Edit
             StaticMetadata.ObjectModifier.RestorePermanentlyDeletedObject(id, parentId, type);
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
-            return Select.GetByGuid(id);
+            return Get.GetByGuid(id);
         }
     }
 }

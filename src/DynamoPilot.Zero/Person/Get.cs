@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Person
 {
-    public static class Select
+    public static class Get
     {
         /// <summary>
         /// Получает список всех пользователей
