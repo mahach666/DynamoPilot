@@ -3,7 +3,7 @@ using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System.Collections.Generic;
 
-namespace DynamoPilot.Zero.OrganisationUnit
+namespace OrganisationUnit
 {
     public static class Get
     {

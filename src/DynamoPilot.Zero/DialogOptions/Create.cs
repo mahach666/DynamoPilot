@@ -2,28 +2,30 @@
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace DynamoPilot.Zero.DialogOptions
+namespace DialogOptions
 {
     public static class Create
     {
         [IsDesignScriptCompatible]
-        public static PPilotDialogOptions CreatePilotDialogOptions(bool allowChecking = false,
+        public static PPilotDialogOptions CreatePilotDialogOptions(
+            List<object> nodes,
+            bool allowChecking = false,
             bool allowMultiSelect = false,
-            string caption = null,
-            IEnumerable<object> nodes = null,
-            string infoMessage = null,
-            string okButtonCaption = null)
+            string caption = "",
+            string infoMessage = "",
+            string okButtonCaption = "")
         {
             var dialogOptions = StaticMetadata.PilotDialogService.NewOptions();
 
             dialogOptions.WithAllowChecking(allowChecking);
             dialogOptions.WithAllowMultiSelect(allowMultiSelect);
 
-            if (caption != null) dialogOptions.WithCaption(caption);
-            if (nodes != null) dialogOptions.WithCheckedNodes(nodes);
-            if (infoMessage != null) dialogOptions.WithInfoMessage(infoMessage);
-            if (okButtonCaption != null) dialogOptions.WithOkButtonCaption(okButtonCaption);
+            if (!string.IsNullOrWhiteSpace(caption)) dialogOptions.WithCaption(caption);
+            if (nodes != null && nodes.Any()) dialogOptions.WithCheckedNodes(nodes);
+            if (!string.IsNullOrWhiteSpace(infoMessage)) dialogOptions.WithInfoMessage(infoMessage);
+            if (!string.IsNullOrWhiteSpace(okButtonCaption)) dialogOptions.WithOkButtonCaption(okButtonCaption);
 
             return dialogOptions;
         }
