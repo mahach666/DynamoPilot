@@ -58,9 +58,20 @@ namespace DynamoPilot.Data.Wrappers
 
         public IEnumerable<PDataObject> ShowDocumentsSelectorDialog(PPilotDialogOptions options = null)
         {
-            IPilotDialogOptions pilotDialogOptions = null;
-            if (options != null) pilotDialogOptions = (IPilotDialogOptions)options.Unwrap();
-            return _pilotDialogService.ShowDocumentsSelectorDialog(pilotDialogOptions).Select(i => new PDataObject(i)); ;
+            // Если опции не переданы, используем перегрузку без параметров,
+            // так как передача null в перегрузку с IPilotDialogOptions может
+            // вести себя иначе в некоторых версиях SDK
+            if (options == null)
+            {
+                return _pilotDialogService
+                    .ShowDocumentsSelectorDialog()
+                    .Select(i => new PDataObject(i));
+            }
+
+            var pilotDialogOptions = (IPilotDialogOptions)options.Unwrap();
+            return _pilotDialogService
+                .ShowDocumentsSelectorDialog(pilotDialogOptions)
+                .Select(i => new PDataObject(i));
         }
 
         public IEnumerable<PDataObject> ShowDocumentsSelectorDialogAndNavigate(Guid parentId, PPilotDialogOptions options = null)
