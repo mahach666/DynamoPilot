@@ -29,6 +29,8 @@ namespace DynamoPilot.Data.Wrappers
 
         public bool IsChief => _organisationUnit.IsChief;
 
+        public int Person() => _organisationUnit.Person();
+
         public object Unwrap()
         {
             return _organisationUnit;

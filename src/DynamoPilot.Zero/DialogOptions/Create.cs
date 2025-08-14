@@ -1,4 +1,5 @@
-﻿using Dynamo.Graph.Nodes;
+﻿using Autodesk.DesignScript.Runtime;
+using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ namespace DialogOptions
     public static class Create
     {
         [IsDesignScriptCompatible]
+        [IsVisibleInDynamoLibrary(false)]
+
         public static PPilotDialogOptions CreatePilotDialogOptions(
             List<object> nodes,
             bool allowChecking = false,
@@ -31,6 +34,8 @@ namespace DialogOptions
         }
 
         [IsDesignScriptCompatible]
+        [IsVisibleInDynamoLibrary(false)]
+
         public static PPositionDialogOptions CreatePositionDialogOptions(
             bool allowChecking = false,
             bool allowMultiSelect = false,

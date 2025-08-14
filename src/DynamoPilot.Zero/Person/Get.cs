@@ -12,7 +12,7 @@ namespace Person
         /// </summary>
         /// <returns>Коллекция пользователей</returns>
         [IsDesignScriptCompatible]
-        public static IEnumerable<PPerson> GetPeople()
+        public static IEnumerable<PPerson> GetAll()
         {
             return StaticMetadata.ObjectsRepository.GetPeople();
         }
@@ -23,7 +23,7 @@ namespace Person
         /// <param name="id">Идентификатор пользователя</param>
         /// <returns>Пользователь</returns>
         [IsDesignScriptCompatible]
-        public static PPerson GetPerson(int id)
+        public static PPerson GetById(int id)
         {
             return StaticMetadata.ObjectsRepository.GetPerson(id);
         }
@@ -33,9 +33,19 @@ namespace Person
         /// </summary>
         /// <returns>Текущий пользователь</returns>
         [IsDesignScriptCompatible]
-        public static PPerson GetCurrentPerson()
+        public static PPerson GetCurrent()
         {
             return StaticMetadata.ObjectsRepository.GetCurrentPerson();
+        }
+
+        [IsDesignScriptCompatible]
+        public static PPerson GetByPosition(POrganisationUnit pOrganisationUnit)
+        {
+            var person = pOrganisationUnit.Person();
+            if (pOrganisationUnit == null || person < 1)
+                return null;
+
+            return GetById(person);
         }
     }
 }
