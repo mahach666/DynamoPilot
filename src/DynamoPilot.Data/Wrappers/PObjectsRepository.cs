@@ -40,6 +40,11 @@ namespace DynamoPilot.Data.Wrappers
             return _objectsRepository.GetDatabaseId();
         }
 
+        public IEnumerable<PUserState> GetUserStates()
+        {
+            return _objectsRepository.GetUserStates().Select(i => new PUserState(i));
+        }
+
         //public IObservable<IHistoryItem> GetHistoryItems(IEnumerable<Guid> ids)
         //{
         //    return _objectsRepository.GetHistoryItems(ids);
