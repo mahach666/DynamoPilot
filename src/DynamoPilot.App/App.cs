@@ -6,6 +6,7 @@ using Dynamo.ViewModels;
 using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
+using System;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.IO;
@@ -45,13 +46,13 @@ namespace DynamoPilot.App
 
         public void OnMenuItemClick(string name, MainViewContext context)
         {
-            InitDynamoModel();
-
             if (_view != null)
             {
                 _view.Focus();
                 return;
             }
+
+            InitDynamoModel();
 
             var stubWatch = new NullWatch3DViewModel(_model);
 
@@ -68,8 +69,30 @@ namespace DynamoPilot.App
                 Owner = Application.Current.MainWindow,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner
             };
-            _view.Closed += (_, __) => _view = null;
+            _view.Closed += OnViewClosed;
             _view.Show();
+        }
+
+        private void OnViewClosed(object sender, EventArgs e)
+        {
+            if (_view != null)
+            {
+                _view.Closed -= OnViewClosed;
+                _view = null;
+            }
+
+            if (_model != null)
+            {
+                try
+                {
+                    _model.Dispose();
+                }
+                catch { }
+                finally
+                {
+                    _model = null;
+                }
+            }
         }
 
         private void InitDynamoModel()
