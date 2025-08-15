@@ -60,7 +60,7 @@ namespace Search
         /// <param name="contextId">Строковое представление идентификатора контекста</param>
         /// <returns>Коллекция идентификаторов найденных объектов</returns>
         [IsDesignScriptCompatible]
-        public static IReadOnlyCollection<Guid> ByTypeIdAndContext(int typeId, string contextId)
+        public static IReadOnlyCollection<Guid> ByTypeStrIdAndContext(int typeId, string contextId)
         {
             return ByTypeIdAndContext(typeId, Guid.Parse(contextId));
         }

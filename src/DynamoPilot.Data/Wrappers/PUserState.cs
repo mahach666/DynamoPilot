@@ -13,7 +13,7 @@ namespace DynamoPilot.Data.Wrappers
         }
         public override string ToString()
         {
-            return $"{Name} ({Id})";
+            return $"{Title} ({Name} - {Id})";
         }
         public Guid Id => _userState.Id;
 

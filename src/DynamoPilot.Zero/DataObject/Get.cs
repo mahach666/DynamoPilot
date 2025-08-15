@@ -170,5 +170,33 @@ namespace DataObject
                 .Select(o => new PDataObject(o))
                 .ToList();
         }
+
+        /// <summary>
+        /// Рекурсивно получает дочерние объекты по идентификатору типа
+        /// </summary>
+        /// <param name="pDataObject"></param>
+        /// <param name="id"></param>
+        /// <param name="depth"></param>
+        /// <returns></returns>
+        public static List<PDataObject> GetСhildrenByTypeId(PDataObject pDataObject, int id, int depth = 99)
+        {
+            var result = new List<PDataObject>();
+            if (depth <= 0) return result;
+
+            var loader = new SynkObjectLoader((IObjectsRepository)StaticMetadata.ObjectsRepository.Unwrap());
+
+            var children = loader.LoadObjects(pDataObject.Children,default)                
+                .Select(o => new PDataObject(o))
+                .ToList();
+
+            result.AddRange(children.Where(o => o.Type.Id == id));
+
+            foreach (var child in children)
+            {
+                result.AddRange(GetСhildrenByTypeId(child, id, depth - 1));
+            }
+
+            return result;
+        }
     }
 }
