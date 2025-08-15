@@ -99,8 +99,60 @@
 
   <!-- Создаем архив на релизе -->
   <Target Name="CreateZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-    <Delete Files="$(OutputPath)\*.pdb; $(OutputPath)\*.xml" />
-    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)\* -DestinationPath $(OutputPath)\..\$(AssemblyProduct).zip -Force&quot;" />
+    <!-- Создаем временную папку для архива -->
+    <PropertyGroup>
+      <TempArchiveDir>$(OutputPath)TempArchive</TempArchiveDir>
+    </PropertyGroup>
+    
+    <!-- Очищаем временную папку если она существует -->
+    <RemoveDir Directories="$(TempArchiveDir)" Condition="Exists('$(TempArchiveDir)')" />
+    <MakeDir Directories="$(TempArchiveDir)" />
+    
+    <!-- Копируем основные файлы App (без pdb, xml, zip архивов и временных папок) -->
+    <ItemGroup>
+      <AppFiles Include="$(OutputPath)**\*.*" Exclude="$(OutputPath)**\*.pdb;$(OutputPath)**\*.xml;$(OutputPath)**\*.zip;$(OutputPath)TempArchive\**\*.*;$(OutputPath)TestExtract\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(AppFiles)" 
+          DestinationFiles="@(AppFiles->'$(TempArchiveDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    
+    <!-- Копируем все файлы DynamoCoreRuntime2.16.4 без исключений -->
+    <ItemGroup>
+      <DynamoRuntimeAllFiles Include="..\..\lib\DynamoCoreRuntime2.16.4\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DynamoRuntimeAllFiles)" 
+          DestinationFiles="@(DynamoRuntimeAllFiles->'$(TempArchiveDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    
+    <!-- Создаем папку packages и копируем файлы -->
+    <MakeDir Directories="$(TempArchiveDir)\packages\DynamoPilot\bin" />
+    
+    <!-- Копируем PilotNodes.xml и все библиотеки из Zero проекта -->
+    <ItemGroup>
+      <ZeroFiles Include="..\DynamoPilot.Zero\bin\Release\net481\PilotNodes.xml;..\DynamoPilot.Zero\bin\Release\net481\PilotNodes.dll;..\DynamoPilot.Zero\bin\Release\net481\PilotNodes.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ZeroFiles)" 
+          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
+    
+    <!-- Копируем библиотеки из Nodes проекта -->
+    <ItemGroup>
+      <NodesFiles Include="..\DynamoPilot.Nodes\bin\Release\net481\DynamoPilot.Nodes.dll;..\DynamoPilot.Nodes\bin\Release\net481\DynamoPilot.Nodes.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NodesFiles)" 
+          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
+    
+    <!-- Копируем pkg.json -->
+    <ItemGroup>
+      <PkgJsonFile Include="..\DynamoPilot.Nodes\pkg.json" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PkgJsonFile)" 
+          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot" />
+    
+    <!-- Создаем архив из временной папки -->
+    <Message Text="Создаем архив $(AssemblyProduct).zip..." Importance="high" />
+    <Exec Command="powershell -Command &quot;Compress-Archive -Path '$(TempArchiveDir)\*' -DestinationPath '$(OutputPath)$(AssemblyProduct).zip' -Force&quot;" />
+    <Message Text="Архив создан успешно!" Importance="high" />
+    
+    <!-- Удаляем временную папку -->
+    <RemoveDir Directories="$(TempArchiveDir)" />
   </Target>
   
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
