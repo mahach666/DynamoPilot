@@ -26,7 +26,6 @@ namespace DynamoPilot.Nodes.Dialogs
 		private List<int> SelectedIds { get; set; } = new();
 		public SelectPositionsNode()
 		{
-			// Порты создаются из атрибутов OutPortNames/OutPortTypes
 			RegisterAllPorts();
 		}
 
@@ -82,7 +81,6 @@ namespace DynamoPilot.Nodes.Dialogs
 
 			button.Click += (_, __) => model.ExecuteSelection();
 
-			// Place button into the main input grid
 			nodeView.inputGrid.Children.Add(button);
 		}
 
@@ -91,6 +89,3 @@ namespace DynamoPilot.Nodes.Dialogs
 		}
 	}
 }
-
-
-
