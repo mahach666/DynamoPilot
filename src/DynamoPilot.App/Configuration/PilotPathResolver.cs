@@ -61,6 +61,8 @@ namespace DynamoPilot.App.Configuration
         Path.Combine(baseDir, "Analysis.dll"),
         Path.Combine(baseDir, "DynamoConversions.dll"),
         Path.Combine(baseDir, "DynamoManipulation.dll"),
+        //Path.Combine(baseDir, "Microsoft.Office.Interop.Excel.dll"),
+
         };
        
         public string UserDataRootFolder => "";

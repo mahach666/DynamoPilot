@@ -1,6 +1,7 @@
 ﻿using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
+using SharpDX.Win32;
 using System.Collections.Generic;
 
 namespace Person
@@ -38,6 +39,7 @@ namespace Person
             return StaticMetadata.ObjectsRepository.GetCurrentPerson();
         }
 
+
         [IsDesignScriptCompatible]
         public static PPerson GetByPosition(POrganisationUnit pOrganisationUnit)
         {
@@ -46,6 +48,17 @@ namespace Person
                 return null;
 
             return GetById(person);
+        }
+
+        [IsDesignScriptCompatible]
+        public static PPerson GetByPositionId(int id)
+        {
+            var orgUnit = OrganisationUnit.Get.GetOrganisationUnit(id);
+
+            if (orgUnit == null)
+                return null;
+
+            return GetByPosition(orgUnit);
         }
     }
 }
