@@ -56,10 +56,45 @@
     <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathBIM)" />
 
     <MakeDir Directories="$(UserDirectoryPathICE)" Condition="!Exists('$(UserDirectoryPathICE)')" />
+    <MakeDir Directories="$(UserDirectoryPathBIM)\packages\DynamoPilot\bin" Condition="!Exists('$(UserDirectoryPathBIM)\packages\DynamoPilot\bin')" />
+    <MakeDir Directories="$(UserDirectoryPathICE)\packages\DynamoPilot\bin" Condition="!Exists('$(UserDirectoryPathICE)\packages\DynamoPilot\bin')" />
     <ItemGroup>
       <FilesToCopy Include="$(OutputPath)**\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathICE)" />
+
+    <!-- Копируем DynamoCoreRuntime2.16.4 в корень приложения -->
+    <ItemGroup>
+      <DynamoRuntimeFiles Include="..\..\lib\DynamoCoreRuntime2.16.4\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DynamoRuntimeFiles)" 
+          DestinationFiles="@(DynamoRuntimeFiles->'$(UserDirectoryPathBIM)\%(RecursiveDir)%(Filename)%(Extension)')" 
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(DynamoRuntimeFiles)" 
+          DestinationFiles="@(DynamoRuntimeFiles->'$(UserDirectoryPathICE)\%(RecursiveDir)%(Filename)%(Extension)')" 
+          SkipUnchangedFiles="true" />
+
+    <!-- Копируем PilotNodes.xml из Zero проекта -->
+    <ItemGroup>
+      <PilotNodesFiles Include="..\DynamoPilot.Zero\bin\Debug\net481\PilotNodes.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PilotNodesFiles)" 
+          DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot\bin" 
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PilotNodesFiles)" 
+          DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot\bin" 
+          SkipUnchangedFiles="true" />
+
+    <!-- Копируем pkg.json из Nodes проекта -->
+    <ItemGroup>
+      <PkgJsonFile Include="..\DynamoPilot.Nodes\pkg.json" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PkgJsonFile)" 
+          DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot" 
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PkgJsonFile)" 
+          DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot" 
+          SkipUnchangedFiles="true" />
   </Target>
 
   <!-- Создаем архив на релизе -->
