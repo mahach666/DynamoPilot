@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CoreNodeModelsWpf</name>
+    </assembly>
+    <members>
+        <member name="T:CoreNodeModelsWpf.Controls.ColorPaletteUI">
+            <summary>
+            Interaction logic for ColorPalette.xaml
+            </summary>
+            <summary>
+            ColorPaletteUI
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Controls.ColorPaletteUI.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.Controls.CustomSelectionControl">
+            <summary>
+            Interaction logic for CustomSelectionControl.xaml
+            </summary>
+            <summary>
+            CustomSelectionControl
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Controls.CustomSelectionControl.#ctor(CoreNodeModelsWpf.CustomSelectionViewModel)">
+            <summary>
+            Create the control for the custom dropdown menu and editor
+            </summary>
+        </member>
+        <member name="P:CoreNodeModelsWpf.Controls.CustomSelectionControl.BaseComboBox">
+            <summary>
+            Dropdown menu to select an item. Created by <see cref="T:CoreNodeModelsWpf.Nodes.DropDownNodeViewCustomization"/>.
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Controls.CustomSelectionControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.Controls.DateTimeInputControl">
+            <summary>
+            Interaction logic for DateTimeInputControl.xaml
+            </summary>
+            <summary>
+            DateTimeInputControl
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Controls.DateTimeInputControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.Controls.DynamoConverterControl">
+            <summary>
+            Interaction logic for ConverterControl.xaml
+            </summary>
+            <summary>
+            DynamoConverterControl
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Controls.DynamoConverterControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.Controls.DynamoSlider">
+            <summary>
+            Interaction logic for DynamoSlider.xaml
+            </summary>
+            <summary>
+            DynamoSlider
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Controls.DynamoSlider.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.DoubleSliderSettingsControl">
+            <summary>
+            Interaction logic for SliderSettingsControl.xaml
+            </summary>
+            <summary>
+            DoubleSliderSettingsControl
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.DoubleSliderSettingsControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.ElementSelectionControl">
+            <summary>
+            Interaction logic for ElementSelectionControl.xaml
+            </summary>
+            <summary>
+            ElementSelectionControl
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.ElementSelectionControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.IntegerSliderSettingsControl">
+            <summary>
+            Interaction logic for UserControl1.xaml
+            </summary>
+            <summary>
+            IntegerSliderSettingsControl
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.IntegerSliderSettingsControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.ConverterViewModel.OnToggleButtonClick(System.Object)">
+            <summary>
+            Called when Toggle button is clicked.
+            Switches the combo box values
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="!:RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:CoreNodeModelsWpf.CustomSelectionViewModel">
+            <summary>
+            View model for <see cref="T:CoreNodeModelsWpf.Controls.CustomSelectionControl"/>, for the Custom Selection node.
+            </summary>
+        </member>
+        <member name="P:CoreNodeModelsWpf.CustomSelectionViewModel.AddCommand">
+            <summary>
+            Add an item to the list. This command is bound to the + button in the GUI.
+            </summary>
+        </member>
+        <member name="P:CoreNodeModelsWpf.CustomSelectionViewModel.RemoveCommand">
+            <summary>
+            Remove an item from the list. This command is bound to the - button in the GUI.
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.CustomSelectionViewModel.#ctor">
+            <summary>
+            Create a new <see cref="T:CoreNodeModelsWpf.CustomSelectionViewModel"/>. Used by the view in design-time.
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.CustomSelectionViewModel.#ctor(CoreNodeModels.Input.CustomSelection)">
+            <summary>
+            Create a new <see cref="T:CoreNodeModelsWpf.CustomSelectionViewModel"/> with an existing model.
+            </summary>
+            <param name="model">The model data.</param>
+        </member>
+        <member name="F:CoreNodeModelsWpf.Nodes.ColorPaletteNodeViewCustomization.ColorPaletteUINode">
+            <summary>
+                WPF Control.
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Nodes.ColorPaletteNodeViewCustomization.CustomizeView(CoreNodeModels.Input.ColorPalette,Dynamo.Controls.NodeView)">
+            <summary>
+                Customize View.
+            </summary>
+            <param name="model"></param>
+            <param name="nodeView"></param>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Nodes.ColorPaletteNodeViewCustomization.Dispose">
+            <summary>
+                Dispose.
+            </summary>
+        </member>
+        <member name="T:CoreNodeModelsWpf.Nodes.CustomSelectionNodeViewCustomization">
+            <summary>
+            View customizer for Custom Selection node model.
+            </summary>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Nodes.CustomSelectionNodeViewCustomization.CustomizeView(CoreNodeModels.Input.CustomSelection,Dynamo.Controls.NodeView)">
+            <summary>
+            Customize the visual appearance of the custom dropdown node.
+            </summary>
+            <param name="model"></param>
+            <param name="nodeView"></param>
+        </member>
+        <member name="M:CoreNodeModelsWpf.Nodes.DropDownNodeViewCustomization.combo_DropDownOpened(System.Object,System.EventArgs)">
+            <summary>
+            When the dropdown is opened, the node's implementation of PopulateItems is called
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CoreNodeModelsWpf.SliderViewModel`1">
+            <summary>
+            The SliderViewModel acts as the converter
+            for numeric sliders. By using a view model
+            to do the conversion instead of a converter,
+            we can do conditional conversion based on the 
+            context in which the conversion happens.
+            </summary>
+        </member>
+        <member name="T:Dynamo.Wpf.Properties.CoreNodeModelWpfResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.ColorPaletteUIAdvancedButtonHeader">
+            <summary>
+              Looks up a localized string similar to Advanced.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.ColorPaletteUIRecentColors">
+            <summary>
+              Looks up a localized string similar to Recent Colors.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.ColorPaletteUIStandardButtonHeader">
+            <summary>
+              Looks up a localized string similar to Standard.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.ColorPaletteUIStandardColors">
+            <summary>
+              Looks up a localized string similar to Standard Colors.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.DateTimeInputToolTip">
+            <summary>
+              Looks up a localized string similar to Enter time and date in the format &apos;MMMM dd, yyyy h:mm tt&apos;.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.LblDisplay">
+            <summary>
+              Looks up a localized string similar to Display.
+            </summary>
+        </member>
+        <member name="P:Dynamo.Wpf.Properties.CoreNodeModelWpfResources.LblValue">
+            <summary>
+              Looks up a localized string similar to Value.
+            </summary>
+        </member>
+        <member name="M:DSCore.File.FilenameNodeViewCustomization.readFileButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handler for browse.. button
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

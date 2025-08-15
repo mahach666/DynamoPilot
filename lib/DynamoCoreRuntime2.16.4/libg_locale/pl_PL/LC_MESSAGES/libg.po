@@ -1,0 +1,2758 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-25 13:27-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: LibGCore\include\asm\asmutils.h:117
+msgid "Unable to copy the ENTITY"
+msgstr "Nie można skopiować elementu"
+
+#: LibGCore\include\ds\arc.h:21 LibGCore\include\ds\bsplinecurve.h:37
+#: LibGCore\include\ds\bsplinesurface.h:42 LibGCore\include\ds\circle.h:23
+#: LibGCore\include\ds\cone.h:16 LibGCore\include\ds\coordinatesystem.h:28
+#: LibGCore\include\ds\cuboid.h:16 LibGCore\include\ds\curve.h:16
+#: LibGCore\include\ds\cylinder.h:18 LibGCore\include\ds\ellipse.h:20
+#: LibGCore\include\ds\ellipsearc.h:20 LibGCore\include\ds\geometry.h:34
+#: LibGCore\include\ds\helix.h:20 LibGCore\include\ds\line.h:19
+#: LibGCore\include\ds\plane.h:27 LibGCore\include\ds\point.h:26
+#: LibGCore\include\ds\polycurve.h:20 LibGCore\include\ds\polycurve.h:348
+#: LibGCore\include\ds\polygon.h:15 LibGCore\include\ds\polymesh.h:128
+#: LibGCore\include\ds\polysurface.h:21 LibGCore\include\ds\polysurface.h:287
+#: LibGCore\include\ds\rectangle.h:20 LibGCore\include\ds\solid.h:20
+#: LibGCore\include\ds\sphere.h:18 LibGCore\include\ds\surface.h:36
+#: LibGCore\include\ds\tspline\topology\tsplinecoedge.h:16
+#: LibGCore\include\ds\tspline\topology\tsplineedge.h:16
+#: LibGCore\include\ds\tspline\topology\tsplineface.h:16
+#: LibGCore\include\ds\tspline\topology\tsplineloop.h:16
+#: LibGCore\include\ds\tspline\topology\tsplinetopology.h:16
+#: LibGCore\include\ds\tspline\topology\tsplinevertex.h:16
+#: LibGCore\include\ds\tspline\tsplinesurface.h:15
+#: LibGCore\include\ds\vector.h:28
+msgid "cast: object is not of the specified type"
+msgstr "rzutowanie: obiekt nie jest określonego typu"
+
+#: LibGCore\include\ds\matrix.h:14
+msgid "Unable to multiply Matrix by Vector"
+msgstr "Nie można pomnożyć macierzy przez wektor"
+
+#: LibGCore\src\asm\asmutils.cpp:34
+msgid "Can not get the default history stream!"
+msgstr "Nie można pobrać domyślnego strumienia historii!"
+
+#: LibGCore\src\asm\asmutils.cpp:36
+msgid "Can not get the history stream of an entity!"
+msgstr "Nie można pobrać strumienia historii elementu!"
+
+#: LibGCore\src\asm\asmutils.cpp:57 LibGCore\src\asm\asmutils.cpp:62
+#: LibGCore\src\asm\asmutils.cpp:67
+msgid "Unable to add faces to body builder"
+msgstr "Nie można dodać powierzchni do kreatora brył"
+
+#: LibGCore\src\asm\asmutils.cpp:72
+msgid "Unable to make face body double sided"
+msgstr "Nie można ustawić dwustronnej powierzchni bryły"
+
+#: LibGCore\src\asm\asmutils.cpp:76
+msgid "Unable to make body"
+msgstr "Nie można utworzyć bryły"
+
+#: LibGCore\src\asm\asmutils.cpp:96
+msgid "Unable to create planar body"
+msgstr "Nie można utworzyć płaskiej bryły"
+
+#: LibGCore\src\asm\asmutils.cpp:268
+msgid "Error projecting wire on body"
+msgstr "Błąd rzutowania przewodu na bryłę"
+
+#: LibGCore\src\asm\asmutils.cpp:290
+msgid "Error sweep intersecting wire with body"
+msgstr "Błąd podczas przecinania przeciągnięcia przewodu z bryłą"
+
+#: LibGCore\src\asm\asmutils.cpp:318
+msgid "Error projecting Point onto Surface!"
+msgstr "Błąd podczas rzutowania punktu na powierzchnię!"
+
+#: LibGCore\src\asm\asmutils.cpp:351
+msgid "Error setting contact is collision"
+msgstr "Błąd ustawiania kontaktu — kolizja"
+
+#: LibGCore\src\asm\asmutils.cpp:356
+msgid "Error computing collisions"
+msgstr "Błąd obliczania kolizji"
+
+#: LibGCore\src\asm\asmutils.cpp:371
+msgid "Could not create planar face"
+msgstr "Nie można utworzyć płaskiej powierzchni"
+
+#: LibGCore\src\asm\asmutils.cpp:534
+msgid "Unable to determine if object is non manifold"
+msgstr "Nie można określić, czy obiekt jest niepowielony"
+
+#: LibGCore\src\asm\asmutils.cpp:557
+msgid "Unable to create brep from lump"
+msgstr "Nie można utworzyć reprezentacji bryłowej z bryły"
+
+#: LibGCore\src\asm\asmutils.cpp:566
+msgid "Unable to copy the face!"
+msgstr "Nie można skopiować powierzchni!"
+
+#: LibGCore\src\asm\asmutils.cpp:570
+msgid "Error getting the transformation of the face!"
+msgstr "Błąd podczas pobierania przekształcenia powierzchni!"
+
+#: LibGCore\src\asm\asmutils.cpp:580
+msgid "Error applying transformation to the copied face!"
+msgstr "Błąd podczas przekształcania skopiowanej powierzchni!"
+
+#: LibGCore\src\asm\asmutils.cpp:591
+msgid "Unable to copy the edge!"
+msgstr "Nie można skopiować krawędzi!"
+
+#: LibGCore\src\asm\asmutils.cpp:595
+msgid "Error getting the transformation of the edge!"
+msgstr "Błąd podczas pobierania przekształcenia krawędzi!"
+
+#: LibGCore\src\asm\asmutils.cpp:605
+msgid "Error applying transformation to the copied edge!"
+msgstr "Błąd podczas przekształcania skopiowanej krawędzi!"
+
+#: LibGCore\src\asm\asmutils.cpp:614
+msgid "Could not remove attribute from ENTITY"
+msgstr "Nie można usunąć atrybutu z elementu"
+
+#: LibGCore\src\asm\asmutils.cpp:619 LibGCore\src\asm\asmutils.cpp:625
+msgid "Error adding a named attribute!"
+msgstr "Błąd podczas dodawania nazwanego atrybutu!"
+
+#: LibGCore\src\asm\asmutils.cpp:631 LibGCore\src\asm\asmutils.cpp:647
+#: LibGCore\src\asm\asmutils.cpp:686 LibGCore\src\asm\asmutils.cpp:703
+msgid "Error finding attributes for a given name!"
+msgstr "Błąd wyszukiwania atrybutów dla danej nazwy!"
+
+#: LibGCore\src\asm\asmutils.cpp:639 LibGCore\src\asm\asmutils.cpp:655
+#: LibGCore\src\asm\asmutils.cpp:676
+msgid "Error getting the value of the attribute!"
+msgstr "Błąd podczas pobierania wartości atrybutu!"
+
+#: LibGCore\src\asm\asmutils.cpp:665
+msgid "Error finding attributes from BODY."
+msgstr "Błąd podczas wyszukiwania atrybutów z BRYŁY."
+
+#: LibGCore\src\asm\asmutils.cpp:672
+msgid "Error getting the name of the attribute!"
+msgstr "Błąd podczas pobierania nazwy atrybutu!"
+
+#: LibGCore\src\asm\asmutils.cpp:693 LibGCore\src\asm\asmutils.cpp:710
+msgid "The number of attributes is not one!"
+msgstr "Liczba atrybutów nie wynosi jeden!"
+
+#: LibGCore\src\asm\asmutils.cpp:697 LibGCore\src\asm\asmutils.cpp:714
+msgid "Error setting the value of the attribute!"
+msgstr "Błąd ustawiania wartości atrybutu!"
+
+#: LibGCore\src\asm\asmutils.cpp:721 LibGCore\src\asm\asmutils.cpp:728
+msgid "Error setting color attributes!"
+msgstr "Błąd ustawiania atrybutów koloru!"
+
+#: LibGCore\src\asm\asmutils.cpp:742
+msgid "Failed to approximate curve"
+msgstr "Nie udało się uśrednić krzywej"
+
+#: LibGCore\src\ds\ds_arc.cpp:20
+msgid "Casted object is not an Arc"
+msgstr "Rzutowany obiekt nie jest Arc"
+
+#: LibGCore\src\ds\ds_arc.cpp:119 LibGCore\src\ds\ds_arc.cpp:207
+#: LibGCore\src\ds\ds_arc.cpp:263 LibGCore\src\ds\ds_ellipsearc.cpp:123
+msgid "Error creating an arc!"
+msgstr "Błąd tworzenia łuku!"
+
+#: LibGCore\src\ds\ds_arc.cpp:134
+msgid "Error creating an arc!\n"
+"Start angle cannot be the same as end angle"
+msgstr "Błąd tworzenia łuku!\n"
+"Kąt początkowy nie może być taki sam jak kąt końcowy"
+
+#: LibGCore\src\ds\ds_arc.cpp:219
+msgid "Error creating an arc!\n"
+"Sweep angle must be non-zero"
+msgstr "Błąd tworzenia łuku!\n"
+"Kąt przeciągnięcia musi być różny od zera"
+
+#: LibGCore\src\ds\ds_arc.cpp:336
+msgid "Cannot create an Arc with the given input points."
+msgstr "Nie można utworzyć łuku z podanymi punktami wejściowymi."
+
+#: LibGCore\src\ds\ds_arc.cpp:351
+msgid "Cannot create an Arc with a null input object."
+msgstr "Nie można utworzyć łuku z obiektem wejściowym null."
+
+#: LibGCore\src\ds\ds_arc.cpp:381 LibGCore\src\ds\ds_curve.cpp:1873
+#: LibGCore\src\ds\ds_ellipsearc.cpp:169
+msgid "Unable to extend curve equally. Curves differ by: "
+msgstr "Nie można wydłużyć curve równomiernie. Curves różnią się pod względem:"
+
+#: LibGCore\src\ds\ds_arc.cpp:500
+msgid "Arc by fillet: ends of curves on equal distance, could not orient arc. Please trim curves to determine orientation based on closest ends"
+msgstr "Arc by fillet: końce krzywych w równej odległości, nie można zorientować łuku. Należy przyciąć curves, aby określić orientację na podstawie najbliższych końców"
+
+#: LibGCore\src\ds\ds_arc.cpp:552
+msgid "Arc by fillet failed"
+msgstr "Operacja Arc by fillet nie powiodła się"
+
+#: LibGCore\src\ds\ds_arc.cpp:555
+msgid "Arc by fillet could not be computed"
+msgstr "Nie można obliczyć łuku przez zaokrąglenie"
+
+#: LibGCore\src\ds\ds_arc.cpp:632
+msgid "Arc by by_fillet_tangent_to_curve failed"
+msgstr "Operacja Arc by_fillet_tangent_to_curve nie powiodła się"
+
+#: LibGCore\src\ds\ds_arc.cpp:725 LibGCore\src\ds\ds_arc.cpp:737
+msgid "could not solve for arc"
+msgstr "nie można znaleźć rozwiązania dla łuku"
+
+#: LibGCore\src\ds\ds_arc.cpp:745 LibGCore\src\ds\ds_circle.cpp:57
+msgid "Arc by by_best_fit needs 3 or more points"
+msgstr "Arc by_best_fit wymaga co najmniej 3 punktów"
+
+#: LibGCore\src\ds\ds_arc.cpp:753 LibGCore\src\ds\ds_circle.cpp:65
+msgid "Arc by by_best_fit could not determine plane for arc"
+msgstr "Arc by_best_fit nie może określić płaszczyzny dla łuku"
+
+#: LibGCore\src\ds\ds_arc.cpp:895
+msgid " tangent vectors should be coplanar relatie to points to make bi_arc"
+msgstr "wektory styczne powinny być współpłaszczyznowe względem punktów, aby utworzyć bi_arc"
+
+#: LibGCore\src\ds\ds_arc.cpp:934
+msgid "Cannot build bi arc for coincident lines"
+msgstr "Nie można utworzyć łuku podwójnego dla pokrywających się linii"
+
+#: LibGCore\src\ds\ds_arc.cpp:1000 LibGCore\src\ds\ds_arc.cpp:1005
+msgid "Cannot build bi arc facing corner of tangent intersections"
+msgstr "Nie można utworzyć łuku podwójnego skierowanego na narożnik przecięć stycznych"
+
+#: LibGCore\src\ds\ds_arc.cpp:1033
+msgid "Error creating arc!\n"
+"End point lies in direction of Tangent vector"
+msgstr "Błąd podczas tworzenia łuku!\n"
+"Punkt końcowy znajduje się w kierunku wektora styczności"
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:40 LibGCore\src\ds\ds_boundingbox.cpp:45
+msgid "Unable to create a BoundingBox around the input Geometry"
+msgstr "Nie można utworzyć BoundingBox wokół geometrii wejściowej"
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:68
+msgid "Unable to create a BoundingBox around the input Geometries"
+msgstr "Nie można utworzyć BoundingBox wokół geometrii wejściowych"
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:92
+msgid "Bounding box cannot be created because no geometries were provided"
+msgstr "Nie można utworzyć ramki ograniczającej, ponieważ nie podano geometrii"
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:132
+msgid "Bounding box cannot be created as no geometries were provided."
+msgstr "Nie można utworzyć ramki ograniczającej, ponieważ nie podano geometrii."
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:155
+msgid "Unable to create an oriented BoundingBox around the input Geometries"
+msgstr "Nie można utworzyć zorientowanej ramki ograniczającej wokół geometrii wejściowych"
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:248
+msgid "Unable to get the maximum x value."
+msgstr "Nie można uzyskać maksymalnej wartości X."
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:252
+msgid "Unable to get the minimum x value."
+msgstr "Nie można uzyskać minimalnej wartości X."
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:256
+msgid "Unable to get the maximum y value."
+msgstr "Nie można uzyskać maksymalnej wartości Y."
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:260
+msgid "Unable to get the minimum y value."
+msgstr "Nie można uzyskać minimalnej wartości Y."
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:264
+msgid "Unable to get the maximum z value."
+msgstr "Nie można uzyskać maksymalnej wartości Z."
+
+#: LibGCore\src\ds\ds_boundingbox.cpp:268
+msgid "Unable to get the minimum z value."
+msgstr "Nie można uzyskać minimalnej wartości Z."
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:31
+msgid "Casted object is not a BSplineCurve"
+msgstr "Rzutowany obiekt nie jest BSplineCurve"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:75
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:150
+msgid "NurbsCurves require degree to be greater than 0"
+msgstr "NurbsCurves wymaga, aby stopień był większy niż 0"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:79
+msgid "NurbsCurves require at least 2 points for interpolation"
+msgstr "NurbsCurves wymagają co najmniej 2 punktów do interpolacji"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:123
+msgid "Unable to fit curve to points"
+msgstr "Nie można dopasować krzywej do punktów"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:133
+msgid "Unable to get curves from curve fit"
+msgstr "Nie można pobrać krzywych z dopasowania krzywej"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:140
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:187
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:196
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:233
+msgid "Error creating a nurbs curve!"
+msgstr "Błąd podczas tworzenia krzywej NURBS!"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:153
+msgid "NurbsCurves must have at least one more control points than degree"
+msgstr "NurbsCurves muszą mieć co najmniej o jeden punkt sterujący więcej niż stopień"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:180
+msgid "Unable to create BSplineCurve from vertices"
+msgstr "Nie można utworzyć BSplineCurve z wierzchołków"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:226
+msgid "Unable to convert asm_curve to BSplineCurve"
+msgstr "Nie można przekształcić asm_curve na BSplineCurve"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:361
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:383
+msgid "Negative extension not supported"
+msgstr "Ujemne przedłużenie nie jest obsługiwane"
+
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:375
+#: LibGCore\src\ds\ds_bsplinecurve.cpp:397
+msgid "Could not extend start of the nurbs curve"
+msgstr "Nie można wydłużyć początku NURBS"
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:26
+msgid "Casted object is not a BSplineSurface"
+msgstr "Rzutowany obiekt nie jest BSplineSurface"
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:123
+msgid "Unable to get the FACE's range for NurbsSurface."
+msgstr "Nie można pobrać zakresu POWIERZCHNI dla NurbsSurface."
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:137
+msgid "Underlying Face of Nurbs Surface is null!"
+msgstr "Powierzchnia źródłowa powierzchni NURBS ma wartość null!"
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:193
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:197
+msgid "Unable to create surface from points"
+msgstr "Nie można utworzyć surface z punktów"
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:243
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:247
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:307
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:311
+msgid "Unable to create surface from points and tangents"
+msgstr "Nie można utworzyć surface z punktów i stycznych"
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:326
+msgid "NurbsSurfaces must have at least one more control points than degree"
+msgstr "NurbsSurfaces muszą mieć co najmniej o jeden punkt sterujący więcej niż stopień"
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:344
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:371
+msgid "Unable to create NurbsCurve from control points."
+msgstr "Nie można utworzyć NurbsCurve z punktów sterujących."
+
+#: LibGCore\src\ds\ds_bsplinesurface.cpp:483
+#: LibGCore\src\ds\ds_surface.cpp:1040
+msgid "Unable to create face from spline"
+msgstr "Nie można utworzyć powierzchni ze splajnu"
+
+#: LibGCore\src\ds\ds_circle.cpp:34
+msgid "Casted object is not a Circle"
+msgstr "Rzutowany obiekt nie jest Circle"
+
+#: LibGCore\src\ds\ds_circle.cpp:86 LibGCore\src\ds\ds_circle.cpp:96
+msgid "Arc by by_best_fit could not best fit arc"
+msgstr "Arc by_best_fit nie może być najlepiej dopasowany do łuku"
+
+#: LibGCore\src\ds\ds_circle.cpp:103 LibGCore\src\ds\ds_circle.cpp:124
+msgid "Circle radius must be non-zero"
+msgstr "Promień okręgu musi być różny od zera"
+
+#: LibGCore\src\ds\ds_circle.cpp:108 LibGCore\src\ds\ds_circle.cpp:138
+#: LibGCore\src\ds\ds_circle.cpp:156 LibGCore\src\ds\ds_circle.cpp:173
+msgid "Error creating a circle!"
+msgstr "Błąd podczas tworzenia koła!"
+
+#: LibGCore\src\ds\ds_circle.cpp:127
+msgid "Circle normal must be non-zero"
+msgstr "Normalna okręgu musi być różna od zera"
+
+#: LibGCore\src\ds\ds_circle.cpp:130
+msgid "Circle major-axis must be non-zero"
+msgstr "Oś główna okręgu musi być niezerowa"
+
+#: LibGCore\src\ds\ds_cone.cpp:16
+msgid "Casted object is not a Cone"
+msgstr "Rzutowany obiekt nie jest Cone"
+
+#: LibGCore\src\ds\ds_cone.cpp:53 LibGCore\src\ds\ds_cone.cpp:175
+#: LibGCore\src\ds\ds_geometry.cpp:484
+msgid "Error getting edges"
+msgstr "Błąd podczas pobierania krawędzi"
+
+#: LibGCore\src\ds\ds_cone.cpp:60 LibGCore\src\ds\ds_cone.cpp:191
+#: LibGCore\src\ds\ds_geometry.cpp:470 LibGCore\src\ds\ds_solid.cpp:537
+msgid "Error getting vertices"
+msgstr "Błąd podczas pobierania wierzchołków"
+
+#: LibGCore\src\ds\ds_cone.cpp:84
+msgid "Unable to set attrubitues on Cone"
+msgstr "Nie można ustawić atrybutów na Cone"
+
+#: LibGCore\src\ds\ds_cone.cpp:102 LibGCore\src\ds\ds_cone.cpp:135
+msgid "Unable to create cone or cylinder"
+msgstr "Nie można utworzyć cone lub cylinder"
+
+#: LibGCore\src\ds\ds_cone.cpp:142 LibGCore\src\ds\ds_cuboid.cpp:112
+#: LibGCore\src\ds\ds_curve.cpp:1356 LibGCore\src\ds\ds_polysurface.cpp:469
+#: LibGCore\src\ds\ds_solid.cpp:128 LibGCore\src\ds\ds_surface.cpp:407
+msgid "Unable to transform the body!"
+msgstr "Nie można przekształcić bryły!"
+
+#: LibGCore\src\ds\ds_cone.cpp:206
+msgid "Unable to find attributes after transformation"
+msgstr "Nie można znaleźć atrybutów po przekształceniu"
+
+#: LibGCore\src\ds\ds_cone.cpp:215
+msgid "Could not get point from vertex"
+msgstr "Nie można pobrać punktu z wierzchołka"
+
+#: LibGCore\src\ds\ds_coordinatesystem.cpp:15
+msgid "Cast object is not a CoordinateSystem"
+msgstr "Rzutowany obiekt nie jest CoordinateSystem"
+
+#: LibGCore\src\ds\ds_coordinatesystem.cpp:184
+#: LibGCore\src\ds\ds_coordinatesystem.cpp:197
+msgid "Error creating coordinate system from raw data"
+msgstr "Błąd podczas tworzenia układu współrzędnych z nieprzetworzonych danych"
+
+#: LibGCore\src\ds\ds_cuboid.cpp:15
+msgid "Cast object is not a Cuboid"
+msgstr "Rzutowany obiekt nie jest Cuboid"
+
+#: LibGCore\src\ds\ds_cuboid.cpp:49 LibGCore\src\ds\ds_cuboid.cpp:137
+#: LibGCore\src\ds\ds_geometry.cpp:1216 LibGCore\src\ds\ds_polysurface.cpp:491
+msgid "Error getting vertices!"
+msgstr "Błąd podczas pobierania wierzchołków!"
+
+#: LibGCore\src\ds\ds_cuboid.cpp:60
+msgid "Could not construct Cuboid vertices"
+msgstr "Nie można utworzyć wierzchołków prostopadłościanu"
+
+#: LibGCore\src\ds\ds_cuboid.cpp:106
+msgid "Unable to create block"
+msgstr "Nie można utworzyć bloku"
+
+#: LibGCore\src\ds\ds_cuboid.cpp:161 LibGCore\src\ds\ds_cuboid.cpp:164
+#: LibGCore\src\ds\ds_cuboid.cpp:167 LibGCore\src\ds\ds_cuboid.cpp:170
+msgid "Could not get Cuboid vertices after transform"
+msgstr "Nie można pobrać wierzchołków prostopadłościanu po przekształceniu"
+
+#: LibGCore\src\ds\ds_curve.cpp:37
+msgid "Cast object is not a Curve"
+msgstr "Rzutowany obiekt nie jest krzywą"
+
+#: LibGCore\src\ds\ds_curve.cpp:90
+msgid "Could not test curve equality"
+msgstr "Nie można sprawdzić zrównania krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:100
+msgid "Unable to find point perpendicular to given point on curve"
+msgstr "Nie można znaleźć punktu prostopadłego do danego punktu na krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:122
+msgid "Unable to compute tangent at curve"
+msgstr "Nie można obliczyć stycznej na curve"
+
+#: LibGCore\src\ds\ds_curve.cpp:218
+msgid "Unable to compute Curve point at parameter"
+msgstr "Nie można obliczyć punktu krzywej dla parametru"
+
+#: LibGCore\src\ds\ds_curve.cpp:256
+msgid "Curve has infinite length"
+msgstr "Krzywa ma nieskończoną długość"
+
+#: LibGCore\src\ds\ds_curve.cpp:464
+msgid "Unable to query edges from curve"
+msgstr "Nie można zbadać krawędzi na podstawie krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:479
+msgid "Unable to make wire from edge body"
+msgstr "Nie można utworzyć przewodu z bryły krawędzi"
+
+#: LibGCore\src\ds\ds_curve.cpp:489 LibGCore\src\ds\ds_polycurve.cpp:1443
+#: LibGCore\src\ds\ds_polycurve.cpp:1457
+msgid "Unable to create coedge array"
+msgstr "Nie można utworzyć szyku wspólnej krawędzi"
+
+#: LibGCore\src\ds\ds_curve.cpp:596
+msgid "Unable to compute edge from curve"
+msgstr "Nie można obliczyć krawędzi z curve"
+
+#: LibGCore\src\ds\ds_curve.cpp:604 LibGCore\src\ds\ds_curve.cpp:608
+#: LibGCore\src\ds\ds_curve.cpp:1322
+msgid "Curve geometry is degenerate or invalid"
+msgstr "Geometria krzywej jest uszkodzona lub nieprawidłowa"
+
+#: LibGCore\src\ds\ds_curve.cpp:631 LibGCore\src\ds\ds_curve.cpp:667
+msgid "Unable to determine if curve is planar"
+msgstr "Nie można określić, czy krzywa jest płaska"
+
+#: LibGCore\src\ds\ds_curve.cpp:635
+msgid "Curve is not planar: cannot get Curve normal."
+msgstr "Krzywa nie jest płaska: nie można uzyskać normalnej krzywej."
+
+#: LibGCore\src\ds\ds_curve.cpp:804 LibGCore\src\ds\ds_curve.cpp:871
+msgid "Could not approximate curve"
+msgstr "Uśrednianie krzywej nie powiodło się"
+
+#: LibGCore\src\ds\ds_curve.cpp:915
+msgid "Unable to set extrusion wire"
+msgstr "Nie można ustawić przewodu wyciągnięcia"
+
+#: LibGCore\src\ds\ds_curve.cpp:924
+msgid "Unable to compute extrude curve"
+msgstr "Nie można obliczyć krzywej wyciągnięcia"
+
+#: LibGCore\src\ds\ds_curve.cpp:933
+msgid "Unable to convert sheet to double sided"
+msgstr "Nie można przekształcić arkusza na dwustronny"
+
+#: LibGCore\src\ds\ds_curve.cpp:944 LibGCore\src\ds\ds_curve.cpp:951
+msgid "Cannot create a Solid from an open Curve"
+msgstr "Nie można utworzyć bryły z otwartej krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:960
+msgid "Unable to set Curve and Vector for extrusion."
+msgstr "Nie można ustawić krzywej i wektora do wyciągania."
+
+#: LibGCore\src\ds\ds_curve.cpp:963
+msgid "Unable to instruct ASM to extrude Curve as a Solid."
+msgstr "Nie można ustawić ASM w celu wyciągnięcia krzywej jako bryły."
+
+#: LibGCore\src\ds\ds_curve.cpp:967
+msgid "Unable to extrude curve."
+msgstr "Nie można wyciągnąć krzywej."
+
+#: LibGCore\src\ds\ds_curve.cpp:972
+msgid "Extrusion computed but cannot determine result type"
+msgstr "Wyciągnięcie obliczone, ale nie można określić typu wyniku"
+
+#: LibGCore\src\ds\ds_curve.cpp:1004 LibGCore\src\ds\ds_polycurve.cpp:1495
+msgid "Unable to set sweep profile and path"
+msgstr "Nie można ustawić profilu przeciągnięcia i ścieżki"
+
+#: LibGCore\src\ds\ds_curve.cpp:1009 LibGCore\src\ds\ds_polycurve.cpp:1500
+#: LibGCore\src\ds\ds_solid.cpp:402
+msgid "Unable to set the result to be solid or not!"
+msgstr "Nie można ustawić, aby wynik był bryłą lub nie!"
+
+#: LibGCore\src\ds\ds_curve.cpp:1011 LibGCore\src\ds\ds_polycurve.cpp:1502
+msgid "Unable to compute surface sweep on rail"
+msgstr "Nie można obliczyć przeciągnięcia powierzchni na poręczy"
+
+#: LibGCore\src\ds\ds_curve.cpp:1062
+msgid "Unable to revolve curve"
+msgstr "Nie można obrócić krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:1065
+msgid "Unable to set as solid or not"
+msgstr "Nie można ustawić jako bryłę lub nie"
+
+#: LibGCore\src\ds\ds_curve.cpp:1069
+msgid "Unable to set as double sided"
+msgstr "Nie można ustawić jako dwustronnej"
+
+#: LibGCore\src\ds\ds_curve.cpp:1073
+msgid "Unable to retain mergeable edges"
+msgstr "Nie można zachować krawędzi możliwych do połączenia"
+
+#: LibGCore\src\ds\ds_curve.cpp:1075
+msgid "Unable to compute revolve"
+msgstr "Nie można obliczyć obrotu"
+
+#: LibGCore\src\ds\ds_curve.cpp:1136
+msgid "Unable to convert Curve to NURBS curve."
+msgstr "Nie można przekonwertować krzywej na krzywą NURBS."
+
+#: LibGCore\src\ds\ds_curve.cpp:1172
+msgid "The input normal vector is not parallel to the curve's plane normal"
+msgstr "Wejściowy wektor normalny nie jest równoległy do wektora normalnego płaszczyzny krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:1186 LibGCore\src\ds\ds_curve.cpp:1207
+msgid "Unable to offset curve"
+msgstr "Nie można odsunąć krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:1303
+msgid "Unable to get edge from wire"
+msgstr "Nie można pobrać krawędzi z przewodu"
+
+#: LibGCore\src\ds\ds_curve.cpp:1306
+msgid "WireCurve does not support wires with more than one edge"
+msgstr "WireCurve nie obsługuje przewodów z więcej niż jedną krawędzią"
+
+#: LibGCore\src\ds\ds_curve.cpp:1319 LibGCore\src\ds\ds_curve.cpp:1489
+#: LibGCore\src\ds\ds_geometry.cpp:669 LibGCore\src\ds\ds_geometry.cpp:680
+#: LibGCore\src\ds\ds_geometry.cpp:693 LibGCore\src\ds\ds_geometry.cpp:706
+#: LibGCore\src\ds\ds_geometry.cpp:719 LibGCore\src\ds\ds_geometry.cpp:732
+#: LibGCore\src\ds\ds_geometry.cpp:745 LibGCore\src\ds\ds_geometry.cpp:757
+#: LibGCore\src\ds\ds_geometry.cpp:786 LibGCore\src\ds\ds_polysurface.cpp:234
+#: LibGCore\src\ds\ds_polysurface.cpp:785
+#: LibGCore\src\ds\ds_polysurface.cpp:1015
+msgid "Unable to extract curve from edge"
+msgstr "Nie można wyodrębnić curve z edge"
+
+#: LibGCore\src\ds\ds_curve.cpp:1376
+msgid "Unable to blend between curves"
+msgstr "Nie można wykonać połączenia między krzywymi"
+
+#: LibGCore\src\ds\ds_curve.cpp:1401
+msgid "Unable to make parameter line on surface"
+msgstr "Nie można utworzyć linii parametru na powierzchni"
+
+#: LibGCore\src\ds\ds_curve.cpp:1414
+msgid "Unable to make geodesic curves with ASM 219"
+msgstr "Nie można utworzyć krzywych geodezyjnych przy użyciu ASM 219"
+
+#: LibGCore\src\ds\ds_curve.cpp:1442
+msgid "Unable to make iso curve on surface"
+msgstr "Nie można utworzyć izokrzywej na powierzchni"
+
+#: LibGCore\src\ds\ds_curve.cpp:1457
+msgid "Unable to project curve on plane"
+msgstr "Nie można wykonać rzutowania krzywej na płaszczyźnie"
+
+#: LibGCore\src\ds\ds_curve.cpp:1475
+msgid "Unable to compute Curve projection on Surface"
+msgstr "Nie można obliczyć rzutowania krzywej na powierzchnię"
+
+#: LibGCore\src\ds\ds_curve.cpp:1503
+msgid "Unable to pull Curve onto Surface"
+msgstr "Nie można wyciągnąć krzywej na płaszczyźnie"
+
+#: LibGCore\src\ds\ds_curve.cpp:1516
+msgid "Unable to make geodesic curves"
+msgstr "Nie można utworzyć krzywych geodezyjnych"
+
+#: LibGCore\src\ds\ds_curve.cpp:1538
+msgid "Unable to approximate curve with arc and line segments"
+msgstr "Nie można przybliżyć krzywej z segmentami łuków i linii"
+
+#: LibGCore\src\ds\ds_curve.cpp:1552
+msgid "Conversion to Arcs and Lines failed, some parts of Curve could not be converted"
+msgstr "Konwersja do łuków i linii nie powiodła się; niektórych części krzywej nie można przekształcić"
+
+#: LibGCore\src\ds\ds_curve.cpp:1564 LibGCore\src\ds\ds_polycurve.cpp:1666
+msgid "Curve must be divided into one or more parts"
+msgstr "Krzywa musi zostać podzielona na jedną lub więcej części"
+
+#: LibGCore\src\ds\ds_curve.cpp:1574 LibGCore\src\ds\ds_curve.cpp:1606
+#: LibGCore\src\ds\ds_curve.cpp:1635
+msgid "Unable to divide infinite curve equally by length"
+msgstr "Nie można równo podzielić nieskończonej krzywej według długości"
+
+#: LibGCore\src\ds\ds_curve.cpp:1588
+msgid "Unable to divide curve equally by length"
+msgstr "Nie można równo podzielić krzywej według długości"
+
+#: LibGCore\src\ds\ds_curve.cpp:1660 LibGCore\src\ds\ds_curve.cpp:1753
+msgid "Input segment length must be greater than 0"
+msgstr "Długość segmentu wejściowego musi być większa niż 0"
+
+#: LibGCore\src\ds\ds_curve.cpp:1670 LibGCore\src\ds\ds_curve.cpp:1768
+msgid "Unable to divide infinite curve by length"
+msgstr "Nie można podzielić nieskończonej krzywej według długości"
+
+#: LibGCore\src\ds\ds_curve.cpp:1982 LibGCore\src\ds\ds_curve.cpp:2093
+msgid "Unable to divide infinite curve equally by distance"
+msgstr "Nie można równo podzielić nieskończonej krzywej według odległości"
+
+#: LibGCore\src\ds\ds_curve.cpp:2020
+msgid "Unable to divide curve equally by distance"
+msgstr "Nie można równo podzielić krzywej według odległości"
+
+#: LibGCore\src\ds\ds_curve.cpp:2048 LibGCore\src\ds\ds_curve.cpp:2173
+#: LibGCore\src\ds\ds_curve.cpp:2213
+msgid "could not solve for equal distances"
+msgstr "nie można znaleźć rozwiązania dla równych odległości"
+
+#: LibGCore\src\ds\ds_curve.cpp:2080
+msgid "could not solve for equal chord lengths"
+msgstr "nie można znaleźć rozwiązania dla równych długości cięciwy"
+
+#: LibGCore\src\ds\ds_curve.cpp:2146 LibGCore\src\ds\ds_curve.cpp:2188
+msgid "Unable to divide curve by distance"
+msgstr "Nie można podzielić krzywej według odległości"
+
+#: LibGCore\src\ds\ds_curve.cpp:2230
+msgid "Cannot simplify Curve"
+msgstr "Nie można uprościć krzywej"
+
+#: LibGCore\src\ds\ds_curve.cpp:2253
+msgid "Cannot simplify a curve below 1.0e-9 tolerance"
+msgstr "Nie można uprościć krzywej poniżej tolerancji 1,0e-9"
+
+#: LibGCore\src\ds\ds_curve.cpp:2266
+msgid "Unable to approximate simplified spline"
+msgstr "Nie można przybliżyć uproszczonego splajnu"
+
+#: LibGCore\src\ds\ds_curve.cpp:2269
+msgid "Unable to simplify spline"
+msgstr "Nie można uprościć splajnu"
+
+#: LibGCore\src\ds\ds_cylinder.cpp:13
+msgid "Casted object is not a Cylinder"
+msgstr "Rzutowany obiekt nie jest Cylinder"
+
+#: LibGCore\src\ds\ds_ellipse.cpp:32
+msgid "Cast object is not a Ellipse"
+msgstr "Rzutowany obiekt nie jest Ellipse"
+
+#: LibGCore\src\ds\ds_ellipse.cpp:48 LibGCore\src\ds\ds_ellipse.cpp:176
+#: LibGCore\src\ds\ds_ellipse.cpp:185
+msgid "Error creating an ellipse!\n"
+" Ellipse radius must be non-zero"
+msgstr "Błąd podczas tworzenia ellipsy!\n"
+" Promień elipsy musi być różny od zera"
+
+#: LibGCore\src\ds\ds_ellipse.cpp:61 LibGCore\src\ds\ds_ellipse.cpp:89
+#: LibGCore\src\ds\ds_ellipse.cpp:101
+msgid "Error creating an ellipse!"
+msgstr "Błąd podczas tworzenia elipsy!"
+
+#: LibGCore\src\ds\ds_ellipsearc.cpp:17
+msgid "Casted object is not an EllipseArc"
+msgstr "Rzutowany obiekt nie jest EllipseArc"
+
+#: LibGCore\src\ds\ds_ellipsearc.cpp:57
+msgid "EllipseArc radius must be non-zero"
+msgstr "Promień łuku eliptycznego musi być różny od zera"
+
+#: LibGCore\src\ds\ds_ellipsearc.cpp:59
+msgid "EllipseArc sweep angle must be non-zero"
+msgstr "Kąt przeciągnięcia łuku eliptycznego musi być różny od zera"
+
+#: LibGCore\src\ds\ds_ellipsearc.cpp:99
+msgid "Unexpected error creating the EllipseArc!"
+msgstr "Nieoczekiwany błąd podczas tworzenia EllipseArc!"
+
+#: LibGCore\src\ds\ds_geometry.cpp:37
+msgid "Cast object is not Geometry"
+msgstr "Rzutowany obiekt nie jest Geometry"
+
+#: LibGCore\src\ds\ds_geometry.cpp:125
+msgid "Could not find distance."
+msgstr "Nie można znaleźć odległości."
+
+#: LibGCore\src\ds\ds_geometry.cpp:150
+msgid "Unable to get extremum point"
+msgstr "Nie można pobrać punktu ekstremum"
+
+#: LibGCore\src\ds\ds_geometry.cpp:304 LibGCore\src\ds\ds_plane.cpp:194
+msgid "Unable to create intersection boolean"
+msgstr "Nie można utworzyć boolean przecięcia"
+
+#: LibGCore\src\ds\ds_geometry.cpp:329 LibGCore\src\ds\ds_plane.cpp:217
+msgid "Unable to slice bodies"
+msgstr "Nie można utworzyć płatów bryły"
+
+#: LibGCore\src\ds\ds_geometry.cpp:411
+#: LibGCore\src\expt\expt_asmexporter.cpp:29
+#: LibGCore\src\expt\expt_asmexporter.cpp:102
+msgid "Unable to transform the entity!"
+msgstr "Nie można przekształcić jednostki!"
+
+#: LibGCore\src\ds\ds_geometry.cpp:434
+msgid "Unable to get EDGEs while decomposing BODY"
+msgstr "Nie można pobrać EDGEs podczas rozkładu BODY"
+
+#: LibGCore\src\ds\ds_geometry.cpp:439
+msgid "Unable to get WIREs while decomposing BODY"
+msgstr "Nie można pobrać WIREs podczas rozkładu BODY"
+
+#: LibGCore\src\ds\ds_geometry.cpp:478
+msgid "Error getting coedges"
+msgstr "Błąd podczas pobierania krawędzi wspólnych"
+
+#: LibGCore\src\ds\ds_geometry.cpp:539
+msgid "Could not separate BODYs before decomposition"
+msgstr "Nie można rozdzielić elementów BRYŁ przed rozkładem"
+
+#: LibGCore\src\ds\ds_geometry.cpp:573
+msgid "Could not get EDGEs from BODY when extracting Curves"
+msgstr "Nie można pobrać krawędzi z bryły podczas wyodrębniania krzywych"
+
+#: LibGCore\src\ds\ds_geometry.cpp:587
+msgid "Could not get COEDGEs from BODY when extracting Curves"
+msgstr "Nie można pobrać wspólnych krawędzi z bryły podczas wyodrębniania krzywych"
+
+#: LibGCore\src\ds\ds_geometry.cpp:603
+msgid "Could not get EDGEs from FACE when extracting Curves"
+msgstr "Nie można pobrać krawędzi z powierzchni podczas wyodrębniania krzywych"
+
+#: LibGCore\src\ds\ds_geometry.cpp:637
+msgid "Unable to create Curve from COEDGE when extracting Curves"
+msgstr "Nie można utworzyć krzywej ze wspólnej krawędzi podczas wyodrębniania krzywych"
+
+#: LibGCore\src\ds\ds_geometry.cpp:772
+msgid "Error getting length of the edge"
+msgstr "Błąd podczas pobierania długości krawędzi"
+
+#: LibGCore\src\ds\ds_geometry.cpp:780
+msgid "Unable to get start Point of zero length EDGE"
+msgstr "Nie można uzyskać Point początkowego o EDGE mającej zerową długość"
+
+#: LibGCore\src\ds\ds_geometry.cpp:868 LibGCore\src\ds\ds_solid.cpp:119
+msgid "Unable to get area"
+msgstr "Nie można uzyskać powierzchni"
+
+#: LibGCore\src\ds\ds_geometry.cpp:899
+msgid "Could not compare Geometry"
+msgstr "Nie można porównać Geometry"
+
+#: LibGCore\src\ds\ds_geometry.cpp:911
+msgid "Unable to get FACE from BODY: no faces in BODY"
+msgstr "Nie można uzyskać FACE z BODY: brak powierzchni w BODY"
+
+#: LibGCore\src\ds\ds_geometry.cpp:937 LibGCore\src\ds\ds_geometry.cpp:968
+msgid "Unable to make sheet double sided"
+msgstr "Nie można utworzyć arkusza dwustronnie"
+
+#: LibGCore\src\ds\ds_geometry.cpp:965
+msgid "Unable to create brep around face"
+msgstr "Nie można utworzyć reprezentacji bryłowej wokół powierzchni"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1000
+msgid "Unable to create BRep BODY from FACEs"
+msgstr "Nie można utworzyć BRYŁY BRep z POWIERZCHNI"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1003
+msgid "Unable make FACEs BODY double sided."
+msgstr "Nie można utworzyć FACEs BODY dwustronnie."
+
+#: LibGCore\src\ds\ds_geometry.cpp:1014
+msgid "Failed to query edges from body!"
+msgstr "Nie można sprawdzić krawędzi bryły."
+
+#: LibGCore\src\ds\ds_geometry.cpp:1081
+msgid "Unable to create non regular subtraction boolean"
+msgstr "Nie można utworzyć nietypowej operacji logicznej odejmowania"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1108 LibGCore\src\ds\ds_geometry.cpp:1403
+msgid "Unable to approximate body"
+msgstr "Nie można przybliżyć bryły"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1137
+msgid "Unable to compute equality between bodies"
+msgstr "Nie można obliczyć równości między bryłami"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1265
+msgid "Unable to extract a bounding box from ASM ENTITY"
+msgstr "Nie można wyodrębnić ramki ograniczającej z ASM ENTITY"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1328
+msgid "Unable to create planar face of BoundingBox"
+msgstr "Nie można utworzyć płaskiej powierzchni BoundingBox"
+
+#: LibGCore\src\ds\ds_geometry.cpp:1338
+msgid "Unable to compute closest approach on BoundingBox face"
+msgstr "Nie można obliczyć najbliższego podejścia na powierzchni BoundingBox"
+
+#: LibGCore\src\ds\ds_helix.cpp:31
+msgid "Cast object is not a helix"
+msgstr "Rzutowany obiekt nie jest spiralą"
+
+#: LibGCore\src\ds\ds_helix.cpp:43
+msgid "Cannot make helix"
+msgstr "Nie można utworzyć spirali"
+
+#: LibGCore\src\ds\ds_line.cpp:19
+msgid "Cast object is not a Line"
+msgstr "Rzutowany obiekt nie jest Line"
+
+#: LibGCore\src\ds\ds_line.cpp:48
+msgid "Unable to create Line. Points are likely coincident"
+msgstr "Nie można utworzyć Line. Points mogą się pokrywać"
+
+#: LibGCore\src\ds\ds_line.cpp:136
+msgid "Best fit line needs 2 points or more!"
+msgstr "Najlepiej dopasowana linia wymaga co najmniej 2 punktów!"
+
+#: LibGCore\src\ds\ds_plane.cpp:28
+msgid "Cast object is not a Plane"
+msgstr "Rzutowany obiekt nie jest Plane"
+
+#: LibGCore\src\ds\ds_plane.cpp:65 LibGCore\src\ds\ds_plane.cpp:91
+#: LibGCore\src\ds\ds_plane.cpp:302
+msgid "Could not create Plane!  one or more of the desired axes of this plane have zero length!"
+msgstr "Nie można utworzyć płaszczyzny! Długość co najmniej jednej z osi na płaszczyźnie jest zerowa!"
+
+#: LibGCore\src\ds\ds_plane.cpp:68 LibGCore\src\ds\ds_plane.cpp:94
+#: LibGCore\src\ds\ds_plane.cpp:305
+msgid "Could not create Plane!  The desired axes of this plane are parallel!"
+msgstr "Nie można utworzyć płaszczyzny! Żądane osie płaszczyzny są równoległe!"
+
+#: LibGCore\src\ds\ds_plane.cpp:148
+msgid "Intersecting two infinite geometries such as Planes is an invalid operation!"
+msgstr "Nie można utworzyć części wspólnej dwóch geometrii nieskończonych, takich jak płaszczyzny!"
+
+#: LibGCore\src\ds\ds_plane.cpp:274
+msgid "Unable to split Plane"
+msgstr "Nie można podzielić Plane"
+
+#: LibGCore\src\ds\ds_plane.cpp:278
+msgid "SetAttributes not implemented for Plane."
+msgstr "Nie zaimplementowano metody SetAttributes dla powierzchni."
+
+#: LibGCore\src\ds\ds_plane.cpp:282
+msgid "Unable to trim Plane"
+msgstr "Nie można przyciąć Plane"
+
+#: LibGCore\src\ds\ds_plane.cpp:597
+msgid "Best fit plane needs 3 or more points."
+msgstr "Najlepiej dopasowana płaszczyzna wymaga co najmniej 3 punktów."
+
+#: LibGCore\src\ds\ds_point.cpp:49
+msgid "Cast object is not a Point"
+msgstr "Rzutowany obiekt nie jest Point"
+
+#: LibGCore\src\ds\ds_point.cpp:145
+msgid "Unable to set vertex position"
+msgstr "Nie można ustawić położenia wierzchołka"
+
+#: LibGCore\src\ds\ds_point.cpp:149
+msgid "Unable to post process VERTEX ENTITY"
+msgstr "Przetwarzanie końcowe VERTEX ENTITY nie jest możliwe"
+
+#: LibGCore\src\ds\ds_point.cpp:175
+msgid "Unable to set VERTEX position"
+msgstr "Nie można ustawić położenia VERTEX"
+
+#: LibGCore\src\ds\ds_point.cpp:194
+msgid "Unable to create brep around Point"
+msgstr "Nie można utworzyć reprezentacji bryłowej wokół Point"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:27 LibGCore\src\ds\ds_polycurve.cpp:1997
+msgid "Cast object is not a PolyCurve"
+msgstr "Rzutowany obiekt nie jest PolyCurve"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:166
+msgid "Cannot create a PolyCurve without any Points."
+msgstr "Nie można utworzyć PolyCurve bez żadnych Points."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:202 LibGCore\src\ds\ds_polycurve.cpp:297
+msgid "Cannot make a PolyCurve from an empty list"
+msgstr "Nie można utworzyć PolyCurve z pustej listy"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:221 LibGCore\src\ds\ds_polycurve.cpp:317
+#: LibGCore\src\ds\ds_polycurve.cpp:364
+msgid "Failed to trim end segments of intersecting curves to be used for PolyCurve creation."
+msgstr "Nie udało się uciąć końcowych segmentów przecinających się krzywych na potrzeby utworzenia krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:230 LibGCore\src\ds\ds_polycurve.cpp:326
+#: LibGCore\src\ds\ds_polycurve.cpp:336
+msgid "Failed to create one or more PolyCurves from the input set of curves and given tolerance."
+msgstr "Nie udało się utworzyć co najmniej jednej krzywej PolyCurve na podstawie wejściowego zestawu krzywych i podanej tolerancji."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:248
+msgid "Failed to construct a PolyCurve from the input curves and given tolerance."
+msgstr "Nie udało się utworzyć krzywej PolyCurve na podstawie krzywych wejściowych i podanej tolerancji."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:373
+msgid "Failed to create new PolyCurve from trimmed curves."
+msgstr "Nie udało się utworzyć nowej krzywej PolyCurve z uciętych krzywych."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:383
+msgid "Failed to perform arc-spline approximnation of input PolyCurve."
+msgstr "Nie można wykonać przybliżenia splajnu-łuku dla wejściowej krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:408
+msgid "Failed to compute points of PolyCurve."
+msgstr "Nie można obliczyć punktów krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:463
+msgid "Failed to pull polycurve onto plane."
+msgstr "Nie można wyciągnąć krzywej PolyCurve na płaszczyznę."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:482
+msgid "Failed to retrieve component curves of input PolyCurve."
+msgstr "Nie można pobrać krzywych składowych z wejściowej krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:499
+msgid "Invalid Curve index"
+msgstr "Niewłaściwy indeks krzywej"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:531 LibGCore\src\ds\ds_polysurface.cpp:1213
+msgid "Could not find sub Curve in parameter range"
+msgstr "Nie można znaleźć podrzędnej Curve w zakresie parametrów"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:538 LibGCore\src\ds\ds_polycurve.cpp:1682
+msgid "Unable to calculate point on polycurve. Input parameter might be out of parameter range."
+msgstr "Nie można obliczyć punktu na krzywej PolyCurve. Parametr wejściowy może być poza zakresem parametrów."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:574 LibGCore\src\ds\ds_polycurve.cpp:1745
+#: LibGCore\src\ds\ds_polysurface.cpp:1148
+msgid "Could not find parameter at Point"
+msgstr "Nie można znaleźć parameter at Point"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:587
+msgid "Failed to evaluate tangent at polycurve parameter."
+msgstr "Nie można obliczyć stycznej dla parametru krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:682
+msgid "Failed to compute parameter on polycurve at given chord length."
+msgstr "Nie można obliczyć parametru na krzywej PolyCurve przy danej długości cięciwy."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:713 LibGCore\src\ds\ds_polycurve.cpp:736
+msgid "Failed to split PolyCurve at given parameters."
+msgstr "Nie można podzielić krzywej PolyCurve dla danych parametrów."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:770
+msgid "Failed to trim surface with polycurve loops."
+msgstr "Nie można uciąć powierzchni za pomocą pętli krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:779
+msgid "Failed to trim PolyCurve at start parameter."
+msgstr "Nie można uciąć krzywej PolyCurve przy parametrze początkowym."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:788
+msgid "Failed to trim PolyCurve at end parameter."
+msgstr "Nie można uciąć krzywej PolyCurve przy parametrze końcowym."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:797
+msgid "Failed to trim PolyCurve at start and end parameters."
+msgstr "Nie można uciąć krzywej PolyCurve przy parametrach początkowym i końcowym."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:934
+msgid "unable to convert PolyCurve to NURBS curve."
+msgstr "nie można przekonwertować krzywej PolyCurve na krzywą NURBS."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:943
+msgid "Error computing parameter on PolyCurve. The requested parameter may be outside the PolyCurve range."
+msgstr "Błąd obliczania parametru krzywej PolyCurve. Żądany parametr może być poza zakresem krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:952
+msgid "Failed to compute length of polycurve at given parameter."
+msgstr "Nie można obliczyć długości krzywej PolyCurve przy danym parametrze."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:964
+msgid "Failed to compute arc-length between parameters."
+msgstr "Nie można obliczyć długości łuku między parametrami."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:981 LibGCore\src\ds\ds_polycurve.cpp:993
+msgid "Failed to determine if given PolyCurve is planar."
+msgstr "Nie można określić, czy dana krzywa PolyCurve jest płaska."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:996
+msgid "PolyCurve is either a degenerate Point or is linear or is not planar."
+msgstr "Krzywa PolyCurve jest zdegenerowanym punktem, jest liniowa lub nie jest płaska."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1096 LibGCore\src\ds\ds_polycurve.cpp:1112
+msgid "Can not close polycurve."
+msgstr "Nie można zamknąć polycurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1188 LibGCore\src\ds\ds_polycurve.cpp:1194
+#: LibGCore\src\ds\ds_polycurve.cpp:1270 LibGCore\src\ds\ds_polycurve.cpp:1276
+msgid "Can not determine plane of polycurve extension."
+msgstr "Nie można określić płaszczyzny rozszerzenia polycurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1218
+msgid "Could not add length of a full circle or more."
+msgstr "Nie można dodać długości pełnego okręgu lub więcej."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1286
+msgid "Different sign of radii values."
+msgstr "Inny znak wartości promieni."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1416
+msgid "Failed to facet polycurve."
+msgstr "Nie można utworzyć płaszczyzn krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1512
+msgid "Could not sweep PolyCurve"
+msgstr "Nie można przeciągnąć PolyCurve"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1540
+msgid "Failed to convert PolyCurve to wire body."
+msgstr "Nie można przekonwertować krzywej PolyCurve na bryłę przewodu."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1557
+msgid "Could not make patch surfaces"
+msgstr "Nie udało się utworzyć powierzchni zamknięcia"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1564
+msgid "Could not patch PolyCurve"
+msgstr "Nie można zaślepić PolyCurve"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1609
+msgid "Failed to offset polycurve."
+msgstr "Nie można odsunąć krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1613
+msgid "Failed to offset polycurve. Result of offset is an empty list."
+msgstr "Nie można odsunąć krzywej PolyCurve. Wynik odsunięcia jest pustą listą."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1640
+msgid "Failed to offset polycurve. Offset produces more than one WIRE."
+msgstr "Nie można odsunąć krzywej PolyCurve. Odsunięcie tworzy więcej niż jeden PRZEWÓD."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1649
+msgid "Failed to fillet polycurve."
+msgstr "Nie można zaokrąglić krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1671
+msgid "The number of divisions is too large or the length of the curve is too small. Failed to compute points on polycurve."
+msgstr "Liczba podziałów jest zbyt duża lub długość krzywej jest zbyt mała. Nie można obliczyć punktów na krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1679
+msgid "Failed to compute parameter of polycurve for given length."
+msgstr "Nie można obliczyć parametru krzywej PolyCurve dla danej długości."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1736
+msgid "Input segment length must be greater or equal to zero"
+msgstr "Długość segmentu wejściowego musi być co najmniej równa zero"
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1752 LibGCore\src\ds\ds_polycurve.cpp:1762
+msgid "Unable to calculate point on polycurve."
+msgstr "Nie można obliczyć punktu na krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1785
+msgid "Unable to compute points at equal chord length on PolyCurve."
+msgstr "Nie można obliczyć punktów w równych długościach cięciwy na krzywej PolyCurve."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1806
+msgid "Failed to compute points at chord length from point. Input chord length must be greater than zero."
+msgstr "Nie można obliczyć punktów na długości cięciwy od punktu. Długość cięciwy wejściowej musi być większa od zera."
+
+#: LibGCore\src\ds\ds_polycurve.cpp:1812
+msgid "Failed to compute points at chord length from point."
+msgstr "Nie można obliczyć punktów w długości cięciwy od punktu."
+
+#: LibGCore\src\ds\ds_polygon.cpp:21
+msgid "Cast object is not a Polygon"
+msgstr "Przekształcony obiekt nie jest Polygon"
+
+#: LibGCore\src\ds\ds_polygon.cpp:35
+msgid "You must supply more than 2 points to create a polygon"
+msgstr "Należy podać więcej niż 2 punkty, aby utworzyć wielobok"
+
+#: LibGCore\src\ds\ds_polygon.cpp:42
+msgid "Failed to construct a Polygon from the input points."
+msgstr "Nie można utworzyć wieloboku z punktów wejściowych."
+
+#: LibGCore\src\ds\ds_polygon.cpp:52
+msgid "Failed to compute max deviation of Polygon from best fit plane."
+msgstr "Nie można obliczyć maksymalnego odchylenia wieloboku od płaszczyzny najlepszego dopasowania."
+
+#: LibGCore\src\ds\ds_polygon.cpp:149
+msgid "Could not text containment for non-planar polygon"
+msgstr "Nie udało się zawrzeć tekstu dla niepłaskiego wieloboku"
+
+#: LibGCore\src\ds\ds_polygon.cpp:152
+msgid "Could not text containment for self-intersecting polygon"
+msgstr "Nie udało się zawrzeć tekstu dla samoprzecinającego się wieloboku"
+
+#: LibGCore\src\ds\ds_polygon.cpp:169
+msgid "Regular polygon should have 3 or more sides"
+msgstr "Wielobok foremny powinien mieć co najmniej 3 boki"
+
+#: LibGCore\src\ds\ds_polymesh.cpp:22
+msgid "Cast object is not a PolyMesh"
+msgstr "Rzutowany obiekt nie jest PolyMesh"
+
+#: LibGCore\src\ds\ds_polymesh.cpp:57
+msgid "One or more IndexGroups supplied contained an out of bounds vertex index!  All IndexGroup indices are zero-based and must be less than the number of vertices supplied."
+msgstr "Jedna lub więcej z podanych IndexGroups zawiera indeks wierzchołka znajdujący się poza granicami! Wszystkie indeksy IndexGroup oparte są na wartości zerowej i nie może ich być więcej niż podanych wierzchołków."
+
+#: LibGCore\src\ds\ds_polysurface.cpp:32
+#: LibGCore\src\ds\ds_polysurface.cpp:1234
+msgid "Cast object is not a PolySurface"
+msgstr "Rzutowany obiekt nie jest PolySurface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:57
+msgid "The input is not valid"
+msgstr "Wprowadzone dane są nieprawidłowe"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:68 LibGCore\src\ds\ds_polysurface.cpp:178
+msgid "Could not extract FACEs from PolySurface BODY"
+msgstr "Nie można wyodrębnić FACEs z  PolySurface BODY"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:71
+msgid "Error creating PolySurface, BODY has no FACEs"
+msgstr "Błąd podczas tworzenia PolySurface, BODY nie ma FACEs"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:117
+msgid "Nonmanifold boundary contains non-EDGEs"
+msgstr "Niepowielona obwiednia nie zawiera żadnych EDGEs"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:134
+msgid "Cannot convert base body to double sided"
+msgstr "Nie można przekształcić bryły bazowej na dwustronną"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:138
+msgid "Cannot convert tool body to double sided"
+msgstr "Nie można przekształcić bryły narzędziowej na dwustronną"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:141
+msgid "Unable to stitch Surfaces into a single PolySurface."
+msgstr "Nie można połączyć Surfaces w jedną PolySurface."
+
+#: LibGCore\src\ds\ds_polysurface.cpp:212
+#: LibGCore\src\ds\ds_polysurface.cpp:296
+#: LibGCore\src\ds\ds_polysurface.cpp:313
+#: LibGCore\src\ds\ds_polysurface.cpp:317
+#: LibGCore\src\ds\ds_polysurface.cpp:325
+#: LibGCore\src\ds\ds_polysurface.cpp:329 LibGCore\src\ds\ds_surface.cpp:665
+msgid "Not Implemented"
+msgstr "Nie zaimplementowano"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:219
+msgid "Could not extract EDGEs from PolySurface BODY"
+msgstr "Nie można wyodrębnić krawędzi z bryły PolySurface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:266
+msgid "Unable to set PolySurface Edges to fillet"
+msgstr "Nie można ustawić PolySurface Edges do zaokrąglenia"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:269
+#: LibGCore\src\ds\ds_polysurface.cpp:287 LibGCore\src\ds\ds_solid.cpp:595
+msgid "Unable to compute fillet"
+msgstr "Nie można obliczyć zaokrąglenia"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:284
+msgid "Unable to set PolySurface Edges to chamfer"
+msgstr "Nie można ustawić PolySurface Edges do fazowania"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:321
+msgid "Could not determine parameter of non-manifold Surface"
+msgstr "Nie można określić parametru nierozgałęzionej Surface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:441
+#: LibGCore\src\ds\ds_polysurface.cpp:938
+msgid "Could not make combined polysurface."
+msgstr "Nie można utworzyć łączonej polipowierzchni."
+
+#: LibGCore\src\ds\ds_polysurface.cpp:458
+msgid "Could not combine Surfaces"
+msgstr "Nie można połączyć powierzchni"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:477 LibGCore\src\ds\ds_solid.cpp:523
+#: LibGCore\src\ds\ds_surface.cpp:557
+#: LibGCore\src\ds\topology\ds_topology.cpp:94
+msgid "Error getting faces!"
+msgstr "Błąd podczas pobierania powierzchni!"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:484 LibGCore\src\ds\ds_solid.cpp:530
+#: LibGCore\src\ds\topology\ds_topology.cpp:64
+msgid "Error getting edges!"
+msgstr "Błąd podczas pobierania krawędzi!"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:513
+msgid "Non-uniform transformations on PolySurface is not supported at the moment"
+msgstr "Niejednorodne przekształcenia na PolySurface nie są w tej chwili obsługiwane"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:561 LibGCore\src\ds\ds_solid.cpp:270
+#: LibGCore\src\ds\ds_solid.cpp:299 LibGCore\src\ds\ds_solid.cpp:373
+#: LibGCore\src\ds\ds_solid.cpp:391 LibGCore\src\ds\ds_solid.cpp:493
+msgid "Unable to loft!"
+msgstr "Wyciągnięcie złożone niemożliwe!"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:580
+#: LibGCore\src\ds\ds_polysurface.cpp:596
+#: LibGCore\src\ds\ds_polysurface.cpp:610
+msgid "Unable to loft to make polysurface!"
+msgstr "Wyciągnięcie złożone, aby utworzyć polipowierzchni, niemożliwe!"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:648
+msgid "Unable to set sweep profile and path to make Polysurface"
+msgstr "Nie można ustawić profilu przeciągnięcia i ścieżki, aby utworzyć Polysurface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:651
+msgid "Unable to set the result to be not solid  to make Polysurface"
+msgstr "Nie można ustawić wyniku innego niż bryła, aby utworzyć Polysurface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:654
+msgid "Unable to compute surface sweep on rail  to make Polysurface"
+msgstr "Nie można obliczyć przeciągnięcia powierzchni na tor, aby utworzyć Polysurface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:676
+msgid "Unable to attach cellular analyzer to Polysurface"
+msgstr "Nie można dołączyć do Polysurface analizatora komórkowego"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:681
+msgid "Unable to extract solids from Polysurface"
+msgstr "Nie można wyodrębnić brył z Polysurface"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:754
+msgid "Could not project_point on polysurface."
+msgstr "Rzutowanie punktu project_point na polysurface zakończone niepowodzeniem\n"
+"."
+
+#: LibGCore\src\ds\ds_polysurface.cpp:907
+#: LibGCore\src\ds\ds_polysurface.cpp:1101
+msgid "Cannot create a PolySurface from an empty list"
+msgstr "Nie można utworzyć PolySurface z pustej listy"
+
+#: LibGCore\src\ds\ds_polysurface.cpp:967
+#: LibGCore\src\ds\ds_polysurface.cpp:977
+msgid "Could not make patched polysurface."
+msgstr "Nie udało się utworzyć zamkniętej PolySurface."
+
+#: LibGCore\src\ds\ds_polysurface.cpp:1003
+msgid "Unable to get edges from polysurface"
+msgstr "Nie można pobrać krawędzi z Polysurface"
+
+#: LibGCore\src\ds\ds_rectangle.cpp:15
+msgid "Input Points don't form a valid Rectangle"
+msgstr "Punkty wejściowe nie tworzą prawidłowego prostokąta"
+
+#: LibGCore\src\ds\ds_rectangle.cpp:26
+msgid "Casted object is not a Rectangle"
+msgstr "Rzutowany obiekt nie jest Rectangle"
+
+#: LibGCore\src\ds\ds_rectangle.cpp:65
+msgid "Rectangle needs 3 or 4 corner points"
+msgstr "Prostokąt wymaga 3 lub 4 punktów narożnych"
+
+#: LibGCore\src\ds\ds_solid.cpp:37
+msgid "Cast object is not a Solid"
+msgstr "Rzutowany obiekt nie jest Solid"
+
+#: LibGCore\src\ds\ds_solid.cpp:72
+msgid "Cannot facet Solid: it is a wire body"
+msgstr "Nie można utworzyć fasety dla Solid: jest ona bryłą krawędziową"
+
+#: LibGCore\src\ds\ds_solid.cpp:105
+msgid "Unable to get volume"
+msgstr "Nie można pobrać volume"
+
+#: LibGCore\src\ds\ds_solid.cpp:146
+msgid "Unable union two Solids"
+msgstr "Nie można połączyć dwóch Solids"
+
+#: LibGCore\src\ds\ds_solid.cpp:153 LibGCore\src\ds\ds_surface.cpp:711
+msgid "Cannot union an empty list"
+msgstr "Nie można połączyć pustej listy"
+
+#: LibGCore\src\ds\ds_solid.cpp:183
+msgid "Unable to difference two Solids"
+msgstr "Nie można rozróżnić dwóch brył"
+
+#: LibGCore\src\ds\ds_solid.cpp:187
+msgid "The resulting solid is either a zero-volume solid or is invalid."
+msgstr "Bryła wynikowa jest albo bryłą o zerowej objętości, albo jest niepoprawna."
+
+#: LibGCore\src\ds\ds_solid.cpp:194 LibGCore\src\ds\ds_surface.cpp:743
+msgid "Cannot difference an empty list"
+msgstr "Nie można rozróżnić pustej listy"
+
+#: LibGCore\src\ds\ds_solid.cpp:222
+msgid "Unable intersect two Solids"
+msgstr "Nie można utworzyć części wspólnej dwóch brył"
+
+#: LibGCore\src\ds\ds_solid.cpp:263 LibGCore\src\ds\ds_solid.cpp:367
+msgid "Unable to loft"
+msgstr "Nie można utworzyć wyciągnięcia"
+
+#: LibGCore\src\ds\ds_solid.cpp:295 LibGCore\src\ds\ds_solid.cpp:310
+msgid "Unable to set sections for loft!"
+msgstr "Nie można ustawić przekrojów dla wyciągnięcia!"
+
+#: LibGCore\src\ds\ds_solid.cpp:333
+msgid "Unable to set standard boundary condition at first loft section!"
+msgstr "Nie można ustawić standardowego warunku obwiedni przy pierwszym przekroju wyciągnięcia!"
+
+#: LibGCore\src\ds\ds_solid.cpp:348
+msgid "Unable to set standard boundary condition at last loft section!"
+msgstr "Nie można ustawić standardowego warunku obwiedni przy ostatnim przekroju wyciągnięcia!"
+
+#: LibGCore\src\ds\ds_solid.cpp:388
+msgid "Unable to set the sections or the centerline!"
+msgstr "Nie można ustawić przekrojów ani osi!"
+
+#: LibGCore\src\ds\ds_solid.cpp:400
+msgid "Unable to set the profile and the path!"
+msgstr "Nie można ustawić profilu i ścieżki!"
+
+#: LibGCore\src\ds\ds_solid.cpp:404
+msgid "Unable to set miter type!"
+msgstr "Nie można ustawić typu połączenia kątowego!"
+
+#: LibGCore\src\ds\ds_solid.cpp:406
+msgid "Unable to set whether to retain mergeable edges!"
+msgstr "Nie można ustawić, czy możliwe do połączenia krawędzie mają być zachowane!"
+
+#: LibGCore\src\ds\ds_solid.cpp:408
+msgid "Unable to set the draft angle!"
+msgstr "Nie można ustawić kąta pochylenia!"
+
+#: LibGCore\src\ds\ds_solid.cpp:410
+msgid "Unable to set the gap type!"
+msgstr "Nie można ustawić typu odstępu!"
+
+#: LibGCore\src\ds\ds_solid.cpp:412
+msgid "Unable to set cut-end-off option!"
+msgstr "Nie można ustawić opcji wycięcia końca!"
+
+#: LibGCore\src\ds\ds_solid.cpp:421
+msgid "The profile Curve must be planar to perform sweep"
+msgstr "Krzywa profilu musi być płaska, aby wykonać przeciągnięcie"
+
+#: LibGCore\src\ds\ds_solid.cpp:456
+msgid "Unable to update solid by sweep"
+msgstr "Nie można zaktualizować bryły przez przeciągnięcie"
+
+#: LibGCore\src\ds\ds_solid.cpp:543
+msgid "Thicknesses must be positive"
+msgstr "Grubość musi być dodatnia"
+
+#: LibGCore\src\ds\ds_solid.cpp:550
+msgid "Could not set shelling body"
+msgstr "Nie można ustawić bryły skorupowej"
+
+#: LibGCore\src\ds\ds_solid.cpp:555
+msgid "Unable to set the external thickness"
+msgstr "Nie można ustawić grubości zewnętrznej"
+
+#: LibGCore\src\ds\ds_solid.cpp:560
+msgid "Unable to set the internal thickness"
+msgstr "Nie można ustawić grubości wewnętrznej"
+
+#: LibGCore\src\ds\ds_solid.cpp:565
+msgid "Unable to compute shell"
+msgstr "Nie można obliczyć powłoki"
+
+#: LibGCore\src\ds\ds_solid.cpp:592
+msgid "Unable to set Solid Edges to fillet"
+msgstr "Nie można ustawić Solid Edges do zaokrąglenia"
+
+#: LibGCore\src\ds\ds_solid.cpp:609
+msgid "Unable to set Solid edges to chamfer"
+msgstr "Nie można ustawić fazowania krawędzi bryły"
+
+#: LibGCore\src\ds\ds_solid.cpp:612
+msgid "Unable to compute chamfer"
+msgstr "Nie można obliczyć fazy"
+
+#: LibGCore\src\ds\ds_solid.cpp:706
+msgid "ByJoinedSurfaces requires at least one Surface"
+msgstr "ByJoinedSurfaces wymaga co najmniej jednej powierzchni"
+
+#: LibGCore\src\ds\ds_solid.cpp:711 LibGCore\src\ds\ds_solid.cpp:722
+msgid "Surfaces could not be joined into a closed Solid!"
+msgstr "Nie udało się połączyć powierzchni w zamkniętą bryłę!"
+
+#: LibGCore\src\ds\ds_solid.cpp:727
+msgid "Surfaces could not be joined into a closed Solid, even with refinement!"
+msgstr "Powierzchni nie można połączyć w zamkniętą bryłą, nawet z użyciem funkcji wygładzania!"
+
+#: LibGCore\src\ds\ds_solid.cpp:775
+msgid "Not implemented"
+msgstr "Nie zaimplementowano"
+
+#: LibGCore\src\ds\ds_solid.cpp:780 LibGCore\src\ds\ds_solid.cpp:790
+msgid "Profile Curve must be closed"
+msgstr "Krzywa profilu musi być zamknięta"
+
+#: LibGCore\src\ds\ds_solid.cpp:806 LibGCore\src\ds\ds_surface.cpp:1065
+msgid "Unable set up two rail sweep operation."
+msgstr "Nie można ustawić operacji przeciągnięcia dwóch torów."
+
+#: LibGCore\src\ds\ds_solid.cpp:809
+msgid "Cannot instruct ASM to make a Solid."
+msgstr "Nie można ustawić utworzenia Solid w ASM."
+
+#: LibGCore\src\ds\ds_solid.cpp:813 LibGCore\src\ds\ds_surface.cpp:1073
+msgid "Cannot set linear map for two-rail sweeping."
+msgstr "Nie można ustawić liniowej mapy dla przeciągnięcia dwóch torów."
+
+#: LibGCore\src\ds\ds_solid.cpp:817 LibGCore\src\ds\ds_surface.cpp:1077
+msgid "Unable to sweep profile Curve."
+msgstr "Nie można przeciągnąć Curve profilu."
+
+#: LibGCore\src\ds\ds_solid.cpp:850
+msgid "Cannot union an empty list of Solids"
+msgstr "Nie można połączyć pustej listy Solids"
+
+#: LibGCore\src\ds\ds_solid.cpp:874
+msgid "Cannot create Solid, Curves are not closed"
+msgstr "Nie można utworzyć Solid, Curves nie są zamknięte"
+
+#: LibGCore\src\ds\ds_sphere.cpp:18
+msgid "Cast object is not a Sphere"
+msgstr "Rzutowany obiekt nie jest Sphere"
+
+#: LibGCore\src\ds\ds_sphere.cpp:29
+msgid "Sphere::by_four_points needs 4 points."
+msgstr "Sphere::by_four_points wymaga 4 punktów."
+
+#: LibGCore\src\ds\ds_sphere.cpp:43 LibGCore\src\ds\ds_sphere.cpp:54
+#: LibGCore\src\ds\ds_sphere.cpp:64
+msgid "Failed to make Sphere by four points."
+msgstr "Nie udało się utworzyć Sphere z czterech punktów."
+
+#: LibGCore\src\ds\ds_sphere.cpp:157
+msgid "Sphere::by_four_points needs more than 4 points."
+msgstr "Sphere::by_four_points wymaga więcej niż 4 punktów."
+
+#: LibGCore\src\ds\ds_sphere.cpp:192 LibGCore\src\ds\ds_sphere.cpp:236
+#: LibGCore\src\ds\ds_sphere.cpp:255
+msgid "Failed to fit Sphere."
+msgstr "Nie można dopasować Sphere."
+
+#: LibGCore\src\ds\ds_sphere.cpp:274
+msgid "Unable to create sphere"
+msgstr "Nie można utworzyć sfery"
+
+#: LibGCore\src\ds\ds_surface.cpp:29 LibGCore\src\ds\ds_surface.cpp:39
+#: LibGCore\src\ds\ds_surface.cpp:256
+msgid "Unable to get the FACE's range in Surface constructor."
+msgstr "Nie można pobrać zakresu POWIERZCHNI w konstruktorze powierzchni."
+
+#: LibGCore\src\ds\ds_surface.cpp:48
+msgid "Cast object is not a Surface"
+msgstr "Rzutowany obiekt nie jest powierzchnią"
+
+#: LibGCore\src\ds\ds_surface.cpp:96
+msgid "Unable to patch a single, non-closed curve"
+msgstr "Nie można zaślepić pojedynczej krzywej niezamkniętej"
+
+#: LibGCore\src\ds\ds_surface.cpp:112
+msgid "Unable to patch curve"
+msgstr "Nie można zaślepić krzywej"
+
+#: LibGCore\src\ds\ds_surface.cpp:173
+msgid "Error creating Surface: Points are coincident"
+msgstr "Błąd podczas tworzenia powierzchni: punkty są współliniowe"
+
+#: LibGCore\src\ds\ds_surface.cpp:182
+msgid "Error creating Surface perimeter Curves"
+msgstr "Błąd podczas tworzenia krzywych obwodu powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:194
+msgid "Error using perimeter Curves to make Surface"
+msgstr "Błąd podczas tworzenia powierzchni za pomocą parametrów krzywych"
+
+#: LibGCore\src\ds\ds_surface.cpp:197 LibGCore\src\ds\ds_surface.cpp:230
+msgid "Unable to make wire from edges"
+msgstr "Nie można utworzyć przewodu z krawędzi"
+
+#: LibGCore\src\ds\ds_surface.cpp:207 LibGCore\src\ds\ds_surface.cpp:237
+msgid "Unable to create polygon"
+msgstr "Nie można utworzyć wielokąta"
+
+#: LibGCore\src\ds\ds_surface.cpp:253
+msgid "Invalid face!"
+msgstr "Nieprawidłowa powierzchnia!"
+
+#: LibGCore\src\ds\ds_surface.cpp:305
+msgid "Lofted Curve, but could not convert to double-sided"
+msgstr "Wyciągnięto krzywą, ale nie można przekształcić na dwustronną"
+
+#: LibGCore\src\ds\ds_surface.cpp:315
+msgid "Swept Curve, but could not convert to double sided"
+msgstr "Wyciągnięto krzywą po ścieżce, ale nie można przekształcić na dwustronną"
+
+#: LibGCore\src\ds\ds_surface.cpp:331
+msgid "Unable to approximate surface"
+msgstr "Nie można przybliżyć powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:416
+msgid "Unable to extrude non-planar face without vector"
+msgstr "Nie można wyciągnąć niepłaskiej powierzchni bez wektora"
+
+#: LibGCore\src\ds\ds_surface.cpp:420 LibGCore\src\ds\ds_surface.cpp:438
+msgid "Unable to extrude surface"
+msgstr "Nie można wyciągnąć powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:424 LibGCore\src\ds\ds_surface.cpp:442
+msgid "Unable to compute extrusion of surface"
+msgstr "Nie można obliczyć wyciągnięcia powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:458
+msgid "Unable to set BODY thicken data"
+msgstr "Nie można ustawić danych pogrubienia bryły"
+
+#: LibGCore\src\ds\ds_surface.cpp:461
+msgid "Unable to set thicken operation to both sides"
+msgstr "Nie można ustawić operacji pogrubienia dla obu stron"
+
+#: LibGCore\src\ds\ds_surface.cpp:464
+msgid "Unable to compute thickened face"
+msgstr "Nie można obliczyć pogrubionej powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:485
+msgid "Unable to set BODY offset data"
+msgstr "Nie można ustawić danych przesunięcia bryły"
+
+#: LibGCore\src\ds\ds_surface.cpp:487
+msgid "Unable to set whether the result is attached or not"
+msgstr "Nie można ustawić, czy wynik jest dołączany, czy nie"
+
+#: LibGCore\src\ds\ds_surface.cpp:490
+msgid "Could not offset surface"
+msgstr "Nie można odsunąć powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:595
+msgid "Unable to evaluate normal of Surface."
+msgstr "Nie można wyznaczyć normalnej powierzchni."
+
+#: LibGCore\src\ds\ds_surface.cpp:682
+msgid "Unable union two surfaces"
+msgstr "Nie można zsumować dwóch powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:690
+msgid "Cannot union an empty list of surfaces"
+msgstr "Nie można połączyć pustej listy powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:736
+msgid "Unable difference two surfaces"
+msgstr "Nie można utworzyć różnicy dwóch powierzchni"
+
+#: LibGCore\src\ds\ds_surface.cpp:933 LibGCore\src\ds\ds_surface.cpp:950
+#: LibGCore\src\ds\ds_surface.cpp:968 LibGCore\src\ds\ds_surface.cpp:988
+msgid "can not evaluate curvature"
+msgstr "nie można ocenić krzywizny"
+
+#: LibGCore\src\ds\ds_surface.cpp:1030
+msgid "Unable to reverse the body"
+msgstr "Nie można odwrócić bryły"
+
+#: LibGCore\src\ds\ds_surface.cpp:1068
+msgid "Cannot instruct ASM to make a Surface."
+msgstr "Nie można ustawić ASM, aby utworzyć powierzchnię."
+
+#: LibGCore\src\ds\ds_transformableitem.cpp:88
+msgid "The distance between base and the first pick point must be greater than 0."
+msgstr "Odległość między podstawą a pierwszym punktem wskazania musi być większa niż 0."
+
+#: LibGCore\src\ds\ds_transformableitem.cpp:91
+msgid "The distance between base and the second pick point must be greater than 0."
+msgstr "Odległość między podstawą a drugim punktem wskazania musi być większa niż 0."
+
+#: LibGCore\src\ds\ds_transformableitem.cpp:151
+#: LibGCore\src\ds\ds_transformableitem.cpp:196
+msgid "The base point and first pick point must not be coincident!"
+msgstr "Punkt bazowy i pierwszy punkt wskazania nie mogą się pokrywać!"
+
+#: LibGCore\src\ds\ds_transformableitem.cpp:162
+#: LibGCore\src\ds\ds_transformableitem.cpp:204
+msgid "The scale factor is 0!  The base point and second pick point may be coincident!"
+msgstr "Współczynnik skali jest 0! Punkt bazowy i drugi punkt wskazania mogą się pokrywać!"
+
+#: LibGCore\src\ds\ds_vector.cpp:20
+msgid "Cast object is not a Vector"
+msgstr "Rzutowany obiekt nie jest Vector"
+
+#: LibGCore\src\ds\ds_vector.cpp:177
+msgid "attempt to set length of zero length vector"
+msgstr "próba ustawienia wektora o zerowej długości"
+
+#: LibGCore\src\ds\topology\ds_coedge.cpp:90
+msgid "Can't get curve from coedge"
+msgstr "Nie można otrzymać krzywej z krawędzi wspólnej"
+
+#: LibGCore\src\ds\topology\ds_coedge.cpp:93
+msgid "The CoEdge belongs to a degenerate Edge."
+msgstr "Krawędź wspólna należy do krawędzi zdegenerowanej."
+
+#: LibGCore\src\ds\topology\ds_edge.cpp:44
+msgid "Error getting coedges of the edge!"
+msgstr "Błąd podczas pobierania krawędzi wspólnych danej krawędzi!"
+
+#: LibGCore\src\ds\topology\ds_edge.cpp:58
+msgid "Error copying an edge!"
+msgstr "Błąd podczas kopiowania krawędzi!"
+
+#: LibGCore\src\ds\topology\ds_edge.cpp:61
+msgid "Unable to transform EDGE"
+msgstr "Nie można przekształcić KRAWĘDZI"
+
+#: LibGCore\src\ds\topology\ds_edge.cpp:66
+msgid "Failed to convert Edge to Curve."
+msgstr "Nie można przekształcić krawędzi w krzywą."
+
+#: LibGCore\src\ds\topology\ds_edge.cpp:70
+msgid "Curve geometry is degenerate or invalid."
+msgstr "Geometria krzywej jest zdegenerowana lub niepoprawna."
+
+#: LibGCore\src\ds\topology\ds_edge.cpp:83
+msgid " doesn't support curve geometry query operation on its Edge!"
+msgstr " nie obsługuje zapytania o geometrię krzywej na krawędzi!"
+
+#: LibGCore\src\ds\topology\ds_face.cpp:27
+msgid "Error getting face vertices!"
+msgstr "Błąd podczas pobierania wierzchołków powierzchni!"
+
+#: LibGCore\src\ds\topology\ds_face.cpp:43
+msgid "Error getting face edges!"
+msgstr "Błąd pobierania krawędzi powierzchni!"
+
+#: LibGCore\src\ds\topology\ds_face.cpp:61
+msgid "Error getting face loops!"
+msgstr "Błąd pobierania pętli powierzchni!"
+
+#: LibGCore\src\ds\topology\ds_loop.cpp:33
+msgid "Error getting loop coedges!"
+msgstr "Błąd podczas pobierania krawędzi wspólnych pętli!"
+
+#: LibGCore\src\ds\topology\ds_loop.cpp:47
+msgid "Failed to define loop direction"
+msgstr "Nie można zdefiniować kierunku pętli"
+
+#: LibGCore\src\ds\topology\ds_topology.cpp:34
+msgid " doesn't support Vertex query operation!"
+msgstr " nie obsługuje zapytania o wierzchołek!"
+
+#: LibGCore\src\ds\topology\ds_topology.cpp:57
+msgid " doesn't support Edge query operation!"
+msgstr " nie obsługuje zapytania o krawędź!"
+
+#: LibGCore\src\ds\topology\ds_topology.cpp:87
+msgid " doesn't support Face query operation!"
+msgstr " nie obsługuje zapytania o powierzchnię!"
+
+#: LibGCore\src\ds\topology\ds_topology.cpp:126
+msgid "could not repair geometry"
+msgstr "nie można naprawić geometrii"
+
+#: LibGCore\src\ds\topology\ds_topology.cpp:144
+msgid "unexpected result, please report to dynamo team: "
+msgstr "nieoczekiwany wynik, zgłoś go zespołowi dodatku Dynamo: "
+
+#: LibGCore\src\ds\topology\ds_vertex.cpp:26
+msgid "Error getting adjacent edges of a vertex!"
+msgstr "Błąd pobierania przylegających krawędzie wierzchołka!"
+
+#: LibGCore\src\ds\topology\ds_vertex.cpp:40
+msgid "Error getting adjacent faces of a vertex!"
+msgstr "Błąd pobierania sąsiednich powierzchni wierzchołka!"
+
+#: LibGCore\src\ds\topology\ds_vertex.cpp:60
+msgid " doesn't support point geometry query operation on its Vertex!"
+msgstr " nie obsługuje zapytania o geometrię punktu na wierzchołku!"
+
+#: LibGCore\src\ds\topology\ds_vertex.cpp:66
+msgid "Could not get vertex point"
+msgstr "Nie można pobrać punktu wierzchołka"
+
+#: LibGCore\src\ds\tspline\ds_tsplineinitialsymmetry.cpp:20
+msgid "Num symmetric faces must be greater than zero."
+msgstr "Liczba symetrycznych powierzchni musi być większa niż zero."
+
+#: LibGCore\src\ds\tspline\ds_tsplinereflection.cpp:39
+msgid "Number of symmetric segments must be greater than or equal to 2"
+msgstr "Liczba symetrycznych segmentów musi być większa lub równa 2"
+
+#: LibGCore\src\ds\tspline\ds_tsplinereflection.cpp:51
+msgid "Reflection has null parent"
+msgstr "Odbicie ma obiekt nadrzędny null"
+
+#: LibGCore\src\ds\tspline\ds_tsplinereflection.cpp:55
+msgid "Reflection has invalid index"
+msgstr "Odbicie ma nieprawidłowy indeks"
+
+#: LibGCore\src\ds\tspline\ds_tsplinereflection.cpp:65
+msgid "Reflection has invalid plane"
+msgstr "Odbicie ma nieprawidłową płaszczyznę"
+
+#: LibGCore\src\ds\tspline\ds_tsplinereflection.cpp:81
+msgid "Reflection has unimplemented symmetry type"
+msgstr "Odbicie ma niezaimplementowany typ symetrii"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:104
+msgid "The provided topology inputs should create equal count of contiguous groups"
+msgstr "Podane dane wejściowe topologii powinny tworzyć równą liczbę grup ciągłych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:117
+msgid "Span counts list should have the same length as input contiguous group count, 1 for replication or be empty. Detected contiguous group count: "
+msgstr "Lista liczb rozpiętości powinna mieć taką samą długość jak liczba wejściowych grup ciągłych, 1 dla replikacji lub być pusta. Wykryto liczbę grup ciągłych: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:130
+msgid "Rotation counts list should have the same length as input contiguous group count, 1 for replication or be empty. Detected contiguous group count: "
+msgstr "Lista liczb obrotów powinna mieć taką samą długość jak liczba wejściowych grup ciągłych, 1 dla replikacji lub być pusta. Wykryto liczbę grup ciągłych: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:143
+msgid "Follow curves list should have the same length as inputcontiguous group count, 1 for replication or be empty. Detected contiguous group count: "
+msgstr "Lista zgodności z krzywą powinna mieć taką samą długość jak liczba wejściowych grup ciągłych, 1 dla replikacji lub być pusta. Wykryto liczbę grup ciągłych: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:161
+msgid "Align vertices list should have the same length as input contiguous group count or be empty. Detected contiguous group count: "
+msgstr "Lista dopasowania wierzchołków powinna mieć taką samą długość jak liczba wejściowych grup ciągłych lub być pusta. Wykryto liczbę grup ciągłych: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:173
+msgid "Flip alignment flags list should have the same length as input contiguous group count, 1 for replication or be empty. Detected contiguous group count: "
+msgstr "Lista znaczników obrócenia wyrównania powinna mieć taką samą długość jak liczba wejściowych grup ciągłych, 1 dla replikacji lub być pusta. Wykryto liczbę grup ciągłych: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:203
+msgid "Failed to combine two T-Spline surfaces during bridge operation"
+msgstr "Nie można połączyć dwóch powierzchni T-splajn w trakcie operacji mostowania"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:227
+msgid "The given inputs are invalid - make sure the first group belongs to the input surface and the second group belongs to either the same surface or another surface"
+msgstr "Podane dane wejściowe są nieprawidłowe — upewnij się, że pierwsza grupa należy do powierzchni wejściowej, a druga grupa należy do tej samej powierzchni lub do innej powierzchni"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:241
+msgid "Segments count should be greater than or equal to 1"
+msgstr "Liczba segmentów musi być większa lub równa 1"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:245
+msgid "Segments count should be greater than rotations count"
+msgstr "Liczba segmentów powinna być większa niż liczba obrotów"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:257
+msgid "Wrong first orient vertex"
+msgstr "Nieprawidłowy pierwszy wierzchołek orientacji"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:265
+msgid "Wrong second orient vertex"
+msgstr "Nieprawidłowy drugi wierzchołek orientacji"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:277
+msgid "Bridge cannot be built"
+msgstr "Nie można utworzyć mostu"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:304
+msgid "Cast object is not a TSplineSurface"
+msgstr "Rzutowany obiekt nie jest TSplineSurface"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:313
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1460
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:984
+msgid "Spans should be greater than or equal to 1"
+msgstr "Rozpiętości powinny być większe lub równe 1"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:368
+msgid "Error loading T-Spline surface from the given file path."
+msgstr "Błąd podczas wczytywania powierzchni T-splajn z podanej ścieżki pliku."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:377
+msgid "Unable to open the given T-Spline Scene file."
+msgstr "Nie można otworzyć danego pliku sceny T-splajn."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:381
+msgid "Unable to load T-Spline surfaces."
+msgstr "Nie można wczytać powierzchni T-splajn."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:403
+msgid "Error saving TSM"
+msgstr "Błąd zapisywania TSM"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:410
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:418
+msgid "Error saving TSS"
+msgstr "Błąd zapisywania TSS"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:431
+msgid "Error saving a T-Spline surface to a string"
+msgstr "Błąd podczas zapisywania powierzchni T-splajn w ciągu"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:441
+msgid "Error loading T-Spline surface from the given string."
+msgstr "Błąd podczas wczytywania powierzchni T-splajn z podanego ciągu."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:484
+msgid "This T-Spline is not BRep convertible"
+msgstr "Nie można przekształcić bryły T-splajn w reprezentację bryłową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:516
+msgid "Unable to convert to BRep"
+msgstr "Nie można przekształcić w reprezentację bryłową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:536
+msgid "Minimum segments count must be greater or equal to 0."
+msgstr "Minimalna liczba segmentów musi być większa lub równa 0."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:590
+msgid "The mesh is empty"
+msgstr "Siatka jest pusta"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:651
+msgid "Groups sizes don't match."
+msgstr "Rozmiary grup nie pasują do siebie."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:798
+msgid "T-Spline Surface is not extractable and can not be displayed in smooth mode"
+msgstr "Nie można wyodrębnić powierzchni T-splajn i nie można jej wyświetlić w trybie wygładzania"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:857
+msgid "T-Spline Surface requires segments count to be greater or equal to 1"
+msgstr "Powierzchnia T-splajn wymaga liczby segmentów większej lub równej 1"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:869
+msgid "Failed to bevel edges"
+msgstr "Ścięcie krawędzi nie powiodło się"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:886
+msgid "Failed to slide edges"
+msgstr "Nie można przesunąć krawędzi"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:906
+msgid "The provided edges should create equal count of groups"
+msgstr "Podane krawędzie powinny tworzyć równe liczby grup"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:912
+msgid "Failed to merge edges."
+msgstr "Nie powiodło się scalanie krawędzi."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:931
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:953
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:975
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:997
+msgid "The input groups cannot be empty"
+msgstr "Grupy danych wejściowych nie mogą być puste"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1023
+msgid "Only border edges are permitted"
+msgstr "Dozwolone są tylko krawędzie graniczne"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1025
+msgid "Failed fill hole with given inputs"
+msgstr "Nie powiodło się wypełnienie otworów określonymi danymi wejściowymi"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1037
+msgid "T-Spline doesn't have symmetry"
+msgstr "T-splajn nie ma symetrii"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1079
+msgid "Impossible to add symmetry to the t-spline"
+msgstr "Nie można dodać symetrii do bryły T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1160
+msgid "Unable to find closest point to given geometries"
+msgstr "Nie można znaleźć najbliższego punktu w danej geometrii"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1188
+msgid "Flatten failed. At least 4 vertices is required"
+msgstr "Zrównanie nie powiodło się. Wymagane są co najmniej 4 wierzchołki"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1199
+msgid "Flatten failed. At least 3 vertices is required"
+msgstr "Zrównanie nie powiodło się. Wymagane są co najmniej 3 wierzchołki"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1248
+msgid "Faces with given indices are absent in the surface"
+msgstr "Brak powierzchni o podanych indeksach w powierzchni"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1262
+msgid "Flipping normals failed."
+msgstr "Nie można odwrócić normalnych."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1273
+msgid "Making uniform failed."
+msgstr "Nie można ujednorodnić."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1288
+msgid "Knots technically match, but it's probably just roundoff from a seashell"
+msgstr "Węzły są technicznie dopasowane, ale prawdopodobnie jest to tylko zaokrąglenie Seashell"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1291
+msgid "Seashell isoparm pattern exists, standardization is impossible"
+msgstr "Istnieje wzór krzywej izoparametrycznej Seashell. Standaryzacja jest niemożliwa."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1293
+msgid "The t-spline is not manifold"
+msgstr "T-splajn nie jest rozgałęziony"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1295
+msgid "The matching knots guarantee is not met"
+msgstr "Warunek dopasowania węzłów nie jest spełniony"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1297
+msgid "The t-spline contains degenerate faces/zero-length edges"
+msgstr "T-splajn zawiera zdegenerowane powierzchnie/krawędzie o zerowej długości"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1299
+msgid "The t-spline contains valence-2 star points"
+msgstr "T-splajn zawiera punkty gwiazdowe 2 stopnia"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1301
+msgid "Failed to standardize the t-spline"
+msgstr "Nie można ustandaryzować T-splajnu"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1370
+msgid "nu and nv should be non-negative"
+msgstr "nu i nv powinny być nieujemne"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1427
+msgid "Spans parameters shoud be greater or equal to 0"
+msgstr "Parametry rozpiętości powinny być większe lub równe 0"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1430
+msgid "One of front or back spans number shoud be greater than 0"
+msgstr "Jedna z przedniej lub tylnej rozpiętości powinna być większa niż 0"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1446
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1450
+msgid "Curve extrusion failed"
+msgstr "Wyciągnięcie krzywej nie powiodło się"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1478
+msgid "Failed to sweep curve into TSpline surface"
+msgstr "Nie można przeciągnąć krzywej na powierzchnię T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1488
+msgid "The given surface vector is empty"
+msgstr "Podany wektor powierzchni jest pusty"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1527
+msgid "Failed to combine T-spline surfaces"
+msgstr "Nie można połączyć dwóch powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1558
+msgid "The size of the segment counts must be 0, 1, or the curve count"
+msgstr "Liczba segmentów musi być równa 0, 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1560
+msgid "The size of the rotations at the start of the curves must be either 1 or the curve count"
+msgstr "Rozmiar obrotów na początku krzywych musi być równy 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1562
+msgid "The size of the rotations at the end of the curves must be either 1 or the curve count"
+msgstr "Rozmiar obrotów na końcu krzywych musi być równy 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1564
+msgid "The size of the radii at the start of the curves must be either 1 or the curve count"
+msgstr "Rozmiar promieni na początku krzywych musi być równy 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1566
+msgid "The size of the radii at the end of the curves must be either 1 or the curve count"
+msgstr "Rozmiar promieni na końcu krzywych musi być równy 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1568
+msgid "The size of the positions at the start of the curves must be either 1 or the curve count"
+msgstr "Rozmiar położeń na początku krzywych musi być równy 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1570
+msgid "The size of the positions at the end of the curves must be either 1 or the curve count"
+msgstr "Rozmiar położeń na końcu krzywych musi być równy 1 lub liczbie krzywych"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1592
+msgid "Failed to initialize a T-Spline Pipe."
+msgstr "Nie można zainicjować rury T-splajn."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1668
+msgid "Failed to build a T-Spline Pipe."
+msgstr "Nie można skonstruować rury T-splajn."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1692
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:538
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:663
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:749
+msgid "Radius spans should be greater or equal to 3"
+msgstr "Rozpiętości promieni powinny być większe lub równe 3"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1696
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:548
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:671
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:757
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:856
+msgid "Either radial or axial symmetry is allowed, but not both"
+msgstr "Dozwolona jest symetria promieniowa lub osiowa, ale nie obie"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1700
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:552
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:675
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:761
+msgid "Radius spans should be greater than or equal to 4 when X or Y symmetry is selected"
+msgstr "Rozpiętości promieni powinny być większe niż lub równe 4, gdy wybrano symetrię X lub Y"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1704
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:556
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:679
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:765
+msgid "Radius spans should be multiple of 4 when X and Y symmetry is selected"
+msgstr "Rozpiętości promieni powinny być wielokrotnością 4, gdy wybrano symetrię X i Y"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1708
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:581
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:700
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:790
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:887
+msgid "Faces per span must be greater than or equal to 1 when radial symmetry is selected"
+msgstr "Liczba powierzchni na rozpiętość musi być większa lub równa 1, gdy wybrano opcję symetrii promieniowej"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1723
+msgid "T-Spline revolving curve failed"
+msgstr "Obrót krzywej T-splajn nie powiódł się"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1748
+msgid "Faces valence must be greater than 0."
+msgstr "Stopień powierzchni musi być większy niż 0."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1750
+msgid "Snapping tolerance must be greater than 0."
+msgstr "Tolerancja przyciągania musi być większa niż 0."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1767
+msgid "Failed to construct a TSpline surface from the given lines"
+msgstr "Nie można skonstruować powierzchni T-splajn z podanych linii"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1791
+msgid "Edge can't be creased: "
+msgstr "Nie można fałdować krawędzi: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1794
+msgid "Edge can't be uncreased: "
+msgstr "Nie można usunąć fałdowania krawędzi: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1822
+msgid "Vertex can't be creased: "
+msgstr "Nie można fałdować wierzchołka: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1825
+msgid "Vertex can't be uncreased: "
+msgstr "Nie można usunąć fałdowania wierzchołka: "
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1850
+msgid "Crease unsuccessful"
+msgstr "Fałdowanie się nie powiodło"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1864
+msgid "Weld unsuccessfull"
+msgstr "Spojenie nie powiodło się"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1866
+msgid "Unweld unsuccessfull"
+msgstr "Nie udało się usunąć spoiny"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1881
+msgid "Failed to thicken TSpline surface"
+msgstr "Nie można pogrubić powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1898
+msgid "The given edges are empty"
+msgstr "Podane krawędzie są puste"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1906
+msgid "Failed to initialize the match"
+msgstr "Nie można zainicjować dopasowania"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1912
+msgid "Failed to get the aligned edges"
+msgstr "Nie można pobrać wyrównanych krawędzi"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1922
+msgid "Failed to convert ASM curves to T-Spline NURBS curve interfaces"
+msgstr "Nie można przekonwertować krzywych ASM na interfejsy krzywych NURBS T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1929
+msgid "Failed to construct poly-curve interfaces from the T-Spline NURBS curve interfaces"
+msgstr "Nie można skonstruować interfejsów PolyCurve z interfejsów krzywych NURBS T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1939
+msgid "Failed to set a propagation width"
+msgstr "Nie można ustawić szerokości propagacji"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1956
+msgid "Unknown contituity"
+msgstr "Nieznana ciągłość"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1961
+msgid "Failed to add a constraint for the match"
+msgstr "Nie można dodać ograniczenia dla dopasowania"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1968
+msgid "Failed to scale the derivatives for continuity for the given constraint"
+msgstr "Nie można skalować pochodnych dla ciągłości dla danego ograniczenia"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1974
+msgid "Failed to flip the constraint orientation"
+msgstr "Nie można obrócić orientacji ograniczenia"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1979
+msgid "Failed to perform the match"
+msgstr "Nie można wykonać dopasowania"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:1991
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2015
+msgid "T-Spline Surface requires spans to be greater or equal to 1"
+msgstr "Powierzchnia T-splajn wymaga rozpiętości większych lub równych 1"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2003
+msgid "Failed to extrude TSpline edges"
+msgstr "Nie można wyciągnąć krawędzi T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2027
+msgid "Failed to extrude TSpline faces"
+msgstr "Nie można wyciągnąć powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2091
+msgid "Subdivision failed."
+msgstr "Podpodział nie powiódł się."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2139
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:336
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:340
+msgid "Unable to build body from T-Spline"
+msgstr "Nie można utworzyć bryły z T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2156
+msgid "Unable to repair Tspline"
+msgstr "Nie można naprawić T-splajnu"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface.cpp:2225
+msgid "Ouptut t-spline is invalid."
+msgstr "Wyjściowy T-splajn jest nieprawidłowy."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:188
+msgid "Point list should contain 4 points."
+msgstr "Lista punktów powinna zawierać 4 punkty."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:226
+msgid "Failed to build Sphere by four points."
+msgstr "Nie można utworzyć kuli przez cztery punkty."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:251
+msgid "Point list should contain more than 3 points."
+msgstr "Lista punktów powinna zawierać więcej niż 3 punkty."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:286
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:331
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:343
+msgid "Failed to fit T-Spline Sphere."
+msgstr "Nie można dopasować kuli T-splajn."
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:463
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:933
+msgid "Each span should be greater than or equal to 1"
+msgstr "Poszczególne rozpiętości powinny być większe niż lub równe 1"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:466
+msgid "Each span should be less than or equal to 256"
+msgstr "Poszczególne rozpiętości powinny być mniejsze niż lub równe 256"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:470
+msgid "X spans should be greater than or equal to 2 if X axis symmetry is selected"
+msgstr "Rozpiętości X powinny być większe lub równe 2, jeśli wybrano symetrię względem osi X"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:474
+msgid "Y spans should be greater than or equal to 2 if Y axis symmetry is selected"
+msgstr "Rozpiętości Y powinny być większe lub równe 2, jeśli wybrano symetrię względem osi Y"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:481
+msgid "Plane has invalid normal"
+msgstr "Płaszczyzna ma niepoprawną normalną"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:488
+msgid "X or Y coordinates of corners are coincedent"
+msgstr "Współrzędne X lub Y narożników są wspólne"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:494
+msgid "T-Spline Surface Plane creation failed"
+msgstr "Nie można utworzyć płaskiej powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:526
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:650
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:742
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:978
+msgid "Radius should be greater than or equal to 1e-3"
+msgstr "Promień powinien być większy niż lub równy 1e-3"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:529
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:653
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:745
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:981
+msgid "Radius should be less than or equal to 1e8"
+msgstr "Promień powinien być mniejszy niż lub równy 1e8"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:532
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:656
+msgid "Height should be greater than or equal to 1e-3"
+msgstr "Wysokość powinna być większa niż lub równa 1e-3"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:535
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:659
+msgid "Height should be less than or equal to 1e8"
+msgstr "Wysokość powinna być mniejsza niż lub równa 1e8"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:541
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:667
+msgid "Height spans should be greater or equal to 1"
+msgstr "Rozpiętości wysokości powinny być większe lub równe 1"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:544
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:621
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:898
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:945
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:993
+msgid "Coordinate system has zero axis"
+msgstr "Układ współrzędnych ma oś zerową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:560
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:769
+msgid "Height spans should be greater than or equal to 2 when Z symmetry is selected"
+msgstr "Rozpiętości wysokości powinny być większe lub równe 2, gdy wybrano symetrię Z"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:565
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:684
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:774
+msgid "Radius spans should be less than or equal to 256 when radial symmetry is not selected"
+msgstr "Rozpiętości promieni powinny być mniejsze niż lub równe 256, gdy nie wybrano symetrii promieniowej"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:569
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:688
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:778
+msgid "Height spans should be less than or equal to 256 when radial symmetry is not selected"
+msgstr "Rozpiętości wysokości powinny być mniejsze niż lub równe 256, gdy nie wybrano symetrii promieniowej"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:573
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:692
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:782
+msgid "Radius spans should be less than or equal to 64 when radial symmetry is selected"
+msgstr "Rozpiętości promieni powinny być mniejsze niż lub równe 64, gdy wybrano symetrię promieniową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:577
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:696
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:786
+msgid "Height spans should be less than or equal to 64 when radial symmetry is selected"
+msgstr "Rozpiętości wysokości powinny być mniejsze niż lub równe 64, gdy wybrano symetrię promieniową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:585
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:704
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:794
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:891
+msgid "Faces per span must be less than or equal to 16 when radial symmetry is selected"
+msgstr "Liczba powierzchni na rozpiętość powinna być mniejsza niż lub równa 16, gdy wybrano symetrię promieniową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:600
+msgid "T-Spline Surface Cylinder creation failed"
+msgstr "Nie można utworzyć walca powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:618
+msgid "Both radii cannot be zero"
+msgstr "Oba promienie nie mogą być równe zero"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:712
+msgid "Failed to create cone"
+msgstr "Nie można utworzyć stożka"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:753
+msgid "Height spans should be greater or equal to 2"
+msgstr "Rozpiętości wysokości powinny być większe lub równe 2"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:809
+msgid "T-Spline Surface Sphere creation failed"
+msgstr "Nie można utworzyć powierzchni kuli T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:839
+msgid "Inner radius should be greater than or equal to 1e-3"
+msgstr "Promień wewnętrzny powinien być większy niż lub równy 1e-3"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:842
+msgid "Inner radius should be less than or equal to 1e8"
+msgstr "Promień wewnętrzny powinien być mniejszy niż lub równy 1e8"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:845
+msgid "Outer radius should be greater than or equal to 1e-3"
+msgstr "Promień zewnętrzny powinien być większy niż lub równy 1e-3"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:848
+msgid "Outer radius should be less than or equal to 1e8"
+msgstr "Promień zewnętrzny powinien być mniejszy niż lub równy 1e8"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:852
+msgid "Inner and outer radius spans should be greater or equal to 3"
+msgstr "Rozpiętości wewnętrznego i zewnętrznego promienia powinny być większe lub równe 3"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:861
+msgid "Inner and outer radius spans should be greater or equal to 4 if any axial symmetry is selected"
+msgstr "Rozpiętości wewnętrznego i zewnętrznego promienia powinny być większe lub równe 4, jeśli wybrano jakąkolwiek symetrię osiową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:866
+msgid "Outer radius spans should be multiple of 4 when X and Y symmetry is selected"
+msgstr "Rozpiętości promieni zewnętrznych powinny być wielokrotnością 4, gdy wybrano symetrię X i Y"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:871
+msgid "Inner radius spans should be less than or equal to 256 when radial symmetry is not selected"
+msgstr "Rozpiętości promieni wewnętrznych powinny być mniejsze niż lub równe 256, gdy nie wybrano symetrii promieniowej"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:875
+msgid "Outer radius spans should be less than or equal to 256 when radial symmetry is not selected"
+msgstr "Rozpiętości promieni zewnętrznych powinny być mniejsze niż lub równe 256, gdy nie wybrano symetrii promieniowej"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:879
+msgid "Inner radius spans should be less than or equal to 64 when radial symmetry is selected"
+msgstr "Rozpiętości promieni wewnętrznych powinny być mniejsze niż lub równe 64, gdy wybrano symetrię promieniową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:883
+msgid "Outer radius spans should be less than or equal to 64 when radial symmetry is selected"
+msgstr "Rozpiętości promieni zewnętrznych powinny być mniejsze niż lub równe 64, gdy wybrano symetrię promieniową"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:912
+msgid "T-Spline Surface Torus creation failed"
+msgstr "Nie można utworzyć powierzchni torusa T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:936
+msgid "Each span should be less than or equal to 128"
+msgstr "Poszczególne rozpiętości powinny być mniejsze niż lub równe 128"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:939
+msgid "Zero dimensions are not allowed"
+msgstr "Zerowe wymiary nie są dozwolone"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:958
+msgid "T-Spline Surface Box creation failed"
+msgstr "Nie można utworzyć prostopadłościanu powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:987
+msgid "Spans should be less than or equal to 32"
+msgstr "Rozpiętości powinny być mniejsze niż lub równe 32"
+
+#: LibGCore\src\ds\tspline\ds_tsplinesurface_primitives.cpp:1007
+msgid "T-Spline Surface Quadball creation failed"
+msgstr "Nie można utworzyć kuli kwadrantowej powierzchni T-splajn"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:22
+msgid "Cannot construct FACE from surface"
+msgstr "Nie można zbudować POWIERZCHNI z powierzchni"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:28
+msgid "Cannot get bounding box from FACE"
+msgstr "Nie można pobrać ramki ograniczającej z POWIERZCHNI"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:36
+msgid "The input surface must have finite parameter ranges"
+msgstr "Powierzchnia wejściowa musi mieć określone zakresy parametrów"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:105
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:493
+msgid "Impossible to refit given surface"
+msgstr "Nie można ponownie dopasować danej powierzchni"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:127
+msgid "Knots is not match control vertices"
+msgstr "Węzły nie są zgodne z wierzchołkami sterującymi"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:145
+msgid "Failed to create ASM B-Spline curve"
+msgstr "Nie można utworzyć krzywej b-splajn ASM"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:187
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:236
+msgid "Failed to convert Nurbs curve"
+msgstr "Nie można przekształcić krzywej NURBS"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:309
+msgid "Failed to convert Nurbs surface"
+msgstr "Nie można przekształcić powierzchni NURBS"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:326
+msgid "Unable to set T-Spline for conversion"
+msgstr "Nie można ustawić bryły T-splajn do konwersji"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:400
+msgid "Impossible to get face from surface"
+msgstr "Nie można pobrać płaszczyzny z powierzchni"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:405
+msgid "Impossible to get edges from face"
+msgstr "Nie można pobrać krawędzi z powierzchni"
+
+#: LibGCore\src\ds\tspline\ds_tsplineutils.cpp:424
+msgid "Impossible to get curve from edge"
+msgstr "Nie można pobrać krzywej z krawędzi"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinecoedge.cpp:21
+msgid "Cast Coedge is not a TSplineCoedge"
+msgstr "Rzutowana krawędź wspólna nie jest TSplineCoedge"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:22
+msgid "Cast Edge is not a TSplineEdge"
+msgstr "Rzutowana krawędź nie jest TSplineEdge"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:30
+msgid "Cast object is not a TSplineEdge"
+msgstr "Rzutowany obiekt nie jest TSplineEdge"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:39
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:99
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:112
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:125
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:139
+msgid "Edge has invalid parent"
+msgstr "Krawędź ma nieprawidłowy element nadrzędny"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:103
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:116
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:130
+#: LibGCore\src\ds\tspline\topology\ds_tsplineedge.cpp:143
+msgid "Edge index is invalid"
+msgstr "Indeks krawędzi jest niewłaściwy"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:23
+msgid "Cast Face is not a TSplineFace"
+msgstr "Rzutowana powierzchnia nie jest TSplineFace"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:31
+msgid "Cast object is not a TSplineFace"
+msgstr "Rzutowany obiekt nie jest TSplineFace"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:40
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:120
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:133
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:150
+msgid "Face has invalid parent"
+msgstr "Powierzchnia ma nieprawidłowy element nadrzędny"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:73
+msgid "Could not get bezier patches from the given TSplineFace"
+msgstr "Nie można uzyskać ścieżek Beziera z podanego elementu TSplineFace"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:106
+msgid "Surface creation error."
+msgstr "Błąd podczas tworzenia powierzchni."
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:124
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:137
+#: LibGCore\src\ds\tspline\topology\ds_tsplineface.cpp:154
+msgid "Face index is invalid"
+msgstr "Niewłaściwy indeks powierzchni"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineloop.cpp:20
+msgid "Cast Loop is not a TSplineLoop"
+msgstr "Rzutowana pętla nie jest TSplineLoop"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinetopology.cpp:16
+msgid "Cast object is not a TSplineTopology"
+msgstr "Rzutowany obiekt nie jest TSplineTopology"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinetopology.cpp:359
+msgid "Vertex with given index is not present on the t-spline"
+msgstr "Wierzchołek o podanym indeksie nie istnieje na bryle T-splajn"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinetopology.cpp:367
+msgid "Edge with given index is not present on the t-spline"
+msgstr "Brak krawędzi o podanym indeksie w bryle T-splajn"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinetopology.cpp:375
+msgid "Face with given index is not present on the t-spline"
+msgstr "Brak powierzchni o podanym indeksie w bryle T-splajn"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplineuvnframe.cpp:23
+msgid "Invalid topology index"
+msgstr "Niewłaściwy indeks topologii"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:23
+msgid "Cast Vertex is not a TSplineVertex"
+msgstr "Rzutowany wierzchołek nie jest TSplineVertex"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:31
+msgid "Cast object is not a TSplineVertex"
+msgstr "Rzutowany obiekt nie jest TSplineVertex"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:40
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:77
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:90
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:103
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:117
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:134
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:148
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:162
+msgid "Vertex has invalid parent"
+msgstr "Wierzchołek ma nieprawidłowy element nadrzędny"
+
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:81
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:94
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:108
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:122
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:139
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:153
+#: LibGCore\src\ds\tspline\topology\ds_tsplinevertex.cpp:167
+msgid "Vertex index is invalid"
+msgstr "Indeks wierzchołka jest nieprawidłowy"
+
+#: LibGCore\src\expt\expt_asmexporter.cpp:151
+msgid "Unable to write entity list as sat"
+msgstr "Nie można zapisać listy elementów jako elementu sat"
+
+#: LibGCore\src\impt\impt_asmimporter.cpp:34
+msgid "Unable to open file"
+msgstr "Nie można otworzyć pliku"
+
+#: LibGCore\src\impt\impt_asmimporter.cpp:55
+#: LibGCore\src\impt\impt_asmimporter.cpp:80
+msgid "Unable to restore entities"
+msgstr "Nie można przywrócić elementów"
+
+#: LibGCore\src\impt\impt_asmimporter.cpp:68
+msgid "Failed to create geometry from solid def JSON"
+msgstr "Nie można utworzyć geometrii z informacji JSON definicji bryły"
+
+#: LibGCore\src\impt\impt_asmimporter.cpp:101
+msgid "Unable to get units"
+msgstr "Nie można pobrać jednostek"
+
+#: LibGCore\src\impt\impt_asmimporter.cpp:131
+msgid "Unable to delete entity"
+msgstr "Nie można usunąć elementu"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:211
+msgid "bs3_curve_xs::make()"
+msgstr "bs3_curve_xs::make()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:426
+msgid "bs3_surface_xs::make()"
+msgstr "bs3_surface_xs::make()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:757
+msgid "SMI_BREP::add_vertex()"
+msgstr "SMI_BREP::add_vertex()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:764
+msgid "SMI_BREP::set_position()"
+msgstr "SMI_BREP::set_position()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:819
+msgid "SMI_BREP::add_edge()"
+msgstr "SMI_BREP::add_edge()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:829
+msgid "SMI_BREP::set_vertices()"
+msgstr "SMI_BREP::set_vertices()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:835
+msgid "SMI_BREP::set_curve()"
+msgstr "SMI_BREP::set_curve()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:912
+msgid "SMI_BREP::add_loop()"
+msgstr "SMI_BREP::add_loop()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:928
+msgid "SMI_BREP::set_degenerate_loop()"
+msgstr "SMI_BREP::set_degenerate_loop()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:938
+msgid "SMI_BREP::add_coedges_to_loop()"
+msgstr "SMI_BREP::add_coedges_to_loop()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:981
+msgid "SMI_BREP::add_face()"
+msgstr "SMI_BREP::add_face()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:991
+msgid "SMI_BREP::set_loop()"
+msgstr "SMI_BREP::set_loop()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:999
+msgid "SMI_BREP::set_surface()"
+msgstr "SMI_BREP::set_surface()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1034
+#: LibGCore\src\solid_def\solid_def_load.cpp:1224
+msgid "SMI_BREP::add_shell()"
+msgstr "SMI_BREP::add_shell()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1044
+msgid "SMI_BREP::set_face()"
+msgstr "SMI_BREP::set_face()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1078
+#: LibGCore\src\solid_def\solid_def_load.cpp:1235
+msgid "SMI_BREP::add_lump()"
+msgstr "SMI_BREP::add_lump()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1088
+#: LibGCore\src\solid_def\solid_def_load.cpp:1238
+msgid "SMI_BREP::set_shell()"
+msgstr "SMI_BREP::set_shell()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1122
+#: LibGCore\src\solid_def\solid_def_load.cpp:1215
+msgid "SMI_BREP::add_body()"
+msgstr "SMI_BREP::add_body()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1132
+#: LibGCore\src\solid_def\solid_def_load.cpp:1241
+msgid "SMI_BREP::set_lump()"
+msgstr "SMI_BREP::set_lump()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1167
+msgid "SMI_BREP::add_wire()"
+msgstr "SMI_BREP::add_wire()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1181
+msgid "SMI_BREP::add_edges_to_wire()"
+msgstr "SMI_BREP::add_edges_to_wire()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1230
+msgid "SMI_BREP::set_wire()"
+msgstr "SMI_BREP::set_wire()"
+
+#: LibGCore\src\solid_def\solid_def_load.cpp:1450
+msgid "SMI_BREP::post_process()"
+msgstr "SMI_BREP::post_process()"
+
+#: LibGCore\src\solid_def\solid_def_save.cpp:2156
+msgid "Error in SMI_COPY.copy"
+msgstr "Błąd w SMI_COPY.copy"
+
+#: LibGCore\src\solid_def\solid_def_save.cpp:2162
+msgid "SMI_AFFINE_TRANSFORM::apply_transform"
+msgstr "SMI_AFFINE_TRANSFORM::apply_transform"
+
+#: LibGCore\src\solid_def\solid_def_save.cpp:2167
+msgid "SMI_APPROX_BODY::set_remove_surface_reversal"
+msgstr "SMI_APPROX_BODY::set_remove_surface_reversal"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:18
+msgid "Unable to get param range for FACE while faceting"
+msgstr "Nie można pobrać zakresu parametru dla powierzchni podczas tworzenia powierzchni"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:27
+msgid "Could not get bounding box"
+msgstr "Nie można pobrać obramowania"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:35
+msgid "Too small to facet"
+msgstr "Zbyt mały, aby określić jako powierzchniowy"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:41
+msgid "Could not set facet edge count"
+msgstr "Nie można ustawić liczby krawędzi płaszczyzny"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:45
+msgid "Could not set facet tolerance"
+msgstr "Nie można ustawić tolerancji płaszczyzny"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:48
+msgid "Could not set max number of grid lines"
+msgstr "Nie można ustawić maksymalnej liczby linii siatki"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:51
+msgid "Could not compute facets"
+msgstr "Nie można obliczyć powierzchni"
+
+#: LibGCore\src\ui\ui_facetingengine.cpp:63
+msgid "Could not get face results"
+msgstr "Nie można uzyskać wyników dla powierzchni"
+
