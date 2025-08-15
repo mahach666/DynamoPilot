@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace Person
 {
+    /// <summary>
+    /// Ноды для выбора и получения пользователей в системе Pilot
+    /// </summary>
     public static class Get
     {
         /// <summary>
@@ -40,6 +43,11 @@ namespace Person
         }
 
 
+        /// <summary>
+        /// Получает пользователя по организационной единице (должности)
+        /// </summary>
+        /// <param name="pOrganisationUnit">Организационная единица</param>
+        /// <returns>Пользователь, занимающий данную должность, или null</returns>
         [IsDesignScriptCompatible]
         public static PPerson GetByPosition(POrganisationUnit pOrganisationUnit)
         {
@@ -50,6 +58,11 @@ namespace Person
             return GetById(person);
         }
 
+        /// <summary>
+        /// Получает пользователя по идентификатору должности
+        /// </summary>
+        /// <param name="id">Идентификатор должности</param>
+        /// <returns>Пользователь, занимающий данную должность, или null</returns>
         [IsDesignScriptCompatible]
         public static PPerson GetByPositionId(int id)
         {

@@ -37,6 +37,14 @@ namespace Relation
             return new PRelation(relation);
         }
 
+        /// <summary>
+        /// Создает связь по объекту назначения
+        /// </summary>
+        /// <param name="relationId">Идентификатор связи</param>
+        /// <param name="relationType">Тип связи</param>
+        /// <param name="relationName">Имя связи</param>
+        /// <param name="targetObj">Объект назначения</param>
+        /// <returns>Созданная связь</returns>
         [IsDesignScriptCompatible]
         public static PRelation CreateByTargetObj(Guid relationId,
             ObjectRelationType relationType,
@@ -46,6 +54,15 @@ namespace Relation
             return CreateByTargetId(relationId, relationType, relationName, targetObj.Id);
         }
 
+        /// <summary>
+        /// Создает пару связей между двумя объектами по идентификаторам
+        /// </summary>
+        /// <param name="relationId">Идентификатор связи</param>
+        /// <param name="relationType">Тип связи</param>
+        /// <param name="relationName">Имя связи</param>
+        /// <param name="targetId1">Идентификатор первого объекта</param>
+        /// <param name="targetId2">Идентификатор второго объекта</param>
+        /// <returns>Список созданных связей</returns>
         public static List<PRelation> CreateCoupleByTargetIds(Guid relationId,
             ObjectRelationType relationType,
             string relationName,
@@ -70,6 +87,15 @@ namespace Relation
             return new List<PRelation>() { new(relation1), new(relation2) };
         }
 
+        /// <summary>
+        /// Создает пару связей между двумя объектами
+        /// </summary>
+        /// <param name="relationId">Идентификатор связи</param>
+        /// <param name="relationType">Тип связи</param>
+        /// <param name="relationName">Имя связи</param>
+        /// <param name="targetObj1">Первый объект назначения</param>
+        /// <param name="targetObj2">Второй объект назначения</param>
+        /// <returns>Список созданных связей</returns>
         public static List<PRelation> CreateCoupleByTargetObjss(
             Guid relationId,
             ObjectRelationType relationType,
@@ -84,6 +110,11 @@ namespace Relation
              targetObj2.Id);
         }
 
+        /// <summary>
+        /// Создает связь между двумя объектами связи
+        /// </summary>
+        /// <param name="relation1">Первая связь</param>
+        /// <param name="relation2">Вторая связь</param>
         [IsDesignScriptCompatible]
         public static void CreateLink(PRelation relation1, PRelation relation2)
         {

@@ -174,10 +174,10 @@ namespace DataObject
         /// <summary>
         /// Рекурсивно получает дочерние объекты по идентификатору типа
         /// </summary>
-        /// <param name="pDataObject"></param>
-        /// <param name="id"></param>
-        /// <param name="depth"></param>
-        /// <returns></returns>
+        /// <param name="pDataObject">Объект данных для поиска дочерних элементов</param>
+        /// <param name="id">Идентификатор типа дочерних объектов</param>
+        /// <param name="depth">Глубина рекурсии (по умолчанию 99)</param>
+        /// <returns>Список дочерних объектов указанного типа</returns>
         public static List<PDataObject> GetСhildrenByTypeId(PDataObject pDataObject, int id, int depth = 99)
         {
             var result = new List<PDataObject>();

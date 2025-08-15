@@ -111,6 +111,13 @@ namespace DataObject.Edit
             return SetIntAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с вещественным числом
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Вещественное значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetDoubleAttribute(Guid objectId,
             string name,
@@ -124,6 +131,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с вещественным числом
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Вещественное значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetDoubleAttributeByObj(
             PDataObject obj,
@@ -133,6 +147,13 @@ namespace DataObject.Edit
             return SetDoubleAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с датой и временем
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Дата и время</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetDateTimeAttribute(Guid objectId,
             string name,
@@ -146,6 +167,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с датой и временем
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Дата и время</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetDateTimeAttributeByObj(
             PDataObject obj,
@@ -155,6 +183,13 @@ namespace DataObject.Edit
             return SetDateTimeAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с десятичным числом
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Десятичное значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetDecimalAttribute(Guid objectId,
             string name,
@@ -168,6 +203,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с десятичным числом
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Десятичное значение</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetDecimalAttributeByObj(
             PDataObject obj,
@@ -177,6 +219,13 @@ namespace DataObject.Edit
             return SetDecimalAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с длинным целым числом
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Длинное целое число</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetLongAttribute(Guid objectId,
             string name,
@@ -190,6 +239,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с длинным целым числом
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Длинное целое число</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetLongAttributeByObj(
             PDataObject obj,
@@ -199,6 +255,13 @@ namespace DataObject.Edit
             return SetLongAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с уникальным идентификатором
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Уникальный идентификатор</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetGuidAttribute(Guid objectId,
             string name,
@@ -212,6 +275,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с уникальным идентификатором
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Уникальный идентификатор</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetGuidAttributeByObj(
             PDataObject obj,
@@ -221,6 +291,13 @@ namespace DataObject.Edit
             return SetGuidAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с массивом целых чисел
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Массив целых чисел</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetIntArrAttribute(Guid objectId,
             string name,
@@ -234,6 +311,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с массивом целых чисел
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Массив целых чисел</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetIntArrAttributeByObj(
             PDataObject obj,
@@ -243,6 +327,13 @@ namespace DataObject.Edit
             return SetIntArrAttribute(obj.Id, name, value);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с массивом строк
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Массив строк</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetStringArrAttribute(Guid objectId,
             string name,
@@ -256,6 +347,13 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Устанавливает атрибут с массивом строк
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя атрибута</param>
+        /// <param name="value">Массив строк</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject SetStringArrAttributeByObj(
             PDataObject obj,

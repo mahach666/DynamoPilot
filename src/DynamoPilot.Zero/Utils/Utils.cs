@@ -10,6 +10,11 @@ namespace Utils
     /// </summary>
     public static class Reflection
     {
+        /// <summary>
+        /// Получает все публичные свойства и поля объекта типа с помощью рефлексии
+        /// </summary>
+        /// <param name="t">Тип объекта для анализа</param>
+        /// <returns>Словарь свойств и их значений</returns>
         [IsDesignScriptCompatible]
         public static IDictionary<string, object> GetProperties(PType t)
         {

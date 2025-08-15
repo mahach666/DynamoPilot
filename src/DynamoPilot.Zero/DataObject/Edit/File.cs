@@ -41,6 +41,16 @@ namespace DataObject.Edit
             return AddFileByPath(obj.Id, path);
         }
 
+        /// <summary>
+        /// Добавляет файл к объекту из потока
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя файла</param>
+        /// <param name="stream">Поток данных файла</param>
+        /// <param name="creationTime">Время создания</param>
+        /// <param name="lastAccessTime">Время последнего доступа</param>
+        /// <param name="lastWriteTime">Время последней записи</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddFileByStream(Guid objectId,
             string name,
@@ -61,6 +71,16 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Добавляет файл к объекту из потока
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя файла</param>
+        /// <param name="stream">Поток данных файла</param>
+        /// <param name="creationTime">Время создания</param>
+        /// <param name="lastAccessTime">Время последнего доступа</param>
+        /// <param name="lastWriteTime">Время последней записи</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddFileByObjAndStream(
             PDataObject obj,
@@ -99,6 +119,17 @@ namespace DataObject.Edit
         //    return Select.GetByGuid(objectId);
         //}
 
+        /// <summary>
+        /// Добавляет файл в конкретный снимок объекта
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="snapshotCreated">Время создания снимка</param>
+        /// <param name="name">Имя файла</param>
+        /// <param name="stream">Поток данных файла</param>
+        /// <param name="creationTime">Время создания</param>
+        /// <param name="lastAccessTime">Время последнего доступа</param>
+        /// <param name="lastWriteTime">Время последней записи</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddFileInSnapshot(Guid objectId,
             DateTime snapshotCreated,
@@ -122,6 +153,17 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Добавляет файл в конкретный снимок объекта
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="snapshotCreated">Время создания снимка</param>
+        /// <param name="name">Имя файла</param>
+        /// <param name="stream">Поток данных файла</param>
+        /// <param name="creationTime">Время создания</param>
+        /// <param name="lastAccessTime">Время последнего доступа</param>
+        /// <param name="lastWriteTime">Время последней записи</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddFileInSnapshotByObj(
             PDataObject obj,
@@ -141,6 +183,17 @@ namespace DataObject.Edit
                           lastWriteTime);
         }
 
+        /// <summary>
+        /// Добавляет или заменяет файл в объекте
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя файла</param>
+        /// <param name="stream">Поток данных файла</param>
+        /// <param name="file">Ссылка на существующий файл</param>
+        /// <param name="creationTime">Время создания</param>
+        /// <param name="lastAccessTime">Время последнего доступа</param>
+        /// <param name="lastWriteTime">Время последней записи</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddOrReplaceFile(Guid objectId,
             string name,
@@ -163,6 +216,17 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Добавляет или заменяет файл в объекте
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя файла</param>
+        /// <param name="stream">Поток данных файла</param>
+        /// <param name="file">Ссылка на существующий файл</param>
+        /// <param name="creationTime">Время создания</param>
+        /// <param name="lastAccessTime">Время последнего доступа</param>
+        /// <param name="lastWriteTime">Время последней записи</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddOrReplaceFileByObj(
             PDataObject obj,

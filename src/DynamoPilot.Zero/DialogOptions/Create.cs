@@ -7,11 +7,23 @@ using System.Linq;
 
 namespace DialogOptions
 {
+    /// <summary>
+    /// Ноды для создания настроек диалогов в системе Pilot
+    /// </summary>
     public static class Create
     {
+        /// <summary>
+        /// Создает настройки диалога выбора объектов Pilot
+        /// </summary>
+        /// <param name="nodes">Список узлов для отображения</param>
+        /// <param name="allowChecking">Разрешить выбор флажков</param>
+        /// <param name="allowMultiSelect">Разрешить множественный выбор</param>
+        /// <param name="caption">Заголовок диалога</param>
+        /// <param name="infoMessage">Информационное сообщение</param>
+        /// <param name="okButtonCaption">Текст кнопки OK</param>
+        /// <returns>Настройки диалога Pilot</returns>
         [IsDesignScriptCompatible]
         [IsVisibleInDynamoLibrary(false)]
-
         public static PPilotDialogOptions CreatePilotDialogOptions(
             List<object> nodes,
             bool allowChecking = false,
@@ -33,9 +45,18 @@ namespace DialogOptions
             return dialogOptions;
         }
 
+        /// <summary>
+        /// Создает настройки диалога выбора позиций/должностей
+        /// </summary>
+        /// <param name="allowChecking">Разрешить выбор флажков</param>
+        /// <param name="allowMultiSelect">Разрешить множественный выбор</param>
+        /// <param name="allowDepartmentChecking">Разрешить выбор подразделений</param>
+        /// <param name="caption">Заголовок диалога</param>
+        /// <param name="okButtonCaption">Текст кнопки OK</param>
+        /// <param name="checkedOrgUnits">Предварительно выбранные организационные единицы</param>
+        /// <returns>Настройки диалога позиций</returns>
         [IsDesignScriptCompatible]
         [IsVisibleInDynamoLibrary(false)]
-
         public static PPositionDialogOptions CreatePositionDialogOptions(
             bool allowChecking = false,
             bool allowMultiSelect = false,
