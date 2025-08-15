@@ -48,7 +48,7 @@ namespace DynamoPilot.App.Configuration
         Path.Combine(baseDir, "DesignScriptBuiltin.dll"),
         Path.Combine(baseDir, "BuiltIn.customization.dll"),
 
-        Path.Combine(baseDir, "CoreNodeModelsWpf..dll"),
+        Path.Combine(baseDir, "CoreNodeModelsWpf.dll"),
 
         Path.Combine(baseDir, "DSCPython.dll"),
         Path.Combine(baseDir, "DSOffice.dll"),
