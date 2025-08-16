@@ -34,6 +34,6 @@ namespace ChatMessage
         public static MessageType GetType(PChatMessage pChatMessage) => pChatMessage.Type;
 
         [IsDesignScriptCompatible]
-        public static List<PChatMessage> GetRelatedMessages(PChatMessage pChatMessage) => pChatMessage.RelatedMessages.Select(i => new PChatMessage(i)).ToList();
+        public static List<PChatMessage> GetRelatedMessages(PChatMessage pChatMessage) => pChatMessage.RelatedMessages.Select(i => new PChatMessage((IChatMessage)i.Unwrap())).ToList();
     }
 }
