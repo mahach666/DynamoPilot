@@ -1,0 +1,1051 @@
+{
+  "Uuid": "626705e3-08fb-4225-b878-67ba76ec3e69",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Форматы страниц документов проекта",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DynamoPilot.Nodes.Dialogs.SelectDocumentsNode, DynamoPilot.Nodes",
+      "selectedIds": [
+        "387b8cdb-65e2-48ba-a3cf-3645e71285b9"
+      ],
+      "NodeType": "ExtensionNode",
+      "Id": "9ac340c4db944c05a6b81737201a74ba",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "70bb6a0755aa43879867e5fba06eb362",
+          "Name": "documents",
+          "Description": "Список выбранных объектов данных",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Открывает диалог выбора документов Pilot и возвращает выбранные объекты"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Type.Get.AllTypes",
+      "Id": "c33ae8cb48d344fdbabcff58641fb176",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0b841263244e492aa141037301523e9c",
+          "Name": "var[]",
+          "Description": "Список всех доступных типов",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Получает список всех типов объектов\n\nGet.AllTypes ( ): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FilterByBoolMask@var[]..[],var[]..[]",
+      "Id": "aa8525508f6249578d76ceaba956e447",
+      "Inputs": [
+        {
+          "Id": "0fe586960da34a7788c1a03b0f49a81f",
+          "Name": "list",
+          "Description": "Список, который требуется отфильтровать.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "27a85eab3a9f4fa4bc4b629e56c1e6d9",
+          "Name": "mask",
+          "Description": "Список логических операций, представляющих маску.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bed3f14474b54d99a653e098ae964fec",
+          "Name": "in",
+          "Description": "Элементы, индекс маски которых имеет значение «истина».",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e7968cec02184a0d8cc484d84db08f03",
+          "Name": "out",
+          "Description": "Элементы, индекс маски которых имеет значение «ложь».",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Фильтрация последовательности путем поиска соответствующих индексов в отдельном списке логических операций.\n\nList.FilterByBoolMask (list: var[]..[], mask: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Type.Properties.GetHasFiles@var",
+      "Id": "4f467554bdbe43498d84abade1d155e0",
+      "Inputs": [
+        {
+          "Id": "dc4757a558244e6798ff6864f8f78257",
+          "Name": "pilotType",
+          "Description": "Тип объекта Pilot\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ac4d001ea3b8469c9ea6f88f902da129",
+          "Name": "bool",
+          "Description": "True, если тип может содержать файлы",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Проверяет, может ли тип содержать файлы\n\nProperties.GetHasFiles (pilotType: var): bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DataObject.Get.GetСhildrenByTypeId@var,int,int",
+      "Id": "d1c309483bc04f68aada0d5a25214a1c",
+      "Inputs": [
+        {
+          "Id": "10f89b7fa70c48ba90a56dd203eb54f2",
+          "Name": "pDataObject",
+          "Description": "Объект данных для поиска дочерних элементов\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6569561e25654ce8939163ce06fbc794",
+          "Name": "id",
+          "Description": "Идентификатор типа дочерних объектов\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d120fecb58984b27bfb5d2804767c6c4",
+          "Name": "depth",
+          "Description": "Глубина рекурсии (по умолчанию 99)\n\nint\nЗначение по умолчанию : 99",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b63887162b4742f4af4c556c2d842dfc",
+          "Name": "var[]",
+          "Description": "Список дочерних объектов указанного типа",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Longest",
+      "Description": "Рекурсивно получает дочерние объекты по идентификатору типа\n\nGet.GetСhildrenByTypeId (pDataObject: var, id: int, depth: int = 99): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Type.Properties.GetId@var",
+      "Id": "92736dae834541a5844923bc5b9a6f12",
+      "Inputs": [
+        {
+          "Id": "a3c4cbe53ff44a43bf023181e5288c7a",
+          "Name": "pilotType",
+          "Description": "Тип объекта Pilot\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "727cccf073dd4e838d25eef9df14e133",
+          "Name": "int",
+          "Description": "Уникальный идентификатор типа",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Получает уникальный идентификатор типа\n\nProperties.GetId (pilotType: var): int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "0633dd3d1d014af095d1e258918c781c",
+      "Inputs": [
+        {
+          "Id": "52bd4ca7d54f4d968d63183fb5f448b4",
+          "Name": "list",
+          "Description": "Список для выравнивания.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f8816b0cb5b044cb818808f0938c33be",
+          "Name": "amount",
+          "Description": "Слои в списке, которые требуется исключить (–1 приведет к удалению всех вложенных в список слоев)\n\nint\nЗначение по умолчанию : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d60c277284d7451cb5d1d28a9f68ca39",
+          "Name": "list",
+          "Description": "Список с выравниванием по объему",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Выравнивание вложенного списка списков по определенному количественному значению.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# -*- coding: utf-8 -*-\r\nimport sys, re, math, clr\r\n\r\n# DesignScript\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# .NET\r\nclr.AddReference('System')\r\nclr.AddReference('System.Core')\r\nclr.AddReference('WindowsBase')   # System.IO.Packaging.Package\r\nclr.AddReference('System.Xml')\r\nclr.AddReference('System.Xml.Linq')\r\n\r\nfrom System.IO import File, FileMode, FileAccess, FileShare, MemoryStream\r\nfrom System.IO.Packaging import Package\r\nfrom System.Xml.Linq import XElement\r\n\r\n# Pilot/DynamoPilot\r\nclr.AddReference('DynamoPilot')\r\nfrom DynamoPilot.Data import StaticMetadata\r\n\r\n# Попытаемся достать DataObject.Get для загрузки родителя по Guid\r\nDataGet = None\r\ntry:\r\n    import DataObject\r\n    from DataObject import Get as DataGet\r\nexcept:\r\n    DataGet = None  # если класса нет — заголовок группы будет пустым\r\n\r\nentries = IN[0] or []\r\n\r\n# ---- константы/кэш ----\r\nFIXED_PAGE_CT = \"application/vnd.ms-package.xps-fixedpage+xml\"\r\npaper_size_cache = {}  # key: file.Id (Guid->str) -> (names_csv, page_count)\r\n\r\n# ---- утилиты ----\r\ndef is_xps_like(name_or_path):\r\n    return bool(name_or_path) and re.search(r'\\.(xps|dwfx)$', str(name_or_path), re.IGNORECASE) is not None\r\n\r\ndef to_dpi(mm_str):\r\n    try: mm = int(mm_str)\r\n    except: mm = 0\r\n    return int((mm / 25.4) * 96)\r\n\r\ndef from_dpi_to_mm(value):\r\n    try: return str(int(round((value / 96.0) * 25.4)))\r\n    except: return \"0\"\r\n\r\nclass PaperSize(object):\r\n    __slots__ = (\"Name\", \"Width\", \"Height\")\r\n    def __init__(self, name, width, height):\r\n        self.Name = name; self.Width = int(width); self.Height = int(height)\r\n\r\nSTANDARDS = [\r\n    PaperSize(\"C1\",   to_dpi(\"648\"), to_dpi(\"917\")),\r\n    PaperSize(\"C2\",   to_dpi(\"458\"), to_dpi(\"648\")),\r\n    PaperSize(\"C3\",   to_dpi(\"324\"), to_dpi(\"458\")),\r\n    PaperSize(\"C4\",   to_dpi(\"229\"), to_dpi(\"324\")),\r\n    PaperSize(\"B1\",   to_dpi(\"707\"), to_dpi(\"1000\")),\r\n    PaperSize(\"B2\",   to_dpi(\"500\"), to_dpi(\"707\")),\r\n    PaperSize(\"B3\",   to_dpi(\"353\"), to_dpi(\"500\")),\r\n    PaperSize(\"B4\",   to_dpi(\"250\"), to_dpi(\"353\")),\r\n    PaperSize(\"A2x4\", to_dpi(\"594\"), to_dpi(\"1682\")),\r\n    PaperSize(\"A2x3\", to_dpi(\"594\"), to_dpi(\"1261\")),\r\n    PaperSize(\"A3x5\", to_dpi(\"420\"), to_dpi(\"1487\")),\r\n    PaperSize(\"A3x4\", to_dpi(\"420\"), to_dpi(\"1189\")),\r\n    PaperSize(\"A3x3\", to_dpi(\"420\"), to_dpi(\"892\")),\r\n    PaperSize(\"A4x5\", to_dpi(\"297\"), to_dpi(\"1051\")),\r\n    PaperSize(\"A4x4\", to_dpi(\"297\"), to_dpi(\"841\")),\r\n    PaperSize(\"A4x3\", to_dpi(\"297\"), to_dpi(\"631\")),\r\n    PaperSize(\"A0\",   to_dpi(\"841\"), to_dpi(\"1189\")),\r\n    PaperSize(\"A1\",   to_dpi(\"594\"), to_dpi(\"841\")),\r\n    PaperSize(\"A2\",   to_dpi(\"420\"), to_dpi(\"594\")),\r\n    PaperSize(\"A3\",   to_dpi(\"297\"), to_dpi(\"420\")),\r\n    PaperSize(\"A4\",   to_dpi(\"210\"), to_dpi(\"297\")),\r\n    PaperSize(\"A5\",   to_dpi(\"148\"), to_dpi(\"210\")),    \r\n]\r\n\r\ndef get_delta_fitted(w, h, wc, hc, percentage_error=1):\r\n    w, h  = (min(w,h), max(w,h))\r\n    wc, hc= (min(wc,hc), max(wc,hc))\r\n    delta = (w * percentage_error) / 100.0\r\n    if (wc + delta) >= w and (hc + delta) >= h:\r\n        return ((wc + delta) - w) * ((hc + delta) - h)\r\n    return -1.0\r\n\r\ndef closest_paper_size(page_w, page_h):\r\n    # нормируем ориентацию\r\n    w, h = (min(page_w, page_h), max(page_w, page_h))\r\n\r\n    # 1) точное совпадение\r\n    for s in STANDARDS:\r\n        sw, sh = (min(s.Width, s.Height), max(s.Width, s.Height))\r\n        if sw == w and sh == h:\r\n            return s\r\n\r\n    # 2) допуск: берем максимум из 1% и 3 мм\r\n    def mm_to_px(mm): return int(round((mm / 25.4) * 96))\r\n    tol_px = max(int(round(max(w, h) * 0.01)), mm_to_px(3))\r\n\r\n    best = None\r\n    best_err = 10**9  # “лучшее” = минимальная сумма модулей отклонений\r\n\r\n    for s in STANDARDS:\r\n        sw, sh = (min(s.Width, s.Height), max(s.Width, s.Height))\r\n        dw, dh = abs(sw - w), abs(sh - h)\r\n        if dw <= tol_px and dh <= tol_px:\r\n            err = dw + dh\r\n            if err < best_err:\r\n                best_err = err\r\n                best = s\r\n\r\n    if best is not None:\r\n        return best\r\n\r\n    # 3) не попало ни в один стандарт — оставляем как “ммxмм”\r\n    return PaperSize(\"{}x{}\".format(from_dpi_to_mm(page_w), from_dpi_to_mm(page_h)), page_w, page_h)\r\n\r\n\r\ndef to_seekable(stream):\r\n    ms = MemoryStream()\r\n    try:\r\n        try: stream.Position = 0\r\n        except: pass\r\n        stream.CopyTo(ms); ms.Position = 0\r\n        return ms\r\n    finally:\r\n        try: stream.Close()\r\n        except: pass\r\n\r\ndef enumerate_fixedpages(pkg):\r\n    parts = list(pkg.GetParts())\r\n    fixed_like = [p for p in parts if p.ContentType and (\"fixedpage\" in p.ContentType.lower())]\r\n    if fixed_like:\r\n        for p in fixed_like: yield p; return\r\n    exact = [p for p in parts if p.ContentType == FIXED_PAGE_CT]\r\n    if exact:\r\n        for p in exact: yield p; return\r\n    for p in parts:\r\n        inner = None\r\n        try:\r\n            inner = p.GetStream()\r\n            xel = XElement.Load(inner)\r\n            ln = xel.Name.LocalName if xel is not None else \"\"\r\n            if ln.lower() == \"fixedpage\": yield p\r\n        except:\r\n            pass\r\n        finally:\r\n            if inner is not None: inner.Close()\r\n\r\ndef read_page_sizes_from_seekable(ms):\r\n    pkg = None\r\n    try:\r\n        pkg = Package.Open(ms)\r\n        pages = list(enumerate_fixedpages(pkg))\r\n        seen = set(); unique_sizes = []\r\n\r\n        def get_attr_local(elem, name):\r\n            try:\r\n                for a in elem.Attributes():\r\n                    try:\r\n                        if a.Name.LocalName == name:\r\n                            return a.Value\r\n                    except: pass\r\n            except: pass\r\n            return None\r\n\r\n        for part in pages:\r\n            inner = None\r\n            try:\r\n                inner = part.GetStream()\r\n                xel = XElement.Load(inner)\r\n                w_str = get_attr_local(xel, \"Width\")\r\n                h_str = get_attr_local(xel, \"Height\")\r\n                w = int(round(float(w_str))) if w_str else 0\r\n                h = int(round(float(h_str))) if h_str else 0\r\n                ps = closest_paper_size(w, h)\r\n                key = tuple(sorted((ps.Width, ps.Height)))\r\n                if key not in seen:\r\n                    seen.add(key); unique_sizes.append(ps)\r\n            finally:\r\n                if inner is not None: inner.Close()\r\n        return unique_sizes, len(pages)\r\n    finally:\r\n        if pkg is not None: pkg.Close()\r\n        try: ms.Position = 0\r\n        except: pass\r\n\r\ndef unwrap_if_pfile(file_obj):\r\n    try:\r\n        if hasattr(file_obj, \"Unwrap\"):\r\n            return file_obj.Unwrap()\r\n    except: pass\r\n    return file_obj\r\n\r\ndef open_read_via_provider(file_obj):\r\n    f = unwrap_if_pfile(file_obj)\r\n    try: fname = f.Name\r\n    except: fname = \"file\"\r\n    try:\r\n        fid = f.Id; fid = str(fid) if fid is not None else None\r\n    except: fid = None\r\n    s = StaticMetadata.FileProvider.OpenRead(f)\r\n    if s is None: return (None, fid, fname)\r\n    return (to_seekable(s), fid, fname)\r\n\r\ndef pick_first_xps_file(entry):\r\n    # PDataObject с Files\r\n    files = None\r\n    try: files = entry.Files\r\n    except: files = None\r\n    if files is not None:\r\n        for pf in files:\r\n            try: nm = pf.Name\r\n            except: nm = None\r\n            if nm and is_xps_like(nm):\r\n                return ('file', pf)\r\n        return (None, None)\r\n    # Сам файл\r\n    try: nm = entry.Name\r\n    except: nm = None\r\n    if nm and is_xps_like(nm):\r\n        return ('file', entry)\r\n    # Путь\r\n    if isinstance(entry, str) and is_xps_like(entry):\r\n        return ('path', entry)\r\n    return (None, None)\r\n\r\ndef entry_display(entry):\r\n    for prop in (\"DisplayName\", \"Title\", \"Name\"):\r\n        try:\r\n            v = getattr(entry, prop)\r\n            if v: return str(v)\r\n        except: pass\r\n    return str(entry)\r\n\r\ndef entry_typename(entry):\r\n    try:\r\n        t = getattr(entry, \"Type\", None)\r\n        if t is None: return \"\"\r\n        for prop in (\"DisplayName\",\"Name\"):\r\n            try:\r\n                v = getattr(t, prop)\r\n                if v: return str(v)\r\n            except: pass\r\n    except: pass\r\n    return \"\"\r\n\r\ndef entry_parent_id(entry):\r\n    try:\r\n        pid = getattr(entry, \"ParentId\")\r\n        return str(pid) if pid is not None else \"\"\r\n    except:\r\n        return \"\"\r\n\r\ndef is_empty_guid(g):\r\n    if not g: return True\r\n    sg = str(g).lower()\r\n    return sg in (\"00000000-0000-0000-0000-000000000000\", \"{00000000-0000-0000-0000-000000000000}\")\r\n\r\n# ---- группировка по ParentId ----\r\ngroups = {}              # parentId -> [entries...]\r\norder_parent_ids = []    # порядок групп — по первому появлению\r\nfor e in entries:\r\n    kind, target = pick_first_xps_file(e)\r\n    if kind is None:\r\n        # не документ — пропускаем (это не элемент списка для отчёта)\r\n        continue\r\n    pid = entry_parent_id(e)\r\n    key = pid if (pid and not is_empty_guid(pid)) else \"__NO_PARENT__\"\r\n    if key not in groups:\r\n        groups[key] = []\r\n        order_parent_ids.append(key)\r\n    groups[key].append(e)\r\n\r\n# ---- имя родителя через DataObject.Get ----\r\ndef parent_title_for(pid_key):\r\n    if pid_key in (\"\", \"__NO_PARENT__\"):\r\n        return \"\"  # без заголовка\r\n    # пробуем DataObject.Get.GetByStrGuid\r\n    if DataGet is not None:\r\n        try:\r\n            p = DataObject.Get.GetByStrGuid(pid_key)\r\n            if p is not None:\r\n                return entry_display(p) or \"\"\r\n        except:\r\n            pass\r\n    # если не удалось — ничего не пишем\r\n    return \"\"\r\n\r\n# ---- формирование строк как на скрине ----\r\nrows = []  # каждая строка: [Левый текст, Формат]\r\n\r\nfor pid in order_parent_ids:\r\n    title = parent_title_for(pid)\r\n    if title:\r\n        rows.append([title, \"\"])  # заголовок раздела (только слева)\r\n\r\n    counter = 0\r\n    for e in groups[pid]:\r\n        counter += 1\r\n\r\n        # формат по первому XPS/DWFX\r\n        sizes_str = \"\"\r\n        kind, target = pick_first_xps_file(e)\r\n        if kind == 'path':\r\n            try:\r\n                fs = File.Open(target, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)\r\n                ms = to_seekable(fs)\r\n                sizes, _ = read_page_sizes_from_seekable(ms)\r\n                sizes_str = \", \".join([ps.Name for ps in sizes]) if sizes else \"\"\r\n            except:\r\n                sizes_str = \"\"\r\n        else:\r\n            ms, fid, fname = open_read_via_provider(target)\r\n            if fid and fid in paper_size_cache:\r\n                sizes_str, _ = paper_size_cache[fid]\r\n            else:\r\n                if ms is not None:\r\n                    try:\r\n                        sizes, _ = read_page_sizes_from_seekable(ms)\r\n                        sizes_str = \", \".join([ps.Name for ps in sizes]) if sizes else \"\"\r\n                        if fid:\r\n                            paper_size_cache[fid] = (sizes_str, 0)\r\n                    finally:\r\n                        try: ms.Close()\r\n                        except: pass\r\n\r\n        left = \"{} - {}\".format(counter, entry_display(e))\r\n        tname = entry_typename(e)\r\n        if tname:\r\n            left += \" - \" + tname\r\n        rows.append([left, sizes_str or \"\"])\r\n\r\nOUT = rows\r\n",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "3d8c6306a54547b9b9a96e47e8d2a8a1",
+      "Inputs": [
+        {
+          "Id": "a0e7d1ada52e419b9f54e57a5af7c0ff",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b09e098e8e18459f8fecd5b4e68fb670",
+          "Name": "OUT",
+          "Description": "Результат сценария Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Выполнение встроенного сценария Python."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Форматы страниц документов проекта \";",
+      "Id": "79071e291c154a33937e8e2c8991d357",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0fe81e7cc37a47ec8d2deda45322b885",
+          "Name": "",
+          "Description": "Значение выражения в строке 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Обеспечивает возможность непосредственного авторства кода DesignScript"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DataObject.Properties.GetDisplayName@var",
+      "Id": "a1b00d0a26124fb29520984718f779b7",
+      "Inputs": [
+        {
+          "Id": "7bbacec1ac454b59811fe78d29ae8bd9",
+          "Name": "dataObject",
+          "Description": "Объект данных\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8d36994392ec4ab3aeb966a56af66581",
+          "Name": "string",
+          "Description": "Отображаемое имя объекта",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Получает отображаемое имя объекта\n\nProperties.GetDisplayName (dataObject: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Concat@string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "f437576d85884b92a0dfa2be150134f3",
+      "Inputs": [
+        {
+          "Id": "33fb7511bff04f4f870c89aea58b4145",
+          "Name": "string0",
+          "Description": "Список строк для объединения.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fa07395cc53b414b9b9fba053af5879c",
+          "Name": "string",
+          "Description": "Строка, созданная на основе списка строк.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Объединение нескольких строк в одну строку.\n\nString.Concat (strings: string[]): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[a,b[0]];",
+      "Id": "9e8f7d50fee747d7bf494a55141478a7",
+      "Inputs": [
+        {
+          "Id": "01150b5005464b8ba837f3e50d2b05de",
+          "Name": "a",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "702d35329e9c4b6489d0e697b6ab0a4f",
+          "Name": "b",
+          "Description": "b",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f024ca22d1d74314b9470b3d1ee0c6b8",
+          "Name": "",
+          "Description": "Значение выражения в строке 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Обеспечивает возможность непосредственного авторства кода DesignScript"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.List.Join@var[]..[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "f1b6383d01a340d3b8b780baa0bee250",
+      "Inputs": [
+        {
+          "Id": "d1658e70106a407997ebd3ba60fe7cc8",
+          "Name": "list0",
+          "Description": "Списки для объединения в один.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7347169026cf43c99e8538ad1e86eac2",
+          "Name": "list1",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ff1a172b463d4bc3b1b06e9b012f3ca2",
+          "Name": "list",
+          "Description": "Объединенный список.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Объединение всех имеющихся списков в один.\n\nList.Join (lists: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSOffice.Data.OpenXMLExportExcel@string,string,var[][],int,int,bool,bool",
+      "Id": "b042400483944f669bb97443bef32743",
+      "Inputs": [
+        {
+          "Id": "ab886320de1d439e8f3ea238d44f46ac",
+          "Name": "filePath",
+          "Description": "Файл книги Excel\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6265d9ada30f4c898d84c063073c9f55",
+          "Name": "sheetName",
+          "Description": "Имя листа, в котором содержатся данные\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d6e8a0525c1442bb9049a9c4050b8468",
+          "Name": "data",
+          "Description": "Данные для записи в электронную таблицу\n\nvar[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0771674c200848ec8869e546752dc464",
+          "Name": "startRow",
+          "Description": "Начальная строка для записи данных. Введите 0 для записи в строку 1, 1 —- в строку для 2 и т. д.\n\nint\nЗначение по умолчанию : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c07af525f6aa47f4bd26641c5b8a07e4",
+          "Name": "startColumn",
+          "Description": "Начальный столбец для записи данных. Введите 0 для записи в столбец A, 1 — в столбец B и т. д.\n\nint\nЗначение по умолчанию : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "41917e2a5c834d73819a71f017617838",
+          "Name": "overWrite",
+          "Description": "Переключатель для очистки электронной таблицы перед записью\n\nbool\nЗначение по умолчанию : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3f370522d4aa4a3f8643b79cec9486d1",
+          "Name": "writeAsString",
+          "Description": "Переключатель для записи значений ячеек в виде строк\n\nbool\nЗначение по умолчанию : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ead2e33392aa4f6c8298a19cf473a229",
+          "Name": "bool",
+          "Description": "Логическая операция, указывающая на успешную запись в электронную таблицу.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Запись данных в электронную таблицу Microsoft Excel с помощью стандарта Open XML. Данные записываются по строкам, а вложенные списки — в виде последовательности строк. Строки и столбцы индексируются нулями. Например, значение в списке данных в точке [0,0] записывается в ячейку A1. Нулевые значения и пустые списки записываются в виде пустых ячеек.\n\nData.OpenXMLExportExcel (filePath: string, sheetName: string, data: var[][], startRow: int = 0, startColumn: int = 0, overWrite: bool = false, writeAsString: bool = false): bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"ВАШ_ПУТЬ\\\\Форматы страниц документов проекта.xlsx\";\n\"default\";\n0;\ntrue;",
+      "Id": "973b21310eb14ea7a4daed49cf1edfeb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "da97b1804bcf4fb4ae274ec6cc3b44b0",
+          "Name": "",
+          "Description": "Значение выражения в строке 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "53baf795d59b40f7aba7da2e7f0dc869",
+          "Name": "",
+          "Description": "Значение выражения в строке 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1fac47ccaf984ab7b3acfa70a7e4bc38",
+          "Name": "",
+          "Description": "Значение выражения в строке 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c3d646a613134868b5b197b2915cffb6",
+          "Name": "",
+          "Description": "Значение выражения в строке 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Обеспечивает возможность непосредственного авторства кода DesignScript"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "70bb6a0755aa43879867e5fba06eb362",
+      "End": "10f89b7fa70c48ba90a56dd203eb54f2",
+      "Id": "6e94ecf23bee4a1a9c2d054085f94098",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "70bb6a0755aa43879867e5fba06eb362",
+      "End": "7bbacec1ac454b59811fe78d29ae8bd9",
+      "Id": "9318ab8fdb364f73990034ac235d3655",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0b841263244e492aa141037301523e9c",
+      "End": "0fe586960da34a7788c1a03b0f49a81f",
+      "Id": "7bdc1b19b7f24e2bad003f3a81dc03fb",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0b841263244e492aa141037301523e9c",
+      "End": "dc4757a558244e6798ff6864f8f78257",
+      "Id": "708444ca76e449d0ac53fd6344ede802",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bed3f14474b54d99a653e098ae964fec",
+      "End": "a3c4cbe53ff44a43bf023181e5288c7a",
+      "Id": "ddb7f62252ab4a6582feb248e84e3bdd",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ac4d001ea3b8469c9ea6f88f902da129",
+      "End": "27a85eab3a9f4fa4bc4b629e56c1e6d9",
+      "Id": "00f25731724c4bcc8dd5641520eee0c5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b63887162b4742f4af4c556c2d842dfc",
+      "End": "52bd4ca7d54f4d968d63183fb5f448b4",
+      "Id": "7d54959c7e5e4a5abb510a34969bb0ea",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "727cccf073dd4e838d25eef9df14e133",
+      "End": "6569561e25654ce8939163ce06fbc794",
+      "Id": "657e8400f81c467ba2666c3cb6a2cc82",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d60c277284d7451cb5d1d28a9f68ca39",
+      "End": "a0e7d1ada52e419b9f54e57a5af7c0ff",
+      "Id": "8330a284855b4afea7bb2c16411eb184",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b09e098e8e18459f8fecd5b4e68fb670",
+      "End": "7347169026cf43c99e8538ad1e86eac2",
+      "Id": "faec00a354c845f9b59c798dd22419e6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0fe81e7cc37a47ec8d2deda45322b885",
+      "End": "01150b5005464b8ba837f3e50d2b05de",
+      "Id": "ca30ba3d8ff040cb8a91bc7bd52cc795",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8d36994392ec4ab3aeb966a56af66581",
+      "End": "702d35329e9c4b6489d0e697b6ab0a4f",
+      "Id": "cee234c8b2574da89b7accab94cb972d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fa07395cc53b414b9b9fba053af5879c",
+      "End": "d1658e70106a407997ebd3ba60fe7cc8",
+      "Id": "b0fac0d5cb684552a27d4f27eac5d12d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f024ca22d1d74314b9470b3d1ee0c6b8",
+      "End": "33fb7511bff04f4f870c89aea58b4145",
+      "Id": "f63eb7ec191249e4b0f838c90a24a6e5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ff1a172b463d4bc3b1b06e9b012f3ca2",
+      "End": "d6e8a0525c1442bb9049a9c4050b8468",
+      "Id": "18c6e8e476574a928872d29617d72b87",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "da97b1804bcf4fb4ae274ec6cc3b44b0",
+      "End": "ab886320de1d439e8f3ea238d44f46ac",
+      "Id": "8d0da63c7bdc40a19daa6c85eb923049",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "53baf795d59b40f7aba7da2e7f0dc869",
+      "End": "6265d9ada30f4c898d84c063073c9f55",
+      "Id": "1ebb6ef27749441bacf9613e51511b22",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1fac47ccaf984ab7b3acfa70a7e4bc38",
+      "End": "0771674c200848ec8869e546752dc464",
+      "Id": "8bb6e0634f0449b099dbd26b95120c1a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "1fac47ccaf984ab7b3acfa70a7e4bc38",
+      "End": "c07af525f6aa47f4bd26641c5b8a07e4",
+      "Id": "55218a051ac74aa3bdb6bacd236b6976",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c3d646a613134868b5b197b2915cffb6",
+      "End": "41917e2a5c834d73819a71f017617838",
+      "Id": "4f6c1c5baab640e79ff91d6d2265f17b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c3d646a613134868b5b197b2915cffb6",
+      "End": "3f370522d4aa4a3f8643b79cec9486d1",
+      "Id": "4506725b9acd4a4ab426118c55c3eac0",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "DynamoPilot",
+      "Version": "1.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "9ac340c4db944c05a6b81737201a74ba",
+        "c33ae8cb48d344fdbabcff58641fb176",
+        "4f467554bdbe43498d84abade1d155e0",
+        "d1c309483bc04f68aada0d5a25214a1c",
+        "92736dae834541a5844923bc5b9a6f12",
+        "a1b00d0a26124fb29520984718f779b7"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Свойства",
+      "Version": "2.16",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "Нет",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.4.10216",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Default Camera",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "SelectDocuments",
+        "ShowGeometry": true,
+        "Id": "9ac340c4db944c05a6b81737201a74ba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 217.5,
+        "Y": 574.0
+      },
+      {
+        "Name": "Get.AllTypes",
+        "ShowGeometry": true,
+        "Id": "c33ae8cb48d344fdbabcff58641fb176",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -546.91589052903646,
+        "Y": 173.09646540523721
+      },
+      {
+        "Name": "List.FilterByBoolMask",
+        "ShowGeometry": true,
+        "Id": "aa8525508f6249578d76ceaba956e447",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -34.1236522977199,
+        "Y": 170.93142953811144
+      },
+      {
+        "Name": "Properties.GetHasFiles",
+        "ShowGeometry": true,
+        "Id": "4f467554bdbe43498d84abade1d155e0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -325.866966542809,
+        "Y": 283.09646540523721
+      },
+      {
+        "Name": "Get.GetСhildrenByTypeId",
+        "ShowGeometry": true,
+        "Id": "d1c309483bc04f68aada0d5a25214a1c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 589.95287057570818,
+        "Y": 219.24605104671497
+      },
+      {
+        "Name": "Properties.GetId",
+        "ShowGeometry": true,
+        "Id": "92736dae834541a5844923bc5b9a6f12",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 244.3776533883273,
+        "Y": 170.16626467200257
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Id": "0633dd3d1d014af095d1e258918c781c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 965.25882729811315,
+        "Y": 215.09471115008211
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "3d8c6306a54547b9b9a96e47e8d2a8a1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1298.5910726974064,
+        "Y": 247.28609690240671
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "79071e291c154a33937e8e2c8991d357",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 582.77767869335844,
+        "Y": 651.25959551047515
+      },
+      {
+        "Name": "Properties.GetDisplayName",
+        "ShowGeometry": true,
+        "Id": "a1b00d0a26124fb29520984718f779b7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 684.00360674916078,
+        "Y": 806.98375282133759
+      },
+      {
+        "Name": "String.Concat",
+        "ShowGeometry": true,
+        "Id": "f437576d85884b92a0dfa2be150134f3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1305.7480628471474,
+        "Y": 699.26012669945351
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "9e8f7d50fee747d7bf494a55141478a7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1034.2868062763603,
+        "Y": 699.36665987226786
+      },
+      {
+        "Name": "List.Join",
+        "ShowGeometry": true,
+        "Id": "f1b6383d01a340d3b8b780baa0bee250",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2282.78803662159,
+        "Y": 414.72467398352
+      },
+      {
+        "Name": "Data.OpenXMLExportExcel",
+        "ShowGeometry": true,
+        "Id": "b042400483944f669bb97443bef32743",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2541.7996717717638,
+        "Y": 203.99916566830268
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "973b21310eb14ea7a4daed49cf1edfeb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1796.0223467293513,
+        "Y": 203.94052871759766
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "ab91705323604c56be17301da9d66473",
+        "Title": "Получаем все типы у которых могут быть файлы",
+        "DescriptionText": "<Дважды нажмите здесь, чтобы изменить описание группы>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "c33ae8cb48d344fdbabcff58641fb176",
+          "aa8525508f6249578d76ceaba956e447",
+          "4f467554bdbe43498d84abade1d155e0",
+          "92736dae834541a5844923bc5b9a6f12"
+        ],
+        "HasNestedGroups": false,
+        "Left": -556.91589052903646,
+        "Top": 97.166264672002569,
+        "Width": 1013.2935439173638,
+        "Height": 317.93020073323464,
+        "FontSize": 36.0,
+        "InitialTop": 170.16626467200257,
+        "InitialHeight": 257.93020073323464,
+        "TextblockHeight": 63.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "9903bdcd3a5e480796c6b892671a210c",
+        "Title": "Создаем шапку",
+        "DescriptionText": "<Дважды нажмите здесь, чтобы изменить описание группы>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "79071e291c154a33937e8e2c8991d357",
+          "a1b00d0a26124fb29520984718f779b7",
+          "f437576d85884b92a0dfa2be150134f3",
+          "9e8f7d50fee747d7bf494a55141478a7"
+        ],
+        "HasNestedGroups": false,
+        "Left": 572.77767869335844,
+        "Top": 578.25959551047515,
+        "Width": 997.97038415378893,
+        "Height": 360.72415731086244,
+        "FontSize": 36.0,
+        "InitialTop": 651.25959551047515,
+        "InitialHeight": 300.72415731086244,
+        "TextblockHeight": 63.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "35cf086c28274105a83cd8f5e7ccd8a6",
+        "Title": "Экспорт в ексель",
+        "DescriptionText": "<Дважды нажмите здесь, чтобы изменить описание группы>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "f1b6383d01a340d3b8b780baa0bee250",
+          "b042400483944f669bb97443bef32743",
+          "973b21310eb14ea7a4daed49cf1edfeb"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1786.0223467293513,
+        "Top": 130.94052871759766,
+        "Width": 1035.7773250424125,
+        "Height": 445.78414526592235,
+        "FontSize": 36.0,
+        "InitialTop": 203.94052871759766,
+        "InitialHeight": 355.78414526592235,
+        "TextblockHeight": 63.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "ca46623481c64d1db3f43b1bddbb3d1e",
+        "Title": "Получаем все обьекты в выбраном проекте",
+        "DescriptionText": "<Дважды нажмите здесь, чтобы изменить описание группы>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "d1c309483bc04f68aada0d5a25214a1c",
+          "0633dd3d1d014af095d1e258918c781c"
+        ],
+        "HasNestedGroups": false,
+        "Left": 579.95287057570818,
+        "Top": 99.0947111500821,
+        "Width": 591.305956722405,
+        "Height": 317.15133989663286,
+        "FontSize": 36.0,
+        "InitialTop": 215.09471115008211,
+        "InitialHeight": 149.15133989663286,
+        "TextblockHeight": 106.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1605f38578dc4ed1afca11a72a5ff92b",
+        "Title": "Выбираем проект",
+        "DescriptionText": "<Дважды нажмите здесь, чтобы изменить описание группы>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "9ac340c4db944c05a6b81737201a74ba"
+        ],
+        "HasNestedGroups": false,
+        "Left": 207.5,
+        "Top": 450.0,
+        "Width": 255.0,
+        "Height": 256.0,
+        "FontSize": 36.0,
+        "InitialTop": 574.0,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 114.0,
+        "Background": "#FFFF7BAC"
+      },
+      {
+        "Id": "4b21676d29de46ada14872a0088b115e",
+        "Title": "Обрабатываем обьекты в python",
+        "DescriptionText": "<Дважды нажмите здесь, чтобы изменить описание группы>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "3d8c6306a54547b9b9a96e47e8d2a8a1"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1288.5910726974064,
+        "Top": 80.286096902406712,
+        "Width": 268.43,
+        "Height": 299.0,
+        "FontSize": 36.0,
+        "InitialTop": 247.28609690240671,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 157.0,
+        "Background": "#FF48B9FF"
+      }
+    ],
+    "X": 611.553374126615,
+    "Y": 441.43426075619061,
+    "Zoom": 0.40579741477108372
+  }
+}
