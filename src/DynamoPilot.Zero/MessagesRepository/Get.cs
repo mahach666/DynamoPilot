@@ -11,7 +11,7 @@ namespace MessagesRepository
         /// </summary>
         /// <returns>PMessagesRepository</returns>
         [IsDesignScriptCompatible]
-        public static PMessagesRepository GetObjectsRepository()
+        public static PMessagesRepository GetMessagesRepository()
         {
             return StaticMetadata.MessagesRepository;
         }

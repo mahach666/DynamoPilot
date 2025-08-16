@@ -3,6 +3,7 @@ using Ascon.Pilot.SDK.Data;
 using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
@@ -16,22 +17,22 @@ namespace DynamoPilot.Data.Wrappers
         {
             _repository = repository;
         }
-        public IChat LoadChatAsync(Guid id)
+        public PChat LoadChat(Guid id)
         {
-            return WaitWithDispatcherFrame(_repository.LoadChatAsync(id));
+            return new(WaitWithDispatcherFrame(_repository.LoadChatAsync(id)));
         }
 
-        public IReadOnlyList<IChatMember> LoadChatMembersAsync(Guid chatId, DateTime dateFromUtc)
+        public List<PChatMember> LoadChatMembers(Guid chatId, DateTime dateFromUtc)
         {
-            return WaitWithDispatcherFrame(_repository.LoadChatMembersAsync(chatId, dateFromUtc));
+            return WaitWithDispatcherFrame(_repository.LoadChatMembersAsync(chatId, dateFromUtc)).Select(i => new PChatMember(i)).ToList();
         }
 
-        public IReadOnlyList<IChatMessage> LoadMessagesAsync(Guid chatId, DateTime dateFromUtc, DateTime dateToUtc, int maxNumber)
+        public IReadOnlyList<IChatMessage> LoadMessages(Guid chatId, DateTime dateFromUtc, DateTime dateToUtc, int maxNumber)
         {
             return WaitWithDispatcherFrame(_repository.LoadMessagesAsync(chatId, dateFromUtc, dateToUtc, maxNumber));
         }
 
-        public bool SendMessageAsync(IChatMessage message)
+        public bool SendMessage(IChatMessage message)
         {
             WaitWithDispatcherFrame(_repository.SendMessageAsync(message));
             return true;

@@ -4,13 +4,14 @@ using System;
 
 namespace DynamoPilot.Data.Wrappers
 {
-    public class PChat : IChat, IWrapper
+    public class PChat : IWrapper
     {
         private readonly IChat _chat;
         public PChat(IChat chat)
         {
             _chat = chat;
         }
+        public override string ToString() => $"{Name} ({Id.ToString()})";
         public Guid Id => _chat.Id;
 
         public string Name => _chat.Name;
