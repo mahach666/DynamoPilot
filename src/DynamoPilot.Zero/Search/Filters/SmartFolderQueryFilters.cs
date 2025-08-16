@@ -11,6 +11,12 @@ namespace Search.Filters
     /// </summary>
     public static class SmartFolderQueryFilters
     {
+        /// <summary>
+        /// Фильтрует по автору
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="authorId">Идентификатор автора</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithAuthor(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             int authorId)
@@ -19,6 +25,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует по множеству авторов
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="authorIds">Список идентификаторов авторов</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithAuthors(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             IEnumerable<int> authorIds)
@@ -27,6 +39,13 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Ограничивает период создания
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="fromUtc">Дата начала (UTC)</param>
+        /// <param name="toUtc">Дата окончания (UTC)</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedInRange(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             DateTime fromUtc,
@@ -36,6 +55,9 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные за последний месяц
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedLastMonth(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -43,6 +65,9 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные за последнюю неделю
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedLastWeek(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -50,6 +75,9 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные за последний год
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedLastYear(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -57,6 +85,9 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные в текущем месяце
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedThisMonth(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -64,6 +95,9 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные на текущей неделе
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedThisWeek(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -73,12 +107,18 @@ namespace Search.Filters
 
         [IsDesignScriptCompatible]
 
+        /// <summary>
+        /// Фильтрует документы, созданные в текущем году
+        /// </summary>
         public static PSmartFolderQueryBuilder WithCreatedThisYear(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
             smartFolderQueryBuilder.WithCreatedThisYear();
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные сегодня
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedToday(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -86,6 +126,9 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, созданные вчера
+        /// </summary>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithCreatedYesterday(PSmartFolderQueryBuilder smartFolderQueryBuilder)
         {
@@ -93,6 +136,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Добавляет ключевое слово для поиска
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="keyword">Ключевое слово</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithKeyword(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             string keyword)
@@ -101,6 +150,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Добавляет ключевое слово в кавычках (точное соответствие)
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="keyword">Ключевое слово</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithQuotedKeyword(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             string keyword)
@@ -109,6 +164,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Устанавливает режим поиска
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="searchMode">Режим поиска</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithSearchMode(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             SearchMode searchMode)
@@ -117,6 +178,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует по состоянию объектов
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="state">Состояние</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithState(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             ObjectState state)
@@ -125,6 +192,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует по типу объекта
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="typeId">Идентификатор типа</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithType(PSmartFolderQueryBuilder smartFolderQueryBuilder, int typeId)
         {
@@ -132,6 +205,12 @@ namespace Search.Filters
             return smartFolderQueryBuilder;
         }
 
+        /// <summary>
+        /// Фильтрует по нескольким типам объектов
+        /// </summary>
+        /// <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+        /// <param name="typeIds">Список идентификаторов типов</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PSmartFolderQueryBuilder WithTypes(PSmartFolderQueryBuilder smartFolderQueryBuilder,
             IEnumerable<int> typeIds)

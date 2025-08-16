@@ -10,6 +10,14 @@ namespace Search.Filters
     /// </summary>
     public static class AttributeFilters
     {
+        /// <summary>
+        /// Фильтрует по строковому атрибуту на равенство
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="value">Значение</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByStringAttribute(PQueryBuilder builder,
             string attributeName,
@@ -22,6 +30,15 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа DateTime в заданном диапазоне
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="fromDate">Начало диапазона (локальное время)</param>
+        /// <param name="toDate">Конец диапазона (локальное время)</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByDateTimeAttributeRange(PQueryBuilder builder,
             string attributeName,
@@ -36,6 +53,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа double на равенство
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="value">Значение</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByDoubleAttribute(PQueryBuilder builder,
             string attributeName,
@@ -49,6 +74,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа double по одному из значений
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="values">Набор значений</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByDoubleAttributeMultiple(PQueryBuilder builder,
             string attributeName,
@@ -62,6 +95,15 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа double в диапазоне значений
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="fromValue">Нижняя граница</param>
+        /// <param name="toValue">Верхняя граница</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByDoubleAttributeRange(PQueryBuilder builder,
             string attributeName,
@@ -76,6 +118,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа int на равенство
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="value">Значение</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByIntegerAttribute(PQueryBuilder builder,
             string attributeName,
@@ -89,6 +139,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа int по одному из значений
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="values">Набор значений</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByIntegerAttributeMultiple(PQueryBuilder builder,
             string attributeName,
@@ -102,6 +160,15 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по атрибуту типа int в диапазоне значений
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="fromValue">Нижняя граница</param>
+        /// <param name="toValue">Верхняя граница</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByIntegerAttributeRange(PQueryBuilder builder,
             string attributeName,
@@ -116,6 +183,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по булевому атрибуту на равенство
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="attributeName">Имя атрибута</param>
+        /// <param name="value">Значение</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByBoolAttribute(PQueryBuilder builder,
             string attributeName,

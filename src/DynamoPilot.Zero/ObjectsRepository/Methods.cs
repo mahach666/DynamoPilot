@@ -37,6 +37,7 @@ namespace ObjectsRepository
         /// </summary>
         /// <param name="objectsRepository">Репозиторий объектов</param>
         /// <param name="objId">Идентификатор объекта для монтирования</param>
+        /// <returns>Ничего не возвращает</returns>
         [IsDesignScriptCompatible]
         public static void Mount(PObjectsRepository objectsRepository, Guid objId)
         {

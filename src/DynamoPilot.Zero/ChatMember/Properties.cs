@@ -55,6 +55,11 @@ namespace ChatMember
         [IsDesignScriptCompatible]
         public static DateTime DateUpdatedUtc(PChatMember chatMember) => chatMember.DateUpdatedUtc;
 
+        /// <summary>
+        /// Проверяет, является ли участник только наблюдателем
+        /// </summary>
+        /// <param name="chatMember">Участник чата</param>
+        /// <returns>True, если участник только просматривает</returns>
         [IsDesignScriptCompatible]
         public static bool IsViewerOnly(PChatMember chatMember) => chatMember.IsViewerOnly;
     }

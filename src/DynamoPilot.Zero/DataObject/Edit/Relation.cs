@@ -11,6 +11,16 @@ namespace DataObject.Edit
     /// </summary>
     public static class Relation
     {
+        /// <summary>
+        /// Добавляет связь к объекту данных по идентификатору объекта
+        /// </summary>
+        /// <param name="objectId">Идентификатор объекта</param>
+        /// <param name="name">Имя связи</param>
+        /// <param name="type">Тип связи</param>
+        /// <param name="sourceId">Идентификатор исходного объекта</param>
+        /// <param name="targetId">Идентификатор целевого объекта</param>
+        /// <param name="versionId">Идентификатор версии (дата/время)</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddRelation(
             Guid objectId,
@@ -32,6 +42,16 @@ namespace DataObject.Edit
             return Get.GetByGuid(objectId);
         }
 
+        /// <summary>
+        /// Добавляет связь к объекту данных
+        /// </summary>
+        /// <param name="obj">Объект данных</param>
+        /// <param name="name">Имя связи</param>
+        /// <param name="type">Тип связи</param>
+        /// <param name="sourceId">Идентификатор исходного объекта</param>
+        /// <param name="targetId">Идентификатор целевого объекта</param>
+        /// <param name="versionId">Идентификатор версии (дата/время)</param>
+        /// <returns>Обновленный объект данных</returns>
         [IsDesignScriptCompatible]
         public static PDataObject AddRelationByObj(
             PDataObject obj,

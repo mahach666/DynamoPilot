@@ -42,6 +42,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по идентификатору контекста (строковый GUID)
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="id">Строковый GUID контекста</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByContextStrId(
             PQueryBuilder builder,
@@ -51,6 +58,13 @@ namespace Search.Filters
             return FilterByContextId(builder, new Guid(id), reverse);
         }
 
+        /// <summary>
+        /// Фильтрует по множеству идентификаторов объектов
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="ids">Массив GUID</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByIds(PQueryBuilder builder,
             Guid[] ids,
@@ -63,6 +77,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по идентификатору родителя
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="parentId">GUID родительского объекта</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByParentId(PQueryBuilder builder,
             Guid parentId,
@@ -75,6 +96,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по множеству идентификаторов родителей
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="parentIds">Массив GUID родителей</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByParentIds(PQueryBuilder builder,
             Guid[] parentIds,
@@ -87,6 +115,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по идентификатору типа
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="typeId">Идентификатор типа</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByTypeId(PQueryBuilder builder,
             int typeId,
@@ -99,6 +134,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по множеству идентификаторов типов
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="typeIds">Массив идентификаторов типов</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByTypeIds(PQueryBuilder builder,
             int[] typeIds,
@@ -111,6 +153,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по состоянию объекта
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="objectState">Состояние объекта</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByObjectState(PQueryBuilder builder,
             ObjectState objectState,
@@ -123,6 +172,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по идентификатору создателя
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="creatorId">Идентификатор пользователя</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByCreatorId(PQueryBuilder builder,
             int creatorId,
@@ -135,6 +191,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по множеству идентификаторов создателей
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="creatorIds">Массив идентификаторов пользователей</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByCreatorIds(PQueryBuilder builder,
             int[] creatorIds,
@@ -147,6 +210,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по диапазону дат создания
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="fromDate">Начало периода (локальное время)</param>
+        /// <param name="toDate">Конец периода (локальное время)</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByCreatedDateRange(PQueryBuilder builder,
             DateTime fromDate,
@@ -160,6 +231,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по признаку секретности
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="isSecret">True для секретных</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByIsSecret(PQueryBuilder builder,
             bool isSecret,
@@ -172,6 +250,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по текстовому содержимому
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="searchText">Текст поиска</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByAllText(PQueryBuilder builder,
             string searchText,
@@ -184,6 +269,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по наличию всех указанных слов в тексте
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="searchWords">Слова для поиска</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByAllTextContainsAll(PQueryBuilder builder,
             string[] searchWords,
@@ -196,6 +288,14 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по диапазону дат создания файловых версий (snapshots)
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="fromDate">Начало периода (локальное время)</param>
+        /// <param name="toDate">Конец периода (локальное время)</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterBySnapshotsCreatedRange(PQueryBuilder builder,
             DateTime fromDate,
@@ -209,6 +309,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по причине создания версии
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="reason">Причина</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByAllSnapshotsReason(PQueryBuilder builder,
             string reason,
@@ -221,6 +328,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, ожидающие подписи указанной должностью
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="positionId">Идентификатор должности</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterBySignatureAwaitingBy(PQueryBuilder builder,
             int positionId,
@@ -233,6 +347,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, ожидающие подписи одной из указанных должностей
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="positionIds">Массив идентификаторов должностей</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterBySignatureAwaitingByMultiple(PQueryBuilder builder,
             int[] positionIds,
@@ -245,6 +366,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, подписанные указанной должностью
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="positionId">Идентификатор должности</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterBySignedBy(PQueryBuilder builder,
             int positionId,
@@ -257,6 +385,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует документы, подписанные одной из указанных должностей
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="positionIds">Массив идентификаторов должностей</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterBySignedByMultiple(PQueryBuilder builder,
             int[] positionIds,
@@ -269,6 +404,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по идентификатору пользователя, изменившего состояние
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="personId">Идентификатор пользователя</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByStateChangedPersonId(PQueryBuilder builder,
             int personId,
@@ -281,6 +423,13 @@ namespace Search.Filters
             return builder;
         }
 
+        /// <summary>
+        /// Фильтрует по множеству пользователей, изменивших состояние
+        /// </summary>
+        /// <param name="builder">Построитель запросов</param>
+        /// <param name="personIds">Массив идентификаторов пользователей</param>
+        /// <param name="reverse">Если true — инвертировать условие</param>
+        /// <returns>Обновленный построитель</returns>
         [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByStateChangedPersonIds(PQueryBuilder builder,
             int[] personIds,

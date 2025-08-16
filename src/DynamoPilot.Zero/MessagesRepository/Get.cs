@@ -4,6 +4,9 @@ using DynamoPilot.Data.Wrappers;
 
 namespace MessagesRepository
 {
+    /// <summary>
+    /// Ноды для получения репозитория сообщений
+    /// </summary>
     public static class Get
     {
         /// <summary>
