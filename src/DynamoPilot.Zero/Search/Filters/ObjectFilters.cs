@@ -30,6 +30,28 @@ namespace Search.Filters
         }
 
         [IsDesignScriptCompatible]
+        public static PQueryBuilder FilterByContextId(
+            PQueryBuilder builder,
+            Guid id,
+            bool reverse = false)
+        {
+            if (reverse)
+                builder.MustNot(ObjectFields.Context.Be(id));
+            else
+                builder.Must(ObjectFields.Context.Be(id));
+            return builder;
+        }
+
+        [IsDesignScriptCompatible]
+        public static PQueryBuilder FilterByContextStrId(
+            PQueryBuilder builder,
+            string id,
+            bool reverse = false)
+        {
+            return FilterByContextId(builder, new Guid(id), reverse);
+        }
+
+        [IsDesignScriptCompatible]
         public static PQueryBuilder FilterByIds(PQueryBuilder builder,
             Guid[] ids,
             bool reverse = false)

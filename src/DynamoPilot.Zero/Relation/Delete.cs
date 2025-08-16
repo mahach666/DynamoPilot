@@ -1,4 +1,5 @@
 ﻿using Ascon.Pilot.SDK;
+using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 
@@ -15,6 +16,7 @@ namespace Relation
         /// <param name="obj">Объект данных</param>
         /// <param name="relation">Связь для удаления</param>
         /// <returns>True, если удаление прошло успешно</returns>
+        [IsDesignScriptCompatible]
         public static bool RemoveLink(PDataObject obj, PRelation relation)
         {
             try

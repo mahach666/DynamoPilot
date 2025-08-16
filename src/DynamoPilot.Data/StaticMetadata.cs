@@ -9,5 +9,6 @@ namespace DynamoPilot.Data
         public static PSearchService SearchService { get; set; }
         public static PPilotDialogService PilotDialogService { get; set; }
         public static PMessagesRepository MessagesRepository { get; set; }
-    }
+        public static PFileProvider FileProvider { get; set; }
+}
 }

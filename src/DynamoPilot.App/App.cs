@@ -29,7 +29,8 @@ namespace DynamoPilot.App
             IObjectModifier objectModifier,
             ISearchService searchService,
             IPilotDialogService pilotDialogService,
-            IMessagesRepository messagesRepository)
+            IMessagesRepository messagesRepository,
+            IFileProvider fileProvider)
         {
             _pluginDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -38,6 +39,7 @@ namespace DynamoPilot.App
             StaticMetadata.SearchService = new(searchService);
             StaticMetadata.PilotDialogService = new(pilotDialogService);
             StaticMetadata.MessagesRepository = new(messagesRepository);
+            StaticMetadata.FileProvider = new(fileProvider);
         }
 
         public void Build(IMenuBuilder builder, MainViewContext context)
