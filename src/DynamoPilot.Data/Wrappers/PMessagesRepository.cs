@@ -24,12 +24,16 @@ namespace DynamoPilot.Data.Wrappers
 
         public List<PChatMember> LoadChatMembers(Guid chatId, DateTime dateFromUtc)
         {
-            return WaitWithDispatcherFrame(_repository.LoadChatMembersAsync(chatId, dateFromUtc)).Select(i => new PChatMember(i)).ToList();
+            return WaitWithDispatcherFrame(_repository.LoadChatMembersAsync(chatId, dateFromUtc))
+                .Select(i => new PChatMember(i))
+                .ToList();
         }
 
-        public IReadOnlyList<IChatMessage> LoadMessages(Guid chatId, DateTime dateFromUtc, DateTime dateToUtc, int maxNumber)
+        public List<PChatMessage> LoadMessages(Guid chatId, DateTime dateFromUtc, DateTime dateToUtc, int maxNumber)
         {
-            return WaitWithDispatcherFrame(_repository.LoadMessagesAsync(chatId, dateFromUtc, dateToUtc, maxNumber));
+            return WaitWithDispatcherFrame(_repository.LoadMessagesAsync(chatId, dateFromUtc, dateToUtc, maxNumber))
+                .Select(i=> new PChatMessage(i))
+                .ToList();
         }
 
         public bool SendMessage(IChatMessage message)
