@@ -1,4 +1,5 @@
 ﻿using Ascon.Pilot.SDK;
+using Ascon.Pilot.SDK.Data;
 using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,8 @@ namespace DynamoPilot.Data.Wrappers
         public Guid ParentId => _dataObject.ParentId;
 
         public DateTime Created => _dataObject.Created;
+
+        public List<Guid> HistoryItems => _dataObject.HistoryItems().ToList();
 
         public IDictionary<string, object> Attributes => _dataObject.Attributes;
 

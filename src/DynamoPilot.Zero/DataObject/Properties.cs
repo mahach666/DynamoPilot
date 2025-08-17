@@ -242,6 +242,17 @@ namespace DataObject
         {
             return dataObject.Context();
         }
+
+        /// <summary>
+        /// Получает список идентификаторов исторических элементов объекта
+        /// </summary>
+        /// <param name="dataObject"></param>
+        /// <returns></returns>
+        [IsDesignScriptCompatible]
+        public static List<Guid> GetHistoryItems(PDataObject dataObject)
+        {
+            return dataObject.HistoryItems;
+        }
     }
 }
 
