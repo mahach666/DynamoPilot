@@ -22,6 +22,10 @@
 <img width="2503" height="1238" alt="image" src="https://github.com/user-attachments/assets/73c4d175-3a94-407b-a908-12ab0b7905a0" />
 <img width="2514" height="1229" alt="image" src="https://github.com/user-attachments/assets/6a931f8c-61e6-49d3-b55c-5030fadc4e88" />
 
+## Тесты
+
+Проект тестировался в Pilot-ICE Enterprise 25.9. О всех ошибках сообщайте в Issues.
+
 ## Лицензия
 
 Проект распространяется по лицензии Apache 2.0. Подробности см. в `LICENSE.txt`.
