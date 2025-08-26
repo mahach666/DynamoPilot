@@ -1,5 +1,4 @@
 ﻿using Ascon.Pilot.SDK;
-using Ascon.Pilot.SDK.Data;
 using DynamoPilot.Data.Contracts;
 using System;
 using System.Collections.Generic;
