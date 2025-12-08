@@ -26,16 +26,24 @@ namespace DataObject.Edit
             Guid objectId,
             string name,
             ObjectRelationType type,
-            Guid sourceId,
-            Guid targetId,
-            DateTime versionId)
+            Guid targetId)
         {
-            StaticMetadata.ObjectModifier.EditById(objectId).AddRelation(name,
-                type,
-                sourceId,
-                targetId,
-                versionId);
-
+            var relationId = new Guid();
+            var relation1 = new Ascon.Pilot.SDK.Relation
+            {
+                Id = relationId,
+                Type = type,
+                Name = name,
+                TargetId = objectId
+            };
+            var relation2 = new Ascon.Pilot.SDK.Relation
+            {
+                Id = relationId,
+                Type = type,
+                Name = name,
+                TargetId = targetId
+            };
+            StaticMetadata.ObjectModifier.CreateLink(relation1, relation2);
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
 
@@ -64,9 +72,7 @@ namespace DataObject.Edit
             return AddRelation(obj.Id,
                 name,
                 type,
-                sourceId,
-                targetId,
-                versionId);
+                targetId);
         }
     }
 }

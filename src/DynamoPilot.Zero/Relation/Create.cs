@@ -88,6 +88,25 @@ namespace Relation
         }
 
         /// <summary>
+        /// Создает пару связей между двумя объектами по идентификаторам
+        /// </summary>
+        /// <param name="relationId">Идентификатор связи</param>
+        /// <param name="relationType">Тип связи</param>
+        /// <param name="relationName">Имя связи</param>
+        /// <param name="targetId1">Идентификатор первого объекта</param>
+        /// <param name="targetId2">Идентификатор второго объекта</param>
+        /// <returns>Список созданных связей</returns>
+        public static List<PRelation> CreateCoupleByTargetIdsWithRandomGuid(
+            ObjectRelationType relationType,
+            string relationName,
+            Guid targetId1,
+            Guid targetId2)
+        {
+            var relationId = new Guid();
+            return CreateCoupleByTargetIds(relationId, relationType, relationName, targetId1, targetId2);
+        }
+
+        /// <summary>
         /// Создает пару связей между двумя объектами
         /// </summary>
         /// <param name="relationId">Идентификатор связи</param>
@@ -96,7 +115,7 @@ namespace Relation
         /// <param name="targetObj1">Первый объект назначения</param>
         /// <param name="targetObj2">Второй объект назначения</param>
         /// <returns>Список созданных связей</returns>
-        public static List<PRelation> CreateCoupleByTargetObjss(
+        public static List<PRelation> CreateCoupleByTargetObjs(
             Guid relationId,
             ObjectRelationType relationType,
             string relationName,
@@ -108,6 +127,29 @@ namespace Relation
              relationName,
              targetObj1.Id,
              targetObj2.Id);
+        }
+
+        /// <summary>
+        /// Создает пару связей между двумя объектами
+        /// </summary>
+        /// <param name="relationId">Идентификатор связи</param>
+        /// <param name="relationType">Тип связи</param>
+        /// <param name="relationName">Имя связи</param>
+        /// <param name="targetObj1">Первый объект назначения</param>
+        /// <param name="targetObj2">Второй объект назначения</param>
+        /// <returns>Список созданных связей</returns>
+        public static List<PRelation> CreateCoupleByTargetObjsWithRandomGuid(
+            ObjectRelationType relationType,
+            string relationName,
+            PDataObject targetObj1,
+            PDataObject targetObj2)
+        {
+            var relationId = new Guid();
+            return CreateCoupleByTargetObjs(relationId,
+             relationType,
+             relationName,
+             targetObj1,
+             targetObj2);
         }
 
         /// <summary>
