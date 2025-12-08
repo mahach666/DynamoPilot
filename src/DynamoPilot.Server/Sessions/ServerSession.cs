@@ -18,12 +18,14 @@ namespace DynamoPilot.Server.Sessions
         public ServerSession(ConnectionCredentials credentials,
             HttpPilotClient client,
             IAuthenticationApi authenticationApi,
-            IServerApi serverApi)
+            IServerApi serverApi,
+            IServerAdminApi? adminApi)
         {
             Credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
             Client = client ?? throw new ArgumentNullException(nameof(client));
             AuthenticationApi = authenticationApi ?? throw new ArgumentNullException(nameof(authenticationApi));
             ServerApi = serverApi ?? throw new ArgumentNullException(nameof(serverApi));
+            AdminApi = adminApi;
         }
 
         public ConnectionCredentials Credentials { get; }
@@ -33,6 +35,8 @@ namespace DynamoPilot.Server.Sessions
         public IAuthenticationApi AuthenticationApi { get; }
 
         public IServerApi ServerApi { get; }
+
+        public IServerAdminApi? AdminApi { get; }
 
         public DDatabaseInfo? DatabaseInfo { get; internal set; }
 

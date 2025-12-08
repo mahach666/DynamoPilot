@@ -40,10 +40,6 @@ namespace ServerOrganisationUnit
         [IsDesignScriptCompatible]
         public static bool GetIsCanceled(DOrganisationUnit orgUnit) => orgUnit.IsCanceled;
 
-        [NodeName("Version")]
-        [IsDesignScriptCompatible]
-        public static int GetVersion(DOrganisationUnit orgUnit) => orgUnit.Version;
-
         [NodeName("Person")]
         [IsDesignScriptCompatible]
         public static int GetPerson(DOrganisationUnit orgUnit) => orgUnit.Person;

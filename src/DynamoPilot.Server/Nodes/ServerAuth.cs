@@ -1,4 +1,6 @@
 using Ascon.Pilot.Server.Api;
+using Ascon.Pilot.Server.Api.Contracts;
+using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
@@ -55,7 +57,18 @@ namespace ServerAuth
             authApi.Login(dbName, credentials.Username, credentials.ProtectedPassword, useWindowsAuth, licenseType);
 
             var serverApi = client.GetServerApi(null);
-            var session = new ServerSession(credentials, client, authApi, serverApi)
+            // Админский API может быть недоступен; пытаемся получить.
+            IServerAdminApi? adminApi = null;
+            try
+            {
+                adminApi = client.GetServerAdminApi(new NullServerAdminCallback());
+            }
+            catch
+            {
+                adminApi = null;
+            }
+
+            var session = new ServerSession(credentials, client, authApi, serverApi, adminApi)
             {
                 DatabaseInfo = serverApi.OpenDatabase()
             };
@@ -104,6 +117,19 @@ namespace ServerAuth
         public static void ReleaseLicense(ServerSession session, int licenseType)
         {
             SessionGuard.EnsureSession(session).AuthenticationApi.ReleaseLicense(licenseType);
+        }
+
+        private sealed class NullServerAdminCallback : IServerAdminCallback
+        {
+            public void NotifyDatabaseChanged(DatabaseChangeset changeset) { }
+            public void NotifyPersonChanged(string databaseName, PersonChangeset changeset) { }
+            public void NotifyOrganisationUnitChanged(string databaseName, OrganisationUnitChangeset changeset) { }
+            public void NotifyDMetadataChanged(string databaseName, DMetadataChangeset changeset) { }
+            public void NotifyConnectionCountFromServer(int licenseType, int licenseCount) { }
+            public void NotifyReservationsChanged() { }
+            public void NotifyIndexingStateChanged(string databaseName, ushort percent) { }
+            public void NotifySessionsFromServer(int total, int active, int licensed, Guid databaseId) { }
+            public void NotifyLicenseChanged() { }
         }
     }
 }

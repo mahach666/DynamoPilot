@@ -60,10 +60,6 @@ namespace ServerPeople
         [IsDesignScriptCompatible]
         public static bool GetIsInactive(DPerson person) => person.IsInactive;
 
-        [NodeName("Version")]
-        [IsDesignScriptCompatible]
-        public static int GetVersion(DPerson person) => person.Version;
-
         [NodeName("AccountState")]
         [IsDesignScriptCompatible]
         public static AccountStates GetAccountState(DPerson person) => person.AccountState;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using Ascon.Pilot.Server.Api.Contracts;
 using DynamoPilot.Server.Sessions;
 
 #nullable enable
@@ -42,6 +43,14 @@ namespace DynamoPilot.Server.Utils
 
             secure.MakeReadOnly();
             return secure;
+        }
+
+        internal static IServerAdminApi EnsureAdmin(ServerSession session)
+        {
+            var ensured = EnsureSession(session);
+            if (ensured.AdminApi == null)
+                throw new InvalidOperationException("Админский API недоступен в текущей сессии.");
+            return ensured.AdminApi;
         }
     }
 }
