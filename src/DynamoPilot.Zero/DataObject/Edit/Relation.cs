@@ -65,9 +65,7 @@ namespace DataObject.Edit
             PDataObject obj,
             string name,
             ObjectRelationType type,
-            Guid sourceId,
-            Guid targetId,
-            DateTime versionId)
+            Guid targetId)
         {
             return AddRelation(obj.Id,
                 name,
