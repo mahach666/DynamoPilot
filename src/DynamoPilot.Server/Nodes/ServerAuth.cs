@@ -1,12 +1,12 @@
-using System;
-using System.Text;
 using Ascon.Pilot.Server.Api;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System;
+using System.Text;
 
-namespace DynamoPilot.Server.Nodes
+namespace ServerAuth
 {
     /// <summary>
     /// Узлы для подключения и управления лицензией серверного API.
