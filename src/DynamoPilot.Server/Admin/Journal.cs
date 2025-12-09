@@ -35,21 +35,26 @@ namespace ServerAdmin
         [NodeName("MakeJournalRequest")]
         [IsDesignScriptCompatible]
         public static JournalRequest MakeJournalRequest(
-            int? personId = null,
+            string personId = null,
             EventKind[] eventKinds = null,
-            DateTime? startDate = null,
-            DateTime? endDate = null,
-            ulong? fromId = null,
+            string startDate = null,
+            string endDate = null,
+            string fromId = null,
             int count = 100,
             int[] objectTypesIds = null)
         {
+            int? parsedPerson = int.TryParse(personId, out var pid) ? pid : (int?)null;
+            DateTime? parsedStart = DateTime.TryParse(startDate, out var sd) ? sd : (DateTime?)null;
+            DateTime? parsedEnd = DateTime.TryParse(endDate, out var ed) ? ed : (DateTime?)null;
+            ulong? parsedFrom = ulong.TryParse(fromId, out var fid) ? fid : (ulong?)null;
+
             return new JournalRequest
             {
-                PersonId = personId,
+                PersonId = parsedPerson,
                 EventKinds = eventKinds,
-                StartDate = startDate,
-                EndDate = endDate,
-                FromId = fromId,
+                StartDate = parsedStart,
+                EndDate = parsedEnd,
+                FromId = parsedFrom,
                 Count = count,
                 ObjectTypesIds = objectTypesIds
             };
@@ -59,21 +64,25 @@ namespace ServerAdmin
         [IsDesignScriptCompatible]
         public static AdminJournalRequest MakeAdminJournalRequest(
             int count = 100,
-            ulong? fromId = null,
+            string fromId = null,
             string userName = null,
             string ip = null,
-            DateTime? startDate = null,
-            DateTime? endDate = null,
+            string startDate = null,
+            string endDate = null,
             AdminEventKind[] eventKinds = null)
         {
+            ulong? parsedFrom = ulong.TryParse(fromId, out var fid) ? fid : (ulong?)null;
+            DateTime? parsedStart = DateTime.TryParse(startDate, out var sd) ? sd : (DateTime?)null;
+            DateTime? parsedEnd = DateTime.TryParse(endDate, out var ed) ? ed : (DateTime?)null;
+
             return new AdminJournalRequest
             {
                 Count = count,
-                FromId = fromId,
+                FromId = parsedFrom,
                 UserName = userName,
                 Ip = ip,
-                StartDate = startDate,
-                EndDate = endDate,
+                StartDate = parsedStart,
+                EndDate = parsedEnd,
                 EventKinds = eventKinds
             };
         }

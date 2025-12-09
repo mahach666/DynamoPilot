@@ -53,12 +53,19 @@ namespace ServerAdmin
 
         [NodeName("GetReservationsCountByProducts")]
         [IsDesignScriptCompatible]
-        public static Dictionary<int, int> GetReservationsCountByProducts(ServerSession session, IEnumerable<int> products, Guid? licenseId = null)
+        public static IList<KeyValuePair<int, int>> GetReservationsCountByProducts(ServerSession session, IEnumerable<int> products, string licenseId = null)
         {
             var list = products as int[] ?? (products != null ? new List<int>(products).ToArray() : Array.Empty<int>());
-            return licenseId.HasValue
-                ? SessionGuard.EnsureAdmin(session).GetReservationsCountByProducts(list, licenseId.Value)
-                : SessionGuard.EnsureAdmin(session).GetReservationsCountByProducts(list);
+            Dictionary<int, int> dict;
+            if (Guid.TryParse(licenseId, out var licId))
+                dict = SessionGuard.EnsureAdmin(session).GetReservationsCountByProducts(list, licId);
+            else
+                dict = SessionGuard.EnsureAdmin(session).GetReservationsCountByProducts(list);
+
+            var res = new List<KeyValuePair<int, int>>();
+            foreach (var kv in dict)
+                res.Add(new KeyValuePair<int, int>(kv.Key, kv.Value));
+            return res;
         }
     }
 }

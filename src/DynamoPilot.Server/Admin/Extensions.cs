@@ -15,12 +15,23 @@ namespace ServerAdmin
     {
         [NodeName("ListExtensions")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<object> ListExtensions(ServerSession session)
+        public static IList<string> ListExtensions(ServerSession session)
         {
             var admin = SessionGuard.EnsureAdmin(session);
             var method = admin.GetType().GetMethod("ListExtensions");
-            var result = method?.Invoke(admin, null);
-            return result as IEnumerable<object> ?? new List<object>();
+            var result = method?.Invoke(admin, null) as System.Collections.IEnumerable;
+            var list = new List<string>();
+            if (result != null)
+            {
+                foreach (var item in result)
+                {
+                    var nameProp = item.GetType().GetProperty("Name");
+                    var name = nameProp?.GetValue(item)?.ToString();
+                    if (!string.IsNullOrEmpty(name))
+                        list.Add(name);
+                }
+            }
+            return list;
         }
     }
 }

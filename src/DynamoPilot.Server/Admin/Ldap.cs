@@ -53,23 +53,23 @@ namespace ServerAdmin
 
         [NodeName("GetLdapUsers")]
         [IsDesignScriptCompatible]
-        public static Task<IEnumerable<LdapUser>> GetLdapUsers(ServerSession session, string searchRequest)
+        public static IEnumerable<LdapUser> GetLdapUsers(ServerSession session, string searchRequest)
         {
-            return SessionGuard.EnsureAdmin(session).GetLdapUsersAsync(searchRequest);
+            return SessionGuard.EnsureAdmin(session).GetLdapUsersAsync(searchRequest).Result;
         }
 
         [NodeName("GetLdapUser")]
         [IsDesignScriptCompatible]
-        public static Task<LdapUser> GetLdapUser(ServerSession session, string userId)
+        public static LdapUser GetLdapUser(ServerSession session, string userId)
         {
-            return SessionGuard.EnsureAdmin(session).GetLdapUserAsync(userId);
+            return SessionGuard.EnsureAdmin(session).GetLdapUserAsync(userId).Result;
         }
 
         [NodeName("ImportLdapPerson")]
         [IsDesignScriptCompatible]
-        public static Task<DPerson> ImportLdapPerson(ServerSession session, string ldapLogin)
+        public static DPerson ImportLdapPerson(ServerSession session, string ldapLogin)
         {
-            return SessionGuard.EnsureAdmin(session).ImportLdapPersonAsync(ldapLogin);
+            return SessionGuard.EnsureAdmin(session).ImportLdapPersonAsync(ldapLogin).Result;
         }
 
         [NodeName("ImportAdPerson")]

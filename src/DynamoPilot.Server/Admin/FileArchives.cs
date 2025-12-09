@@ -53,9 +53,15 @@ namespace ServerAdmin
 
         [NodeName("FileArchiveCapacity")]
         [IsDesignScriptCompatible]
-        public static Dictionary<Guid, long> FileArchiveCapacity(ServerSession session, string database)
+        public static IList<KeyValuePair<string, long>> FileArchiveCapacity(ServerSession session, string database)
         {
-            return SessionGuard.EnsureAdmin(session).FileArchiveCapacity(database);
+            var dict = SessionGuard.EnsureAdmin(session).FileArchiveCapacity(database);
+            var list = new List<KeyValuePair<string, long>>();
+            foreach (var kv in dict)
+            {
+                list.Add(new KeyValuePair<string, long>(kv.Key.ToString(), kv.Value));
+            }
+            return list;
         }
 
         [NodeName("GetFileArchivesInfo")]

@@ -45,12 +45,13 @@ namespace ServerAdmin
 
         [NodeName("StartFileMigrationCheck")]
         [IsDesignScriptCompatible]
-        public static void StartFileMigrationCheck(ServerSession session, string databaseName, Guid faFrom, DateTime from, DateTime to, bool all, bool actual, string extMask, Guid? parentObjectId = null)
+        public static void StartFileMigrationCheck(ServerSession session, string databaseName, Guid faFrom, DateTime from, DateTime to, bool all, bool actual, string extMask, string parentObjectId = null)
         {
-            if (parentObjectId.HasValue)
-                SessionGuard.EnsureAdmin(session).StartFileMigrationCheck(databaseName, faFrom, from, to, all, actual, extMask, parentObjectId.Value);
+            var admin = SessionGuard.EnsureAdmin(session);
+            if (Guid.TryParse(parentObjectId, out var parsed))
+                admin.StartFileMigrationCheck(databaseName, faFrom, from, to, all, actual, extMask, parsed);
             else
-                SessionGuard.EnsureAdmin(session).StartFileMigrationCheck(databaseName, faFrom, from, to, all, actual, extMask);
+                admin.StartFileMigrationCheck(databaseName, faFrom, from, to, all, actual, extMask);
         }
 
         [NodeName("StopFileMigrationCheck")]
@@ -69,12 +70,13 @@ namespace ServerAdmin
 
         [NodeName("StartFileArchiveMigration")]
         [IsDesignScriptCompatible]
-        public static void StartFileArchiveMigration(ServerSession session, string databaseName, Guid faFrom, Guid faTo, DateTime from, DateTime to, bool all, bool actual, string extMask, Guid? parentObjectId = null)
+        public static void StartFileArchiveMigration(ServerSession session, string databaseName, Guid faFrom, Guid faTo, DateTime from, DateTime to, bool all, bool actual, string extMask, string parentObjectId = null)
         {
-            if (parentObjectId.HasValue)
-                SessionGuard.EnsureAdmin(session).StartFileArchiveMigration(databaseName, faFrom, faTo, from, to, all, actual, extMask, parentObjectId.Value);
+            var admin = SessionGuard.EnsureAdmin(session);
+            if (Guid.TryParse(parentObjectId, out var parsed))
+                admin.StartFileArchiveMigration(databaseName, faFrom, faTo, from, to, all, actual, extMask, parsed);
             else
-                SessionGuard.EnsureAdmin(session).StartFileArchiveMigration(databaseName, faFrom, faTo, from, to, all, actual, extMask);
+                admin.StartFileArchiveMigration(databaseName, faFrom, faTo, from, to, all, actual, extMask);
         }
 
         [NodeName("StopFileArchiveMigration")]
