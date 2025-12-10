@@ -97,13 +97,11 @@ namespace ServerAuth
 
             authApi.LoginServerAdministrator(credentials.Username, credentials.ProtectedPassword, ignoredUseAnyValue);
 
-            //var serverApi = client.GetServerApi(null);
             var serverAdminApi = client.GetServerAdminApi(null);
             serverAdminApi.OpenDatabase(databaseName);
 
             var session = new ServerAdminSession(credentials, client, authApi, serverAdminApi, databaseName);
-
-            //session.Metadata = serverAdminApi.GetMetadata(session.DatabaseInfo?.MetadataVersion ?? 0);
+            session.Metadata = serverAdminApi.GetMetadata(0);
             return session;
         }
 

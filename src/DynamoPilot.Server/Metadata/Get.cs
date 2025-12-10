@@ -39,6 +39,33 @@ namespace ServerMetadata
             ensured.Metadata = ensured.ServerApi.GetMetadata(localVersion);
             return ensured.Metadata;
         }
+
+        /// <summary>
+        /// Возвращает метаданные через админ-сессию.
+        /// </summary>
+        [NodeName("GetMetadataAdmin")]
+        [IsDesignScriptCompatible]
+        public static DMetadata GetMetadata(ServerAdminSession session)
+        {
+            var ensured = SessionGuard.EnsureAdminSession(session);
+            if (ensured.Metadata != null)
+                return ensured.Metadata;
+
+            ensured.Metadata = ensured.ServerAdminApi.GetMetadata(0);
+            return ensured.Metadata;
+        }
+
+        /// <summary>
+        /// Обновляет метаданные через админ-сессию.
+        /// </summary>
+        [NodeName("RefreshMetadataAdmin")]
+        [IsDesignScriptCompatible]
+        public static DMetadata RefreshMetadata(ServerAdminSession session, long localVersion = 0)
+        {
+            var ensured = SessionGuard.EnsureAdminSession(session);
+            ensured.Metadata = ensured.ServerAdminApi.GetMetadata(localVersion);
+            return ensured.Metadata;
+        }
     }
 }
 

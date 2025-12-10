@@ -31,6 +31,34 @@ namespace ServerPeople
             var converted = ids?.ToArray() ?? System.Array.Empty<int>();
             return converted.Length == 0 ? new List<DPerson>() : srv.LoadPeopleByIds(converted);
         }
+
+        /// <summary>
+        /// Загрузка пользователей через админ-сессию (ServerAdminApi).
+        /// </summary>
+        [NodeName("LoadPeopleAdmin")]
+        [IsDesignScriptCompatible]
+        public static IList<DPerson> LoadPeople(ServerAdminSession session)
+        {
+            var srv = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
+            return srv.LoadPeople();
+        }
+
+        /// <summary>
+        /// Загрузка пользователей по id через админ-сессию (ServerAdminApi).
+        /// </summary>
+        [NodeName("LoadPeopleByIdsAdmin")]
+        [IsDesignScriptCompatible]
+        public static IList<DPerson> LoadPeopleByIds(ServerAdminSession session, IList<int> ids)
+        {
+            var srv = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
+            var converted = ids?.ToArray() ?? System.Array.Empty<int>();
+            if (converted.Length == 0)
+                return new List<DPerson>();
+
+            var all = srv.LoadPeople() ?? new List<DPerson>();
+            var set = new HashSet<int>(converted);
+            return all.Where(p => set.Contains(p.Id)).ToList();
+        }
     }
 }
 
