@@ -56,7 +56,7 @@ namespace ServerAuth
 
             var serverApi = client.GetServerApi(null);
 
-            var session = new ServerSession(credentials, client, authApi, serverApi)
+            var session = new ServerSession(credentials, client, authApi, serverApi, dbName)
             {
                 DatabaseInfo = serverApi.OpenDatabase()
             };
@@ -72,11 +72,11 @@ namespace ServerAuth
         [IsDesignScriptCompatible]
         public static ServerAdminSession ConnectAdmin(
             string serverUrl,
-            string databaseName,
+            //string databaseName,
             string login,
             string password,
-            bool useWindowsAuth = false,
-            int licenseType = 100,
+            string databaseName,
+            bool ignoredUseAnyValue = true,
             bool checkClientVersion = false)
         {
             if (string.IsNullOrWhiteSpace(serverUrl))
@@ -93,19 +93,17 @@ namespace ServerAuth
             client.Connect(checkClientVersion);
 
             var authApi = client.GetAuthenticationApi();
-            var dbName = string.IsNullOrWhiteSpace(databaseName) ? credentials.DatabaseName : databaseName;
+            //var dbName = string.IsNullOrWhiteSpace(databaseName) ? credentials.DatabaseName : databaseName;
 
-            authApi.Login(dbName, credentials.Username, credentials.ProtectedPassword, useWindowsAuth, licenseType);
+            authApi.LoginServerAdministrator(credentials.Username, credentials.ProtectedPassword, ignoredUseAnyValue);
 
-            var serverApi = client.GetServerApi(null);
+            //var serverApi = client.GetServerApi(null);
             var serverAdminApi = client.GetServerAdminApi(null);
+            serverAdminApi.OpenDatabase(databaseName);
 
-            var session = new ServerAdminSession(credentials, client, authApi, serverApi, serverAdminApi)
-            {
-                DatabaseInfo = serverApi.OpenDatabase()
-            };
+            var session = new ServerAdminSession(credentials, client, authApi, serverAdminApi, databaseName);
 
-            session.Metadata = serverApi.GetMetadata(session.DatabaseInfo?.MetadataVersion ?? 0);
+            //session.Metadata = serverAdminApi.GetMetadata(session.DatabaseInfo?.MetadataVersion ?? 0);
             return session;
         }
 

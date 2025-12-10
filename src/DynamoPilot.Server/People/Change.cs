@@ -22,10 +22,7 @@ namespace ServerPeople
                 throw new ArgumentNullException(nameof(changeset));
 
             var guardedSession = SessionGuard.EnsureAdminSession(session);
-            var databaseName = guardedSession.Credentials.DatabaseName;
-
-            if (string.IsNullOrWhiteSpace(databaseName))
-                throw new InvalidOperationException("Имя базы данных не определено для вызова ServerAdminApi.");
+            var databaseName = guardedSession.DatabaseName;
 
             return guardedSession.ServerAdminApi.ChangePeople(databaseName, changeset);
         }

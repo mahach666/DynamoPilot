@@ -39,9 +39,7 @@ namespace ServerOrganisationUnit
                 throw new ArgumentException("Название обязательно", nameof(title));
 
             var guardedSession = SessionGuard.EnsureAdminSession(session);
-            var databaseName = guardedSession.Credentials.DatabaseName;
-            if (string.IsNullOrWhiteSpace(databaseName))
-                throw new InvalidOperationException("Имя базы данных не определено для вызова ServerAdminApi.");
+            var databaseName = guardedSession.DatabaseName;
 
             var newUnit = new DOrganisationUnit
             {

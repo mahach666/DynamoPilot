@@ -18,12 +18,14 @@ namespace DynamoPilot.Server.Sessions
         public ServerSession(ConnectionCredentials credentials,
             HttpPilotClient client,
             IAuthenticationApi authenticationApi,
-            IServerApi serverApi)
+            IServerApi serverApi,
+            string databaseName)
         {
             Credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
             Client = client ?? throw new ArgumentNullException(nameof(client));
             AuthenticationApi = authenticationApi ?? throw new ArgumentNullException(nameof(authenticationApi));
             ServerApi = serverApi ?? throw new ArgumentNullException(nameof(serverApi));
+            DatabaseName = databaseName ?? throw new ArgumentNullException(nameof(databaseName));
         }
 
         public ConnectionCredentials Credentials { get; }
@@ -33,6 +35,11 @@ namespace DynamoPilot.Server.Sessions
         public IAuthenticationApi AuthenticationApi { get; }
 
         public IServerApi ServerApi { get; }
+
+        /// <summary>
+        /// Имя базы данных, к которой подключена сессия.
+        /// </summary>
+        public string DatabaseName { get; }
 
         public DDatabaseInfo? DatabaseInfo { get; internal set; }
 

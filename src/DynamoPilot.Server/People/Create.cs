@@ -43,9 +43,7 @@ namespace ServerPeople
                 throw new ArgumentException("Отображаемое имя обязательно", nameof(displayName));
 
             var guardedSession = SessionGuard.EnsureAdminSession(session);
-            var databaseName = guardedSession.Credentials.DatabaseName;
-            if (string.IsNullOrWhiteSpace(databaseName))
-                throw new InvalidOperationException("Имя базы данных не определено для вызова ServerAdminApi.");
+            var databaseName = guardedSession.DatabaseName;
 
             var person = new DPerson
             {
