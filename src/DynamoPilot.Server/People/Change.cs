@@ -16,12 +16,12 @@ namespace ServerPeople
     {
         [NodeName("ChangePeople")]
         [IsDesignScriptCompatible]
-        public static DOrgStructureChangeResult ChangePeople(ServerSession session, DPersonChangeset changeset)
+        public static DOrgStructureChangeResult ChangePeople(ServerAdminSession session, DPersonChangeset changeset)
         {
             if (changeset == null)
                 throw new ArgumentNullException(nameof(changeset));
 
-            var guardedSession = SessionGuard.EnsureSession(session);
+            var guardedSession = SessionGuard.EnsureAdminSession(session);
             var databaseName = guardedSession.Credentials.DatabaseName;
 
             if (string.IsNullOrWhiteSpace(databaseName))

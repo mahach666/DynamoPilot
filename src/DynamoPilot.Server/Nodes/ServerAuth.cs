@@ -55,9 +55,52 @@ namespace ServerAuth
             authApi.Login(dbName, credentials.Username, credentials.ProtectedPassword, useWindowsAuth, licenseType);
 
             var serverApi = client.GetServerApi(null);
+
+            var session = new ServerSession(credentials, client, authApi, serverApi)
+            {
+                DatabaseInfo = serverApi.OpenDatabase()
+            };
+
+            session.Metadata = serverApi.GetMetadata(session.DatabaseInfo?.MetadataVersion ?? 0);
+            return session;
+        }
+
+        /// <summary>
+        /// Создает подключение с доступом к административному API.
+        /// </summary>
+        [NodeName("ConnectAdmin")]
+        [IsDesignScriptCompatible]
+        public static ServerAdminSession ConnectAdmin(
+            string serverUrl,
+            string databaseName,
+            string login,
+            string password,
+            bool useWindowsAuth = false,
+            int licenseType = 100,
+            bool checkClientVersion = false)
+        {
+            if (string.IsNullOrWhiteSpace(serverUrl))
+                throw new ArgumentException("Адрес сервера не указан", nameof(serverUrl));
+            if (string.IsNullOrWhiteSpace(login))
+                throw new ArgumentException("Логин не указан", nameof(login));
+
+            var credentials = ConnectionCredentials.GetConnectionCredentials(
+                serverUrl,
+                login,
+                SessionGuard.ToSecureString(password ?? string.Empty));
+
+            var client = new HttpPilotClient(credentials.GetConnectionString(), credentials.GetConnectionProxy());
+            client.Connect(checkClientVersion);
+
+            var authApi = client.GetAuthenticationApi();
+            var dbName = string.IsNullOrWhiteSpace(databaseName) ? credentials.DatabaseName : databaseName;
+
+            authApi.Login(dbName, credentials.Username, credentials.ProtectedPassword, useWindowsAuth, licenseType);
+
+            var serverApi = client.GetServerApi(null);
             var serverAdminApi = client.GetServerAdminApi(null);
 
-            var session = new ServerSession(credentials, client, authApi, serverApi, serverAdminApi)
+            var session = new ServerAdminSession(credentials, client, authApi, serverApi, serverAdminApi)
             {
                 DatabaseInfo = serverApi.OpenDatabase()
             };
@@ -74,6 +117,17 @@ namespace ServerAuth
         public static bool Disconnect(ServerSession session)
         {
             SessionGuard.EnsureSession(session).Dispose();
+            return true;
+        }
+
+        /// <summary>
+        /// Завершает административную сессию и освобождает соединение.
+        /// </summary>
+        [NodeName("DisconnectAdmin")]
+        [IsDesignScriptCompatible]
+        public static bool DisconnectAdmin(ServerAdminSession session)
+        {
+            SessionGuard.EnsureAdminSession(session).Dispose();
             return true;
         }
 

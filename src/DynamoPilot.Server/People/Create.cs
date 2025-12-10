@@ -21,7 +21,7 @@ namespace ServerPeople
         [NodeName("CreatePerson")]
         [IsDesignScriptCompatible]
         public static DPerson CreatePerson(
-            ServerSession session,
+            ServerAdminSession session,
             string login,
             string displayName,
             string encryptedPassword,
@@ -42,7 +42,7 @@ namespace ServerPeople
             if (string.IsNullOrWhiteSpace(displayName))
                 throw new ArgumentException("Отображаемое имя обязательно", nameof(displayName));
 
-            var guardedSession = SessionGuard.EnsureSession(session);
+            var guardedSession = SessionGuard.EnsureAdminSession(session);
             var databaseName = guardedSession.Credentials.DatabaseName;
             if (string.IsNullOrWhiteSpace(databaseName))
                 throw new InvalidOperationException("Имя базы данных не определено для вызова ServerAdminApi.");

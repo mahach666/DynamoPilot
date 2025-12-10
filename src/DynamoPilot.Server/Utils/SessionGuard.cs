@@ -18,6 +18,14 @@ namespace DynamoPilot.Server.Utils
             return session;
         }
 
+        internal static ServerAdminSession EnsureAdminSession(ServerAdminSession? session)
+        {
+            if (session == null)
+                throw new ArgumentNullException(nameof(session), "Сначала вызовите узел административного соединения с сервером.");
+
+            return session;
+        }
+
         internal static Guid[] ParseGuids(IEnumerable<string> rawIds)
         {
             if (rawIds == null)

@@ -16,12 +16,12 @@ namespace ServerOrganisationUnit
     {
         [NodeName("ChangeOrganisationUnits")]
         [IsDesignScriptCompatible]
-        public static DOrgStructureChangeResult ChangeOrganisationUnits(ServerSession session, DOrganisationUnitChangeset changeset)
+        public static DOrgStructureChangeResult ChangeOrganisationUnits(ServerAdminSession session, DOrganisationUnitChangeset changeset)
         {
             if (changeset == null)
                 throw new ArgumentNullException(nameof(changeset));
 
-            var guardedSession = SessionGuard.EnsureSession(session);
+            var guardedSession = SessionGuard.EnsureAdminSession(session);
             var databaseName = guardedSession.Credentials.DatabaseName;
 
             if (string.IsNullOrWhiteSpace(databaseName))

@@ -21,7 +21,7 @@ namespace ServerOrganisationUnit
         [NodeName("CreateOrganisationUnit")]
         [IsDesignScriptCompatible]
         public static DOrgStructureChangeResult CreateOrganisationUnit(
-            ServerSession session,
+            ServerAdminSession session,
             int id,
             string title,
             OrgUnitKind kind,
@@ -38,7 +38,7 @@ namespace ServerOrganisationUnit
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentException("Название обязательно", nameof(title));
 
-            var guardedSession = SessionGuard.EnsureSession(session);
+            var guardedSession = SessionGuard.EnsureAdminSession(session);
             var databaseName = guardedSession.Credentials.DatabaseName;
             if (string.IsNullOrWhiteSpace(databaseName))
                 throw new InvalidOperationException("Имя базы данных не определено для вызова ServerAdminApi.");
