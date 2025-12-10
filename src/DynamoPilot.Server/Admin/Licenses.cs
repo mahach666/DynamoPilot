@@ -18,37 +18,45 @@ namespace ServerAdmin
     {
         [NodeName("UploadLicense")]
         [IsDesignScriptCompatible]
-        public static string UploadLicense(ServerSession session, byte[] buffer, string fileName)
+        public static string UploadLicense(ServerSession session, string base64, string fileName)
         {
-            return SessionGuard.EnsureAdmin(session).UploadLicenseToServer(buffer, fileName);
+            var data = string.IsNullOrEmpty(base64) ? Array.Empty<byte>() : Convert.FromBase64String(base64);
+            return SessionGuard.EnsureAdmin(session).UploadLicenseToServer(data, fileName);
         }
 
         [NodeName("ReplaceLicense")]
         [IsDesignScriptCompatible]
-        public static void ReplaceLicense(ServerSession session, byte[] buffer, string fileName, Guid licenseToReplace)
+        public static void ReplaceLicense(ServerSession session, string base64, string fileName, string licenseToReplace)
         {
-            SessionGuard.EnsureAdmin(session).ReplaceLicense(buffer, fileName, licenseToReplace);
+            var data = string.IsNullOrEmpty(base64) ? Array.Empty<byte>() : Convert.FromBase64String(base64);
+            SessionGuard.EnsureAdmin(session).ReplaceLicense(data, fileName, Guid.Parse(licenseToReplace));
         }
 
         [NodeName("DeleteLicense")]
         [IsDesignScriptCompatible]
-        public static void DeleteLicense(ServerSession session, Guid licenseId)
+        public static void DeleteLicense(ServerSession session, string licenseId)
         {
-            SessionGuard.EnsureAdmin(session).DeleteLicenseFromServer(licenseId);
+            SessionGuard.EnsureAdmin(session).DeleteLicenseFromServer(Guid.Parse(licenseId));
         }
 
         [NodeName("GetLicenseInformation")]
         [IsDesignScriptCompatible]
-        public static byte[] GetLicenseInformation(ServerSession session)
+        public static string GetLicenseInformation(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetLicenseInformation();
+            var data = SessionGuard.EnsureAdmin(session).GetLicenseInformation();
+            return data == null ? string.Empty : Convert.ToBase64String(data);
         }
 
         [NodeName("GetLicensesInformation")]
         [IsDesignScriptCompatible]
-        public static IList<byte[]> GetLicensesInformation(ServerSession session)
+        public static IList<string> GetLicensesInformation(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetLicensesInformation();
+            var list = new List<string>();
+            foreach (var b in SessionGuard.EnsureAdmin(session).GetLicensesInformation())
+            {
+                list.Add(b == null ? string.Empty : Convert.ToBase64String(b));
+            }
+            return list;
         }
 
         [NodeName("GetLicenseConnections")]
@@ -60,9 +68,9 @@ namespace ServerAdmin
 
         [NodeName("GetLicenseConnectionsById")]
         [IsDesignScriptCompatible]
-        public static void GetLicenseConnectionsById(ServerSession session, Guid licenseId)
+        public static void GetLicenseConnectionsById(ServerSession session, string licenseId)
         {
-            SessionGuard.EnsureAdmin(session).GetLicenseConnections(licenseId);
+            SessionGuard.EnsureAdmin(session).GetLicenseConnections(Guid.Parse(licenseId));
         }
     }
 }

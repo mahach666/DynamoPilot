@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Ascon.Pilot.DataClasses;
 using Ascon.Pilot.Server.Api.Contracts;
 using Autodesk.DesignScript.Runtime;
@@ -17,9 +18,9 @@ namespace ServerAdmin
     {
         [NodeName("GetFileSystemNodes")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<FileSystemNode> GetFileSystemNodes(ServerSession session, FileSystemNode parent, string fileExtensionFilter, bool showNetworkFolders)
+        public static List<FileSystemNode> GetFileSystemNodes(ServerSession session, FileSystemNode parent, string fileExtensionFilter, bool showNetworkFolders)
         {
-            return SessionGuard.EnsureAdmin(session).GetFileSystemNodes(parent, fileExtensionFilter, showNetworkFolders);
+            return SessionGuard.EnsureAdmin(session).GetFileSystemNodes(parent, fileExtensionFilter, showNetworkFolders).ToList();
         }
 
         [NodeName("RenameFolder")]

@@ -38,9 +38,10 @@ namespace ServerAdmin
 
         [NodeName("GetFileArchiveCheckResult")]
         [IsDesignScriptCompatible]
-        public static byte[] GetFileArchiveCheckResult(ServerSession session, string databaseName, DateTime checkTimestamp)
+        public static string GetFileArchiveCheckResult(ServerSession session, string databaseName, DateTime checkTimestamp)
         {
-            return SessionGuard.EnsureAdmin(session).GetFileArchiveCheckResult(databaseName, checkTimestamp);
+            var data = SessionGuard.EnsureAdmin(session).GetFileArchiveCheckResult(databaseName, checkTimestamp);
+            return data == null ? string.Empty : Convert.ToBase64String(data);
         }
 
         [NodeName("StartFileMigrationCheck")]
@@ -102,9 +103,10 @@ namespace ServerAdmin
 
         [NodeName("GetFileArchiveMigrationResult")]
         [IsDesignScriptCompatible]
-        public static byte[] GetFileArchiveMigrationResult(ServerSession session, string databaseName, DateTime checkTimestamp)
+        public static string GetFileArchiveMigrationResult(ServerSession session, string databaseName, DateTime checkTimestamp)
         {
-            return SessionGuard.EnsureAdmin(session).GetFileArchiveMigrationResult(databaseName, checkTimestamp);
+            var data = SessionGuard.EnsureAdmin(session).GetFileArchiveMigrationResult(databaseName, checkTimestamp);
+            return data == null ? string.Empty : Convert.ToBase64String(data);
         }
 
         [NodeName("CleanOperation")]

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Ascon.Pilot.DataClasses;
 using Ascon.Pilot.Server.Api.Contracts;
 using Autodesk.DesignScript.Runtime;
@@ -17,9 +18,9 @@ namespace ServerAdmin
     {
         [NodeName("GetCounters")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DCounter> GetCounters(ServerSession session)
+        public static List<DCounter> GetCounters(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetCounters();
+            return SessionGuard.EnsureAdmin(session).GetCounters().ToList();
         }
 
         [NodeName("UpdateCounter")]

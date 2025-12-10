@@ -18,7 +18,7 @@ namespace ServerAdmin
     {
         [NodeName("GetUserJournal")]
         [IsDesignScriptCompatible]
-        public static IList<DUserAction> GetUserJournal(ServerSession session, JournalRequest request)
+        public static List<DUserAction> GetUserJournal(ServerSession session, JournalRequest request)
         {
             var admin = SessionGuard.EnsureAdmin(session);
             return admin.GetJournalItems(request);
@@ -26,7 +26,7 @@ namespace ServerAdmin
 
         [NodeName("GetAdminJournal")]
         [IsDesignScriptCompatible]
-        public static IList<DAdminAction> GetAdminJournal(ServerSession session, AdminJournalRequest request)
+        public static List<DAdminAction> GetAdminJournal(ServerSession session, AdminJournalRequest request)
         {
             var admin = SessionGuard.EnsureAdmin(session);
             return admin.GetAdminJournalItems(request);

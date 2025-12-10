@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ascon.Pilot.DataClasses;
 using Ascon.Pilot.Server.Api.Contracts;
 using Autodesk.DesignScript.Runtime;
@@ -18,9 +19,9 @@ namespace ServerAdmin
     {
         [NodeName("GetReservations")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DReservation> GetReservations(ServerSession session)
+        public static List<DReservation> GetReservations(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetReservations();
+            return SessionGuard.EnsureAdmin(session).GetReservations().ToList();
         }
 
         [NodeName("UpdateReservations")]
@@ -53,7 +54,7 @@ namespace ServerAdmin
 
         [NodeName("GetReservationsCountByProducts")]
         [IsDesignScriptCompatible]
-        public static IList<KeyValuePair<int, int>> GetReservationsCountByProducts(ServerSession session, IEnumerable<int> products, string licenseId = null)
+        public static IList<ServerAdmin.Models.ReservationCountInfo> GetReservationsCountByProducts(ServerSession session, IEnumerable<int> products, string licenseId = null)
         {
             var list = products as int[] ?? (products != null ? new List<int>(products).ToArray() : Array.Empty<int>());
             Dictionary<int, int> dict;
@@ -62,9 +63,13 @@ namespace ServerAdmin
             else
                 dict = SessionGuard.EnsureAdmin(session).GetReservationsCountByProducts(list);
 
-            var res = new List<KeyValuePair<int, int>>();
+            var res = new List<ServerAdmin.Models.ReservationCountInfo>();
             foreach (var kv in dict)
-                res.Add(new KeyValuePair<int, int>(kv.Key, kv.Value));
+                res.Add(new ServerAdmin.Models.ReservationCountInfo
+                {
+                    ProductId = kv.Key,
+                    Count = kv.Value
+                });
             return res;
         }
     }

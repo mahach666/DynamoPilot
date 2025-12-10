@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Ascon.Pilot.DataClasses;
 using Ascon.Pilot.Server.Api.Contracts;
@@ -32,16 +33,16 @@ namespace ServerAdmin
 
         [NodeName("GetDomains")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<string> GetDomains(ServerSession session)
+        public static List<string> GetDomains(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetDomains();
+            return SessionGuard.EnsureAdmin(session).GetDomains().ToList();
         }
 
         [NodeName("GetAdUsers")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<AdUser> GetAdUsers(ServerSession session, string domainName, string searchRequest)
+        public static List<AdUser> GetAdUsers(ServerSession session, string domainName, string searchRequest)
         {
-            return SessionGuard.EnsureAdmin(session).GetAdUsers(domainName, searchRequest);
+            return SessionGuard.EnsureAdmin(session).GetAdUsers(domainName, searchRequest).ToList();
         }
 
         [NodeName("GetAdUser")]
@@ -53,9 +54,9 @@ namespace ServerAdmin
 
         [NodeName("GetLdapUsers")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<LdapUser> GetLdapUsers(ServerSession session, string searchRequest)
+        public static List<LdapUser> GetLdapUsers(ServerSession session, string searchRequest)
         {
-            return SessionGuard.EnsureAdmin(session).GetLdapUsersAsync(searchRequest).Result;
+            return SessionGuard.EnsureAdmin(session).GetLdapUsersAsync(searchRequest).Result.ToList();
         }
 
         [NodeName("GetLdapUser")]
@@ -83,7 +84,7 @@ namespace ServerAdmin
         [IsDesignScriptCompatible]
         public static void SyncPeople(ServerSession session, IEnumerable<DPerson> personsForSync)
         {
-            SessionGuard.EnsureAdmin(session).SyncPeople(personsForSync);
+            SessionGuard.EnsureAdmin(session).SyncPeople(personsForSync?.ToList() ?? new List<DPerson>());
         }
 
         [NodeName("SetAdAttributesMapping")]

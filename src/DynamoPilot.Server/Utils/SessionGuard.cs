@@ -11,7 +11,7 @@ namespace DynamoPilot.Server.Utils
 {
     internal static class SessionGuard
     {
-        internal static ServerSession EnsureSession(ServerSession? session)
+        internal static ServerSession EnsureSession(ServerSession session)
         {
             if (session == null)
                 throw new ArgumentNullException(nameof(session), "Сначала вызовите узел соединения с сервером.");
@@ -48,8 +48,6 @@ namespace DynamoPilot.Server.Utils
         internal static IServerAdminApi EnsureAdmin(ServerSession session)
         {
             var ensured = EnsureSession(session);
-            if (ensured.AdminApi == null)
-                throw new InvalidOperationException("Админский API недоступен в текущей сессии.");
             return ensured.AdminApi;
         }
     }

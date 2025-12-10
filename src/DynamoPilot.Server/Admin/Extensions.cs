@@ -15,7 +15,7 @@ namespace ServerAdmin
     {
         [NodeName("ListExtensions")]
         [IsDesignScriptCompatible]
-        public static IList<string> ListExtensions(ServerSession session)
+        public static List<string> ListExtensions(ServerSession session)
         {
             var admin = SessionGuard.EnsureAdmin(session);
             var method = admin.GetType().GetMethod("ListExtensions");

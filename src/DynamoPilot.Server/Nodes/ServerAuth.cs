@@ -57,16 +57,8 @@ namespace ServerAuth
             authApi.Login(dbName, credentials.Username, credentials.ProtectedPassword, useWindowsAuth, licenseType);
 
             var serverApi = client.GetServerApi(null);
-            // Админский API может быть недоступен; пытаемся получить.
-            IServerAdminApi? adminApi = null;
-            try
-            {
-                adminApi = client.GetServerAdminApi(new NullServerAdminCallback());
-            }
-            catch
-            {
-                adminApi = null;
-            }
+            // Админский API требуется для серверных узлов.
+            var adminApi = client.GetServerAdminApi(new NullServerAdminCallback());
 
             var session = new ServerSession(credentials, client, authApi, serverApi, adminApi)
             {

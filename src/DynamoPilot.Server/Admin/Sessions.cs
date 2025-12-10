@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ascon.Pilot.DataClasses;
 using Ascon.Pilot.Server.Api.Contracts;
 using Autodesk.DesignScript.Runtime;
@@ -18,16 +19,16 @@ namespace ServerAdmin
     {
         [NodeName("GetActiveSessions")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DActiveSession> GetActiveSessions(ServerSession session)
+        public static List<DActiveSession> GetActiveSessions(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetActiveSessions();
+            return SessionGuard.EnsureAdmin(session).GetActiveSessions().ToList();
         }
 
         [NodeName("GetActiveSessionsByProduct")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DActiveSession> GetActiveSessions(ServerSession session, int productId)
+        public static List<DActiveSession> GetActiveSessions(ServerSession session, int productId)
         {
-            return SessionGuard.EnsureAdmin(session).GetActiveSessions(productId);
+            return SessionGuard.EnsureAdmin(session).GetActiveSessions(productId).ToList();
         }
 
         [NodeName("ReleaseSession")]

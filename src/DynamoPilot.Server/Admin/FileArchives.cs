@@ -6,6 +6,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Linq;
 
 namespace ServerAdmin
 {
@@ -53,29 +54,33 @@ namespace ServerAdmin
 
         [NodeName("FileArchiveCapacity")]
         [IsDesignScriptCompatible]
-        public static IList<KeyValuePair<string, long>> FileArchiveCapacity(ServerSession session, string database)
+        public static IList<ServerAdmin.Models.FileArchiveCapacityInfo> FileArchiveCapacity(ServerSession session, string database)
         {
             var dict = SessionGuard.EnsureAdmin(session).FileArchiveCapacity(database);
-            var list = new List<KeyValuePair<string, long>>();
+            var list = new List<ServerAdmin.Models.FileArchiveCapacityInfo>();
             foreach (var kv in dict)
             {
-                list.Add(new KeyValuePair<string, long>(kv.Key.ToString(), kv.Value));
+                list.Add(new ServerAdmin.Models.FileArchiveCapacityInfo
+                {
+                    Id = kv.Key.ToString(),
+                    Capacity = kv.Value
+                });
             }
             return list;
         }
 
         [NodeName("GetFileArchivesInfo")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DFileArchiveRecordData> GetFileArchivesInfo(ServerSession session, string databaseName)
+        public static List<DFileArchiveRecordData> GetFileArchivesInfo(ServerSession session, string databaseName)
         {
-            return SessionGuard.EnsureAdmin(session).GetFileArchivesInfo(databaseName);
+            return SessionGuard.EnsureAdmin(session).GetFileArchivesInfo(databaseName).ToList();
         }
 
         [NodeName("GetFileArchivesInfoFullPath")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DFileArchiveRecordData> GetFileArchivesInfoFullPath(ServerSession session, string databaseName, string databaseFullPath)
+        public static List<DFileArchiveRecordData> GetFileArchivesInfoFullPath(ServerSession session, string databaseName, string databaseFullPath)
         {
-            return SessionGuard.EnsureAdmin(session).GetFileArchivesInfo(databaseName, databaseFullPath);
+            return SessionGuard.EnsureAdmin(session).GetFileArchivesInfo(databaseName, databaseFullPath).ToList();
         }
     }
 }

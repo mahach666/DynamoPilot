@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
+using System.Linq;
 
 namespace ServerPeople
 {
@@ -78,7 +79,7 @@ namespace ServerPeople
 
         [NodeName("AllOrgUnits")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<int> GetAllOrgUnits(DPerson person) => person.AllOrgUnits;
+        public static List<int> GetAllOrgUnits(DPerson person) => person.AllOrgUnits?.ToList() ?? new List<int>();
     }
 }
 

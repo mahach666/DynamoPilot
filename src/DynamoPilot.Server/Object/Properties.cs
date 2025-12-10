@@ -40,7 +40,9 @@ namespace ServerObject
 
         [NodeName("Attributes")]
         [IsDesignScriptCompatible]
-        public static IDictionary<string, DValue> GetAttributes(DObject obj) => obj.Attributes;
+        public static List<KeyValuePair<string, DValue>> GetAttributes(DObject obj)
+            => obj.Attributes?.Select(kv => new KeyValuePair<string, DValue>(kv.Key, kv.Value)).ToList()
+               ?? new List<KeyValuePair<string, DValue>>();
 
         [NodeName("ActualFileSnapshot")]
         [IsDesignScriptCompatible]
