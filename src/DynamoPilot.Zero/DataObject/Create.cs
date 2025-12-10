@@ -3,6 +3,8 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DataObject
 {
@@ -71,6 +73,90 @@ namespace DataObject
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
             return Get.GetByGuid(builder.DataObject.Id);
+        }
+
+        /// <summary>
+        /// Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
+        /// </summary>
+        /// <param name="parent">Родительский объект</param>
+        /// <param name="type">Тип создаваемого объекта</param>
+        /// <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateWithAttributes(PDataObject parent, PType type, IDictionary<string, object> attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.Create((IDataObject)parent.Unwrap(), (IType)type.Unwrap());
+            ApplyAttributes(builder, attributes);
+            StaticMetadata.ObjectModifier.Apply();
+            StaticMetadata.ObjectModifier.Clear();
+            return Get.GetByGuid(builder.DataObject.Id);
+        }
+
+        /// <summary>
+        /// Создает объект с заданным Guid и заполняет атрибуты.
+        /// </summary>
+        /// <param name="id">Идентификатор создаваемого объекта</param>
+        /// <param name="parentId">Идентификатор родителя</param>
+        /// <param name="type">Тип создаваемого объекта</param>
+        /// <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateWithIdAndAttributes(Guid id, Guid parentId, PType type, IDictionary<string, object> attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.CreateById(id, parentId, (IType)type.Unwrap());
+            ApplyAttributes(builder, attributes);
+            StaticMetadata.ObjectModifier.Apply();
+            StaticMetadata.ObjectModifier.Clear();
+            return Get.GetByGuid(builder.DataObject.Id);
+        }
+
+        private static void ApplyAttributes(PObjectBuilder builder, IDictionary<string, object> attributes)
+        {
+            if (builder == null || attributes == null)
+                return;
+
+            foreach (var kvp in attributes)
+            {
+                var name = kvp.Key;
+                var value = kvp.Value;
+                if (string.IsNullOrWhiteSpace(name) || value == null)
+                    continue;
+
+                switch (value)
+                {
+                    case string s:
+                        builder.SetAttribute(name, s);
+                        break;
+                    case int i:
+                        builder.SetAttribute(name, i);
+                        break;
+                    case long l:
+                        builder.SetAttribute(name, l);
+                        break;
+                    case double d:
+                        builder.SetAttribute(name, d);
+                        break;
+                    case decimal dec:
+                        builder.SetAttribute(name, dec);
+                        break;
+                    case DateTime dt:
+                        builder.SetAttribute(name, dt);
+                        break;
+                    case Guid g:
+                        builder.SetAttribute(name, g);
+                        break;
+                    case int[] ia:
+                        builder.SetAttribute(name, ia);
+                        break;
+                    case string[] sa:
+                        builder.SetAttribute(name, sa);
+                        break;
+                    case IEnumerable<int> ien:
+                        builder.SetAttribute(name, ien.ToArray());
+                        break;
+                    default:
+                        builder.SetAttributeAsObject(name, value);
+                        break;
+                }
+            }
         }
     }
 }
