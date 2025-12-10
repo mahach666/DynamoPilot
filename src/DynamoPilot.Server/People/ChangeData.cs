@@ -36,5 +36,56 @@ namespace ServerPeople
             var array = changes?.ToArray() ?? Array.Empty<DPersonChangeData>();
             return new DPersonChangeset(array);
         }
+
+        /// <summary>
+        /// Упрощенный конструктор изменений пользователя: собирает новый DPerson по полям и возвращает готовый changeset.
+        /// </summary>
+        [NodeName("BuildPersonChangeset")]
+        [IsDesignScriptCompatible]
+        public static DPersonChangeset BuildPersonChangeset(
+            DPerson oldPerson,
+            string login,
+            string displayName,
+            string email = null,
+            bool isAdmin = false,
+            bool isInactive = false,
+            string sid = null,
+            string phone = null,
+            string comment = null,
+            string allowedIp = null,
+            string encryptedPassword = null,
+            IList<int> positions = null,
+            IList<int> groups = null,
+            IList<int> bossOf = null,
+            IList<int> allOrgUnits = null)
+        {
+            var newPerson = new DPerson
+            {
+                Login = login ?? string.Empty,
+                DisplayName = displayName ?? string.Empty,
+                Email = email ?? string.Empty,
+                IsAdmin = isAdmin,
+                IsInactive = isInactive,
+                Sid = sid,
+                Phone = phone,
+                Comment = comment ?? string.Empty,
+                AllowedIp = allowedIp
+            };
+
+            if (positions != null)
+                newPerson.Positions.AddRange(positions);
+            if (groups != null)
+                newPerson.Groups.AddRange(groups);
+            if (bossOf != null)
+                newPerson.BossOf.AddRange(bossOf);
+            if (allOrgUnits != null)
+            {
+                foreach (var id in allOrgUnits)
+                    newPerson.AllOrgUnits.Add(id);
+            }
+
+            var change = CreatePersonChangeData(oldPerson, newPerson, encryptedPassword);
+            return CreatePersonChangeset(new[] { change });
+        }
     }
 }
