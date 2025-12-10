@@ -82,9 +82,9 @@ namespace ServerAdmin
 
         [NodeName("SyncPeople")]
         [IsDesignScriptCompatible]
-        public static void SyncPeople(ServerSession session, IEnumerable<DPerson> personsForSync)
+        public static void SyncPeople(ServerSession session, List<DPerson> personsForSync)
         {
-            SessionGuard.EnsureAdmin(session).SyncPeople(personsForSync?.ToList() ?? new List<DPerson>());
+            SessionGuard.EnsureAdmin(session).SyncPeople(personsForSync ?? new List<DPerson>());
         }
 
         [NodeName("SetAdAttributesMapping")]

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
@@ -21,7 +22,7 @@ namespace ServerObject
             Guid id,
             int typeId,
             Guid parentId,
-            IDictionary<string, DValue> attributes)
+            IList<KeyValuePair<string, DValue>> attributes)
         {
             var changeset = new DChangesetData
             {
@@ -34,7 +35,7 @@ namespace ServerObject
                 TypeId = typeId,
                 ParentId = parentId,
                 Attributes = attributes != null
-                    ? new Dictionary<string, DValue>(attributes)
+                    ? attributes.ToDictionary(k => k.Key, v => v.Value)
                     : new Dictionary<string, DValue>(),
                 Created = DateTime.UtcNow
             };
@@ -55,7 +56,7 @@ namespace ServerObject
             Guid id,
             int typeId,
             Guid parentId,
-            IDictionary<string, DValue> attributes)
+            IList<KeyValuePair<string, DValue>> attributes)
         {
             var changeset = BuildCreateChangeset(id, typeId, parentId, attributes);
             var srv = SessionGuard.EnsureSession(session).ServerApi;

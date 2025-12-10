@@ -5,6 +5,7 @@ using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Linq;
 
 namespace ServerAdmin
 {
@@ -17,9 +18,9 @@ namespace ServerAdmin
     {
         [NodeName("GetAdministrators")]
         [IsDesignScriptCompatible]
-        public static IEnumerable<DServerAdministrator> GetAdministrators(ServerSession session)
+        public static List<DServerAdministrator> GetAdministrators(ServerSession session)
         {
-            return SessionGuard.EnsureAdmin(session).GetServerAdministrators();
+            return SessionGuard.EnsureAdmin(session).GetServerAdministrators().ToList();
         }
 
         [NodeName("CreateAdministrator")]

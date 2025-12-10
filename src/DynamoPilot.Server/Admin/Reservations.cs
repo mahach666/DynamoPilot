@@ -54,9 +54,9 @@ namespace ServerAdmin
 
         [NodeName("GetReservationsCountByProducts")]
         [IsDesignScriptCompatible]
-        public static IList<ServerAdmin.Models.ReservationCountInfo> GetReservationsCountByProducts(ServerSession session, IEnumerable<int> products, string licenseId = null)
+        public static IList<ServerAdmin.Models.ReservationCountInfo> GetReservationsCountByProducts(ServerSession session, IList<int> products, string licenseId = null)
         {
-            var list = products as int[] ?? (products != null ? new List<int>(products).ToArray() : Array.Empty<int>());
+            var list = products?.ToArray() ?? Array.Empty<int>();
             Dictionary<int, int> dict;
             if (Guid.TryParse(licenseId, out var licId))
                 dict = SessionGuard.EnsureAdmin(session).GetReservationsCountByProducts(list, licId);
