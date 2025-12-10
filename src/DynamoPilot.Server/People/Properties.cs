@@ -62,7 +62,7 @@ namespace ServerPeople
 
         [NodeName("Version")]
         [IsDesignScriptCompatible]
-        public static int GetVersion(DPerson person) => person.Version;
+        public static long GetVersion(DPerson person) => person.LastChange;
 
         [NodeName("AccountState")]
         [IsDesignScriptCompatible]

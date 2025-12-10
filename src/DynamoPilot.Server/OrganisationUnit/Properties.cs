@@ -42,7 +42,7 @@ namespace ServerOrganisationUnit
 
         [NodeName("Version")]
         [IsDesignScriptCompatible]
-        public static int GetVersion(DOrganisationUnit orgUnit) => orgUnit.Version;
+        public static long GetVersion(DOrganisationUnit orgUnit) => orgUnit.LastChange;
 
         [NodeName("Person")]
         [IsDesignScriptCompatible]

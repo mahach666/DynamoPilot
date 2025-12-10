@@ -55,7 +55,9 @@ namespace ServerAuth
             authApi.Login(dbName, credentials.Username, credentials.ProtectedPassword, useWindowsAuth, licenseType);
 
             var serverApi = client.GetServerApi(null);
-            var session = new ServerSession(credentials, client, authApi, serverApi)
+            var serverAdminApi = client.GetServerAdminApi(null);
+
+            var session = new ServerSession(credentials, client, authApi, serverApi, serverAdminApi)
             {
                 DatabaseInfo = serverApi.OpenDatabase()
             };
