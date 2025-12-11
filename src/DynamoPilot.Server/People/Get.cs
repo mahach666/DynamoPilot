@@ -23,6 +23,17 @@ namespace ServerPeople
             return srv.LoadPeople();
         }
 
+        /// <summary>
+        /// Загружает пользователей, измененных после указанной версии.
+        /// </summary>
+        [NodeName("LoadPeopleSince")]
+        [IsDesignScriptCompatible]
+        public static IList<DPerson> LoadPeople(ServerSession session, long lastKnownChange)
+        {
+            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            return srv.LoadPeople(lastKnownChange);
+        }
+
         [NodeName("LoadPeopleByIds")]
         [IsDesignScriptCompatible]
         public static IList<DPerson> LoadPeopleByIds(ServerSession session, IList<int> ids)

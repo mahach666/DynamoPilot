@@ -41,6 +41,17 @@ namespace ServerDatabase
             var srv = SessionGuard.EnsureSession(session).ServerApi;
             return srv.GetDatabase(databaseName);
         }
+
+        /// <summary>
+        /// Возвращает информацию о текущей базе из открытой сессии.
+        /// </summary>
+        [NodeName("GetCurrentDatabaseInfo")]
+        [IsDesignScriptCompatible]
+        public static DDatabaseInfo GetCurrentDatabaseInfo(ServerSession session)
+        {
+            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            return srv.GetDatabaseInfo();
+        }
     }
 }
 

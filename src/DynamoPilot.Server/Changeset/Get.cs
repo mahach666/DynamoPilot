@@ -29,6 +29,17 @@ namespace ServerChangeset
             var srv = SessionGuard.EnsureSession(session).ServerApi;
             return srv.Change(changes);
         }
+
+        /// <summary>
+        /// Асинхронная отправка изменений (fire-and-forget).
+        /// </summary>
+        [NodeName("ApplyChangesAsync")]
+        [IsDesignScriptCompatible]
+        public static void ApplyChangesAsync(ServerSession session, DChangesetData changes)
+        {
+            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            srv.ChangeAsync(changes);
+        }
     }
 }
 

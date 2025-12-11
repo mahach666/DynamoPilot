@@ -23,6 +23,17 @@ namespace ServerOrganisationUnit
             return srv.LoadOrganisationUnits();
         }
 
+        /// <summary>
+        /// Загрузка орг. единиц с учетом версии изменений.
+        /// </summary>
+        [NodeName("LoadOrganisationUnitsSince")]
+        [IsDesignScriptCompatible]
+        public static IList<DOrganisationUnit> LoadOrganisationUnits(ServerSession session, long lastKnownChange)
+        {
+            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            return srv.LoadOrganisationUnits(lastKnownChange);
+        }
+
         [NodeName("LoadOrganisationUnitsByIds")]
         [IsDesignScriptCompatible]
         public static IList<DOrganisationUnit> LoadOrganisationUnitsByIds(ServerSession session, IList<int> ids)

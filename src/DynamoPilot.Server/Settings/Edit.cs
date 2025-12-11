@@ -21,6 +21,17 @@ namespace ServerSettings
             return srv.GetPersonalSettings();
         }
 
+        /// <summary>
+        /// Получает персональные настройки по ключу.
+        /// </summary>
+        [NodeName("GetPersonalSettingsByKey")]
+        [IsDesignScriptCompatible]
+        public static DSettings GetPersonalSettings(ServerSession session, string key)
+        {
+            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            return srv.GetPersonalSettings(key);
+        }
+
         [NodeName("GetCommonSettings")]
         [IsDesignScriptCompatible]
         public static DSettings GetCommonSettings(ServerSession session)

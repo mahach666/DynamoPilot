@@ -66,6 +66,17 @@ namespace ServerMetadata
             ensured.Metadata = ensured.ServerAdminApi.GetMetadata(localVersion);
             return ensured.Metadata;
         }
+
+        /// <summary>
+        /// Сохраняет метаданные через админ-сессию.
+        /// </summary>
+        [NodeName("UpdateMetadataAdmin")]
+        [IsDesignScriptCompatible]
+        public static long UpdateMetadata(ServerAdminSession session, DMetadata metadata)
+        {
+            var ensured = SessionGuard.EnsureAdminSession(session);
+            return ensured.ServerAdminApi.UpdateMetadata(metadata);
+        }
     }
 }
 
