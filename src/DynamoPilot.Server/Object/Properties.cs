@@ -5,7 +5,7 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace ServerObject
+namespace SObject
 {
     /// <summary>
     /// Узлы для получения свойств объекта данных (DObject) через серверное API.

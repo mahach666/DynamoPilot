@@ -6,7 +6,7 @@ using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ServerAdmin.Directory
+namespace Admin.Directory
 {
     /// <summary>
     /// Чтение данных из AD/LDAP.

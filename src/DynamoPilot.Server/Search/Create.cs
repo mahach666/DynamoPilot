@@ -1,11 +1,11 @@
-using System;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System;
 
-namespace ServerSearch
+namespace SSearch
 {
     /// <summary>
     /// Узлы для регистрации поисковых запросов.

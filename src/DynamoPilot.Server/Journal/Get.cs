@@ -6,7 +6,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerJournal
+namespace SJournal
 {
     /// <summary>
     /// Узлы для получения записей журналов действий.

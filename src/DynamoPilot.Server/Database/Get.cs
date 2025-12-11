@@ -5,7 +5,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerDatabase
+namespace SDatabase
 {
     /// <summary>
     /// Узлы для открытия базы и получения метаданных через серверное API.

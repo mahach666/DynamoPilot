@@ -3,7 +3,7 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace ServerPeople
+namespace SPeople
 {
     /// <summary>
     /// Узлы для получения свойств пользователя (DPerson) из серверного API.

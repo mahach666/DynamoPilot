@@ -3,7 +3,7 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace ServerOrganisationUnit
+namespace SOrganisationUnit
 {
     /// <summary>
     /// Узлы для получения свойств организационной единицы (DOrganisationUnit).

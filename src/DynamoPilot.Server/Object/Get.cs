@@ -7,7 +7,7 @@ using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 using System.Linq;
 
-namespace ServerObject
+namespace SObject
 {
     /// <summary>
     /// Результат получения объекта с правами.

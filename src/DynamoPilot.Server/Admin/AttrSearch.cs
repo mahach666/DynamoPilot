@@ -3,7 +3,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerAdmin.AttrSearch
+namespace Admin.AttrSearch
 {
     /// <summary>
     /// Изменение индекса атрибутного поиска.

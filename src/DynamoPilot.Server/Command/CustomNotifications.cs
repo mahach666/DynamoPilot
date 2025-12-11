@@ -4,7 +4,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerCommand
+namespace SCommand
 {
     /// <summary>
     /// Узлы для выполнения команд и работы с пользовательскими уведомлениями.

@@ -6,7 +6,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerOrganisationUnit
+namespace SOrganisationUnit
 {
     /// <summary>
     /// Узлы для загрузки организационных единиц.

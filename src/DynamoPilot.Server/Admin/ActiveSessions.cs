@@ -6,7 +6,7 @@ using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ServerAdmin.ActiveSessions
+namespace Admin.ActiveSessions
 {
     /// <summary>
     /// Получение активных сессий.

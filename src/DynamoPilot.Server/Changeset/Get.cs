@@ -5,7 +5,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerChangeset
+namespace SChangeset
 {
     /// <summary>
     /// Узлы для получения и применения изменений.

@@ -6,7 +6,7 @@ using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ServerAdmin.Counters
+namespace Admin.Counters
 {
     /// <summary>
     /// Чтение счетчиков.

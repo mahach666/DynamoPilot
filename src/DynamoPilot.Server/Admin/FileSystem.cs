@@ -5,7 +5,7 @@ using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 
-namespace ServerAdmin.FileSystem
+namespace Admin.FileSystem
 {
     /// <summary>
     /// Получение данных о файловой системе.

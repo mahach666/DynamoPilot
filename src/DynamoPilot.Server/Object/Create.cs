@@ -7,7 +7,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerObject
+namespace SObject
 {
     /// <summary>
     /// Узлы для создания и обновления объектов через ServerApi с заполнением атрибутов.

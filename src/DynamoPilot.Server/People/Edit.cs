@@ -4,7 +4,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerPeople
+namespace SPeople
 {
     /// <summary>
     /// Узлы для изменений пользователей.

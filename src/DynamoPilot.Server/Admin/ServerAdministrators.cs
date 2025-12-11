@@ -6,7 +6,7 @@ using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ServerAdmin.Admins
+namespace Admin.Admins
 {
     /// <summary>
     /// Чтение администраторов сервера.

@@ -5,7 +5,7 @@ using DynamoPilot.Server.Utils;
 using System;
 using System.Collections.Generic;
 
-namespace ServerAdmin.Licenses
+namespace Admin.Licenses
 {
     /// <summary>
     /// Чтение информации о лицензиях.

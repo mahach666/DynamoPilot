@@ -7,7 +7,7 @@ using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 using System.Linq;
 
-namespace ServerObjectAccess
+namespace SObjectAccess
 {
     /// <summary>
     /// Узлы для работы с правами доступа объектов.

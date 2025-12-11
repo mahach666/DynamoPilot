@@ -5,7 +5,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerOrganisationUnit
+namespace SOrganisationUnit
 {
     /// <summary>
     /// Узлы для создания и обновления организационных единиц через административное API.

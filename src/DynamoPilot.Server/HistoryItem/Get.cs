@@ -6,7 +6,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerHistoryItem
+namespace SHistoryItem
 {
     /// <summary>
     /// Узлы для получения истории объектов.

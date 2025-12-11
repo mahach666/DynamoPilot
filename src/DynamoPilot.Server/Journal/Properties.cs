@@ -4,7 +4,7 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace ServerJournal
+namespace SJournal
 {
     /// <summary>
     /// Узлы для доступа к полям объектов журналов и запросов.

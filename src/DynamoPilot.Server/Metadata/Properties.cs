@@ -3,7 +3,7 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace ServerMetadata
+namespace SMetadata
 {
     /// <summary>
     /// Узлы для получения свойств метаданных (DMetadata).

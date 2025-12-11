@@ -5,7 +5,7 @@ using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 
-namespace ServerAdmin.Extensions
+namespace Admin.Extensions
 {
     /// <summary>
     /// Чтение расширений и AD mapping.

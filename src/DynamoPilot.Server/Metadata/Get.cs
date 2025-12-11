@@ -4,7 +4,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerMetadata
+namespace SMetadata
 {
     /// <summary>
     /// Узлы для получения метаданных через серверное API.

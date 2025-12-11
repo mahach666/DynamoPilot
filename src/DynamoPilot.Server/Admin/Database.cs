@@ -5,7 +5,7 @@ using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 using System.Collections.Generic;
 
-namespace ServerAdmin.Database
+namespace Admin.Database
 {
     /// <summary>
     /// Получение информации о базах данных (IServerAdminApi).

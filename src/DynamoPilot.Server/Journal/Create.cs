@@ -3,7 +3,7 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace ServerJournal
+namespace SJournal
 {
     /// <summary>
     /// Узлы для формирования запросов к журналам действий.
