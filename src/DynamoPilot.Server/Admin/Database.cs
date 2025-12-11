@@ -1,18 +1,18 @@
-using System.Collections.Generic;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Collections.Generic;
 
-namespace ServerAdminDatabase
+namespace ServerAdmin.Database
 {
     /// <summary>
-    /// Администрирование баз данных (IServerAdminApi).
+    /// Получение информации о базах данных (IServerAdminApi).
     /// </summary>
     [NodeCategory("Pilot.Server.Admin.Database")]
-    [NodeDescription("Администрирование баз данных через ServerAdminApi")]
-    public static class Database
+    [NodeDescription("Получение информации о базах данных через ServerAdminApi")]
+    public static class Get
     {
         [NodeName("GetDatabaseInfoList")]
         [IsDesignScriptCompatible]
@@ -22,6 +22,22 @@ namespace ServerAdminDatabase
             return api.GetDatabaseInfoList() ?? new List<AdminDatabaseInfo>();
         }
 
+        [NodeName("OpenDatabaseAdmin")]
+        [IsDesignScriptCompatible]
+        public static void OpenDatabase(ServerAdminSession session, string databaseName)
+        {
+            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
+            api.OpenDatabase(databaseName);
+        }
+    }
+
+    /// <summary>
+    /// Изменение/создание баз данных (IServerAdminApi).
+    /// </summary>
+    [NodeCategory("Pilot.Server.Admin.Database")]
+    [NodeDescription("Создание, добавление, отсоединение и переименование баз через ServerAdminApi")]
+    public static class Edit
+    {
         [NodeName("CreateDatabase")]
         [IsDesignScriptCompatible]
         public static void CreateDatabase(ServerAdminSession session, string databaseName, string databaseDirectory, string fileArchiveFoldersList)
@@ -68,14 +84,6 @@ namespace ServerAdminDatabase
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
             api.SetDatabaseState(databaseName, state);
-        }
-
-        [NodeName("OpenDatabaseAdmin")]
-        [IsDesignScriptCompatible]
-        public static void OpenDatabase(ServerAdminSession session, string databaseName)
-        {
-            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            api.OpenDatabase(databaseName);
         }
     }
 }

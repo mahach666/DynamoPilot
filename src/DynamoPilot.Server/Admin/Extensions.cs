@@ -1,18 +1,18 @@
-using System.Collections.Generic;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Collections.Generic;
 
-namespace ServerAdminExtensions
+namespace ServerAdmin.Extensions
 {
     /// <summary>
-    /// Работа с расширениями и маппингами AD.
+    /// Чтение расширений и AD mapping.
     /// </summary>
     [NodeCategory("Pilot.Server.Admin.Extensions")]
-    [NodeDescription("Расширения сервера и AD mapping через ServerAdminApi")]
-    public static class Extensions
+    [NodeDescription("Чтение расширений и AD mapping через ServerAdminApi")]
+    public static class Get
     {
         [NodeName("ListExtensions")]
         [IsDesignScriptCompatible]
@@ -22,20 +22,28 @@ namespace ServerAdminExtensions
             return api.ListExtensions() ?? new List<ServerExtensionInfo>();
         }
 
-        [NodeName("SetActiveDirectoryAttributesMapping")]
-        [IsDesignScriptCompatible]
-        public static void SetActiveDirectoryAttributesMapping(ServerAdminSession session, ActiveDirectoryAttributesMapping mapping)
-        {
-            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            api.SetActiveDirectoryAttributesMapping(mapping);
-        }
-
         [NodeName("GetActiveDirectoryAttributesMapping")]
         [IsDesignScriptCompatible]
         public static ActiveDirectoryAttributesMapping GetActiveDirectoryAttributesMapping(ServerAdminSession session)
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
             return api.GetActiveDirectoryAttributesMapping();
+        }
+    }
+
+    /// <summary>
+    /// Изменение AD mapping.
+    /// </summary>
+    [NodeCategory("Pilot.Server.Admin.Extensions")]
+    [NodeDescription("Изменение AD mapping через ServerAdminApi")]
+    public static class Edit
+    {
+        [NodeName("SetActiveDirectoryAttributesMapping")]
+        [IsDesignScriptCompatible]
+        public static void SetActiveDirectoryAttributesMapping(ServerAdminSession session, ActiveDirectoryAttributesMapping mapping)
+        {
+            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
+            api.SetActiveDirectoryAttributesMapping(mapping);
         }
     }
 }

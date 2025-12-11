@@ -3,14 +3,14 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace ServerAdminAttrSearch
+namespace ServerAdmin.AttrSearch
 {
     /// <summary>
-    /// Перестроение индекса атрибутного поиска.
+    /// Изменение индекса атрибутного поиска.
     /// </summary>
     [NodeCategory("Pilot.Server.Admin.Search")]
     [NodeDescription("Перестроение индекса атрибутного поиска через ServerAdminApi")]
-    public static class AttrSearch
+    public static class Edit
     {
         [NodeName("AttrSearchRebuildIndex")]
         [IsDesignScriptCompatible]

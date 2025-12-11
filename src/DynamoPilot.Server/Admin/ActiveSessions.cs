@@ -1,19 +1,19 @@
-using System.Collections.Generic;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace ServerAdminActiveSessions
+namespace ServerAdmin.ActiveSessions
 {
     /// <summary>
     /// Получение активных сессий.
     /// </summary>
     [NodeCategory("Pilot.Server.Admin.ActiveSessions")]
     [NodeDescription("Активные сессии пользователей через ServerAdminApi")]
-    public static class ActiveSessions
+    public static class Get
     {
         [NodeName("GetActiveSessions")]
         [IsDesignScriptCompatible]

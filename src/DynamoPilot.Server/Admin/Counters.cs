@@ -1,19 +1,19 @@
-using System.Collections.Generic;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace ServerAdminCounters
+namespace ServerAdmin.Counters
 {
     /// <summary>
-    /// Работа со счетчиками.
+    /// Чтение счетчиков.
     /// </summary>
     [NodeCategory("Pilot.Server.Admin.Counters")]
-    [NodeDescription("Получение и изменение счетчиков через ServerAdminApi")]
-    public static class Counters
+    [NodeDescription("Получение счетчиков через ServerAdminApi")]
+    public static class Get
     {
         [NodeName("GetCounters")]
         [IsDesignScriptCompatible]
@@ -22,7 +22,15 @@ namespace ServerAdminCounters
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
             return api.GetCounters()?.ToList() ?? new List<DCounter>();
         }
+    }
 
+    /// <summary>
+    /// Изменение счетчиков.
+    /// </summary>
+    [NodeCategory("Pilot.Server.Admin.Counters")]
+    [NodeDescription("Изменение счетчиков через ServerAdminApi")]
+    public static class Edit
+    {
         [NodeName("UpdateCounter")]
         [IsDesignScriptCompatible]
         public static void UpdateCounter(ServerAdminSession session, DCounter counter)

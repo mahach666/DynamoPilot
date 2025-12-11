@@ -1,18 +1,18 @@
-using System.Collections.Generic;
 using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
+using System.Collections.Generic;
 
-namespace ServerAdminFileSystem
+namespace ServerAdmin.FileSystem
 {
     /// <summary>
-    /// Управление файловыми папками через ServerAdminApi.
+    /// Получение данных о файловой системе.
     /// </summary>
     [NodeCategory("Pilot.Server.Admin.FileSystem")]
-    [NodeDescription("Работа с файловой системой серверных баз через ServerAdminApi")]
-    public static class FileSystem
+    [NodeDescription("Чтение файловой системы через ServerAdminApi")]
+    public static class Get
     {
         [NodeName("GetFileSystemNodes")]
         [IsDesignScriptCompatible]
@@ -22,6 +22,30 @@ namespace ServerAdminFileSystem
             return api.GetFileSystemNodes(parent, fileExtensionFilter, showNetworkFolders) ?? new List<FileSystemNode>();
         }
 
+        [NodeName("GetFreeSpace")]
+        [IsDesignScriptCompatible]
+        public static long GetFreeSpace(ServerAdminSession session, string path)
+        {
+            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
+            return api.GetFreeSpace(path);
+        }
+
+        [NodeName("GetParentFolder")]
+        [IsDesignScriptCompatible]
+        public static string GetParentFolder(ServerAdminSession session, string filePath)
+        {
+            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
+            return api.GetParentFolder(filePath);
+        }
+    }
+
+    /// <summary>
+    /// Изменение файловой системы.
+    /// </summary>
+    [NodeCategory("Pilot.Server.Admin.FileSystem")]
+    [NodeDescription("Изменение файловой системы через ServerAdminApi")]
+    public static class Edit
+    {
         [NodeName("RenameFolder")]
         [IsDesignScriptCompatible]
         public static void RenameFolder(ServerAdminSession session, string oldPath, string newPath)
@@ -44,22 +68,6 @@ namespace ServerAdminFileSystem
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
             api.CreateFolder(path);
-        }
-
-        [NodeName("GetFreeSpace")]
-        [IsDesignScriptCompatible]
-        public static long GetFreeSpace(ServerAdminSession session, string path)
-        {
-            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            return api.GetFreeSpace(path);
-        }
-
-        [NodeName("GetParentFolder")]
-        [IsDesignScriptCompatible]
-        public static string GetParentFolder(ServerAdminSession session, string filePath)
-        {
-            var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            return api.GetParentFolder(filePath);
         }
     }
 }
