@@ -6,18 +6,15 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace SJournal
+namespace Admin.Journal
 {
     /// <summary>
-    /// Узлы для получения записей журналов действий.
+    /// Получение записей журналов действий (требует ServerAdminSession).
     /// </summary>
-    [NodeCategory("Pilot.Server.Journal")]
-    [NodeDescription("Загрузка записей пользовательского и административного журнала")]
+    [NodeCategory("Pilot.Server.Admin.Journal")]
+    [NodeDescription("Загрузка пользовательского и административного журнала")]
     public static class Get
     {
-        /// <summary>
-        /// Возвращает записи пользовательского журнала.
-        /// </summary>
         [NodeName("GetJournalItems")]
         [IsDesignScriptCompatible]
         public static IList<DUserAction> GetJournalItems(ServerAdminSession session, JournalRequest request)
@@ -28,9 +25,6 @@ namespace SJournal
             return items?.ToList() ?? new List<DUserAction>();
         }
 
-        /// <summary>
-        /// Возвращает записи административного журнала.
-        /// </summary>
         [NodeName("GetAdminJournalItems")]
         [IsDesignScriptCompatible]
         public static IList<DAdminAction> GetAdminJournalItems(ServerAdminSession session, AdminJournalRequest request)

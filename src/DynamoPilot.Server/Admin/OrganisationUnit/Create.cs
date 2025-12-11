@@ -6,18 +6,15 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace SOrganisationUnit
+namespace Admin.OrganisationUnit
 {
     /// <summary>
-    /// Узлы для создания организационной единицы через ServerAdminApi (ChangeOrganisationUnits).
+    /// Создание орг. единицы через ServerAdminApi (ChangeOrganisationUnits).
     /// </summary>
-    [NodeCategory("Pilot.Server.OrganisationUnit")]
+    [NodeCategory("Pilot.Server.Admin.OrganisationUnit")]
     [NodeDescription("Создание орг. единицы (админ API)")]
     public static class Create
     {
-        /// <summary>
-        /// Создает новую организационную единицу и применяет изменения.
-        /// </summary>
         [NodeName("CreateOrganisationUnit")]
         [IsDesignScriptCompatible]
         public static DOrgStructureChangeResult CreateOrganisationUnit(

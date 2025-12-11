@@ -3,18 +3,15 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace SJournal
+namespace Admin.Journal
 {
     /// <summary>
-    /// Узлы для формирования запросов к журналам действий.
+    /// Формирование запросов к журналам действий.
     /// </summary>
-    [NodeCategory("Pilot.Server.Journal")]
+    [NodeCategory("Pilot.Server.Admin.Journal")]
     [NodeDescription("Создание запросов для журналов действий пользователей и администраторов")]
     public static class Create
     {
-        /// <summary>
-        /// Создает запрос пользовательского журнала.
-        /// </summary>
         [NodeName("CreateJournalRequest")]
         [IsDesignScriptCompatible]
         public static JournalRequest CreateJournalRequest(
@@ -41,9 +38,6 @@ namespace SJournal
             };
         }
 
-        /// <summary>
-        /// Создает запрос административного журнала.
-        /// </summary>
         [NodeName("CreateAdminJournalRequest")]
         [IsDesignScriptCompatible]
         public static AdminJournalRequest CreateAdminJournalRequest(

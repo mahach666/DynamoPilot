@@ -43,33 +43,6 @@ namespace SOrganisationUnit
             return converted.Length == 0 ? new List<DOrganisationUnit>() : srv.LoadOrganisationUnitsByIds(converted);
         }
 
-        /// <summary>
-        /// Загрузка оргединиц через админ-сессию (ServerAdminApi).
-        /// </summary>
-        [NodeName("LoadOrganisationUnitsAdmin")]
-        [IsDesignScriptCompatible]
-        public static IList<DOrganisationUnit> LoadOrganisationUnits(ServerAdminSession session)
-        {
-            var srv = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            return srv.LoadOrganisationUnits();
-        }
-
-        /// <summary>
-        /// Загрузка оргединиц по id через админ-сессию (ServerAdminApi).
-        /// </summary>
-        [NodeName("LoadOrganisationUnitsByIdsAdmin")]
-        [IsDesignScriptCompatible]
-        public static IList<DOrganisationUnit> LoadOrganisationUnitsByIds(ServerAdminSession session, IList<int> ids)
-        {
-            var srv = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            var converted = ids?.ToArray() ?? System.Array.Empty<int>();
-            if (converted.Length == 0)
-                return new List<DOrganisationUnit>();
-
-            var all = srv.LoadOrganisationUnits() ?? new List<DOrganisationUnit>();
-            var set = new HashSet<int>(converted);
-            return all.Where(p => set.Contains(p.Id)).ToList();
-        }
     }
 }
 

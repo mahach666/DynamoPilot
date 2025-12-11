@@ -4,17 +4,16 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace SJournal
+namespace Admin.Journal
 {
     /// <summary>
-    /// Узлы для доступа к полям объектов журналов и запросов.
+    /// Доступ к полям журналов действий и запросов.
     /// </summary>
-    [NodeCategory("Pilot.Server.Journal.Properties")]
-    [NodeDescription("Доступ к полям журналов действий и запросов")]
+    [NodeCategory("Pilot.Server.Admin.Journal.Properties")]
+    [NodeDescription("Свойства записей журналов и запросов")]
     public static class Properties
     {
-        // DUserAction --------------------------------------------------------
-
+        // DUserAction
         [NodeName("UserActionId")]
         [IsDesignScriptCompatible]
         public static ulong GetId(DUserAction action) => action.Id;
@@ -63,8 +62,7 @@ namespace SJournal
         [IsDesignScriptCompatible]
         public static string GetPluginAdditional(DUserAction action) => action.PluginAdditional;
 
-        // DAdminAction -------------------------------------------------------
-
+        // DAdminAction
         [NodeName("AdminActionId")]
         [IsDesignScriptCompatible]
         public static ulong GetAdminId(DAdminAction action) => action.Id;
@@ -89,8 +87,7 @@ namespace SJournal
         [IsDesignScriptCompatible]
         public static byte[] GetAdminAdditionalInfo(DAdminAction action) => action.AdditionalInfo;
 
-        // JournalRequest -----------------------------------------------------
-
+        // JournalRequest
         [NodeName("JournalRequestPersonId")]
         [IsDesignScriptCompatible]
         public static int? GetJournalRequestPersonId(JournalRequest request) => request.PersonId;
@@ -119,8 +116,7 @@ namespace SJournal
         [IsDesignScriptCompatible]
         public static IEnumerable<int> GetJournalRequestObjectTypesIds(JournalRequest request) => request.ObjectTypesIds;
 
-        // AdminJournalRequest -----------------------------------------------
-
+        // AdminJournalRequest
         [NodeName("AdminJournalRequestCount")]
         [IsDesignScriptCompatible]
         public static int GetAdminJournalRequestCount(AdminJournalRequest request) => request.Count;

@@ -5,12 +5,12 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace SOrganisationUnit
+namespace Admin.OrganisationUnit
 {
     /// <summary>
-    /// Узлы для создания и обновления организационных единиц через административное API.
+    /// Создание/обновление оргструктуры через ServerAdminApi.
     /// </summary>
-    [NodeCategory("Pilot.Server.OrganisationUnit")]
+    [NodeCategory("Pilot.Server.Admin.OrganisationUnit")]
     [NodeDescription("Создание/обновление оргструктуры через ServerAdminApi")]
     public static class Change
     {

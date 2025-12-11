@@ -5,13 +5,13 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace SOrganisationUnit
+namespace Admin.OrganisationUnit
 {
     /// <summary>
-    /// Узлы для формирования данных изменений организационных единиц.
+    /// Формирование изменений оргструктуры (admin).
     /// </summary>
-    [NodeCategory("Pilot.Server.OrganisationUnit")]
-    [NodeDescription("Формирование DOrganisationUnitChangeData и Changeset")]
+    [NodeCategory("Pilot.Server.Admin.OrganisationUnit")]
+    [NodeDescription("Формирование DOrganisationUnitChangeData и Changeset (admin)")]
     public static class ChangeData
     {
         [NodeName("CreateOrganisationUnitChangeData")]
@@ -34,9 +34,6 @@ namespace SOrganisationUnit
             return new DOrganisationUnitChangeset(array);
         }
 
-        /// <summary>
-        /// Упрощенный конструктор изменений оргструктуры: собирает новый DOrganisationUnit и возвращает готовый changeset.
-        /// </summary>
         [NodeName("BuildOrganisationUnitChangeset")]
         [IsDesignScriptCompatible]
         public static DOrganisationUnitChangeset BuildOrganisationUnitChangeset(
@@ -80,3 +77,4 @@ namespace SOrganisationUnit
         }
     }
 }
+

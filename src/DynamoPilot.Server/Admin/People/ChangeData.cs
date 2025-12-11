@@ -5,13 +5,13 @@ using Ascon.Pilot.DataClasses;
 using Autodesk.DesignScript.Runtime;
 using Dynamo.Graph.Nodes;
 
-namespace SPeople
+namespace Admin.People
 {
     /// <summary>
-    /// Узлы для формирования данных изменений пользователя.
+    /// Формирование DPersonChangeData/Changeset для admin API.
     /// </summary>
-    [NodeCategory("Pilot.Server.People")]
-    [NodeDescription("Формирование DPersonChangeData и DPersonChangeset")]
+    [NodeCategory("Pilot.Server.Admin.People")]
+    [NodeDescription("Формирование DPersonChangeData и DPersonChangeset (admin)")]
     public static class ChangeData
     {
         [NodeName("CreatePersonChangeData")]
@@ -37,9 +37,6 @@ namespace SPeople
             return new DPersonChangeset(array);
         }
 
-        /// <summary>
-        /// Упрощенный конструктор изменений пользователя: собирает новый DPerson по полям и возвращает готовый changeset.
-        /// </summary>
         [NodeName("BuildPersonChangeset")]
         [IsDesignScriptCompatible]
         public static DPersonChangeset BuildPersonChangeset(
@@ -89,3 +86,4 @@ namespace SPeople
         }
     }
 }
+

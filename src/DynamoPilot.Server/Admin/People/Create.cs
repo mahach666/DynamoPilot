@@ -6,18 +6,15 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace SPeople
+namespace Admin.People
 {
     /// <summary>
-    /// Узлы для создания пользователя через ServerAdminApi.
+    /// Создание пользователя через ServerAdminApi.
     /// </summary>
-    [NodeCategory("Pilot.Server.People")]
+    [NodeCategory("Pilot.Server.Admin.People")]
     [NodeDescription("Создание пользователя (админ API)")]
     public static class Create
     {
-        /// <summary>
-        /// Создает пользователя с указанными полями. Пароль ожидается в зашифрованном виде.
-        /// </summary>
         [NodeName("CreatePerson")]
         [IsDesignScriptCompatible]
         public static DPerson CreatePerson(

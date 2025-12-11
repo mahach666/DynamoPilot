@@ -5,12 +5,12 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Server.Sessions;
 using DynamoPilot.Server.Utils;
 
-namespace SPeople
+namespace Admin.People
 {
     /// <summary>
-    /// Узлы для создания и обновления пользователей через административное API.
+    /// Создание/обновление пользователей через ServerAdminApi.
     /// </summary>
-    [NodeCategory("Pilot.Server.People")]
+    [NodeCategory("Pilot.Server.Admin.People")]
     [NodeDescription("Создание/обновление пользователей через ServerAdminApi")]
     public static class Change
     {
