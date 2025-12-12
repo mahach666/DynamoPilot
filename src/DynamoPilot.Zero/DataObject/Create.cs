@@ -3,6 +3,7 @@ using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
 using DynamoPilot.Data.Wrappers;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -147,7 +148,93 @@ namespace DataObject
 
             foreach (var kvp in attributes)
             {
-                builder.SetAttributeAsObject(kvp.Key,kvp.Value);
+                if (kvp.Value == null)
+                    continue;
+
+                switch (kvp.Value)
+                {
+                    case string value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case int value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case double value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case DateTime value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case decimal value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case long value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case Guid value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case int[] value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case List<int> listInt:
+                        builder.SetAttribute(kvp.Key, listInt.ToArray());
+                        break;
+                    case string[] value:
+                        builder.SetAttribute(kvp.Key, value);
+                        break;
+                    case List<string> listString:
+                        builder.SetAttribute(kvp.Key, listString.ToArray());
+                        break;
+                    case System.Collections.IEnumerable enumerable:
+                        // Обработка других коллекций - конвертируем в массивы если возможно
+                        if (enumerable is IEnumerable<int> intEnum)
+                        {
+                            builder.SetAttribute(kvp.Key, intEnum.ToArray());
+                            break;
+                        }
+                        if (enumerable is IEnumerable<long> longEnum)
+                        {
+                            // Конвертируем long[] в int[] поскольку long[] не поддерживается
+                            builder.SetAttribute(kvp.Key, longEnum.Select(l => (int)l).ToArray());
+                            break;
+                        }
+                        if (enumerable is IEnumerable<string> stringEnum)
+                        {
+                            builder.SetAttribute(kvp.Key, stringEnum.ToArray());
+                            break;
+                        }
+                        if (enumerable is System.Collections.ArrayList arrayList)
+                        {
+                            // Обработка ArrayList - конвертируем в массив соответствующего типа
+                            if (arrayList.Count > 0)
+                            {
+                                var firstElement = arrayList[0];
+                                if (firstElement is int)
+                                {
+                                    builder.SetAttribute(kvp.Key, arrayList.Cast<int>().ToArray());
+                                    break;
+                                }
+                                else if (firstElement is long)
+                                {
+                                    // Конвертируем long[] в int[] поскольку long[] не поддерживается
+                                    builder.SetAttribute(kvp.Key, arrayList.Cast<long>().Select(l => (int)l).ToArray());
+                                    break;
+                                }
+                                else if (firstElement is string)
+                                {
+                                    builder.SetAttribute(kvp.Key, arrayList.Cast<string>().ToArray());
+                                    break;
+                                }
+                            }
+                        }
+                        // Для остальных коллекций используем SetAttributeAsObject
+                        builder.SetAttributeAsObject(kvp.Key, kvp.Value);
+                        break;
+                    default:
+                        builder.SetAttributeAsObject(kvp.Key, kvp.Value);
+                        break;
+                }
             }
         }
     }
