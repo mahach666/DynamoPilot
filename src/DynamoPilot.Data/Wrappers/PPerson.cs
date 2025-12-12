@@ -43,6 +43,8 @@ namespace DynamoPilot.Data.Wrappers
         public string ActualName => _person.ActualName;
 
         public DateTime CreatedUtc => _person.CreatedUtc;
+        public ReadOnlyCollection<int> AllOrgUnits => _person.AllOrgUnits();
+
 
         public object Unwrap()
         {

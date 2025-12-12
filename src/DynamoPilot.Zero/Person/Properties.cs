@@ -107,5 +107,13 @@ namespace Person
         /// <returns>Дата создания в UTC</returns>
         [IsDesignScriptCompatible]
         public static DateTime GetCreatedUtc(PPerson pPerson) => pPerson.CreatedUtc;
+
+        /// <summary>
+        /// Получить все связанные с пользователем организационные единицы
+        /// </summary>
+        /// <param name="pPerson">Пользователь</param>
+        /// <returns>Список Id организационных единиц</returns>
+        [IsDesignScriptCompatible]
+        public static ReadOnlyCollection<int> GetAllOrgUnits(PPerson pPerson) => pPerson.AllOrgUnits;
     }
 }
