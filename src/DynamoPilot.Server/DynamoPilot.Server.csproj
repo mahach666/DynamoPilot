@@ -43,8 +43,8 @@
     <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathICE)" SkipUnchangedFiles="true" />
   </Target>
 
-  <Target Name="CreateZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)$(AssemblyName).dll -DestinationPath $(OutputPath)..\$(AssemblyProduct).zip -Force&quot;" />
+  <Target Name="CreateZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net481'">
+    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)* -DestinationPath $(OutputPath)..\$(AssemblyProduct).zip -Force&quot;" />
   </Target>
 
 </Project>

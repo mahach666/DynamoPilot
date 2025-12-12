@@ -51,22 +51,46 @@
     <BaseOutputPath>..\bin\</BaseOutputPath>
   </PropertyGroup>
 
-  <!-- Копируем только основную библиотеку (и pdb) -->
+  <!-- Копируем все библиотеки для отладки -->
   <Target Name="CopyToDebugDirectory" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
     <MakeDir Directories="$(UserDirectoryPathBIM)" Condition="!Exists('$(UserDirectoryPathBIM)')" />
     <MakeDir Directories="$(UserDirectoryPathICE)" Condition="!Exists('$(UserDirectoryPathICE)')" />
 
     <ItemGroup>
-      <FilesToCopy Include="$(OutputPath)$(AssemblyName).dll;$(OutputPath)$(AssemblyName).pdb" />
+      <FilesToCopy Include="$(OutputPath)*.dll;$(OutputPath)*.pdb;$(OutputPath)*.xml" />
     </ItemGroup>
 
     <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathBIM)" SkipUnchangedFiles="true" />
     <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(UserDirectoryPathICE)" SkipUnchangedFiles="true" />
   </Target>
 
-  <!-- Создаём архив только с основной библиотекой -->
+  <!-- Создаём архив пакета DynamoPilot с правильной структурой -->
   <Target Name="CreateZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-    <Exec Command="powershell -Command &quot;Compress-Archive -Path $(OutputPath)$(AssemblyName).dll -DestinationPath $(OutputPath)..\$(AssemblyProduct).zip -Force&quot;" />
+    <PropertyGroup>
+      <PackageTempDir>$(OutputPath)..\DynamoPilot</PackageTempDir>
+      <PackageBinDir>$(PackageTempDir)\bin</PackageBinDir>
+    </PropertyGroup>
+    
+    <!-- Удаляем старую временную папку если есть -->
+    <RemoveDir Directories="$(PackageTempDir)" />
+    
+    <!-- Создаём структуру папок пакета -->
+    <MakeDir Directories="$(PackageBinDir)" />
+    
+    <!-- Копируем pkg.json в корень пакета -->
+    <Copy SourceFiles="$(ProjectDir)pkg.json" DestinationFolder="$(PackageTempDir)" />
+    
+    <!-- Копируем dll, pdb, xml в bin/ -->
+    <ItemGroup>
+      <BinFiles Include="$(OutputPath)*.dll;$(OutputPath)*.pdb;$(OutputPath)*.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(PackageBinDir)" />
+    
+    <!-- Создаём архив -->
+    <Exec Command="powershell -Command &quot;Compress-Archive -Path '$(PackageTempDir)' -DestinationPath '$(OutputPath)..\DynamoPilot.zip' -Force&quot;" />
+    
+    <!-- Удаляем временную папку -->
+    <RemoveDir Directories="$(PackageTempDir)" />
   </Target>
 
   <ItemGroup>
@@ -77,6 +101,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DynamoPilot.Data\DynamoPilot.Data.csproj" Private="False" />
+    <ProjectReference Include="..\DynamoPilot.Server\DynamoPilot.Server.csproj" />
     <ProjectReference Include="..\DynamoPilot.Zero\DynamoPilot.Zero.csproj" />
   </ItemGroup>
 

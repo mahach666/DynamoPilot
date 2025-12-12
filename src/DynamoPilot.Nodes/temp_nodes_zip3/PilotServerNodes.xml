@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PilotServerNodes</name>
+    </assembly>
+    <members>
+        <member name="T:Admin.ActiveSessions.Get">
+            <summary>
+            Получение активных сессий.
+            </summary>
+        </member>
+        <member name="T:Admin.AttrSearch.Edit">
+            <summary>
+            Изменение индекса атрибутного поиска.
+            </summary>
+        </member>
+        <member name="T:Admin.Counters.Get">
+            <summary>
+            Чтение счетчиков.
+            </summary>
+        </member>
+        <member name="T:Admin.Counters.Edit">
+            <summary>
+            Изменение счетчиков.
+            </summary>
+        </member>
+        <member name="T:Admin.Database.Get">
+            <summary>
+            Получение информации о базах данных (IServerAdminApi).
+            </summary>
+        </member>
+        <member name="T:Admin.Database.Edit">
+            <summary>
+            Изменение/создание баз данных (IServerAdminApi).
+            </summary>
+        </member>
+        <member name="T:Admin.Directory.Get">
+            <summary>
+            Чтение данных из AD/LDAP.
+            </summary>
+        </member>
+        <member name="T:Admin.Directory.DirectoryEdit">
+            <summary>
+            Импорт и настройки AD/LDAP.
+            </summary>
+        </member>
+        <member name="T:Admin.Extensions.Get">
+            <summary>
+            Чтение расширений и AD mapping.
+            </summary>
+        </member>
+        <member name="T:Admin.Extensions.Edit">
+            <summary>
+            Изменение AD mapping.
+            </summary>
+        </member>
+        <member name="T:Admin.FileArchive.Get">
+            <summary>
+            Чтение информации о файловых архивах.
+            </summary>
+        </member>
+        <member name="T:Admin.FileArchive.Edit">
+            <summary>
+            Изменение архивов, проверок, миграций.
+            </summary>
+        </member>
+        <member name="T:Admin.FileSystem.Get">
+            <summary>
+            Получение данных о файловой системе.
+            </summary>
+        </member>
+        <member name="T:Admin.FileSystem.Edit">
+            <summary>
+            Изменение файловой системы.
+            </summary>
+        </member>
+        <member name="T:Admin.Journal.Create">
+            <summary>
+            Формирование запросов к журналам действий.
+            </summary>
+        </member>
+        <member name="T:Admin.Journal.Get">
+            <summary>
+            Получение записей журналов действий (требует ServerAdminSession).
+            </summary>
+        </member>
+        <member name="T:Admin.Journal.Properties">
+            <summary>
+            Доступ к полям журналов действий и запросов.
+            </summary>
+        </member>
+        <member name="T:Admin.Licenses.Get">
+            <summary>
+            Чтение информации о лицензиях.
+            </summary>
+        </member>
+        <member name="T:Admin.Licenses.Edit">
+            <summary>
+            Изменение лицензий.
+            </summary>
+        </member>
+        <member name="T:Admin.Metadata.Get">
+            <summary>
+            Метаданные через ServerAdminApi.
+            </summary>
+        </member>
+        <member name="T:Admin.OrganisationUnit.Change">
+            <summary>
+            Создание/обновление оргструктуры через ServerAdminApi.
+            </summary>
+        </member>
+        <member name="T:Admin.OrganisationUnit.ChangeData">
+            <summary>
+            Формирование изменений оргструктуры (admin).
+            </summary>
+        </member>
+        <member name="T:Admin.OrganisationUnit.Create">
+            <summary>
+            Создание орг. единицы через ServerAdminApi (ChangeOrganisationUnits).
+            </summary>
+        </member>
+        <member name="T:Admin.OrganisationUnit.Get">
+            <summary>
+            Загрузка оргструктуры через ServerAdminApi.
+            </summary>
+        </member>
+        <member name="T:Admin.People.Change">
+            <summary>
+            Создание/обновление пользователей через ServerAdminApi.
+            </summary>
+        </member>
+        <member name="T:Admin.People.ChangeData">
+            <summary>
+            Формирование DPersonChangeData/Changeset для admin API.
+            </summary>
+        </member>
+        <member name="T:Admin.People.Create">
+            <summary>
+            Создание пользователя через ServerAdminApi.
+            </summary>
+        </member>
+        <member name="T:Admin.People.Get">
+            <summary>
+            Загрузка пользователей через ServerAdminApi.
+            </summary>
+        </member>
+        <member name="T:Admin.Reservations.Get">
+            <summary>
+            Чтение резерваций.
+            </summary>
+        </member>
+        <member name="T:Admin.Reservations.Edit">
+            <summary>
+            Изменение резерваций.
+            </summary>
+        </member>
+        <member name="T:Admin.Admins.Get">
+            <summary>
+            Чтение администраторов сервера.
+            </summary>
+        </member>
+        <member name="T:Admin.Admins.Edit">
+            <summary>
+            Изменение администраторов сервера.
+            </summary>
+        </member>
+        <member name="T:SChangeset.Get">
+            <summary>
+            Узлы для получения и применения изменений.
+            </summary>
+        </member>
+        <member name="M:SChangeset.Get.ApplyChangesAsync(DynamoPilot.Server.Sessions.ServerSession,Ascon.Pilot.DataClasses.DChangesetData)">
+            <summary>
+            Асинхронная отправка изменений (fire-and-forget).
+            </summary>
+        </member>
+        <member name="T:SCommand.CustomNotifications">
+            <summary>
+            Узлы для выполнения команд и работы с пользовательскими уведомлениями.
+            </summary>
+        </member>
+        <member name="T:SDatabase.Get">
+            <summary>
+            Узлы для открытия базы и получения метаданных через серверное API.
+            </summary>
+        </member>
+        <member name="M:SDatabase.Get.GetCurrentDatabaseInfo(DynamoPilot.Server.Sessions.ServerSession)">
+            <summary>
+            Возвращает информацию о текущей базе из открытой сессии.
+            </summary>
+        </member>
+        <member name="T:SHistoryItem.Get">
+            <summary>
+            Узлы для получения истории объектов.
+            </summary>
+        </member>
+        <member name="T:SMetadata.Get">
+            <summary>
+            Узлы для получения метаданных через серверное API.
+            </summary>
+        </member>
+        <member name="M:SMetadata.Get.GetMetadata(DynamoPilot.Server.Sessions.ServerSession)">
+            <summary>
+            Возвращает текущие метаданные из сессии, при отсутствии запрашивает у сервера.
+            </summary>
+        </member>
+        <member name="M:SMetadata.Get.RefreshMetadata(DynamoPilot.Server.Sessions.ServerSession,System.Int64)">
+            <summary>
+            Обновляет метаданные, запрашивая версию новее localVersion.
+            </summary>
+        </member>
+        <member name="T:SMetadata.Properties">
+            <summary>
+            Узлы для получения свойств метаданных (DMetadata).
+            </summary>
+        </member>
+        <member name="T:ServerAuth.ServerAuth">
+            <summary>
+            Узлы для подключения и управления лицензией серверного API.
+            </summary>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.Connect(System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Создает подключение к серверу Pilot, авторизуется и открывает базу.
+            </summary>
+            <param name="serverUrl">Адрес сервера, например http://host:5545/pilot-ice_ru</param>
+            <param name="databaseName">Имя базы. Если пусто, берется из URL.</param>
+            <param name="login">Логин пользователя</param>
+            <param name="password">Пароль пользователя</param>
+            <param name="useWindowsAuth">Использовать Windows-аутентификацию</param>
+            <param name="licenseType">Код типа лицензии (по умолчанию PILOT_ICE = 100)</param>
+            <param name="checkClientVersion">Проверять совместимость версий клиента и сервера</param>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.ConnectAdmin(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Создает подключение с доступом к административному API.
+            </summary>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.Disconnect(DynamoPilot.Server.Sessions.ServerSession)">
+            <summary>
+            Завершает сессию и освобождает соединение.
+            </summary>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.DisconnectAdmin(DynamoPilot.Server.Sessions.ServerAdminSession)">
+            <summary>
+            Завершает административную сессию и освобождает соединение.
+            </summary>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.GetLicenseInformation(DynamoPilot.Server.Sessions.ServerSession)">
+            <summary>
+            Возвращает XML с данными лицензии.
+            </summary>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.ConsumeLicense(DynamoPilot.Server.Sessions.ServerSession,System.Int32)">
+            <summary>
+            Захватывает лицензию указанного типа.
+            </summary>
+        </member>
+        <member name="M:ServerAuth.ServerAuth.ReleaseLicense(DynamoPilot.Server.Sessions.ServerSession,System.Int32)">
+            <summary>
+            Освобождает лицензию указанного типа.
+            </summary>
+        </member>
+        <member name="T:SObjectAccess.Access">
+            <summary>
+            Узлы для работы с правами доступа объектов.
+            </summary>
+        </member>
+        <member name="T:SObject.Create">
+            <summary>
+            Узлы для создания и обновления объектов через ServerApi с заполнением атрибутов.
+            </summary>
+        </member>
+        <member name="M:SObject.Create.CreateObjectWithAttributes(DynamoPilot.Server.Sessions.ServerSession,System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object},System.String)">
+            <summary>
+            Создает объект, заполняет атрибуты и применяет изменения.
+            </summary>
+        </member>
+        <member name="M:SObject.Create.UpdateObjectAttributes(DynamoPilot.Server.Sessions.ServerSession,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Обновляет атрибуты существующего объекта (добавление/замена по имени).
+            </summary>
+        </member>
+        <member name="T:SObject.ObjectWithRights">
+            <summary>
+            Результат получения объекта с правами.
+            </summary>
+        </member>
+        <member name="T:SObject.Get">
+            <summary>
+            Узлы для получения объектов по идентификаторам.
+            </summary>
+        </member>
+        <member name="M:SObject.Get.GetObjectsWithRights(DynamoPilot.Server.Sessions.ServerSession,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Возвращает объекты с правами доступа и подтипами.
+            </summary>
+        </member>
+        <member name="T:SObject.Properties">
+            <summary>
+            Узлы для получения свойств объекта данных (DObject) через серверное API.
+            </summary>
+        </member>
+        <member name="T:SOrganisationUnit.Edit">
+            <summary>
+            Узлы для изменения организационных единиц.
+            </summary>
+        </member>
+        <member name="T:SOrganisationUnit.Get">
+            <summary>
+            Узлы для загрузки организационных единиц.
+            </summary>
+        </member>
+        <member name="M:SOrganisationUnit.Get.LoadOrganisationUnits(DynamoPilot.Server.Sessions.ServerSession,System.Int64)">
+            <summary>
+            Загрузка орг. единиц с учетом версии изменений.
+            </summary>
+        </member>
+        <member name="T:SOrganisationUnit.Properties">
+            <summary>
+            Узлы для получения свойств организационной единицы (DOrganisationUnit).
+            </summary>
+        </member>
+        <member name="T:SPeople.Edit">
+            <summary>
+            Узлы для изменений пользователей.
+            </summary>
+        </member>
+        <member name="T:SPeople.Get">
+            <summary>
+            Узлы для загрузки пользователей.
+            </summary>
+        </member>
+        <member name="M:SPeople.Get.LoadPeople(DynamoPilot.Server.Sessions.ServerSession,System.Int64)">
+            <summary>
+            Загружает пользователей, измененных после указанной версии.
+            </summary>
+        </member>
+        <member name="T:SPeople.Properties">
+            <summary>
+            Узлы для получения свойств пользователя (DPerson) из серверного API.
+            </summary>
+        </member>
+        <member name="T:SSearch.Create">
+            <summary>
+            Узлы для регистрации поисковых запросов.
+            </summary>
+        </member>
+        <member name="T:DynamoPilot.Server.Sessions.ServerAdminSession">
+            <summary>
+            Дескриптор сессии для административного API (IServerAdminApi).
+            </summary>
+        </member>
+        <member name="P:DynamoPilot.Server.Sessions.ServerAdminSession.DatabaseName">
+            <summary>
+            Имя базы данных, к которой подключена сессия.
+            </summary>
+        </member>
+        <member name="T:DynamoPilot.Server.Sessions.ServerSession">
+            <summary>
+            Дескриптор активной сессии работы с серверным API Pilot.
+            Оборачивает HttpPilotClient и созданные на его основе API интерфейсы.
+            </summary>
+        </member>
+        <member name="P:DynamoPilot.Server.Sessions.ServerSession.DatabaseName">
+            <summary>
+            Имя базы данных, к которой подключена сессия.
+            </summary>
+        </member>
+        <member name="T:ServerSettings.Edit">
+            <summary>
+            Узлы для работы с настройками базы.
+            </summary>
+        </member>
+        <member name="M:ServerSettings.Edit.GetPersonalSettings(DynamoPilot.Server.Sessions.ServerSession,System.String)">
+            <summary>
+            Получает персональные настройки по ключу.
+            </summary>
+        </member>
+        <member name="T:Utils.Password">
+            <summary>
+            Узлы для подготовки зашифрованного пароля под Admin API.
+            </summary>
+        </member>
+        <member name="M:Utils.Password.ProtectPassword(System.String)">
+            <summary>
+            Возвращает зашифрованную строку, подходящую для ChangePeople/CreatePerson.
+            </summary>
+        </member>
+    </members>
+</doc>

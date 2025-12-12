@@ -1,0 +1,2672 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PilotNodes</name>
+    </assembly>
+    <members>
+        <member name="M:ChatMember.Get.GetChatMembersById(System.Guid,System.DateTime)">
+            <summary>
+            Возвращает участников чата по идентификатору чата
+            </summary>
+            <param name="chatId">Идентификатор чата</param>
+            <param name="dateFromUtc">Дата начала периода (UTC)</param>
+            <returns>Список участников</returns>
+        </member>
+        <member name="M:ChatMember.Get.GetChatMembersByChat(DynamoPilot.Data.Wrappers.PChat,System.DateTime)">
+            <summary>
+            Возвращает участников чата
+            </summary>
+            <param name="chat">Чат</param>
+            <param name="dateFromUtc">Дата начала периода (UTC)</param>
+            <returns>Список участников</returns>
+        </member>
+        <member name="M:ChatMember.Get.GetChatMembersByObj(DynamoPilot.Data.Wrappers.PDataObject,System.DateTime)">
+            <summary>
+            Возвращает участников по объекту данных (его Id)
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="dateFromUtc">Дата начала периода (UTC)</param>
+            <returns>Список участников</returns>
+        </member>
+        <member name="M:ChatMember.Properties.ChatId(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Получает идентификатор чата
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>Идентификатор чата</returns>
+        </member>
+        <member name="M:ChatMember.Properties.PersonId(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Получает идентификатор участника
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>Идентификатор участника</returns>
+        </member>
+        <member name="M:ChatMember.Properties.IsAdmin(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Проверяет, является ли участник администратором
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>True, если участник является администратором</returns>
+        </member>
+        <member name="M:ChatMember.Properties.IsDeleted(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Проверяет, удален ли участник
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>True, если участник удален</returns>
+        </member>
+        <member name="M:ChatMember.Properties.IsNotifiable(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Проверяет, получает ли участник уведомления
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>True, если участник получает уведомления</returns>
+        </member>
+        <member name="M:ChatMember.Properties.DateUpdatedUtc(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Получает дату последнего обновления участника
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>Дата последнего обновления в формате UTC</returns>
+        </member>
+        <member name="M:ChatMember.Properties.IsViewerOnly(DynamoPilot.Data.Wrappers.PChatMember)">
+            <summary>
+            Проверяет, является ли участник только наблюдателем
+            </summary>
+            <param name="chatMember">Участник чата</param>
+            <returns>True, если участник только просматривает</returns>
+        </member>
+        <member name="M:ChatMessage.Get.GetMessagesByChatId(System.Guid,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Возвращает сообщения по идентификатору чата и интервалу дат
+            </summary>
+            <param name="chatId">Идентификатор чата</param>
+            <param name="dateFromUtc">Начало периода (UTC)</param>
+            <param name="dateToUtc">Конец периода (UTC)</param>
+            <param name="maxNumber">Максимальное число сообщений</param>
+            <returns>Список сообщений</returns>
+        </member>
+        <member name="M:ChatMessage.Get.GetMessagesByChat(DynamoPilot.Data.Wrappers.PChat,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Возвращает сообщения по чату и интервалу дат
+            </summary>
+            <param name="chat">Чат</param>
+            <param name="dateFromUtc">Начало периода (UTC)</param>
+            <param name="dateToUtc">Конец периода (UTC)</param>
+            <param name="maxNumber">Максимальное число сообщений</param>
+            <returns>Список сообщений</returns>
+        </member>
+        <member name="M:ChatMessage.Get.GetMessagesByObj(DynamoPilot.Data.Wrappers.PDataObject,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Возвращает сообщения по объекту (его Id) и интервалу дат
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="dateFromUtc">Начало периода (UTC)</param>
+            <param name="dateToUtc">Конец периода (UTC)</param>
+            <param name="maxNumber">Максимальное число сообщений</param>
+            <returns>Список сообщений</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetId(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает идентификатор сообщения
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Идентификатор сообщения</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetByteData(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает бинарные данные сообщения
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Массив байт</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetStringData(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает строковое представление данных сообщения (UTF8)
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Строка данных</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetCreatorId(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает идентификатор создателя сообщения
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Идентификатор пользователя</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetServerDateUtc(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает дату получения сообщения сервером (UTC)
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Дата/время UTC или null</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetClientDateUtc(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает дату создания сообщения на клиенте (UTC)
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Дата/время UTC</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetChatId(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает идентификатор чата
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Идентификатор чата</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetRelatedMessageId(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает идентификатор связанного сообщения
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Идентификатор сообщения или null</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetType(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает тип сообщения
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Тип сообщения</returns>
+        </member>
+        <member name="M:ChatMessage.Properties.GetRelatedMessages(DynamoPilot.Data.Wrappers.PChatMessage)">
+            <summary>
+            Возвращает связанные сообщения
+            </summary>
+            <param name="pChatMessage">Сообщение</param>
+            <returns>Список связанных сообщений</returns>
+        </member>
+        <member name="M:Chat.Get.GetChatById(System.Guid)">
+            <summary>
+            Загружает чат по идентификатору
+            </summary>
+            <param name="id">Идентификатор чата</param>
+            <returns>Чат</returns>
+        </member>
+        <member name="M:Chat.Get.GetChatByStrId(System.String)">
+            <summary>
+            Загружает чат по строковому идентификатору
+            </summary>
+            <param name="id">Строковое представление GUID</param>
+            <returns>Чат</returns>
+        </member>
+        <member name="M:Chat.Get.GetChatByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Загружает чат по объекту данных (его Id)
+            </summary>
+            <param name="obj">Объект данных</param>
+            <returns>Чат</returns>
+        </member>
+        <member name="M:Chat.Properties.Id(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает идентификатор чата
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Идентификатор чата</returns>
+        </member>
+        <member name="M:Chat.Properties.Name(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает имя чата
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Имя чата</returns>
+        </member>
+        <member name="M:Chat.Properties.Description(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает описание чата
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Описание</returns>
+        </member>
+        <member name="M:Chat.Properties.CreatorId(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает идентификатор создателя чата
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Идентификатор пользователя</returns>
+        </member>
+        <member name="M:Chat.Properties.Type(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает тип чата
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Тип чата</returns>
+        </member>
+        <member name="M:Chat.Properties.LastMessageId(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает идентификатор последнего сообщения
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Идентификатор сообщения или null</returns>
+        </member>
+        <member name="M:Chat.Properties.CreationDateUtc(DynamoPilot.Data.Wrappers.PChat)">
+            <summary>
+            Возвращает дату создания чата в UTC
+            </summary>
+            <param name="pChat">Чат</param>
+            <returns>Дата создания в UTC</returns>
+        </member>
+        <member name="T:DataObject.Create">
+            <summary>
+            Ноды для создания объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Create.CreateByParentObjAndType(DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Создает новый объект данных с указанным родительским объектом и типом
+            </summary>
+            <param name="parent">Родительский объект данных</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <returns>Созданный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Create.CreateByIdAndParentObjAndType(System.Guid,DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Создает новый объект данных с указанным идентификатором, родительским объектом и типом
+            </summary>
+            <param name="id">Уникальный идентификатор создаваемого объекта</param>
+            <param name="parent">Родительский объект данных</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <returns>Созданный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Create.CreateByParentIdAndType(System.Guid,DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Создает новый объект данных с указанным идентификатором родителя и типом
+            </summary>
+            <param name="parentId">Идентификатор родительского объекта</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <returns>Созданный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Create.CreateByIdAndParentIdAndType(System.Guid,System.Guid,DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Создает новый объект данных с указанными идентификаторами объекта, родителя и типом
+            </summary>
+            <param name="id">Уникальный идентификатор создаваемого объекта</param>
+            <param name="parentId">Идентификатор родительского объекта</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <returns>Созданный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Create.CreateWithAttributes(DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PType,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
+            </summary>
+            <param name="parent">Родительский объект</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        </member>
+        <member name="M:DataObject.Create.CreateByParentIdWithAttributes(System.Guid,DynamoPilot.Data.Wrappers.PType,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
+            </summary>
+            <param name="parentId">Родительский объект</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        </member>
+        <member name="M:DataObject.Create.CreateByStrParentIdWithAttributes(System.String,DynamoPilot.Data.Wrappers.PType,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
+            </summary>
+            <param name="parentId">Родительский объект</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        </member>
+        <member name="M:DataObject.Create.CreateWithIdAndAttributes(System.Guid,System.Guid,DynamoPilot.Data.Wrappers.PType,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Создает объект с заданным Guid и заполняет атрибуты.
+            </summary>
+            <param name="id">Идентификатор создаваемого объекта</param>
+            <param name="parentId">Идентификатор родителя</param>
+            <param name="type">Тип создаваемого объекта</param>
+            <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        </member>
+        <member name="T:DataObject.Delete">
+            <summary>
+            Ноды для удаления объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Delete.DeleteByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Удаляет объект данных (перемещает в корзину)
+            </summary>
+            <param name="object">Объект данных для удаления</param>
+            <returns>True, если удаление прошло успешно; иначе false</returns>
+        </member>
+        <member name="M:DataObject.Delete.DeleteById(System.Guid)">
+            <summary>
+            Удаляет объект данных по идентификатору (перемещает в корзину)
+            </summary>
+            <param name="objectId">Идентификатор объекта для удаления</param>
+            <returns>True, если удаление прошло успешно; иначе false</returns>
+        </member>
+        <member name="M:DataObject.Delete.DeletePermanently(System.Guid)">
+            <summary>
+            Удаляет объект данных навсегда (безвозвратно)
+            </summary>
+            <param name="objectId">Идентификатор объекта для безвозвратного удаления</param>
+            <returns>True, если удаление прошло успешно; иначе false</returns>
+        </member>
+        <member name="T:DataObject.Edit.Access">
+            <summary>
+            Ноды для управления правами доступа к объектам данных
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.Access.AddAccessRecord(System.Guid,System.Int32,Ascon.Pilot.SDK.AccessLevel,System.DateTime,Ascon.Pilot.SDK.AccessInheritance,Ascon.Pilot.SDK.AccessType)">
+            <summary>
+            Добавляет запись доступа к объекту
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="orgUnitId">Идентификатор организационной единицы</param>
+            <param name="level">Уровень доступа</param>
+            <param name="validThrough">Дата окончания действия</param>
+            <param name="inheritance">Наследование доступа</param>
+            <param name="type">Тип доступа</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Access.AddAccessRecordByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Int32,Ascon.Pilot.SDK.AccessLevel,System.DateTime,Ascon.Pilot.SDK.AccessInheritance,Ascon.Pilot.SDK.AccessType)">
+            <summary>
+            Добавляет запись доступа к объекту
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="orgUnitId">Идентификатор организационной единицы</param>
+            <param name="level">Уровень доступа</param>
+            <param name="validThrough">Дата окончания действия</param>
+            <param name="inheritance">Наследование доступа</param>
+            <param name="type">Тип доступа</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Access.AddAccessRecords(System.Guid,System.Int32,Ascon.Pilot.SDK.AccessLevel,System.DateTime,Ascon.Pilot.SDK.AccessInheritance,Ascon.Pilot.SDK.AccessType,System.Int32[])">
+            <summary>
+            Добавляет записи доступа к объекту для нескольких типов
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="orgUnitId">Идентификатор организационной единицы</param>
+            <param name="level">Уровень доступа</param>
+            <param name="validThrough">Дата окончания действия</param>
+            <param name="inheritance">Наследование доступа</param>
+            <param name="type">Тип доступа</param>
+            <param name="typeIds">Массив идентификаторов типов</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Access.AddAccessRecordsByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Int32,Ascon.Pilot.SDK.AccessLevel,System.DateTime,Ascon.Pilot.SDK.AccessInheritance,Ascon.Pilot.SDK.AccessType,System.Int32[])">
+            <summary>
+            Добавляет записи доступа к объекту для нескольких типов
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="orgUnitId">Идентификатор организационной единицы</param>
+            <param name="level">Уровень доступа</param>
+            <param name="validThrough">Дата окончания действия</param>
+            <param name="inheritance">Наследование доступа</param>
+            <param name="type">Тип доступа</param>
+            <param name="typeIds">Массив идентификаторов типов</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Edit.Attribute">
+            <summary>
+            Ноды для работы с атрибутами объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.RemoveAttribute(System.Guid,System.String)">
+            <summary>
+            Удаляет атрибут объекта по идентификатору
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.RemoveAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String)">
+            <summary>
+            Удаляет атрибут объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetStringAttribute(System.Guid,System.String,System.String)">
+            <summary>
+            Устанавливает строковый атрибут объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Строковое значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetStringAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.String)">
+            <summary>
+            Устанавливает строковый атрибут объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Строковое значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetIntAttribute(System.Guid,System.String,System.Int32)">
+            <summary>
+            Устанавливает целочисленный атрибут объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Целочисленное значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetIntAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Int32)">
+            <summary>
+            Устанавливает целочисленный атрибут объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Целочисленное значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetDoubleAttribute(System.Guid,System.String,System.Double)">
+            <summary>
+            Устанавливает атрибут с вещественным числом
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Вещественное значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetDoubleAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Double)">
+            <summary>
+            Устанавливает атрибут с вещественным числом
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Вещественное значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetDateTimeAttribute(System.Guid,System.String,System.DateTime)">
+            <summary>
+            Устанавливает атрибут с датой и временем
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Дата и время</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetDateTimeAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.DateTime)">
+            <summary>
+            Устанавливает атрибут с датой и временем
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Дата и время</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetDecimalAttribute(System.Guid,System.String,System.Decimal)">
+            <summary>
+            Устанавливает атрибут с десятичным числом
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Десятичное значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetDecimalAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Decimal)">
+            <summary>
+            Устанавливает атрибут с десятичным числом
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Десятичное значение</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetLongAttribute(System.Guid,System.String,System.Int64)">
+            <summary>
+            Устанавливает атрибут с длинным целым числом
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Длинное целое число</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetLongAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Int64)">
+            <summary>
+            Устанавливает атрибут с длинным целым числом
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Длинное целое число</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetGuidAttribute(System.Guid,System.String,System.Guid)">
+            <summary>
+            Устанавливает атрибут с уникальным идентификатором
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Уникальный идентификатор</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetGuidAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Guid)">
+            <summary>
+            Устанавливает атрибут с уникальным идентификатором
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Уникальный идентификатор</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetIntArrAttribute(System.Guid,System.String,System.Int32[])">
+            <summary>
+            Устанавливает атрибут с массивом целых чисел
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Массив целых чисел</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetIntArrAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Int32[])">
+            <summary>
+            Устанавливает атрибут с массивом целых чисел
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Массив целых чисел</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetStringArrAttribute(System.Guid,System.String,System.String[])">
+            <summary>
+            Устанавливает атрибут с массивом строк
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Массив строк</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetStringArrAttributeByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.String[])">
+            <summary>
+            Устанавливает атрибут с массивом строк
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Массив строк</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetAttributeAsObject(System.Guid,System.String,System.Object)">
+            <summary>
+            Устанавливает атрибут как объект (универсальный метод)
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Значение атрибута</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Attribute.SetAttributeAsObjectByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.Object)">
+            <summary>
+            Устанавливает атрибут как объект (универсальный метод)
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя атрибута</param>
+            <param name="value">Значение атрибута</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Edit.File">
+            <summary>
+            Ноды для работы с файлами объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.File.AddFileByPath(System.Guid,System.String)">
+            <summary>
+            Добавляет файл к объекту по пути
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="path">Путь к файлу</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddFileByObjAndPath(DynamoPilot.Data.Wrappers.PDataObject,System.String)">
+            <summary>
+            Добавляет файл к объекту по пути
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="path">Путь к файлу</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddFileByStream(System.Guid,System.String,System.IO.Stream,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Добавляет файл к объекту из потока
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя файла</param>
+            <param name="stream">Поток данных файла</param>
+            <param name="creationTime">Время создания</param>
+            <param name="lastAccessTime">Время последнего доступа</param>
+            <param name="lastWriteTime">Время последней записи</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddFileByObjAndStream(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.IO.Stream,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Добавляет файл к объекту из потока
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя файла</param>
+            <param name="stream">Поток данных файла</param>
+            <param name="creationTime">Время создания</param>
+            <param name="lastAccessTime">Время последнего доступа</param>
+            <param name="lastWriteTime">Время последней записи</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddFileInSnapshot(System.Guid,System.DateTime,System.String,System.IO.Stream,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Добавляет файл в конкретный снимок объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="snapshotCreated">Время создания снимка</param>
+            <param name="name">Имя файла</param>
+            <param name="stream">Поток данных файла</param>
+            <param name="creationTime">Время создания</param>
+            <param name="lastAccessTime">Время последнего доступа</param>
+            <param name="lastWriteTime">Время последней записи</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddFileInSnapshotByObj(DynamoPilot.Data.Wrappers.PDataObject,System.DateTime,System.String,System.IO.Stream,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Добавляет файл в конкретный снимок объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="snapshotCreated">Время создания снимка</param>
+            <param name="name">Имя файла</param>
+            <param name="stream">Поток данных файла</param>
+            <param name="creationTime">Время создания</param>
+            <param name="lastAccessTime">Время последнего доступа</param>
+            <param name="lastWriteTime">Время последней записи</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddOrReplaceFile(System.Guid,System.String,System.IO.Stream,DynamoPilot.Data.Wrappers.PFile,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Добавляет или заменяет файл в объекте
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя файла</param>
+            <param name="stream">Поток данных файла</param>
+            <param name="file">Ссылка на существующий файл</param>
+            <param name="creationTime">Время создания</param>
+            <param name="lastAccessTime">Время последнего доступа</param>
+            <param name="lastWriteTime">Время последней записи</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.File.AddOrReplaceFileByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,System.IO.Stream,DynamoPilot.Data.Wrappers.PFile,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Добавляет или заменяет файл в объекте
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя файла</param>
+            <param name="stream">Поток данных файла</param>
+            <param name="file">Ссылка на существующий файл</param>
+            <param name="creationTime">Время создания</param>
+            <param name="lastAccessTime">Время последнего доступа</param>
+            <param name="lastWriteTime">Время последней записи</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Edit.Other">
+            <summary>
+            Ноды для различных операций редактирования объектов данных
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.Other.SaveHistoryItem(System.Guid)">
+            <summary>
+            Сохраняет элемент истории объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SaveHistoryItemByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Сохраняет элемент истории объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetCreationDate(System.Guid,System.DateTime)">
+            <summary>
+            Устанавливает дату создания объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="dateTime">Новая дата создания</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetCreationDateByObj(DynamoPilot.Data.Wrappers.PDataObject,System.DateTime)">
+            <summary>
+            Устанавливает дату создания объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="dateTime">Новая дата создания</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetCreator(System.Guid,System.Int32)">
+            <summary>
+            Устанавливает создателя объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="creatorId">Идентификатор нового создателя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetCreatorByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Int32)">
+            <summary>
+            Устанавливает создателя объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="creatorId">Идентификатор нового создателя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetParent(System.Guid,System.Guid)">
+            <summary>
+            Устанавливает родительский объект
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="parentId">Идентификатор нового родителя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetParentByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Guid)">
+            <summary>
+            Устанавливает родительский объект
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="parentId">Идентификатор нового родителя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetType(System.Guid,Ascon.Pilot.SDK.IType)">
+            <summary>
+            Устанавливает тип объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="type">Новый тип объекта</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Other.SetTypeByObj(DynamoPilot.Data.Wrappers.PDataObject,Ascon.Pilot.SDK.IType)">
+            <summary>
+            Устанавливает тип объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="type">Новый тип объекта</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Edit.Relation">
+            <summary>
+            Ноды для добавления связей к объектам данных
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.Relation.AddRelation(System.Guid,System.String,Ascon.Pilot.SDK.ObjectRelationType,System.Guid)">
+            <summary>
+            Добавляет связь к объекту данных по идентификатору объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="name">Имя связи</param>
+            <param name="type">Тип связи</param>
+            <param name="sourceId">Идентификатор исходного объекта</param>
+            <param name="targetId">Идентификатор целевого объекта</param>
+            <param name="versionId">Идентификатор версии (дата/время)</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Relation.AddRelationByObj(DynamoPilot.Data.Wrappers.PDataObject,System.String,Ascon.Pilot.SDK.ObjectRelationType,System.Guid)">
+            <summary>
+            Добавляет связь к объекту данных
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="name">Имя связи</param>
+            <param name="type">Тип связи</param>
+            <param name="sourceId">Идентификатор исходного объекта</param>
+            <param name="targetId">Идентификатор целевого объекта</param>
+            <param name="versionId">Идентификатор версии (дата/время)</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Edit.Restore">
+            <summary>
+            Ноды для восстановления объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="T:DataObject.Edit.State">
+            <summary>
+            Ноды для изменения состояния объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.State.ChangeState(DynamoPilot.Data.Wrappers.PDataObject,Ascon.Pilot.SDK.ObjectState)">
+            <summary>
+            Изменяет состояние объекта данных
+            </summary>
+            <param name="object">Объект данных</param>
+            <param name="state">Новое состояние объекта</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.Lock(System.Guid)">
+            <summary>
+            Блокирует объект данных по идентификатору
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <returns>Заблокированный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.LockByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Блокирует объект данных
+            </summary>
+            <param name="obj">Объект данных для блокировки</param>
+            <returns>Заблокированный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.MakePublic(System.Guid)">
+            <summary>
+            Делает объект публичным (открывает доступ)
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.MakePublicByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Делает объект публичным (открывает доступ)
+            </summary>
+            <param name="obj">Объект данных</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.MakeSecret(System.Guid)">
+            <summary>
+            Делает объект секретным (ограничивает доступ)
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.MakeSecretByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Делает объект секретным (ограничивает доступ)
+            </summary>
+            <param name="obj">Объект данных</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.SetIsDeleted(System.Guid,System.Boolean)">
+            <summary>
+            Устанавливает флаг удаления объекта
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="isDeleted">Флаг удаления</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.SetIsDeletedByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Boolean)">
+            <summary>
+            Устанавливает флаг удаления объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="isDeleted">Флаг удаления</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.SetIsInRecycleBin(System.Guid,System.Boolean)">
+            <summary>
+            Устанавливает флаг нахождения объекта в корзине
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="isInRecycleBin">Флаг нахождения в корзине</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.SetIsInRecycleBinByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Boolean)">
+            <summary>
+            Устанавливает флаг нахождения объекта в корзине
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="isInRecycleBin">Флаг нахождения в корзине</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.Unlock(System.Guid)">
+            <summary>
+            Разблокирует объект данных по идентификатору
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <returns>Разблокированный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.State.UnlockByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Разблокирует объект данных
+            </summary>
+            <param name="obj">Объект данных для разблокировки</param>
+            <returns>Разблокированный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Edit.Subscriber">
+            <summary>
+            Ноды для управления подписчиками объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Edit.Subscriber.AddSubscriber(System.Guid,System.Int32)">
+            <summary>
+            Добавляет подписчика к объекту по идентификатору
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="personId">Идентификатор пользователя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Subscriber.AddSubscriberByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Int32)">
+            <summary>
+            Добавляет подписчика к объекту
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="personId">Идентификатор пользователя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Subscriber.RemoveSubscriber(System.Guid,System.Int32)">
+            <summary>
+            Удаляет подписчика объекта по идентификатору
+            </summary>
+            <param name="objectId">Идентификатор объекта</param>
+            <param name="personId">Идентификатор пользователя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="M:DataObject.Edit.Subscriber.RemoveSubscriberByObj(DynamoPilot.Data.Wrappers.PDataObject,System.Int32)">
+            <summary>
+            Удаляет подписчика объекта
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="personId">Идентификатор пользователя</param>
+            <returns>Обновленный объект данных</returns>
+        </member>
+        <member name="T:DataObject.Get">
+            <summary>
+            Ноды для выбора и поиска объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Get.GetByGuid(System.Guid)">
+            <summary>
+            Получает объект данных по уникальному идентификатору
+            </summary>
+            <param name="id">Уникальный идентификатор объекта</param>
+            <returns>Объект данных или null, если не найден</returns>
+        </member>
+        <member name="M:DataObject.Get.GetByStrGuid(System.String)">
+            <summary>
+            Получает объект данных по строковому представлению идентификатора
+            </summary>
+            <param name="id">Строковое представление идентификатора</param>
+            <returns>Объект данных или null, если не найден</returns>
+        </member>
+        <member name="M:DataObject.Get.GetByStrGuids(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Загружает список объектов по списку строковых GUID
+            </summary>
+            <param name="ids">Список строковых GUID</param>
+            <returns>Список объектов данных</returns>
+        </member>
+        <member name="M:DataObject.Get.GetByStrGuidsArray(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Загружает список объектов по списку строковых GUID и возвращает массив
+            </summary>
+            <param name="ids">Список строковых GUID</param>
+            <returns>Массив объектов данных</returns>
+        </member>
+        <member name="M:DataObject.Get.GetParentByTypeId(DynamoPilot.Data.Wrappers.PDataObject,System.Int32)">
+            <summary>
+            Получает родительский объект по идентификатору типа
+            </summary>
+            <param name="pDataObject">Объект данных для поиска родителя</param>
+            <param name="id">Идентификатор типа родительского объекта</param>
+            <returns>Родительский объект указанного типа или null</returns>
+        </member>
+        <member name="M:DataObject.Get.GetParentByTypeName(DynamoPilot.Data.Wrappers.PDataObject,System.String)">
+            <summary>
+            Получает родительский объект по имени типа
+            </summary>
+            <param name="pDataObject">Объект данных для поиска родителя</param>
+            <param name="name">Имя типа родительского объекта</param>
+            <returns>Родительский объект указанного типа или null</returns>
+        </member>
+        <member name="M:DataObject.Get.GetParentListByTypeId(DynamoPilot.Data.Wrappers.PDataObject,System.Int32)">
+            <summary>
+            Получает список родительских объектов по идентификатору типа
+            </summary>
+            <param name="pDataObject">Объект данных для поиска родителей</param>
+            <param name="id">Идентификатор типа родительских объектов</param>
+            <returns>Список родительских объектов указанного типа</returns>
+        </member>
+        <member name="M:DataObject.Get.GetParentListByTypeName(DynamoPilot.Data.Wrappers.PDataObject,System.String)">
+            <summary>
+            Получает список родительских объектов по имени типа
+            </summary>
+            <param name="pDataObject">Объект данных для поиска родителей</param>
+            <param name="name">Имя типа родительских объектов</param>
+            <returns>Список родительских объектов указанного типа</returns>
+        </member>
+        <member name="M:DataObject.Get.GetСhildrenByTypeId(DynamoPilot.Data.Wrappers.PDataObject,System.Int32,System.Int32)">
+            <summary>
+            Рекурсивно получает дочерние объекты по идентификатору типа
+            </summary>
+            <param name="pDataObject">Объект данных для поиска дочерних элементов</param>
+            <param name="id">Идентификатор типа дочерних объектов</param>
+            <param name="depth">Глубина рекурсии (по умолчанию 99)</param>
+            <returns>Список дочерних объектов указанного типа</returns>
+        </member>
+        <member name="T:DataObject.Move">
+            <summary>
+            Ноды для перемещения объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Move.MoveByObj(DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Перемещает объект к новому родителю
+            </summary>
+            <param name="object">Перемещаемый объект</param>
+            <param name="newParent">Новый родительский объект</param>
+            <returns>True, если перемещение прошло успешно</returns>
+        </member>
+        <member name="M:DataObject.Move.MoveById(System.Guid,System.Guid)">
+            <summary>
+            Перемещает объект по идентификаторам к новому родителю
+            </summary>
+            <param name="objectId">Идентификатор перемещаемого объекта</param>
+            <param name="newParentId">Идентификатор нового родителя</param>
+            <returns>True, если перемещение прошло успешно</returns>
+        </member>
+        <member name="T:DataObject.Properties">
+            <summary>
+            Ноды для получения свойств объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DataObject.Properties.GetId(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает уникальный идентификатор объекта данных
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Уникальный идентификатор объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetParentId(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает идентификатор родительского объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Идентификатор родительского объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetCreated(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает дату создания объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Дата создания объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetAttributes(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает словарь атрибутов объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Словарь атрибутов объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetDisplayName(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает отображаемое имя объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Отображаемое имя объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetType(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает тип объекта данных
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Тип объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetCreator(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает создателя объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Пользователь, создавший объект</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetChildren(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список идентификаторов дочерних объектов
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция идентификаторов дочерних объектов</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetRelations(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список связей объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция связей объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetRelatedSourceFiles(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список связанных исходных файлов
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция идентификаторов связанных файлов</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetTypesByChildren(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает словарь типов дочерних объектов
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Словарь типов дочерних объектов</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetState(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает состояние объекта данных
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Состояние объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetObjectStateInfo(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает информацию о состоянии объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Информация о состоянии объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetSynchronizationState(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает состояние синхронизации объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Состояние синхронизации</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetFiles(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список файлов объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция файлов объекта</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetAccess2(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список записей доступа к объекту
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция записей доступа</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetIsSecret(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Проверяет, является ли объект секретным
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>True, если объект секретный; иначе false</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetActualFileSnapshot(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает актуальный снимок файлов объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Актуальный снимок файлов</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetPreviousFileSnapshots(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список предыдущих снимков файлов объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция предыдущих снимков файлов</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetSubscribers(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список подписчиков объекта
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция идентификаторов подписчиков</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetContext(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает контекст объекта (цепочку родительских объектов)
+            </summary>
+            <param name="dataObject">Объект данных</param>
+            <returns>Коллекция идентификаторов контекста</returns>
+        </member>
+        <member name="M:DataObject.Properties.GetHistoryItems(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает список идентификаторов исторических элементов объекта
+            </summary>
+            <param name="dataObject"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DataObject.Search">
+            <summary>
+            Ноды для поиска объектов данных (закомментированные методы)
+            </summary>
+        </member>
+        <member name="T:DialogOptions.Create">
+            <summary>
+            Ноды для создания настроек диалогов в системе Pilot
+            </summary>
+        </member>
+        <member name="M:DialogOptions.Create.CreatePilotDialogOptions(System.Collections.Generic.List{System.Object},System.Boolean,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Создает настройки диалога выбора объектов Pilot
+            </summary>
+            <param name="nodes">Список узлов для отображения</param>
+            <param name="allowChecking">Разрешить выбор флажков</param>
+            <param name="allowMultiSelect">Разрешить множественный выбор</param>
+            <param name="caption">Заголовок диалога</param>
+            <param name="infoMessage">Информационное сообщение</param>
+            <param name="okButtonCaption">Текст кнопки OK</param>
+            <returns>Настройки диалога Pilot</returns>
+        </member>
+        <member name="M:DialogOptions.Create.CreatePositionDialogOptions(System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Создает настройки диалога выбора позиций/должностей
+            </summary>
+            <param name="allowChecking">Разрешить выбор флажков</param>
+            <param name="allowMultiSelect">Разрешить множественный выбор</param>
+            <param name="allowDepartmentChecking">Разрешить выбор подразделений</param>
+            <param name="caption">Заголовок диалога</param>
+            <param name="okButtonCaption">Текст кнопки OK</param>
+            <param name="checkedOrgUnits">Предварительно выбранные организационные единицы</param>
+            <returns>Настройки диалога позиций</returns>
+        </member>
+        <member name="T:FileProvider.Get">
+            <summary>
+            Ноды для получения провайдера файлов Pilot
+            </summary>
+        </member>
+        <member name="M:FileProvider.Get.GetFileProvider">
+            <summary>
+            Возвращает текущий провайдер файлов
+            </summary>
+            <returns>Экземпляр провайдера файлов</returns>
+        </member>
+        <member name="T:FileProvider.Methods">
+            <summary>
+            Ноды-методы для работы с провайдером файлов Pilot
+            </summary>
+        </member>
+        <member name="M:FileProvider.Methods.DeleteLocalFile(DynamoPilot.Data.Wrappers.PFileProvider,System.Guid)">
+            <summary>
+            Удаляет локальную копию файла по его идентификатору
+            </summary>
+            <param name="pFileProvider">Провайдер файлов</param>
+            <param name="fileId">Идентификатор файла</param>
+        </member>
+        <member name="M:FileProvider.Methods.Exists(DynamoPilot.Data.Wrappers.PFileProvider,System.Guid)">
+            <summary>
+            Проверяет наличие локальной копии файла
+            </summary>
+            <param name="pFileProvider">Провайдер файлов</param>
+            <param name="fileId">Идентификатор файла</param>
+            <returns>True, если локальная копия существует</returns>
+        </member>
+        <member name="M:FileProvider.Methods.GetFileSizeOnDisk(DynamoPilot.Data.Wrappers.PFileProvider,System.Guid)">
+            <summary>
+            Возвращает размер локальной копии файла на диске
+            </summary>
+            <param name="pFileProvider">Провайдер файлов</param>
+            <param name="fileId">Идентификатор файла</param>
+            <returns>Размер файла в байтах</returns>
+        </member>
+        <member name="M:FileProvider.Methods.IsFull(DynamoPilot.Data.Wrappers.PFileProvider,System.Guid)">
+            <summary>
+            Проверяет, полностью ли загружен файл
+            </summary>
+            <param name="pFileProvider">Провайдер файлов</param>
+            <param name="fileId">Идентификатор файла</param>
+            <returns>True, если файл загружен полностью</returns>
+        </member>
+        <member name="M:FileProvider.Methods.OpenRead(DynamoPilot.Data.Wrappers.PFileProvider,DynamoPilot.Data.Wrappers.PFile)">
+            <summary>
+            Открывает поток для чтения содержимого файла
+            </summary>
+            <param name="pFileProvider">Провайдер файлов</param>
+            <param name="file">Файл</param>
+            <returns>Поток для чтения</returns>
+        </member>
+        <member name="M:HistoryItem.Get.GetByGuid(System.Guid)">
+            <summary>
+            Получает историю изменений объекта по его уникальному идентификатору
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Get.GetByStrGuid(System.String)">
+            <summary>
+            Получает историю изменений объекта по его уникальному идентификатору в виде строки
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Get.GetByObj(DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Получает историю изменений объекта по объекту PDataObject
+            </summary>
+            <param name="pDataObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Properties.GetId(DynamoPilot.Data.Wrappers.PHistoryItem)">
+            <summary>
+            Получает уникальный идентификатор элемента истории изменений
+            </summary>
+            <param name="pHistoryItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Properties.ObjectId(DynamoPilot.Data.Wrappers.PHistoryItem)">
+            <summary>
+            Получает уникальный идентификатор объекта, к которому относится элемент истории изменений
+            </summary>
+            <param name="pHistoryItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Properties.Reason(DynamoPilot.Data.Wrappers.PHistoryItem)">
+            <summary>
+            Получает причину изменения, указанную в элементе истории изменений
+            </summary>
+            <param name="pHistoryItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Properties.Created(DynamoPilot.Data.Wrappers.PHistoryItem)">
+            <summary>
+            Получает дату и время создания элемента истории изменений
+            </summary>
+            <param name="pHistoryItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Properties.CreatorId(DynamoPilot.Data.Wrappers.PHistoryItem)">
+            <summary>
+            Получает идентификатор создателя элемента истории изменений
+            </summary>
+            <param name="pHistoryItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HistoryItem.Properties.Object(DynamoPilot.Data.Wrappers.PHistoryItem)">
+            <summary>
+            Получает объект данных, к которому относится элемент истории изменений
+            </summary>
+            <param name="pHistoryItem"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MessagesRepository.Get">
+            <summary>
+            Ноды для получения репозитория сообщений
+            </summary>
+        </member>
+        <member name="M:MessagesRepository.Get.GetMessagesRepository">
+            <summary>
+            Получить экземпляр MessagesRepository
+            </summary>
+            <returns>PMessagesRepository</returns>
+        </member>
+        <member name="T:ObjectsRepository.Get">
+            <summary>
+            Ноды для выбора и получения репозитория объектов в системе Pilot
+            </summary>
+        </member>
+        <member name="M:ObjectsRepository.Get.GetObjectsRepository">
+            <summary>
+            Получить экземпляр ObjectsRepository
+            </summary>
+            <returns>PObjectsRepository</returns>
+        </member>
+        <member name="M:ObjectsRepository.Methods.GetStorageObjects(DynamoPilot.Data.Wrappers.PObjectsRepository,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Получает объекты хранилища по списку путей
+            </summary>
+            <param name="objectsRepository">Репозиторий объектов</param>
+            <param name="paths">Список путей</param>
+            <returns>Коллекция объектов хранилища</returns>
+        </member>
+        <member name="M:ObjectsRepository.Methods.GetStoragePath(DynamoPilot.Data.Wrappers.PObjectsRepository,System.Guid)">
+            <summary>
+            Получает путь к хранилищу объекта
+            </summary>
+            <param name="objectsRepository">Репозиторий объектов</param>
+            <param name="objId">Идентификатор объекта</param>
+            <returns>Путь к хранилищу объекта</returns>
+        </member>
+        <member name="M:ObjectsRepository.Methods.Mount(DynamoPilot.Data.Wrappers.PObjectsRepository,System.Guid)">
+            <summary>
+            Монтирует объект в файловую систему
+            </summary>
+            <param name="objectsRepository">Репозиторий объектов</param>
+            <param name="objId">Идентификатор объекта для монтирования</param>
+            <returns>Ничего не возвращает</returns>
+        </member>
+        <member name="T:ObjectsRepository.Properties">
+            <summary>
+            Ноды для получения свойств репозитория объектов в системе Pilot
+            </summary>
+        </member>
+        <member name="M:ObjectsRepository.Properties.GetDatabaseId(DynamoPilot.Data.Wrappers.PObjectsRepository)">
+            <summary>
+            Получает идентификатор базы данных
+            </summary>
+            <param name="objectsRepository">Репозиторий объектов</param>
+            <returns>Идентификатор базы данных</returns>
+        </member>
+        <member name="M:ObjectsRepository.Properties.GetStoragePath(DynamoPilot.Data.Wrappers.PObjectsRepository)">
+            <summary>
+            Получает путь к хранилищу
+            </summary>
+            <param name="objectsRepository">Репозиторий объектов</param>
+            <returns>Путь к хранилищу</returns>
+        </member>
+        <member name="M:OrganisationUnit.Get.GetOrganisationUnit(System.Int32)">
+            <summary>
+            Получает организационное подразделение по идентификатору
+            </summary>
+            <param name="id">Идентификатор подразделения</param>
+            <returns>Организационное подразделение</returns>
+        </member>
+        <member name="M:OrganisationUnit.Get.GetOrganisationUnits">
+            <summary>
+            Получает список всех организационных подразделений
+            </summary>
+            <returns>Коллекция организационных подразделений</returns>
+        </member>
+        <member name="T:OrganisationUnit.Properties">
+            <summary>
+            Ноды для получения свойств организационных единиц в системе Pilot
+            </summary>
+        </member>
+        <member name="M:OrganisationUnit.Properties.GetId(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Получает идентификатор организационной единицы
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>Идентификатор организационной единицы</returns>
+        </member>
+        <member name="M:OrganisationUnit.Properties.GetTitle(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Получает название организационной единицы
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>Название организационной единицы</returns>
+        </member>
+        <member name="M:OrganisationUnit.Properties.GetIsDeleted(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Проверяет, удалена ли организационная единица
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>True, если организационная единица удалена</returns>
+        </member>
+        <member name="M:OrganisationUnit.Properties.GetChildren(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Получает список дочерних организационных единиц
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>Коллекция идентификаторов дочерних единиц</returns>
+        </member>
+        <member name="M:OrganisationUnit.Properties.GetIsPosition(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Проверяет, является ли организационная единица должностью
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>True, если это должность</returns>
+        </member>
+        <member name="M:OrganisationUnit.Properties.GetIsChief(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Проверяет, является ли организационная единица руководящей должностью
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>True, если это руководящая должность</returns>
+        </member>
+        <member name="M:OrganisationUnit.Properties.Person(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Получает идентификатор пользователя, занимающего должность
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>Идентификатор пользователя</returns>
+        </member>
+        <member name="T:Person.Get">
+            <summary>
+            Ноды для выбора и получения пользователей в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Person.Get.GetAll">
+            <summary>
+            Получает список всех пользователей
+            </summary>
+            <returns>Коллекция пользователей</returns>
+        </member>
+        <member name="M:Person.Get.GetById(System.Int32)">
+            <summary>
+            Получает пользователя по идентификатору
+            </summary>
+            <param name="id">Идентификатор пользователя</param>
+            <returns>Пользователь</returns>
+        </member>
+        <member name="M:Person.Get.GetCurrent">
+            <summary>
+            Получает текущего пользователя
+            </summary>
+            <returns>Текущий пользователь</returns>
+        </member>
+        <member name="M:Person.Get.GetByPosition(DynamoPilot.Data.Wrappers.POrganisationUnit)">
+            <summary>
+            Получает пользователя по организационной единице (должности)
+            </summary>
+            <param name="pOrganisationUnit">Организационная единица</param>
+            <returns>Пользователь, занимающий данную должность, или null</returns>
+        </member>
+        <member name="M:Person.Get.GetByPositionId(System.Int32)">
+            <summary>
+            Получает пользователя по идентификатору должности
+            </summary>
+            <param name="id">Идентификатор должности</param>
+            <returns>Пользователь, занимающий данную должность, или null</returns>
+        </member>
+        <member name="T:Person.Properties">
+            <summary>
+            Ноды для получения свойств пользователей в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Person.Properties.GetId(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает идентификатор пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Идентификатор пользователя</returns>
+        </member>
+        <member name="M:Person.Properties.GetLogin(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает логин пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Логин пользователя</returns>
+        </member>
+        <member name="M:Person.Properties.GetDisplayName(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает отображаемое имя пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Отображаемое имя пользователя</returns>
+        </member>
+        <member name="M:Person.Properties.GetPositions(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает список должностей пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Коллекция должностей</returns>
+        </member>
+        <member name="M:Person.Properties.GetMainPosition(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает основную должность пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Основная должность</returns>
+        </member>
+        <member name="M:Person.Properties.GetComment(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает комментарий к пользователю
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Комментарий</returns>
+        </member>
+        <member name="M:Person.Properties.GetServiceInfo(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает служебную информацию о пользователе
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Служебная информация</returns>
+        </member>
+        <member name="M:Person.Properties.GetSid(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает SID (идентификатор безопасности) пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>SID пользователя</returns>
+        </member>
+        <member name="M:Person.Properties.GetIsDeleted(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Проверяет, удален ли пользователь
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>True, если пользователь удален</returns>
+        </member>
+        <member name="M:Person.Properties.GetIsAdmin(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Проверяет, является ли пользователь администратором
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>True, если пользователь администратор</returns>
+        </member>
+        <member name="M:Person.Properties.GetActualName(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает фактическое имя пользователя
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Фактическое имя</returns>
+        </member>
+        <member name="M:Person.Properties.GetCreatedUtc(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получает дату создания пользователя в UTC
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Дата создания в UTC</returns>
+        </member>
+        <member name="M:Person.Properties.GetAllOrgUnits(DynamoPilot.Data.Wrappers.PPerson)">
+            <summary>
+            Получить все связанные с пользователем организационные единицы
+            </summary>
+            <param name="pPerson">Пользователь</param>
+            <returns>Список Id организационных единиц</returns>
+        </member>
+        <member name="T:Position.Properties">
+            <summary>
+            Ноды для получения свойств должностей в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Position.Properties.GetOrder(DynamoPilot.Data.Wrappers.PPosition)">
+            <summary>
+            Получает порядок должности
+            </summary>
+            <param name="pPosition">Должность</param>
+            <returns>Порядок должности</returns>
+        </member>
+        <member name="M:Position.Properties.GetPosition(DynamoPilot.Data.Wrappers.PPosition)">
+            <summary>
+            Получает идентификатор должности
+            </summary>
+            <param name="pPosition">Должность</param>
+            <returns>Идентификатор должности</returns>
+        </member>
+        <member name="T:Relation.Create">
+            <summary>
+            Ноды для создания связей между объектами в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Relation.Create.CreateByTargetId(System.Guid,Ascon.Pilot.SDK.ObjectRelationType,System.String,System.Guid)">
+            <summary>
+            Создает связь по идентификатору целевого объекта
+            </summary>
+            <param name="relationId">Идентификатор связи</param>
+            <param name="relationType">Тип связи</param>
+            <param name="relationName">Имя связи</param>
+            <param name="targetId">Идентификатор целевого объекта</param>
+            <returns>Созданная связь</returns>
+        </member>
+        <member name="M:Relation.Create.CreateByTargetObj(System.Guid,Ascon.Pilot.SDK.ObjectRelationType,System.String,DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Создает связь по объекту назначения
+            </summary>
+            <param name="relationId">Идентификатор связи</param>
+            <param name="relationType">Тип связи</param>
+            <param name="relationName">Имя связи</param>
+            <param name="targetObj">Объект назначения</param>
+            <returns>Созданная связь</returns>
+        </member>
+        <member name="M:Relation.Create.CreateCoupleByTargetIds(System.Guid,Ascon.Pilot.SDK.ObjectRelationType,System.String,System.Guid,System.Guid)">
+            <summary>
+            Создает пару связей между двумя объектами по идентификаторам
+            </summary>
+            <param name="relationId">Идентификатор связи</param>
+            <param name="relationType">Тип связи</param>
+            <param name="relationName">Имя связи</param>
+            <param name="targetId1">Идентификатор первого объекта</param>
+            <param name="targetId2">Идентификатор второго объекта</param>
+            <returns>Список созданных связей</returns>
+        </member>
+        <member name="M:Relation.Create.CreateCoupleByTargetIdsWithRandomGuid(Ascon.Pilot.SDK.ObjectRelationType,System.String,System.Guid,System.Guid)">
+            <summary>
+            Создает пару связей между двумя объектами по идентификаторам
+            </summary>
+            <param name="relationId">Идентификатор связи</param>
+            <param name="relationType">Тип связи</param>
+            <param name="relationName">Имя связи</param>
+            <param name="targetId1">Идентификатор первого объекта</param>
+            <param name="targetId2">Идентификатор второго объекта</param>
+            <returns>Список созданных связей</returns>
+        </member>
+        <member name="M:Relation.Create.CreateCoupleByTargetObjs(System.Guid,Ascon.Pilot.SDK.ObjectRelationType,System.String,DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Создает пару связей между двумя объектами
+            </summary>
+            <param name="relationId">Идентификатор связи</param>
+            <param name="relationType">Тип связи</param>
+            <param name="relationName">Имя связи</param>
+            <param name="targetObj1">Первый объект назначения</param>
+            <param name="targetObj2">Второй объект назначения</param>
+            <returns>Список созданных связей</returns>
+        </member>
+        <member name="M:Relation.Create.CreateCoupleByTargetObjsWithRandomGuid(Ascon.Pilot.SDK.ObjectRelationType,System.String,DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PDataObject)">
+            <summary>
+            Создает пару связей между двумя объектами
+            </summary>
+            <param name="relationId">Идентификатор связи</param>
+            <param name="relationType">Тип связи</param>
+            <param name="relationName">Имя связи</param>
+            <param name="targetObj1">Первый объект назначения</param>
+            <param name="targetObj2">Второй объект назначения</param>
+            <returns>Список созданных связей</returns>
+        </member>
+        <member name="M:Relation.Create.CreateLink(DynamoPilot.Data.Wrappers.PRelation,DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Создает связь между двумя объектами связи
+            </summary>
+            <param name="relation1">Первая связь</param>
+            <param name="relation2">Вторая связь</param>
+        </member>
+        <member name="T:Relation.Delete">
+            <summary>
+            Ноды для удаления связей между объектами в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Relation.Delete.RemoveLink(DynamoPilot.Data.Wrappers.PDataObject,DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Удаляет связь между объектом и связью
+            </summary>
+            <param name="obj">Объект данных</param>
+            <param name="relation">Связь для удаления</param>
+            <returns>True, если удаление прошло успешно</returns>
+        </member>
+        <member name="T:Relation.Properties">
+            <summary>
+            Ноды для получения свойств связей между объектами
+            </summary>
+        </member>
+        <member name="M:Relation.Properties.GetId(DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Возвращает идентификатор связи
+            </summary>
+            <param name="pRelation">Связь</param>
+            <returns>Идентификатор связи</returns>
+        </member>
+        <member name="M:Relation.Properties.GetTargetId(DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Возвращает идентификатор целевого объекта связи
+            </summary>
+            <param name="pRelation">Связь</param>
+            <returns>Идентификатор целевого объекта</returns>
+        </member>
+        <member name="M:Relation.Properties.GetType(DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Возвращает тип связи
+            </summary>
+            <param name="pRelation">Связь</param>
+            <returns>Тип связи</returns>
+        </member>
+        <member name="M:Relation.Properties.GetName(DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Возвращает имя связи
+            </summary>
+            <param name="pRelation">Связь</param>
+            <returns>Имя связи</returns>
+        </member>
+        <member name="M:Relation.Properties.GetVersionId(DynamoPilot.Data.Wrappers.PRelation)">
+            <summary>
+            Возвращает дату создания версии, к которой относится связь
+            </summary>
+            <param name="pRelation">Связь</param>
+            <returns>Дата/время версии (UTC)</returns>
+        </member>
+        <member name="T:Search.Combinations.CommonSearches">
+            <summary>
+            Ноды для часто используемых комбинаций поисковых запросов
+            </summary>
+        </member>
+        <member name="T:Search.Filters.AnnotationQueryFilters">
+            <summary>
+            Ноды для фильтрации аннотаций в построителях запросов
+            </summary>
+        </member>
+        <member name="M:Search.Filters.AnnotationQueryFilters.WithCurrentVersion(DynamoPilot.Data.Wrappers.PAnnotationQueryBuilder)">
+            <summary>
+            Ограничивает поиск аннотаций текущей версией
+            </summary>
+            <param name="pAnnotationQueryBuilder">Построитель запросов аннотаций</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AnnotationQueryFilters.WithKeyword(DynamoPilot.Data.Wrappers.PAnnotationQueryBuilder,System.String)">
+            <summary>
+            Добавляет ключевое слово для поиска аннотаций
+            </summary>
+            <param name="pAnnotationQueryBuilder">Построитель запросов аннотаций</param>
+            <param name="keyword">Ключевое слово</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AnnotationQueryFilters.WithQuotedKeyword(DynamoPilot.Data.Wrappers.PAnnotationQueryBuilder,System.String)">
+            <summary>
+            Добавляет ключевое слово в кавычках (точное соответствие)
+            </summary>
+            <param name="pAnnotationQueryBuilder">Построитель запросов аннотаций</param>
+            <param name="keyword">Ключевое слово</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AnnotationQueryFilters.WithType(DynamoPilot.Data.Wrappers.PAnnotationQueryBuilder,System.Int32)">
+            <summary>
+            Фильтрует аннотации по типу
+            </summary>
+            <param name="pAnnotationQueryBuilder">Построитель запросов аннотаций</param>
+            <param name="typeId">Идентификатор типа аннотаций</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AnnotationQueryFilters.WithTypes(DynamoPilot.Data.Wrappers.PAnnotationQueryBuilder,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Фильтрует аннотации по нескольким типам
+            </summary>
+            <param name="pAnnotationQueryBuilder">Построитель запросов аннотаций</param>
+            <param name="typeIds">Коллекция идентификаторов типов</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="T:Search.Filters.AttributeFilters">
+            <summary>
+            Ноды для фильтрации объектов по атрибутам в построителях запросов
+            </summary>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByStringAttribute(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.String,System.Boolean)">
+            <summary>
+            Фильтрует по строковому атрибуту на равенство
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="value">Значение</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByDateTimeAttributeRange(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа DateTime в заданном диапазоне
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="fromDate">Начало диапазона (локальное время)</param>
+            <param name="toDate">Конец диапазона (локальное время)</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByDoubleAttribute(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Double,System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа double на равенство
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="value">Значение</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByDoubleAttributeMultiple(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Double[],System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа double по одному из значений
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="values">Набор значений</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByDoubleAttributeRange(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Double,System.Double,System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа double в диапазоне значений
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="fromValue">Нижняя граница</param>
+            <param name="toValue">Верхняя граница</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByIntegerAttribute(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа int на равенство
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="value">Значение</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByIntegerAttributeMultiple(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Int64[],System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа int по одному из значений
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="values">Набор значений</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByIntegerAttributeRange(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует по атрибуту типа int в диапазоне значений
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="fromValue">Нижняя граница</param>
+            <param name="toValue">Верхняя граница</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.AttributeFilters.FilterByBoolAttribute(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Фильтрует по булевому атрибуту на равенство
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="attributeName">Имя атрибута</param>
+            <param name="value">Значение</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="T:Search.Filters.ObjectFilters">
+            <summary>
+            Ноды для фильтрации объектов в построителях запросов
+            </summary>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterById(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Guid,System.Boolean)">
+            <summary>
+            Фильтрует объекты по идентификатору
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="id">Идентификатор объекта</param>
+            <param name="reverse">Обратная фильтрация (исключение)</param>
+            <returns>Обновленный построитель запросов</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByContextStrId(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Boolean)">
+            <summary>
+            Фильтрует по идентификатору контекста (строковый GUID)
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="id">Строковый GUID контекста</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByIds(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Guid[],System.Boolean)">
+            <summary>
+            Фильтрует по множеству идентификаторов объектов
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="ids">Массив GUID</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByParentId(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Guid,System.Boolean)">
+            <summary>
+            Фильтрует по идентификатору родителя
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="parentId">GUID родительского объекта</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByParentIds(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Guid[],System.Boolean)">
+            <summary>
+            Фильтрует по множеству идентификаторов родителей
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="parentIds">Массив GUID родителей</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByTypeId(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует по идентификатору типа
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="typeId">Идентификатор типа</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByTypeIds(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32[],System.Boolean)">
+            <summary>
+            Фильтрует по множеству идентификаторов типов
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="typeIds">Массив идентификаторов типов</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByObjectState(DynamoPilot.Data.Wrappers.PQueryBuilder,Ascon.Pilot.SDK.ObjectState,System.Boolean)">
+            <summary>
+            Фильтрует по состоянию объекта
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="objectState">Состояние объекта</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByCreatorId(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует по идентификатору создателя
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="creatorId">Идентификатор пользователя</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByCreatorIds(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32[],System.Boolean)">
+            <summary>
+            Фильтрует по множеству идентификаторов создателей
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="creatorIds">Массив идентификаторов пользователей</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByCreatedDateRange(DynamoPilot.Data.Wrappers.PQueryBuilder,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Фильтрует по диапазону дат создания
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="fromDate">Начало периода (локальное время)</param>
+            <param name="toDate">Конец периода (локальное время)</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByIsSecret(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Boolean,System.Boolean)">
+            <summary>
+            Фильтрует по признаку секретности
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="isSecret">True для секретных</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByAllText(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Boolean)">
+            <summary>
+            Фильтрует по текстовому содержимому
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="searchText">Текст поиска</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByAllTextContainsAll(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String[],System.Boolean)">
+            <summary>
+            Фильтрует по наличию всех указанных слов в тексте
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="searchWords">Слова для поиска</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterBySnapshotsCreatedRange(DynamoPilot.Data.Wrappers.PQueryBuilder,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Фильтрует по диапазону дат создания файловых версий (snapshots)
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="fromDate">Начало периода (локальное время)</param>
+            <param name="toDate">Конец периода (локальное время)</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByAllSnapshotsReason(DynamoPilot.Data.Wrappers.PQueryBuilder,System.String,System.Boolean)">
+            <summary>
+            Фильтрует по причине создания версии
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="reason">Причина</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterBySignatureAwaitingBy(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует документы, ожидающие подписи указанной должностью
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="positionId">Идентификатор должности</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterBySignatureAwaitingByMultiple(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32[],System.Boolean)">
+            <summary>
+            Фильтрует документы, ожидающие подписи одной из указанных должностей
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="positionIds">Массив идентификаторов должностей</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterBySignedBy(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует документы, подписанные указанной должностью
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="positionId">Идентификатор должности</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterBySignedByMultiple(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32[],System.Boolean)">
+            <summary>
+            Фильтрует документы, подписанные одной из указанных должностей
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="positionIds">Массив идентификаторов должностей</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByStateChangedPersonId(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32,System.Boolean)">
+            <summary>
+            Фильтрует по идентификатору пользователя, изменившего состояние
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="personId">Идентификатор пользователя</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.ObjectFilters.FilterByStateChangedPersonIds(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32[],System.Boolean)">
+            <summary>
+            Фильтрует по множеству пользователей, изменивших состояние
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="personIds">Массив идентификаторов пользователей</param>
+            <param name="reverse">Если true — инвертировать условие</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="T:Search.Filters.SmartFolderQueryFilters">
+            <summary>
+            Ноды для фильтрации в умных папках
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithAuthor(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.Int32)">
+            <summary>
+            Фильтрует по автору
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="authorId">Идентификатор автора</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithAuthors(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Фильтрует по множеству авторов
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="authorIds">Список идентификаторов авторов</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedInRange(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.DateTime,System.DateTime)">
+            <summary>
+            Ограничивает период создания
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="fromUtc">Дата начала (UTC)</param>
+            <param name="toUtc">Дата окончания (UTC)</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedLastMonth(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные за последний месяц
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedLastWeek(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные за последнюю неделю
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedLastYear(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные за последний год
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedThisMonth(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные в текущем месяце
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedThisWeek(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные на текущей неделе
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedToday(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные сегодня
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithCreatedYesterday(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder)">
+            <summary>
+            Фильтрует документы, созданные вчера
+            </summary>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithKeyword(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.String)">
+            <summary>
+            Добавляет ключевое слово для поиска
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="keyword">Ключевое слово</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithQuotedKeyword(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.String)">
+            <summary>
+            Добавляет ключевое слово в кавычках (точное соответствие)
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="keyword">Ключевое слово</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithSearchMode(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,Ascon.Pilot.SDK.SearchMode)">
+            <summary>
+            Устанавливает режим поиска
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="searchMode">Режим поиска</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithState(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,Ascon.Pilot.SDK.ObjectState)">
+            <summary>
+            Фильтрует по состоянию объектов
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="state">Состояние</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithType(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.Int32)">
+            <summary>
+            Фильтрует по типу объекта
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="typeId">Идентификатор типа</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="M:Search.Filters.SmartFolderQueryFilters.WithTypes(DynamoPilot.Data.Wrappers.PSmartFolderQueryBuilder,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Фильтрует по нескольким типам объектов
+            </summary>
+            <param name="smartFolderQueryBuilder">Построитель умной папки</param>
+            <param name="typeIds">Список идентификаторов типов</param>
+            <returns>Обновленный построитель</returns>
+        </member>
+        <member name="T:Search.Logic.LogicalOperators">
+            <summary>
+            Ноды для логических операций в построителях запросов
+            </summary>
+        </member>
+        <member name="M:Search.Logic.LogicalOperators.ExcludeObjectState(DynamoPilot.Data.Wrappers.PQueryBuilder,Ascon.Pilot.SDK.ObjectState)">
+            <summary>
+            Исключает объекты с указанным состоянием
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="objectState">Исключаемое состояние объекта</param>
+            <returns>Обновленный построитель запросов</returns>
+        </member>
+        <member name="M:Search.Logic.LogicalOperators.ExcludeIsSecret(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Boolean)">
+            <summary>
+            Исключает секретные или открытые объекты
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="isSecret">Исключать секретные объекты (true) или открытые (false)</param>
+            <returns>Обновленный построитель запросов</returns>
+        </member>
+        <member name="T:Search.Search">
+            <summary>
+            Ноды для поиска объектов данных в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Search.Search.ByTypeId(System.Int32)">
+            <summary>
+            Выполняет поиск объектов по идентификатору типа
+            </summary>
+            <param name="typeId">Идентификатор типа объектов</param>
+            <returns>Коллекция идентификаторов найденных объектов</returns>
+        </member>
+        <member name="M:Search.Search.ByTypeIdAndContext(System.Int32,System.Guid)">
+            <summary>
+            Выполняет поиск объектов по типу и контексту
+            </summary>
+            <param name="typeId">Идентификатор типа объектов</param>
+            <param name="contextId">Идентификатор контекста</param>
+            <returns>Коллекция идентификаторов найденных объектов</returns>
+        </member>
+        <member name="M:Search.Search.ByTypeStrIdAndContext(System.Int32,System.String)">
+            <summary>
+            Выполняет поиск объектов по типу и контексту (строковый идентификатор)
+            </summary>
+            <param name="typeId">Идентификатор типа объектов</param>
+            <param name="contextId">Строковое представление идентификатора контекста</param>
+            <returns>Коллекция идентификаторов найденных объектов</returns>
+        </member>
+        <member name="M:Search.Search.ByTypeIdAndText(System.Int32,System.String)">
+            <summary>
+            Выполняет поиск объектов по типу и текстовому содержимому
+            </summary>
+            <param name="typeId">Идентификатор типа объектов</param>
+            <param name="searchText">Текст для поиска</param>
+            <returns>Коллекция идентификаторов найденных объектов</returns>
+        </member>
+        <member name="M:Search.Search.ByCustomBuilder(DynamoPilot.Data.Wrappers.PQueryBuilder)">
+            <summary>
+            Выполняет поиск объектов с использованием пользовательского построителя запросов
+            </summary>
+            <param name="builder">Построитель запросов для поиска</param>
+            <returns>Коллекция идентификаторов найденных объектов</returns>
+        </member>
+        <member name="T:Search.SearchBuilder">
+            <summary>
+            Ноды для создания построителей запросов для поиска в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Search.SearchBuilder.CreateObjectQueryBuilder(System.Boolean)">
+            <summary>
+            Создает построитель запросов для поиска объектов
+            </summary>
+            <param name="updater">Параметр обновления</param>
+            <returns>Построитель запросов для объектов</returns>
+        </member>
+        <member name="M:Search.SearchBuilder.CreateEmptyQueryBuilder(System.Boolean)">
+            <summary>
+            Создает пустой построитель запросов
+            </summary>
+            <param name="updater">Параметр обновления</param>
+            <returns>Пустой построитель запросов</returns>
+        </member>
+        <member name="M:Search.SearchBuilder.CreateTaskQueryBuilder(System.Boolean)">
+            <summary>
+            Создает построитель запросов для поиска задач
+            </summary>
+            <param name="updater">Параметр обновления</param>
+            <returns>Построитель запросов для задач</returns>
+        </member>
+        <member name="M:Search.SearchBuilder.CreateAnnotationQueryBuilder(System.Boolean)">
+            <summary>
+            Создает построитель запросов для поиска аннотаций
+            </summary>
+            <param name="updater">Параметр обновления</param>
+            <returns>Построитель запросов для аннотаций</returns>
+        </member>
+        <member name="M:Search.SearchBuilder.CreateSmartFolderQueryBuilder(System.Boolean)">
+            <summary>
+            Создает построитель запросов для поиска в умных папках
+            </summary>
+            <param name="updater">Параметр обновления</param>
+            <returns>Построитель запросов для умных папок</returns>
+        </member>
+        <member name="M:Search.SearchBuilder.SetMaxResults(DynamoPilot.Data.Wrappers.PQueryBuilder,System.Int32)">
+            <summary>
+            Устанавливает максимальное количество результатов для построителя запросов
+            </summary>
+            <param name="builder">Построитель запросов</param>
+            <param name="maxResults">Максимальное количество результатов</param>
+            <returns>Обновленный построитель запросов</returns>
+        </member>
+        <member name="T:Search.SearchHelpers">
+            <summary>
+            Вспомогательные ноды для поиска в системе Pilot
+            </summary>
+        </member>
+        <member name="T:Search.Utils.Constants">
+            <summary>
+            Ноды для получения констант для поиска в системе Pilot
+            </summary>
+        </member>
+        <member name="T:Search.Utils.DateUtils">
+            <summary>
+            Ноды для работы с датами в поисковых запросах
+            </summary>
+        </member>
+        <member name="M:Search.Utils.DateUtils.GetToday">
+            <summary>
+            Получает сегодняшнюю дату
+            </summary>
+            <returns>Сегодняшняя дата</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.GetNow">
+            <summary>
+            Получает текущие дату и время
+            </summary>
+            <returns>Текущие дата и время</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.AddDays(System.DateTime,System.Int32)">
+            <summary>
+            Добавляет дни к дате
+            </summary>
+            <param name="date">Исходная дата</param>
+            <param name="days">Количество дней</param>
+            <returns>Новая дата</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.SubtractDays(System.DateTime,System.Int32)">
+            <summary>
+            Вычитает дни из даты
+            </summary>
+            <param name="date">Исходная дата</param>
+            <param name="days">Количество дней</param>
+            <returns>Новая дата</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.AddMonths(System.DateTime,System.Int32)">
+            <summary>
+            Добавляет месяцы к дате
+            </summary>
+            <param name="date">Исходная дата</param>
+            <param name="months">Количество месяцев</param>
+            <returns>Новая дата</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.AddYears(System.DateTime,System.Int32)">
+            <summary>
+            Добавляет годы к дате
+            </summary>
+            <param name="date">Исходная дата</param>
+            <param name="years">Количество лет</param>
+            <returns>Новая дата</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.GetStartOfMonth(System.DateTime)">
+            <summary>
+            Возвращает начало месяца для указанной даты
+            </summary>
+            <param name="date">Дата</param>
+            <returns>Первый день месяца</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.GetEndOfMonth(System.DateTime)">
+            <summary>
+            Возвращает конец месяца для указанной даты
+            </summary>
+            <param name="date">Дата</param>
+            <returns>Последний день месяца</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.GetStartOfYear(System.DateTime)">
+            <summary>
+            Возвращает начало года
+            </summary>
+            <param name="date">Дата</param>
+            <returns>Первый день года</returns>
+        </member>
+        <member name="M:Search.Utils.DateUtils.GetEndOfYear(System.DateTime)">
+            <summary>
+            Возвращает конец года
+            </summary>
+            <param name="date">Дата</param>
+            <returns>Последний день года</returns>
+        </member>
+        <member name="T:Search.Utils.ResultUtils">
+            <summary>
+            Утилиты для обработки результатов поиска
+            </summary>
+        </member>
+        <member name="T:Type.Get">
+            <summary>
+            Ноды для выбора типов объектов в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Type.Get.AllTypes">
+            <summary>
+            Получает список всех типов объектов
+            </summary>
+            <returns>Список всех доступных типов</returns>
+        </member>
+        <member name="M:Type.Get.GetTypeById(System.Int32)">
+            <summary>
+            Получает тип объекта по идентификатору
+            </summary>
+            <param name="id">Идентификатор типа</param>
+            <returns>Тип объекта или null, если не найден</returns>
+        </member>
+        <member name="M:Type.Get.GetTypeByName(System.String)">
+            <summary>
+            Получает тип объекта по имени
+            </summary>
+            <param name="name">Имя типа</param>
+            <returns>Тип объекта или null, если не найден</returns>
+        </member>
+        <member name="T:Type.Properties">
+            <summary>
+            Ноды для получения свойств типов объектов в системе Pilot
+            </summary>
+        </member>
+        <member name="M:Type.Properties.GetId(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает уникальный идентификатор типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Уникальный идентификатор типа</returns>
+        </member>
+        <member name="M:Type.Properties.GetName(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает системное имя типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Системное имя типа</returns>
+        </member>
+        <member name="M:Type.Properties.GetTitle(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает отображаемое имя типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Отображаемое имя типа</returns>
+        </member>
+        <member name="M:Type.Properties.GetSort(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает порядковый номер для сортировки типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Порядковый номер для сортировки</returns>
+        </member>
+        <member name="M:Type.Properties.GetHasFiles(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Проверяет, может ли тип содержать файлы
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>True, если тип может содержать файлы</returns>
+        </member>
+        <member name="M:Type.Properties.GetChildren(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает список дочерних типов
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Коллекция идентификаторов дочерних типов</returns>
+        </member>
+        <member name="M:Type.Properties.GetAttributes(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает список атрибутов типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Коллекция атрибутов типа</returns>
+        </member>
+        <member name="M:Type.Properties.GetDisplayAttributes(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает список отображаемых атрибутов типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Коллекция отображаемых атрибутов</returns>
+        </member>
+        <member name="M:Type.Properties.GetSvgIcon(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает SVG иконку типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Байтовый массив SVG иконки</returns>
+        </member>
+        <member name="M:Type.Properties.GetIsMountable(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Проверяет, можно ли монтировать тип
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>True, если тип можно монтировать</returns>
+        </member>
+        <member name="M:Type.Properties.GetKind(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает вид типа
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>Вид типа</returns>
+        </member>
+        <member name="M:Type.Properties.GetIsDeleted(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Проверяет, удален ли тип
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>True, если тип удален</returns>
+        </member>
+        <member name="M:Type.Properties.GetIsService(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Проверяет, является ли тип служебным
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>True, если тип служебный</returns>
+        </member>
+        <member name="M:Type.Properties.GetIsProject(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Проверяет, является ли тип проектным
+            </summary>
+            <param name="pilotType">Тип объекта Pilot</param>
+            <returns>True, если тип проектный</returns>
+        </member>
+        <member name="M:UserState.Get.GetAll">
+            <summary>
+            Получает список всех состояний
+            </summary>
+            <returns>Коллекция состояний пользователей</returns>
+        </member>
+        <member name="M:UserState.Get.GetById(System.Guid)">
+            <summary>
+            Получает состояние по идентификатору
+            </summary>
+            <param name="id">Идентификатор состояния пользователя</param>
+            <returns>Состояние пользователя</returns>
+        </member>
+        <member name="T:UserState.Properties">
+            <summary>
+            Ноды для получения свойств состояний пользователей в системе Pilot
+            </summary>
+        </member>
+        <member name="M:UserState.Properties.GetId(DynamoPilot.Data.Wrappers.PUserState)">
+            <summary>
+            Получает уникальный идентификатор состояния
+            </summary>
+            <param name="pUserState">Состояние пользователя</param>
+            <returns>Уникальный идентификатор</returns>
+        </member>
+        <member name="M:UserState.Properties.GetName(DynamoPilot.Data.Wrappers.PUserState)">
+            <summary>
+            Получает системное имя состояния
+            </summary>
+            <param name="pUserState">Состояние пользователя</param>
+            <returns>Системное имя состояния</returns>
+        </member>
+        <member name="M:UserState.Properties.GetTitle(DynamoPilot.Data.Wrappers.PUserState)">
+            <summary>
+            Получает отображаемое название состояния
+            </summary>
+            <param name="pUserState">Состояние пользователя</param>
+            <returns>Отображаемое название</returns>
+        </member>
+        <member name="M:UserState.Properties.GetIcon(DynamoPilot.Data.Wrappers.PUserState)">
+            <summary>
+            Получает иконку состояния
+            </summary>
+            <param name="pUserState">Состояние пользователя</param>
+            <returns>Байтовый массив иконки</returns>
+        </member>
+        <member name="M:UserState.Properties.GetColor(DynamoPilot.Data.Wrappers.PUserState)">
+            <summary>
+            Получает цвет состояния
+            </summary>
+            <param name="pUserState">Состояние пользователя</param>
+            <returns>Цвет состояния</returns>
+        </member>
+        <member name="M:UserState.Properties.GetIsDeleted(DynamoPilot.Data.Wrappers.PUserState)">
+            <summary>
+            Проверяет, удалено ли состояние
+            </summary>
+            <param name="pUserState">Состояние пользователя</param>
+            <returns>True, если состояние удалено</returns>
+        </member>
+        <member name="T:Utils.Parsers">
+            <summary>
+            Ноды для парсинга строковых значений в перечисления Pilot
+            </summary>
+        </member>
+        <member name="M:Utils.Parsers.ParseObjectState(System.String)">
+            <summary>
+            Парсит строковое значение в состояние объекта
+            </summary>
+            <param name="stateString">Строковое представление состояния</param>
+            <returns>Состояние объекта</returns>
+        </member>
+        <member name="M:Utils.Parsers.ParseSearchMode(System.String)">
+            <summary>
+            Парсит строковое значение в режим поиска
+            </summary>
+            <param name="stateString">Строковое представление режима</param>
+            <returns>Режим поиска</returns>
+        </member>
+        <member name="M:Utils.Parsers.ParseRelationType(System.String)">
+            <summary>
+            Парсит строковое значение в тип связи объекта
+            </summary>
+            <param name="stateString">Строковое представление типа связи</param>
+            <returns>Тип связи объекта</returns>
+        </member>
+        <member name="T:Utils.Reflection">
+            <summary>
+            Утилиты для работы с рефлексией и помощники для Dynamo
+            </summary>
+        </member>
+        <member name="M:Utils.Reflection.GetProperties(DynamoPilot.Data.Wrappers.PType)">
+            <summary>
+            Получает все публичные свойства и поля объекта типа с помощью рефлексии
+            </summary>
+            <param name="t">Тип объекта для анализа</param>
+            <returns>Словарь свойств и их значений</returns>
+        </member>
+    </members>
+</doc>
