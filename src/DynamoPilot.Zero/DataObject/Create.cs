@@ -82,7 +82,7 @@ namespace DataObject
         /// <param name="type">Тип создаваемого объекта</param>
         /// <param name="attributes">Словарь атрибутов (имя -> значение)</param>
         [IsDesignScriptCompatible]
-        public static PDataObject CreateWithAttributes(PDataObject parent, PType type, IDictionary<string, object> attributes)
+        public static PDataObject CreateWithAttributes(PDataObject parent, PType type, Dictionary<string, object> attributes)
         {
             var builder = StaticMetadata.ObjectModifier.Create((IDataObject)parent.Unwrap(), (IType)type.Unwrap());
             ApplyAttributes(builder, attributes);
@@ -115,47 +115,7 @@ namespace DataObject
 
             foreach (var kvp in attributes)
             {
-                var name = kvp.Key;
-                var value = kvp.Value;
-                if (string.IsNullOrWhiteSpace(name) || value == null)
-                    continue;
-
-                switch (value)
-                {
-                    case string s:
-                        builder.SetAttribute(name, s);
-                        break;
-                    case int i:
-                        builder.SetAttribute(name, i);
-                        break;
-                    case long l:
-                        builder.SetAttribute(name, l);
-                        break;
-                    case double d:
-                        builder.SetAttribute(name, d);
-                        break;
-                    case decimal dec:
-                        builder.SetAttribute(name, dec);
-                        break;
-                    case DateTime dt:
-                        builder.SetAttribute(name, dt);
-                        break;
-                    case Guid g:
-                        builder.SetAttribute(name, g);
-                        break;
-                    case int[] ia:
-                        builder.SetAttribute(name, ia);
-                        break;
-                    case string[] sa:
-                        builder.SetAttribute(name, sa);
-                        break;
-                    case IEnumerable<int> ien:
-                        builder.SetAttribute(name, ien.ToArray());
-                        break;
-                    default:
-                        builder.SetAttributeAsObject(name, value);
-                        break;
-                }
+                builder.SetAttributeAsObject(kvp.Key,kvp.Value);
             }
         }
     }
