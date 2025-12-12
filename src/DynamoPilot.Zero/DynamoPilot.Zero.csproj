@@ -15,7 +15,7 @@
     <AssemblyProduct>DynamoPilot.Zero</AssemblyProduct>
     <Product>DynamoPilot.Zero</Product>
     <Description>DynamoPilot.Zero</Description>
-    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <AssemblyVersion>0.0.0.2</AssemblyVersion>
     <UseWPF>true</UseWPF>
     <LangVersion>10.0</LangVersion>
 

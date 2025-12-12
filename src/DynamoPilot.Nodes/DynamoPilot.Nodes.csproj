@@ -15,7 +15,7 @@
     <AssemblyProduct>DynamoPilot.Nodes</AssemblyProduct>
     <Product>DynamoPilot.Nodes</Product>
     <Description>DynamoPilot.Nodes</Description>
-    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <AssemblyVersion>0.0.0.2</AssemblyVersion>
     <UseWPF>true</UseWPF>
     <LangVersion>10.0</LangVersion>
 
