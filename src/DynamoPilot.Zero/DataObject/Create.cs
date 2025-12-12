@@ -92,6 +92,38 @@ namespace DataObject
         }
 
         /// <summary>
+        /// Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
+        /// </summary>
+        /// <param name="parentId">Родительский объект</param>
+        /// <param name="type">Тип создаваемого объекта</param>
+        /// <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateByParentIdWithAttributes(Guid parentId, PType type, Dictionary<string, object> attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.Create(parentId, (IType)type.Unwrap());
+            ApplyAttributes(builder, attributes);
+            StaticMetadata.ObjectModifier.Apply();
+            StaticMetadata.ObjectModifier.Clear();
+            return Get.GetByGuid(builder.DataObject.Id);
+        }
+
+        /// <summary>
+        /// Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
+        /// </summary>
+        /// <param name="parentId">Родительский объект</param>
+        /// <param name="type">Тип создаваемого объекта</param>
+        /// <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateByStrParentIdWithAttributes(string parentId, PType type, Dictionary<string, object> attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.Create(new Guid(parentId), (IType)type.Unwrap());
+            ApplyAttributes(builder, attributes);
+            StaticMetadata.ObjectModifier.Apply();
+            StaticMetadata.ObjectModifier.Clear();
+            return Get.GetByGuid(builder.DataObject.Id);
+        }
+
+        /// <summary>
         /// Создает объект с заданным Guid и заполняет атрибуты.
         /// </summary>
         /// <param name="id">Идентификатор создаваемого объекта</param>
