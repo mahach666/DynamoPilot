@@ -28,7 +28,7 @@ namespace DataObject.Edit
             ObjectRelationType type,
             Guid targetId)
         {
-            var relationId = new Guid();
+            var relationId = Guid.NewGuid();
             var relation1 = new Ascon.Pilot.SDK.Relation
             {
                 Id = relationId,
