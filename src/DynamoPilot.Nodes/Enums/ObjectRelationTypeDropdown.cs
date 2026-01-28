@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using ProtoCore.AST.AssociativeAST;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace DynamoPilot.Nodes
 {
@@ -23,6 +24,13 @@ namespace DynamoPilot.Nodes
         public ObjectRelationTypeDropdown(IEnumerable<PortModel> inPorts,
                                     IEnumerable<PortModel> outPorts)
             : base("SelectObjectState", inPorts, outPorts) { }
+
+        [OnDeserializing]
+        private void OnDeserializing(StreamingContext _)
+        {
+            InPorts?.Clear();
+            OutPorts?.Clear();
+        }
 
         protected override SelectionState PopulateItemsCore(string _)
         {
