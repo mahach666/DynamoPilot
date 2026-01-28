@@ -2,11 +2,13 @@
 using Ascon.Pilot.SDK.Menu;
 using Dynamo.Controls;
 using Dynamo.Models;
+using Dynamo.Graph.Workspaces;
 using Dynamo.ViewModels;
 using DynamoPilot.App.Configuration;
 using DynamoPilot.App.Models;
 using DynamoPilot.Data;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Globalization;
 using System.IO;
@@ -21,6 +23,8 @@ namespace DynamoPilot.App
     {
         private DynamoModel _model;
         private DynamoView _view;
+        private const bool ForceManualRun = true;
+        private static readonly HashSet<Guid> ManualRunWiredWorkspaces = new();
 
         private static string _pluginDir;
 
@@ -67,6 +71,7 @@ namespace DynamoPilot.App
                     Watch3DViewModel = stubWatch,
                     ShowLogin = false,
                 });
+            ApplyDefaultPreferences(vm);
 
             _view = new DynamoView(vm)
             {
@@ -120,6 +125,58 @@ namespace DynamoPilot.App
             };
 
             _model = DynamoModel.Start(cfg);
+            ApplyManualRunSettings(_model.CurrentWorkspace);
+            _model.WorkspaceAdded += ApplyManualRunSettings;
+            _model.WorkspaceOpened += ApplyManualRunSettings;
+        }
+
+        private static void ApplyDefaultPreferences(DynamoViewModel viewModel)
+        {
+            var preferences = viewModel?.PreferenceSettings;
+            if (preferences == null)
+                return;
+
+            preferences.DefaultRunType = RunType.Manual;
+            if (ForceManualRun)
+                preferences.OpenFileInManualExecutionMode = true;
+        }
+
+        private static void ApplyManualRunSettings(WorkspaceModel workspace)
+        {
+            if (workspace is not HomeWorkspaceModel homeWorkspace)
+                return;
+
+            var settings = homeWorkspace.RunSettings;
+            if (settings == null)
+                return;
+
+            settings.RunType = RunType.Manual;
+            if (ForceManualRun)
+                settings.RunTypesEnabled = false;
+
+            lock (ManualRunWiredWorkspaces)
+            {
+                if (!ManualRunWiredWorkspaces.Add(homeWorkspace.Guid))
+                    return;
+            }
+
+            settings.PropertyChanged += (_, args) =>
+            {
+                if (args == null || string.IsNullOrEmpty(args.PropertyName) ||
+                    args.PropertyName == nameof(RunSettings.RunType))
+                {
+                    if (settings.RunType != RunType.Manual)
+                        settings.RunType = RunType.Manual;
+                }
+
+                if (ForceManualRun &&
+                    (args == null || string.IsNullOrEmpty(args.PropertyName) ||
+                     args.PropertyName == nameof(RunSettings.RunTypesEnabled)))
+                {
+                    if (settings.RunTypesEnabled)
+                        settings.RunTypesEnabled = false;
+                }
+            };
         }
     }
 }
