@@ -20,7 +20,7 @@ namespace DynamoPilot.Nodes
         public SearchModeDropdown() : base("SelectObjectState") { }
 
         [JsonConstructor]
-        private SearchModeDropdown(IEnumerable<PortModel> inPorts,
+        public SearchModeDropdown(IEnumerable<PortModel> inPorts,
                                     IEnumerable<PortModel> outPorts)
             : base("SelectObjectState", inPorts, outPorts) { }
 

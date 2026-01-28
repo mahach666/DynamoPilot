@@ -20,7 +20,7 @@ namespace DynamoPilot.Nodes
         public ObjectRelationTypeDropdown() : base("SelectObjectState") { }
 
         [JsonConstructor]
-        private ObjectRelationTypeDropdown(IEnumerable<PortModel> inPorts,
+        public ObjectRelationTypeDropdown(IEnumerable<PortModel> inPorts,
                                     IEnumerable<PortModel> outPorts)
             : base("SelectObjectState", inPorts, outPorts) { }
 

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -32,9 +33,16 @@ namespace DynamoPilot.Nodes.Dialogs
         }
 
         [JsonConstructor]
-        private SelectDocumentsNode(IEnumerable<PortModel> inPorts,
+        public SelectDocumentsNode(IEnumerable<PortModel> inPorts,
             IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
         {
+        }
+
+        [OnDeserializing]
+        private void OnDeserializing(StreamingContext _)
+        {
+            InPorts?.Clear();
+            OutPorts?.Clear();
         }
 
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> _)
@@ -67,6 +75,7 @@ namespace DynamoPilot.Nodes.Dialogs
             SelectedIds = result?.Select(d => d.Id.ToString()).ToList() ?? new List<string>();
             OnNodeModified(forceExecute: true);
         }
+
     }
 
     public static class SelectionStorage

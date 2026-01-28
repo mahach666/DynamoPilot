@@ -8,6 +8,7 @@ using ProtoCore.AST.AssociativeAST;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -30,9 +31,16 @@ namespace DynamoPilot.Nodes.Dialogs
 		}
 
 		[JsonConstructor]
-		private SelectPositionsNode(IEnumerable<PortModel> inPorts,
+		public SelectPositionsNode(IEnumerable<PortModel> inPorts,
 			IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
 		{
+		}
+
+		[OnDeserializing]
+		private void OnDeserializing(StreamingContext _)
+		{
+			InPorts?.Clear();
+			OutPorts?.Clear();
 		}
 
 		public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> _)
@@ -66,6 +74,7 @@ namespace DynamoPilot.Nodes.Dialogs
 			SelectedIds = result?.Select(o => o.Id).ToList() ?? new List<int>();
 			OnNodeModified(forceExecute: true);
 		}
+
 	}
 
 	public class SelectPositionsNodeView : INodeViewCustomization<SelectPositionsNode>

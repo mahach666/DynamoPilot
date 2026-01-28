@@ -22,7 +22,7 @@ namespace DynamoPilot.Nodes
         public PilotTypeDropdown() : base("SelectType") { }
 
         [JsonConstructor]
-        private PilotTypeDropdown(IEnumerable<PortModel> inPorts,
+        public PilotTypeDropdown(IEnumerable<PortModel> inPorts,
                                   IEnumerable<PortModel> outPorts)
             : base("SelectType", inPorts, outPorts) { }
 
