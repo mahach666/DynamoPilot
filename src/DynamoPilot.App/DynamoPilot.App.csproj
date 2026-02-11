@@ -67,45 +67,29 @@
     <ItemGroup>
       <DynamoRuntimeFiles Include="..\..\lib\DynamoCoreRuntime2.16.4\**\*.*" />
     </ItemGroup>
-    <Copy SourceFiles="@(DynamoRuntimeFiles)" 
-          DestinationFiles="@(DynamoRuntimeFiles->'$(UserDirectoryPathBIM)\%(RecursiveDir)%(Filename)%(Extension)')" 
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(DynamoRuntimeFiles)" 
-          DestinationFiles="@(DynamoRuntimeFiles->'$(UserDirectoryPathICE)\%(RecursiveDir)%(Filename)%(Extension)')" 
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(DynamoRuntimeFiles)" DestinationFiles="@(DynamoRuntimeFiles->'$(UserDirectoryPathBIM)\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(DynamoRuntimeFiles)" DestinationFiles="@(DynamoRuntimeFiles->'$(UserDirectoryPathICE)\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
 
     <!-- Копируем PilotNodes.xml из Zero проекта -->
     <ItemGroup>
       <PilotNodesFiles Include="..\DynamoPilot.Zero\bin\Debug\net481\PilotNodes.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(PilotNodesFiles)" 
-          DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot\bin" 
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(PilotNodesFiles)" 
-          DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot\bin" 
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PilotNodesFiles)" DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot\bin" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PilotNodesFiles)" DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot\bin" SkipUnchangedFiles="true" />
 
     <!-- Копируем PilotServerNodes из Server проекта -->
     <ItemGroup>
       <ServerNodesFiles Include="..\bin\Debug\net481\PilotServerNodes.dll;..\bin\Debug\net481\PilotServerNodes.pdb;..\bin\Debug\net481\PilotServerNodes.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(ServerNodesFiles)" 
-          DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot\bin" 
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(ServerNodesFiles)" 
-          DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot\bin" 
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ServerNodesFiles)" DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot\bin" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ServerNodesFiles)" DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot\bin" SkipUnchangedFiles="true" />
 
     <!-- Копируем pkg.json из Nodes проекта -->
     <ItemGroup>
       <PkgJsonFile Include="..\DynamoPilot.Nodes\pkg.json" />
     </ItemGroup>
-    <Copy SourceFiles="@(PkgJsonFile)" 
-          DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot" 
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(PkgJsonFile)" 
-          DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot" 
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PkgJsonFile)" DestinationFolder="$(UserDirectoryPathBIM)\packages\DynamoPilot" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PkgJsonFile)" DestinationFolder="$(UserDirectoryPathICE)\packages\DynamoPilot" SkipUnchangedFiles="true" />
   </Target>
 
   <!-- Создаем архив на релизе (только если все файлы готовы) -->
@@ -123,15 +107,13 @@
     <ItemGroup>
       <AppFiles Include="$(OutputPath)**\*.*" Exclude="$(OutputPath)**\*.pdb;$(OutputPath)**\*.xml;$(OutputPath)**\*.zip;$(OutputPath)TempArchive\**\*.*;$(OutputPath)TestExtract\**\*.*" />
     </ItemGroup>
-    <Copy SourceFiles="@(AppFiles)" 
-          DestinationFiles="@(AppFiles->'$(TempArchiveDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(AppFiles)" DestinationFiles="@(AppFiles->'$(TempArchiveDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
     
     <!-- Копируем все файлы DynamoCoreRuntime2.16.4 без исключений -->
     <ItemGroup>
       <DynamoRuntimeAllFiles Include="..\..\lib\DynamoCoreRuntime2.16.4\**\*.*" />
     </ItemGroup>
-    <Copy SourceFiles="@(DynamoRuntimeAllFiles)" 
-          DestinationFiles="@(DynamoRuntimeAllFiles->'$(TempArchiveDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DynamoRuntimeAllFiles)" DestinationFiles="@(DynamoRuntimeAllFiles->'$(TempArchiveDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
     
     <!-- Создаем папку packages и копируем файлы -->
     <MakeDir Directories="$(TempArchiveDir)\packages\DynamoPilot\bin" />
@@ -140,29 +122,25 @@
     <ItemGroup>
       <ZeroFiles Include="$(MSBuildProjectDirectory)\..\DynamoPilot.Zero\bin\Release\net481\PilotNodes.xml;$(MSBuildProjectDirectory)\..\DynamoPilot.Zero\bin\Release\net481\PilotNodes.dll;$(MSBuildProjectDirectory)\..\DynamoPilot.Zero\bin\Release\net481\PilotNodes.pdb" />
     </ItemGroup>
-    <Copy SourceFiles="@(ZeroFiles)" 
-          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
+    <Copy SourceFiles="@(ZeroFiles)" DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
     
     <!-- Копируем библиотеки из Nodes проекта -->
     <ItemGroup>
       <NodesFiles Include="$(MSBuildProjectDirectory)\..\DynamoPilot.Nodes\bin\Release\net481\DynamoPilot.Nodes.dll;$(MSBuildProjectDirectory)\..\DynamoPilot.Nodes\bin\Release\net481\DynamoPilot.Nodes.pdb" />
     </ItemGroup>
-    <Copy SourceFiles="@(NodesFiles)" 
-          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
+    <Copy SourceFiles="@(NodesFiles)" DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
     
     <!-- Копируем библиотеки PilotServerNodes из Server проекта -->
     <ItemGroup>
       <ServerFiles Include="$(MSBuildProjectDirectory)\..\bin\Release\net481\PilotServerNodes.dll;$(MSBuildProjectDirectory)\..\bin\Release\net481\PilotServerNodes.pdb;$(MSBuildProjectDirectory)\..\bin\Release\net481\PilotServerNodes.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(ServerFiles)" 
-          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
+    <Copy SourceFiles="@(ServerFiles)" DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot\bin" />
     
     <!-- Копируем pkg.json -->
     <ItemGroup>
       <PkgJsonFile Include="..\DynamoPilot.Nodes\pkg.json" />
     </ItemGroup>
-    <Copy SourceFiles="@(PkgJsonFile)" 
-          DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot" />
+    <Copy SourceFiles="@(PkgJsonFile)" DestinationFolder="$(TempArchiveDir)\packages\DynamoPilot" />
     
     <!-- Создаем архив из временной папки -->
     <Message Text="Создаем архив $(AssemblyProduct).zip..." Importance="high" />
@@ -183,7 +161,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Ascon.Pilot.SDK" Version="25.9.0" />
+    <PackageReference Include="Ascon.Pilot.SDK" Version="26.1.0" />
     <PackageReference Include="DynamoVisualProgramming.Core" Version="2.16.4.10216" />
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="2.16.4.10216" />
     <PackageReference Include="HelixToolkit.Wpf" Version="2.27.0" />

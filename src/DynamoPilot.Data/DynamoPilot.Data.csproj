@@ -80,7 +80,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Ascon.Pilot.SDK" Version="25.9.0" />
+    <PackageReference Include="Ascon.Pilot.SDK" Version="26.1.0" />
     <PackageReference Include="DynamoVisualProgramming.Core" Version="2.16.4.10216" />
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="2.16.4.10216" />
     <PackageReference Include="HelixToolkit.Wpf" Version="2.27.0" />
