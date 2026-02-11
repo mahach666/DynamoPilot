@@ -1,4 +1,5 @@
 ﻿using Ascon.Pilot.SDK;
+using Ascon.Pilot.SDK.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,20 +29,39 @@ namespace DynamoPilot.App.Utils
             var frame = new DispatcherFrame();
 
             var result = new List<Guid>();
+            var localFallback = new List<Guid>();
+            var hasRemote = false;
 
-            // Подписываемся на поток результатов поиска
             var subscription = _searchService.Search(query).Subscribe(
                 onNext: sr =>
                 {
-                    // Пропускаем удалённые (Remote) результаты
-                    //if (sr.Kind == SearchResultKind.Remote)
-                    //    return;
+                    if (sr.Kind == SearchResultKind.Local)
+                    {
+                        localFallback.AddRange(sr.Result);
+                        return;
+                    }
 
+                    if (sr.Kind == SearchResultKind.Remote)
+                    {
+                        hasRemote = true;
+                        result.Clear();
+                        result.AddRange(sr.Result);
+                        frame.Continue = false;
+                        return;
+                    }
+
+                    result.Clear();
                     result.AddRange(sr.Result);
                     frame.Continue = false;
                 },
                 onError: _ => frame.Continue = false,
-                onCompleted: () => frame.Continue = false);
+                onCompleted: () =>
+                {
+                    if (!hasRemote && localFallback.Count > 0)
+                        result.AddRange(localFallback);
+
+                    frame.Continue = false;
+                });
 
             using var _ = ct.Register(() => frame.Continue = false);
 

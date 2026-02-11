@@ -22,7 +22,7 @@ namespace DynamoPilot.App.Utils
         {
             if (ids is null) throw new ArgumentNullException(nameof(ids));
 
-            var loading = ids.ToList();
+            var loading = ids.Distinct().ToList();
             if (loading.Count == 0)
                 return Array.Empty<IDataObject>();
 
@@ -34,7 +34,6 @@ namespace DynamoPilot.App.Utils
 
             bool IsFinal(DataState s) =>
                 s == DataState.Loaded ||
-                s == DataState.NoData ||
                 s == DataState.NonExistent;
 
             var subscription = _objectsRepository
