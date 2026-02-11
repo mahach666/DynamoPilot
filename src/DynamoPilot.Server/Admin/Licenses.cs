@@ -54,12 +54,14 @@ namespace Admin.Licenses
     [NodeDescription("Загрузка, замена и удаление лицензий через ServerAdminApi")]
     public static class Edit
     {
+        private const string DefaultLicenseFileName = "license.lic";
+
         [NodeName("UploadLicenseToServer")]
         [IsDesignScriptCompatible]
         public static string UploadLicenseToServer(ServerAdminSession session, byte[] buffer)
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            return api.UploadLicenseToServer(buffer ?? Array.Empty<byte>());
+            return api.UploadLicenseToServer(buffer ?? Array.Empty<byte>(), DefaultLicenseFileName);
         }
 
         [NodeName("ReplaceLicense")]
@@ -67,7 +69,7 @@ namespace Admin.Licenses
         public static void ReplaceLicense(ServerAdminSession session, byte[] buffer, Guid licenseToReplace)
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            api.ReplaceLicense(buffer ?? Array.Empty<byte>(), licenseToReplace);
+            api.ReplaceLicense(buffer ?? Array.Empty<byte>(), DefaultLicenseFileName, licenseToReplace);
         }
 
         [NodeName("DeleteLicenseFromServer")]
