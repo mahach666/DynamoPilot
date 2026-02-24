@@ -141,6 +141,23 @@ namespace DataObject
             return Get.GetByGuid(builder.DataObject.Id);
         }
 
+        /// <summary>
+        /// Создает объект с заданным строковым Id и заполняет атрибуты.
+        /// </summary>
+        /// <param name="id">Идентификатор создаваемого объекта (строка)</param>
+        /// <param name="parentId">Идентификатор родителя (строка)</param>
+        /// <param name="type">Тип создаваемого объекта</param>
+        /// <param name="attributes">Словарь атрибутов (имя -> значение)</param>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateWithStrIdAndAttributes(string id, string parentId, PType type, Dictionary<string, object> attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.CreateById(new Guid(id), new Guid(parentId), (IType)type.Unwrap());
+            ApplyAttributes(builder, attributes);
+            StaticMetadata.ObjectModifier.Apply();
+            StaticMetadata.ObjectModifier.Clear();
+            return Get.GetByGuid(builder.DataObject.Id);
+        }
+
         private static void ApplyAttributes(PObjectBuilder builder, IDictionary<string, object> attributes)
         {
             if (builder == null || attributes == null)
