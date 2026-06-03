@@ -26,10 +26,17 @@ namespace Admin.Reservations
 
         [NodeName("GetReservationsCountByProducts")]
         [IsDesignScriptCompatible]
-        public static IDictionary<int, int> GetReservationsCountByProducts(ServerAdminSession session, IEnumerable<int> products)
+        public static IDictionary<string, int> GetReservationsCountByProducts(ServerAdminSession session, IEnumerable<int> products)
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            return api.GetReservationsCountByProducts(products ?? Array.Empty<int>()) ?? new Dictionary<int, int>();
+            var source = api.GetReservationsCountByProducts(products ?? Array.Empty<int>());
+
+            // Ключи приводим к строкам: словари Dynamo не поддерживают числовые ключи.
+            var result = new Dictionary<string, int>();
+            if (source == null) return result;
+            foreach (var kvp in source)
+                result[kvp.Key.ToString()] = kvp.Value;
+            return result;
         }
     }
 

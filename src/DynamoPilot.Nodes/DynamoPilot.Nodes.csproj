@@ -94,8 +94,8 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="Ascon.Pilot.SDK" Version="26.1.0" />
-    <PackageReference Include="Ascon.Pilot.Server.Api" Version="26.1.0" />
+    <PackageReference Include="Ascon.Pilot.SDK" Version="26.11.2" />
+    <PackageReference Include="Ascon.Pilot.Server.Api" Version="26.11.0" />
     <PackageReference Include="DynamoVisualProgramming.Core" Version="2.16.4.10216" />
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="2.16.4.10216" />
   </ItemGroup>

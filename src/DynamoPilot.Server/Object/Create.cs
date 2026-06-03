@@ -28,7 +28,8 @@ namespace SObject
             IDictionary<string, object> attributes = null,
             string objectId = null)
         {
-            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            var ensured = SessionGuard.EnsureSession(session);
+            var srv = ensured.ServerApi;
 
             var parentGuid = Guid.Parse(parentId);
             var newId = string.IsNullOrWhiteSpace(objectId) ? Guid.NewGuid() : Guid.Parse(objectId);
@@ -42,7 +43,7 @@ namespace SObject
                 Attributes = new Dictionary<string, DValue>()
             };
 
-            ApplyAttributes(newObj.Attributes, attributes);
+            ServerAttributeConverter.Apply(newObj.Attributes, attributes, GetAttrTypeMap(ensured, typeId));
 
             var change = new DChange { New = newObj };
             var changeset = new DChangesetData
@@ -69,14 +70,15 @@ namespace SObject
             if (attributes == null || attributes.Count == 0)
                 throw new ArgumentException("Не переданы атрибуты для обновления", nameof(attributes));
 
-            var srv = SessionGuard.EnsureSession(session).ServerApi;
+            var ensured = SessionGuard.EnsureSession(session);
+            var srv = ensured.ServerApi;
             var id = Guid.Parse(objectId);
             var existing = srv.GetObjects(new[] { id }).FirstOrDefault()
                            ?? throw new InvalidOperationException("Объект не найден");
 
             var updated = existing.Clone();
             updated.Attributes = new Dictionary<string, DValue>(existing.Attributes);
-            ApplyAttributes(updated.Attributes, attributes);
+            ServerAttributeConverter.Apply(updated.Attributes, attributes, GetAttrTypeMap(ensured, existing.TypeId));
 
             var change = new DChange
             {
@@ -95,40 +97,35 @@ namespace SObject
             return srv.GetObjects(new[] { id }).FirstOrDefault() ?? updated;
         }
 
-        private static void ApplyAttributes(IDictionary<string, DValue> target, IDictionary<string, object> attributes)
+        /// <summary>
+        /// Строит карту «имя атрибута → тип» из метаданных базы для указанного типа объекта.
+        /// Метаданные кэшируются в сессии. Возвращает null, если тип/метаданные недоступны
+        /// (тогда применяется приведение по форме значения).
+        /// </summary>
+        private static IDictionary<string, MAttrType> GetAttrTypeMap(ServerSession ensured, int typeId)
         {
-            if (target == null || attributes == null)
-                return;
-
-            foreach (var kvp in attributes)
+            try
             {
-                var name = kvp.Key;
-                var value = kvp.Value;
-                if (string.IsNullOrWhiteSpace(name) || value == null)
-                    continue;
+                var meta = ensured.Metadata;
+                if (meta == null)
+                {
+                    meta = ensured.ServerApi.GetMetadata(0);
+                    ensured.Metadata = meta;
+                }
 
-                target[name] = ToDValue(value);
+                var mType = meta?.Types?.FirstOrDefault(t => t.Id == typeId);
+                if (mType?.Attributes == null) return null;
+
+                var map = new Dictionary<string, MAttrType>(StringComparer.Ordinal);
+                foreach (var a in mType.Attributes)
+                    if (a != null && !string.IsNullOrEmpty(a.Name))
+                        map[a.Name] = a.Type;
+                return map;
             }
-        }
-
-        private static DValue ToDValue(object value)
-        {
-            return value switch
+            catch
             {
-                string s => new DValue { StrValue = s },
-                int i => new DValue { IntValue = i },
-                long l => new DValue { IntValue = l },
-                double d => new DValue { DoubleValue = d },
-                decimal dec => new DValue { DecimalValue = dec },
-                DateTime dt => new DValue { DateValue = dt },
-                Guid g => new DValue { GuidValue = g },
-                int[] ia => new DValue { ArrayIntValue = ia },
-                IEnumerable<int> ien => new DValue { ArrayIntValue = ien.ToArray() },
-                string[] sa => new DValue { ArrayValue = sa },
-                IEnumerable<string> se => new DValue { ArrayValue = se.ToArray() },
-                _ => new DValue { StrValue = value.ToString() }
-            };
+                return null;
+            }
         }
     }
 }
-

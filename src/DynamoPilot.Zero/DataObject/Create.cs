@@ -1,11 +1,10 @@
-﻿using Ascon.Pilot.SDK;
+using Ascon.Pilot.SDK;
 using Dynamo.Graph.Nodes;
 using DynamoPilot.Data;
+using DynamoPilot.Data.Attributes;
 using DynamoPilot.Data.Wrappers;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DataObject
 {
@@ -76,6 +75,75 @@ namespace DataObject
             return Get.GetByGuid(builder.DataObject.Id);
         }
 
+        // ---------------------------------------------------------------------
+        //  Создание с атрибутами через надёжный набор PAttributeSet
+        //  (рекомендуемый путь — см. ноды Attributes.AttributeSet)
+        // ---------------------------------------------------------------------
+
+        /// <summary>
+        /// Создает объект и сразу заполняет атрибуты из набора <see cref="PAttributeSet"/>.
+        /// </summary>
+        /// <param name="parent">Родительский объект</param>
+        /// <param name="type">Тип создаваемого объекта</param>
+        /// <param name="attributes">Набор атрибутов (см. ноды AttributeSet)</param>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateWithAttributeSet(PDataObject parent, PType type, PAttributeSet attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.Create((IDataObject)parent.Unwrap(), (IType)type.Unwrap());
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
+        }
+
+        /// <summary>
+        /// Создает объект по Guid родителя и заполняет атрибуты из набора <see cref="PAttributeSet"/>.
+        /// </summary>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateByParentIdWithAttributeSet(Guid parentId, PType type, PAttributeSet attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.Create(parentId, (IType)type.Unwrap());
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
+        }
+
+        /// <summary>
+        /// Создает объект по строковому Guid родителя и заполняет атрибуты из набора <see cref="PAttributeSet"/>.
+        /// </summary>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateByStrParentIdWithAttributeSet(string parentId, PType type, PAttributeSet attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.Create(new Guid(parentId), (IType)type.Unwrap());
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
+        }
+
+        /// <summary>
+        /// Создает объект с заданными Guid объекта и родителя и заполняет атрибуты из набора <see cref="PAttributeSet"/>.
+        /// </summary>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateWithIdAndAttributeSet(Guid id, Guid parentId, PType type, PAttributeSet attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.CreateById(id, parentId, (IType)type.Unwrap());
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
+        }
+
+        /// <summary>
+        /// Создает объект с заданными строковыми Id объекта и родителя и заполняет атрибуты из набора <see cref="PAttributeSet"/>.
+        /// </summary>
+        [IsDesignScriptCompatible]
+        public static PDataObject CreateWithStrIdAndAttributeSet(string id, string parentId, PType type, PAttributeSet attributes)
+        {
+            var builder = StaticMetadata.ObjectModifier.CreateById(new Guid(id), new Guid(parentId), (IType)type.Unwrap());
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
+        }
+
+        // ---------------------------------------------------------------------
+        //  Перегрузки со словарём оставлены для обратной совместимости.
+        //  Теперь они проходят через тот же type-aware конвертер, что и PAttributeSet,
+        //  поэтому массивы / Guid / bool обрабатываются корректно.
+        // ---------------------------------------------------------------------
+
         /// <summary>
         /// Создает объект и сразу заполняет атрибуты (словарь ключ-значение).
         /// </summary>
@@ -86,10 +154,8 @@ namespace DataObject
         public static PDataObject CreateWithAttributes(PDataObject parent, PType type, Dictionary<string, object> attributes)
         {
             var builder = StaticMetadata.ObjectModifier.Create((IDataObject)parent.Unwrap(), (IType)type.Unwrap());
-            ApplyAttributes(builder, attributes);
-            StaticMetadata.ObjectModifier.Apply();
-            StaticMetadata.ObjectModifier.Clear();
-            return Get.GetByGuid(builder.DataObject.Id);
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
         }
 
         /// <summary>
@@ -102,10 +168,8 @@ namespace DataObject
         public static PDataObject CreateByParentIdWithAttributes(Guid parentId, PType type, Dictionary<string, object> attributes)
         {
             var builder = StaticMetadata.ObjectModifier.Create(parentId, (IType)type.Unwrap());
-            ApplyAttributes(builder, attributes);
-            StaticMetadata.ObjectModifier.Apply();
-            StaticMetadata.ObjectModifier.Clear();
-            return Get.GetByGuid(builder.DataObject.Id);
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
         }
 
         /// <summary>
@@ -118,10 +182,8 @@ namespace DataObject
         public static PDataObject CreateByStrParentIdWithAttributes(string parentId, PType type, Dictionary<string, object> attributes)
         {
             var builder = StaticMetadata.ObjectModifier.Create(new Guid(parentId), (IType)type.Unwrap());
-            ApplyAttributes(builder, attributes);
-            StaticMetadata.ObjectModifier.Apply();
-            StaticMetadata.ObjectModifier.Clear();
-            return Get.GetByGuid(builder.DataObject.Id);
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
         }
 
         /// <summary>
@@ -135,10 +197,8 @@ namespace DataObject
         public static PDataObject CreateWithIdAndAttributes(Guid id, Guid parentId, PType type, IDictionary<string, object> attributes)
         {
             var builder = StaticMetadata.ObjectModifier.CreateById(id, parentId, (IType)type.Unwrap());
-            ApplyAttributes(builder, attributes);
-            StaticMetadata.ObjectModifier.Apply();
-            StaticMetadata.ObjectModifier.Clear();
-            return Get.GetByGuid(builder.DataObject.Id);
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
         }
 
         /// <summary>
@@ -152,107 +212,23 @@ namespace DataObject
         public static PDataObject CreateWithStrIdAndAttributes(string id, string parentId, PType type, Dictionary<string, object> attributes)
         {
             var builder = StaticMetadata.ObjectModifier.CreateById(new Guid(id), new Guid(parentId), (IType)type.Unwrap());
-            ApplyAttributes(builder, attributes);
+            Fill(builder, type, attributes);
+            return ApplyAndGet(builder);
+        }
+
+        // ---------------------------------------------------------------------
+
+        private static void Fill(PObjectBuilder builder, PType type, PAttributeSet attributes)
+            => AttributeApplier.Apply(builder, type == null ? null : (IType)type.Unwrap(), attributes?.Entries);
+
+        private static void Fill(PObjectBuilder builder, PType type, IDictionary<string, object> attributes)
+            => AttributeApplier.Apply(builder, type == null ? null : (IType)type.Unwrap(), attributes);
+
+        private static PDataObject ApplyAndGet(PObjectBuilder builder)
+        {
             StaticMetadata.ObjectModifier.Apply();
             StaticMetadata.ObjectModifier.Clear();
             return Get.GetByGuid(builder.DataObject.Id);
-        }
-
-        private static void ApplyAttributes(PObjectBuilder builder, IDictionary<string, object> attributes)
-        {
-            if (builder == null || attributes == null)
-                return;
-
-            foreach (var kvp in attributes)
-            {
-                if (kvp.Value == null)
-                    continue;
-
-                switch (kvp.Value)
-                {
-                    case string value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case int value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case double value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case DateTime value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case decimal value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case long value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case Guid value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case int[] value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case List<int> listInt:
-                        builder.SetAttribute(kvp.Key, listInt.ToArray());
-                        break;
-                    case string[] value:
-                        builder.SetAttribute(kvp.Key, value);
-                        break;
-                    case List<string> listString:
-                        builder.SetAttribute(kvp.Key, listString.ToArray());
-                        break;
-                    case System.Collections.IEnumerable enumerable:
-                        // Обработка других коллекций - конвертируем в массивы если возможно
-                        if (enumerable is IEnumerable<int> intEnum)
-                        {
-                            builder.SetAttribute(kvp.Key, intEnum.ToArray());
-                            break;
-                        }
-                        if (enumerable is IEnumerable<long> longEnum)
-                        {
-                            // Конвертируем long[] в int[] поскольку long[] не поддерживается
-                            builder.SetAttribute(kvp.Key, longEnum.Select(l => (int)l).ToArray());
-                            break;
-                        }
-                        if (enumerable is IEnumerable<string> stringEnum)
-                        {
-                            builder.SetAttribute(kvp.Key, stringEnum.ToArray());
-                            break;
-                        }
-                        if (enumerable is System.Collections.ArrayList arrayList)
-                        {
-                            // Обработка ArrayList - конвертируем в массив соответствующего типа
-                            if (arrayList.Count > 0)
-                            {
-                                var firstElement = arrayList[0];
-                                if (firstElement is int)
-                                {
-                                    builder.SetAttribute(kvp.Key, arrayList.Cast<int>().ToArray());
-                                    break;
-                                }
-                                else if (firstElement is long)
-                                {
-                                    // Конвертируем long[] в int[] поскольку long[] не поддерживается
-                                    builder.SetAttribute(kvp.Key, arrayList.Cast<long>().Select(l => (int)l).ToArray());
-                                    break;
-                                }
-                                else if (firstElement is string)
-                                {
-                                    builder.SetAttribute(kvp.Key, arrayList.Cast<string>().ToArray());
-                                    break;
-                                }
-                            }
-                        }
-                        // Для остальных коллекций используем SetAttributeAsObject
-                        builder.SetAttributeAsObject(kvp.Key, kvp.Value);
-                        break;
-                    default:
-                        builder.SetAttributeAsObject(kvp.Key, kvp.Value);
-                        break;
-                }
-            }
         }
     }
 }

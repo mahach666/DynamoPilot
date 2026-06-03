@@ -18,10 +18,17 @@ namespace Admin.FileArchive
     {
         [NodeName("FileArchiveCapacity")]
         [IsDesignScriptCompatible]
-        public static IDictionary<Guid, long> FileArchiveCapacity(ServerAdminSession session, string database)
+        public static IDictionary<string, long> FileArchiveCapacity(ServerAdminSession session, string database)
         {
             var api = SessionGuard.EnsureAdminSession(session).ServerAdminApi;
-            return api.FileArchiveCapacity(database) ?? new Dictionary<Guid, long>();
+            var source = api.FileArchiveCapacity(database);
+
+            // Ключи (Guid файловых архивов) приводим к строкам: словари Dynamo не поддерживают Guid-ключи.
+            var result = new Dictionary<string, long>();
+            if (source == null) return result;
+            foreach (var kvp in source)
+                result[kvp.Key.ToString()] = kvp.Value;
+            return result;
         }
 
         [NodeName("GetFileArchivesInfo")]

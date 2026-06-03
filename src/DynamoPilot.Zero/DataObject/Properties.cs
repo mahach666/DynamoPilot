@@ -123,14 +123,19 @@ namespace DataObject
         }
 
         /// <summary>
-        /// Получает словарь типов дочерних объектов
+        /// Получает словарь типов дочерних объектов.
+        /// Ключи — строковые представления Guid, т.к. словари Dynamo поддерживают только строковые ключи.
         /// </summary>
         /// <param name="dataObject">Объект данных</param>
-        /// <returns>Словарь типов дочерних объектов</returns>
+        /// <returns>Словарь: Guid дочернего объекта (строкой) -> идентификатор типа</returns>
         [IsDesignScriptCompatible]
-        public static IDictionary<Guid, int> GetTypesByChildren(PDataObject dataObject)
+        public static IDictionary<string, int> GetTypesByChildren(PDataObject dataObject)
         {
-            return dataObject.TypesByChildren;
+            var result = new Dictionary<string, int>();
+            if (dataObject?.TypesByChildren == null) return result;
+            foreach (var kvp in dataObject.TypesByChildren)
+                result[kvp.Key.ToString()] = kvp.Value;
+            return result;
         }
 
         /// <summary>

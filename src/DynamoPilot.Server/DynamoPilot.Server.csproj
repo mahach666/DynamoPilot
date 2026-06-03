@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ascon.Pilot.Server.Api" Version="26.1.0" />
+    <PackageReference Include="Ascon.Pilot.Server.Api" Version="26.11.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net481'">
