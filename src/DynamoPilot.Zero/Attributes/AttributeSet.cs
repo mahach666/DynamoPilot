@@ -60,6 +60,16 @@ namespace Attributes
         }
 
         /// <summary>
+        /// Получает набор атрибутов напрямую из объекта данных — без промежуточного словаря Dynamo.
+        /// Рекомендуемый способ «прочитать атрибуты объекта и отредактировать/переиспользовать их».
+        /// </summary>
+        /// <param name="dataObject">Объект данных Pilot</param>
+        /// <returns>Набор атрибутов объекта</returns>
+        [IsDesignScriptCompatible]
+        public static PAttributeSet ByObject(PDataObject dataObject)
+            => new PAttributeSet(dataObject?.Attributes);
+
+        /// <summary>
         /// Добавляет/перезаписывает строковый атрибут.
         /// </summary>
         [IsDesignScriptCompatible]
